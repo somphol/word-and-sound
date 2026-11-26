@@ -15,8 +15,8 @@ export function VowelChart({
   return (
     <div className="vowel-chart">
       <svg viewBox="0 0 420 150" role="img" aria-label={`Vowel space. Target ${articulation.symbol}.`}>
-        <rect x="1" y="1" width="418" height="148" rx="10" fill="#151c27" stroke="rgba(255,255,255,.08)" />
-        <path d="M 90 25 L 340 25 L 340 125 L 90 125 Z" fill="none" stroke="rgba(255,255,255,.16)" strokeDasharray="4 4" />
+        <rect x="1" y="1" width="418" height="148" rx="10" fill="var(--diagram-bg)" stroke="var(--diagram-line)" />
+        <path d="M 90 25 L 340 25 L 340 125 L 90 125 Z" fill="none" stroke="var(--diagram-line)" strokeDasharray="4 4" />
         {vowels.map((vowel) => {
           const isTarget = vowel.id === articulation.id
           const isContrast = contrasts.has(vowel.id)
@@ -36,10 +36,10 @@ export function VowelChart({
             </g>
           )
         })}
-        <text x="90" y="141" fontSize="8" fill="rgba(255,255,255,.45)" textAnchor="middle">front</text>
-        <text x="340" y="141" fontSize="8" fill="rgba(255,255,255,.45)" textAnchor="middle">back</text>
-        <text x="78" y="28" fontSize="8" fill="rgba(255,255,255,.45)" textAnchor="end">high</text>
-        <text x="78" y="125" fontSize="8" fill="rgba(255,255,255,.45)" textAnchor="end">low</text>
+        <text x="90" y="141" fontSize="8" fill="var(--diagram-label)" textAnchor="middle">front</text>
+        <text x="340" y="141" fontSize="8" fill="var(--diagram-label)" textAnchor="middle">back</text>
+        <text x="78" y="28" fontSize="8" fill="var(--diagram-label)" textAnchor="end">high</text>
+        <text x="78" y="125" fontSize="8" fill="var(--diagram-label)" textAnchor="end">low</text>
       </svg>
     </div>
   )

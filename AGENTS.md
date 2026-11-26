@@ -123,6 +123,12 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   drives the root font size (0.9–1.3), and `settings.wordScale` multiplies the
   hero via `--word-scale` (1–1.6). Keep new type in `rem` so the control keeps
   working; no fixed-px font sizes.
+- **Themes are token-driven.** `settings.theme` (system/light/dark) sets
+  `data-theme` and `settings.palette` sets `data-palette` on `<html>`; both are
+  applied by an inline script in `index.html` before React so there is no flash.
+  Use the semantic tokens (`--surface`, `--line`, `--soft`, `--track`,
+  `--accent*`, `--tile-*`, `--diagram-*`) instead of hardcoded colours. Keep
+  `theme-color` in step with the resolved theme.
 - **Share metadata is static and absolute.** `og:image` and `og:url` must stay
   absolute under `https://somphol.github.io/word-and-sound/`; the crawler does
   not run the app. Regenerate `og.png` after branding or layout changes.

@@ -17,6 +17,8 @@
   controls that avoid mobile zoom-on-focus.
 - Add a dismissible hint when an Android browser is using Desktop site mode,
   and move the desktop breakpoint to ≥1100 px so tablet widths stay readable.
+- Add Auto/Light/Dark themes and blue, teal, violet and amber accent palettes;
+  apply them before first paint and keep the articulation diagrams theme-aware.
 - Export the 48 articulation guides to `data/articulation.json` so the web
   client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.

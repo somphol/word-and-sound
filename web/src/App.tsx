@@ -52,6 +52,7 @@ export default function App() {
   const [isPhone, setIsPhone] = useState(() => window.matchMedia('(max-width: 700px)').matches)
   const [desktopMode] = useState(() => window.screen.width <= 600 && window.innerWidth > 700)
   const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem('word-and-sound:desktop-hint') === '1')
+  const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() => window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
   const [libraryOpen, setLibraryOpen] = useState(false)
   const [libraryTab, setLibraryTab] = useState<'sounds' | 'lists'>('sounds')
   const [wordsOpen, setWordsOpen] = useState(false)
@@ -432,6 +433,24 @@ export default function App() {
   }, [settings, category, tileId, mixedId, source])
 
   useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: light)')
+    const onChange = () => setSystemTheme(media.matches ? 'light' : 'dark')
+    media.addEventListener('change', onChange)
+    return () => media.removeEventListener('change', onChange)
+  }, [])
+
+  const resolvedTheme = settings.theme === 'system' ? systemTheme : settings.theme
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = resolvedTheme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', resolvedTheme === 'light' ? '#f4f6fa' : '#090d13')
+  }, [resolvedTheme])
+
+  useEffect(() => {
+    document.documentElement.dataset.palette = settings.palette
+  }, [settings.palette])
+
+  useEffect(() => {
     document.documentElement.style.fontSize = `${(16 * settings.textScale).toFixed(2)}px`
   }, [settings.textScale])
 
@@ -496,6 +515,7 @@ export default function App() {
     const fresh: Settings = {
       ...settings, listSource: 'built', accent: 'en-US', voiceURI: '', repeatCount: 1,
       delay: 2, rate: 1, pitch: 1, ipaMode: 'both', textScale: 1, wordScale: 1,
+      theme: settings.theme, palette: settings.palette,
     }
     setSettings(fresh)
     setSource('built')

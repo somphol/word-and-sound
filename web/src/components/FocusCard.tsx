@@ -154,6 +154,17 @@ export function FocusCard({
             <Icon name="mic" size={19} /><span>Record</span>
           </button>
         </div>
+        <button
+          type="button"
+          className={`autoplay-toggle ${autoplay ? 'on' : ''}`}
+          aria-pressed={autoplay}
+          onClick={onToggleAutoplay}
+          title={autoplay ? 'Turn autoplay off' : 'Turn autoplay on'}
+        >
+          <Icon name="replay" size={17} />
+          <span>Autoplay</span>
+          <span className="autoplay-state">{autoplay ? 'On' : 'Off'}</span>
+        </button>
       </div>
 
       {isReview && (
@@ -173,11 +184,6 @@ export function FocusCard({
             <span style={{ width: `${total ? (practised / total) * 100 : 0}%` }} />
           </div>
         </div>
-        <label className="switch">
-          <input type="checkbox" checked={autoplay} onChange={onToggleAutoplay} />
-          <span className="switch-track"><span className="switch-thumb" /></span>
-          <span className="switch-label">Autoplay</span>
-        </label>
       </div>
 
       <div className="playback-strip">

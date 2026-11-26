@@ -1,5 +1,6 @@
 import type { ListSource } from '../lib/types'
-import { clampTextScale, clampWordScale, type Settings } from '../lib/progress'
+import type { CSSProperties } from 'react'
+import { clampTextScale, clampWordScale, type AccentName, type Settings, type ThemeMode } from '../lib/progress'
 
 const accents = [
   ['en-US', 'American'], ['en-GB', 'British'], ['en-AU', 'Australian'],
@@ -22,6 +23,34 @@ export function SettingsModal({
     <div className="overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <div className="modal settings-modal" role="dialog" aria-modal="true" aria-label="Settings">
         <header className="modal-head"><div><h2>Settings</h2><p>Version {__APP_VERSION__}</p></div><button type="button" className="button small" onClick={onClose}>Close</button></header>
+        <section>
+          <h3>Appearance</h3>
+          <div className="settings-row">
+            <span>Theme</span>
+            <div className="filter-switch" role="group" aria-label="Theme">
+              {([['system', 'Auto'], ['light', 'Light'], ['dark', 'Dark']] as Array<[ThemeMode, string]>).map(([value, label]) => (
+                <button key={value} type="button" className={settings.theme === value ? 'active' : ''} aria-pressed={settings.theme === value} onClick={() => onChange({ ...settings, theme: value })}>{label}</button>
+              ))}
+            </div>
+          </div>
+          <div className="settings-row">
+            <span>Accent</span>
+            <div className="swatches" role="group" aria-label="Accent colour">
+              {([['blue', 'Blue', '#5b8cff'], ['teal', 'Teal', '#2dd4bf'], ['violet', 'Violet', '#a78bfa'], ['amber', 'Amber', '#f5b544']] as Array<[AccentName, string, string]>).map(([value, label, colour]) => (
+                <button
+                  key={value}
+                  type="button"
+                  className={`swatch ${settings.palette === value ? 'active' : ''}`}
+                  style={{ '--swatch': colour } as CSSProperties}
+                  aria-label={label}
+                  aria-pressed={settings.palette === value}
+                  title={label}
+                  onClick={() => onChange({ ...settings, palette: value })}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
         <section>
           <h3>Reading</h3>
           <div className="settings-row">
@@ -90,7 +119,7 @@ export function SettingsModal({
           <h3>Data</h3>
           <p className="muted-note">Progress, imported lists and recordings stay in this browser.</p>
           <div className="settings-actions">
-            <button type="button" className="button small" onClick={onResetSettings}>Reset speech settings</button>
+            <button type="button" className="button small" onClick={onResetSettings}>Reset settings</button>
             <button type="button" className="button small danger" onClick={onResetProgress}>Reset practice history</button>
           </div>
         </section>

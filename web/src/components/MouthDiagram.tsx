@@ -163,8 +163,8 @@ export function MouthDiagram({
   const p = (x: number, y: number) => `${x * W} ${y * H}`
   const label = (text: string, at: [number, number], to: [number, number]) => (
     <g>
-      <line x1={at[0] * W} y1={at[1] * H} x2={to[0] * W} y2={to[1] * H} stroke="rgba(255,255,255,.22)" strokeDasharray="2 2" strokeWidth=".8" />
-      <text x={at[0] * W} y={at[1] * H} fill="rgba(255,255,255,.62)" fontSize="8" fontWeight="500" textAnchor="middle">{text}</text>
+      <line x1={at[0] * W} y1={at[1] * H} x2={to[0] * W} y2={to[1] * H} stroke="var(--diagram-line)" strokeDasharray="2 2" strokeWidth=".8" />
+      <text x={at[0] * W} y={at[1] * H} fill="var(--diagram-label)" fontSize="8" fontWeight="500" textAnchor="middle">{text}</text>
     </g>
   )
 
@@ -177,15 +177,15 @@ export function MouthDiagram({
             <stop offset="1" stopColor="#b92e46" />
           </linearGradient>
         </defs>
-        <rect width={W} height={H} rx={compact ? 10 : 16} fill="#151c27" />
+        <rect width={W} height={H} rx={compact ? 10 : 16} fill="var(--diagram-bg)" />
         <path
           d={`M ${p(0.12, 0.20)} C ${p(0.20, 0.10)} ${p(0.40, 0.10)} ${p(0.55, 0.12)} C ${p(0.68, 0.14)} ${p(0.78, 0.20)} ${p(0.78, 0.30)} C ${p(0.81, 0.36)} ${p(0.85, 0.42)} ${p(0.85, 0.48)} C ${p(0.85, 0.55)} ${p(0.83, 0.61)} ${p(0.79, 0.64)} C ${p(0.75, 0.72)} ${p(0.70, 0.80)} ${p(0.62, 0.82)} C ${p(0.40, 0.90)} ${p(0.20, 0.92)} ${p(0.15, 0.90)} C ${p(0.05, 0.70)} ${p(0.05, 0.35)} ${p(0.12, 0.20)} Z`}
-          fill="rgba(246,185,160,.14)"
-          stroke="rgba(246,198,180,.20)"
+          fill="var(--mouth-fill)"
+          stroke="var(--mouth-line)"
         />
         <path
           d={`M ${p(0.80, 0.48)} C ${p(0.66, 0.35)} ${p(0.45, 0.34)} ${p(0.30, 0.42)} C ${p(0.23, 0.48)} ${p(0.18, 0.60)} ${p(0.20, 0.70)} C ${p(0.24, 0.78)} ${p(0.40, 0.80)} ${p(0.48, 0.80)} C ${p(0.66, 0.79)} ${p(0.79, 0.68)} ${p(0.81, 0.62)} Z`}
-          fill="rgba(84,20,28,.92)"
+          fill="var(--cavity)"
         />
         <path
           d={`M ${p(0.23, 0.43)} C ${p(0.36, 0.37)} ${p(0.52, 0.38)} ${p(0.62, 0.405)} C ${p(0.68, 0.41)} ${p(0.78, 0.43)} ${p(0.80, 0.48)}`}
@@ -201,7 +201,7 @@ export function MouthDiagram({
           strokeWidth={compact ? 4 : 6}
           strokeLinecap="round"
         />
-        <path d={ghost} fill="none" stroke="rgba(255,255,255,.28)" strokeWidth="1.3" strokeDasharray="4 4" />
+        <path d={ghost} fill="none" stroke="var(--diagram-faint)" strokeWidth="1.3" strokeDasharray="4 4" />
         <path d={tongue} fill={`url(#${gradientId})`} stroke="rgba(255,194,186,.55)" />
         {arrowDistance > W * 0.03 && (
           <g>
@@ -210,18 +210,18 @@ export function MouthDiagram({
               y1={restTip.tipY * H}
               x2={tip.tipX * W}
               y2={tip.tipY * H}
-              stroke="rgba(255,255,255,.45)"
+              stroke="var(--diagram-label)"
               strokeWidth="1.2"
               strokeDasharray="4 3"
             />
             <polygon
               points={`${tip.tipX * W},${tip.tipY * H} ${tip.tipX * W - 7},${tip.tipY * H - 4} ${tip.tipX * W - 4},${tip.tipY * H + 7}`}
-              fill="rgba(255,255,255,.55)"
+              fill="var(--diagram-label)"
             />
           </g>
         )}
-        <rect x={0.70 * W} y={0.445 * H} width={0.045 * W} height={0.055 * H} rx={4} fill="rgba(250,242,224,.9)" />
-        <rect x={0.70 * W} y={(0.575 + jawDrop) * H} width={0.045 * W} height={0.045 * H} rx={4} fill="rgba(250,242,224,.9)" />
+        <rect x={0.70 * W} y={0.445 * H} width={0.045 * W} height={0.055 * H} rx={4} fill="var(--tooth)" />
+        <rect x={0.70 * W} y={(0.575 + jawDrop) * H} width={0.045 * W} height={0.045 * H} rx={4} fill="var(--tooth)" />
         <path
           d={`M ${p(0.76, 0.46)} C ${p(0.79, 0.44)} ${p(0.82, 0.46)} ${p(0.80 + lipWidth, 0.49)} C ${p(0.82, 0.52)} ${p(0.80, 0.53)} ${p(0.77, 0.53)} Z`}
           fill="rgba(219,87,107,.92)"

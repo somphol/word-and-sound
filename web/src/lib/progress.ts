@@ -48,10 +48,15 @@ export function saveImported(lists: ImportedList[]) {
   safeWrite(IMPORTED_KEY, lists)
 }
 
+export type ThemeMode = 'system' | 'light' | 'dark'
+export type AccentName = 'blue' | 'teal' | 'violet' | 'amber'
+
 export interface Settings {
   listSource: 'curated' | 'built'
   textScale: number
   wordScale: number
+  theme: ThemeMode
+  palette: AccentName
   accent: string
   voiceURI: string
   repeatCount: number
@@ -68,6 +73,8 @@ export const defaultSettings: Settings = {
   listSource: 'built',
   textScale: 1,
   wordScale: 1,
+  theme: 'dark',
+  palette: 'blue',
   accent: 'en-US',
   voiceURI: '',
   repeatCount: 1,
