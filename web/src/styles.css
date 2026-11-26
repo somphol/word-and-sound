@@ -1229,3 +1229,13 @@ mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 
   box-shadow: inset 0 0 0 2px var(--bg-2);
 }
 .swatch.active { border-color: var(--text); }
+
+@media (max-width: 700px) {
+  .practice-modal .modal-head { flex-wrap: wrap; gap: 8px; }
+  .practice-modal .modal-head > div:first-child { flex: 1 1 100%; }
+  .practice-modal .modal-head > select { flex: 1 1 100%; height: 40px; font-size: 1rem; }
+  .practice-modal .modal-head > .filter-switch { flex: 1; justify-content: center; }
+  .practice-modal .modal-head > .filter-switch button { flex: 1; height: 36px; }
+  .practice-modal .modal-head > .button.small { order: 5; margin-left: auto; height: 36px; }
+  .practice-modal > .muted-note { padding-inline: 16px; }
+}
