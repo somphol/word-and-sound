@@ -20,6 +20,7 @@ swift run wordandsound-selftest    # headless data + sequencer + parser checks
 make web-data                      # copy data/*.json + icons into web/public/
 make web                           # web: npm ci, Vitest, production build
 make web-dev                       # web: Vite dev server on 127.0.0.1:5173
+cd web && npm run og               # regenerate public/og.png (Chrome; sips on macOS)
 swift run WordAndSound --snapshot-practice /tmp/practice.png
 swift run WordAndSound --snapshot-record /tmp/record.png
 swift run WordAndSound --snapshot-search /tmp/search.png --query "θ"
@@ -49,11 +50,18 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - `Sources/WordAndSoundCore` owns the Codable models, `LibraryStore` (resource
   loading), the pure `PlaybackSequencer`, `WordListParser`, and `SelfTest`.
 - `web/` is a Vite + React + TypeScript PWA. `web/src/App.tsx` owns selection,
-  playback, autoplay, review, search and modal state; `web/src/lib/` holds data
-  loading, IPA highlighting, search, review scheduling, Web Speech and
-  MediaRecorder; `web/src/components/` holds the panels, coach and modals.
+  playback, autoplay, review, search, sheets and modal state;
+  `web/src/components/FocusCard.tsx` is the practice surface (hero word, IPA,
+  transport, autoplay and the word-size stepper); `SoundPanel`/`MixedPanel`/
+  `WordPanel` render inside library and word sheets; `Icon.tsx` is the only icon
+  set. `web/src/lib/` holds data loading, IPA highlighting, search, review
+  scheduling, Web Speech and MediaRecorder.
   `web/public/data/` is a generated copy of `data/*.json`; never edit it by
   hand, run `./scripts/sync-web-data.sh`.
+- `web/public/og.png` is the 1200×630 share card, rendered from
+  `web/tools/og.html` by `web/tools/render-og.mjs`; `web/index.html` carries the
+  absolute Open Graph/Twitter URLs. Keep the meta dimensions in step with the
+  image.
 - `data/articulation.json` is exported from `Articulation.swift` by
   `tools/export_articulation.swift`; both clients read the same guides.
 - `Sources/WordAndSoundCore/Articulation.swift` holds the 48 authored
@@ -97,6 +105,16 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - **Both clients stay feature-consistent.** A new tile, list, pair or
   articulation guide must appear in the Swift and web clients; the web tests
   cover the parser, IPA matching, review schedule and search.
+- **The web layout is focus-first.** One practice card is the screen; sounds,
+  lists and the word index open as sheets. Do not reintroduce a permanent
+  left rail or bottom player without a deliberate design decision.
+- **Web type is scalable by settings.** Base sizes are `rem`, `settings.textScale`
+  drives the root font size (0.9–1.3), and `settings.wordScale` multiplies the
+  hero via `--word-scale` (1–1.6). Keep new type in `rem` so the control keeps
+  working; no fixed-px font sizes.
+- **Share metadata is static and absolute.** `og:image` and `og:url` must stay
+  absolute under `https://somphol.github.io/word-and-sound/`; the crawler does
+  not run the app. Regenerate `og.png` after branding or layout changes.
 
 - **Do not ship the original mixed lists.** Oxford 5000, GRE, EF, TOEFL and SVL
   are replaced by NGSL/NAWL/NGSL-S/FrequencyWords. Brand strings are checked by
@@ -171,6 +189,8 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - Web recordings are ephemeral and Safari MediaRecorder behaviour varies.
 - The service worker serves cached assets first; a stale shell can survive a
   deployment until a hard reload.
+- Social networks cache Open Graph data; refresh with Facebook's Sharing
+  Debugger (or the equivalent) after deploying, or an old preview is shown.
 - Web import accepts the same `.txt`/`.csv` shapes as the Mac parser but is
   capped at 50,000 words per file.
 

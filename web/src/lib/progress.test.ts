@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isDue, nextDue, nextStep, parseWordList, reviewWords } from './progress'
+import { clampTextScale, clampWordScale, isDue, nextDue, nextStep, parseWordList, reviewWords } from './progress'
 import type { WordProgress } from './types'
 
 const item = (overrides: Partial<WordProgress> = {}): WordProgress => ({
@@ -39,5 +39,16 @@ describe('review scheduler', () => {
       d: item({ word: 'd', due: Date.now() + 10_000 }),
     }
     expect(reviewWords(progress, 1000)).toEqual(['c', 'a', 'b'])
+  })
+})
+
+describe('display scale', () => {
+  it('clamps text size between 90% and 130%', () => {
+    expect(clampTextScale(0.5)).toBe(0.9)
+    expect(clampTextScale(1.72)).toBe(1.3)
+  })
+  it('clamps word size between 100% and 160%', () => {
+    expect(clampWordScale(0.2)).toBe(1)
+    expect(clampWordScale(9)).toBe(1.6)
   })
 })

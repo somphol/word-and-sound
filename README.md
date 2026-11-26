@@ -76,10 +76,17 @@ the app and choose **Open**.
 
 ## Web app
 
+![Word & Sound web app](docs/web.png)
+
 The React + TypeScript app in `web/` mirrors the macOS feature set: 134 tiles,
 Curated/Built sources, US/UK IPA with target highlighting, autoplay, the
 articulation coach, vowel space and lip comparison, minimal pairs, search,
 favorites/trouble, spaced review, import, recording and credits.
+
+It is focus-first: one large practice card, with sounds and word lists in
+sheets instead of a permanent side rail. **Settings → Reading** adjusts UI text
+size (90–130%) and the hero word size (100–160%); both persist locally. The
+page ships Open Graph and Twitter metadata with a 1200×630 share card.
 
 ```bash
 ./scripts/sync-web-data.sh   # copy data/*.json and the icon into web/public/
@@ -193,3 +200,5 @@ publishers of the original vocabulary lists. Those lists are not shipped.
   Chrome's.
 - The PWA caches the shell and JSON after the first online visit. A hard
   reload is required to pick up a new deployment.
+- Facebook and other networks cache link previews. Refresh the URL in the
+  platform's sharing debugger after a deployment before judging the card.

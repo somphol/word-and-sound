@@ -14,7 +14,8 @@ import { ipaParts, rowIPA, targetDescription } from './lib/ipa'
 import { Header } from './components/Header'
 import { SoundPanel } from './components/SoundPanel'
 import { WordPanel } from './components/WordPanel'
-import { PlayerBar } from './components/PlayerBar'
+import { FocusCard } from './components/FocusCard'
+import { Icon } from './components/Icon'
 import { MixedPanel } from './components/MixedPanel'
 import { SearchPalette } from './components/SearchPalette'
 import { PracticeModal } from './components/PracticeModal'
@@ -45,6 +46,9 @@ export default function App() {
   const [searchText, setSearchText] = useState('')
   const [autoplay, setAutoplay] = useState(false)
   const [modal, setModal] = useState<Modal>(null)
+  const [libraryOpen, setLibraryOpen] = useState(false)
+  const [libraryTab, setLibraryTab] = useState<'sounds' | 'lists'>('sounds')
+  const [wordsOpen, setWordsOpen] = useState(false)
   const [coachTile, setCoachTile] = useState<SoundTile | null>(null)
   const [pendingWord, setPendingWord] = useState<string | null>(null)
   const [toast, setToast] = useState<string | null>(null)
@@ -61,6 +65,17 @@ export default function App() {
   const speakAtRef = useRef<(i: number) => void>(() => {})
   const handleEndRef = useRef<() => void>(() => {})
   const commandsRef = useRef({ play: () => {}, next: () => {}, previous: () => {}, replay: () => {} })
+
+  useEffect(() => {
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      setLibraryOpen(false)
+      setWordsOpen(false)
+      setModal(null)
+    }
+    window.addEventListener('keydown', onEscape)
+    return () => window.removeEventListener('keydown', onEscape)
+  }, [])
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -386,6 +401,14 @@ export default function App() {
   }, [settings, category, tileId, mixedId, source])
 
   useEffect(() => {
+    document.documentElement.style.fontSize = `${(16 * settings.textScale).toFixed(2)}px`
+  }, [settings.textScale])
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--word-scale', String(settings.wordScale))
+  }, [settings.wordScale])
+
+  useEffect(() => {
     if (!pendingWord || !words.length) return
     const found = words.findIndex((word) => word.toLowerCase() === pendingWord.toLowerCase())
     if (found >= 0) {
@@ -440,7 +463,7 @@ export default function App() {
   const resetSettings = () => {
     const fresh: Settings = {
       ...settings, listSource: 'built', accent: 'en-US', voiceURI: '', repeatCount: 1,
-      delay: 2, rate: 1, pitch: 1, ipaMode: 'both',
+      delay: 2, rate: 1, pitch: 1, ipaMode: 'both', textScale: 1, wordScale: 1,
     }
     setSettings(fresh)
     setSource('built')
@@ -482,76 +505,137 @@ export default function App() {
         version={__APP_VERSION__}
         reviewCount={review.length}
       />
-      <div className="workspace">
-        {category === 'mixed' ? (
-          <MixedPanel
-            lists={mixedLists}
-            selectedId={mixedId}
-            wordCount={(list) => list.id === 'review'
-              ? review.length
-              : imported.find((item) => item.id === list.id)?.words.length ?? data.library.lists[list.id]?.length ?? 0}
-            onSelect={selectMixed}
-            onImport={() => fileInput.current?.click()}
-          />
-        ) : (
-          <SoundPanel
-            data={data}
-            category={category}
-            source={source}
-            activeTile={activeTile}
-            progress={progress}
-            onSelect={selectTile}
-            onCoach={openCoach}
-            onSourceChange={(next) => { stopPlayback(); setSource(next) }}
-          />
-        )}
-        <WordPanel
-          data={data}
-          title={listTitle}
-          words={words}
-          currentIndex={index}
-          searchText={searchText}
-          onSearchChange={setSearchText}
-          practised={practised}
-          progress={progress}
+      <main className="stage">
+        <div className="context-row">
+          <button
+            type="button"
+            className="context-pill"
+            onClick={() => {
+              setLibraryTab(category === 'mixed' ? 'lists' : 'sounds')
+              setLibraryOpen(true)
+            }}
+          >
+            <Icon name={category === 'mixed' ? 'list' : 'grid'} size={15} />
+            <strong>{category === 'mixed' ? activeMixed?.title ?? 'Lists' : activeTile ? `${activeTile.label} · ${activeTile.exampleWord}` : 'Sounds'}</strong>
+            <Icon name="chevronRight" size={14} />
+          </button>
+          <button type="button" className="context-pill" onClick={() => setWordsOpen(true)}>
+            <Icon name="list" size={15} />
+            <strong>Words</strong>
+            <span className="context-count">{words.length}</span>
+          </button>
+          {review.length > 0 && <span className="context-hint">{review.length} to review</span>}
+          <span className="context-index">{words.length ? `${index + 1} / ${words.length}` : ''}</span>
+        </div>
+
+        <FocusCard
+          word={currentWord}
+          parts={parts}
+          target={targetDescription(activeTile)}
+          eyebrow={listTitle}
+          listTitle={listTitle}
           targets={currentTargets}
           kind={currentKind}
-          ipaMode={settings.ipaMode}
-          onSelect={selectWord}
-          onFavorite={toggleFavorite}
-          onTrouble={toggleTrouble}
+          index={index}
+          total={words.length}
+          practised={practised}
+          settings={settings}
+          voices={speech.voices}
+          autoplay={autoplay}
+          isSpeaking={speech.isSpeaking}
+          favorite={!!currentWord && !!progress[currentWord.toLowerCase()]?.favorite}
+          trouble={!!currentWord && !!progress[currentWord.toLowerCase()]?.trouble}
+          isReview={category === 'mixed' && mixedId === 'review'}
+          onSettings={(next) => setSettings({ ...settings, ...next })}
+          onPlay={() => { repeatRef.current = settings.repeatCount; speakAtRef.current(index) }}
+          onStop={stopPlayback}
+          onSlow={() => currentWord && speakWord(currentWord, true)}
+          onPrevious={previousWord}
+          onNext={nextWord}
+          onToggleAutoplay={toggleAutoplay}
+          onReplay={() => currentWord && speakWord(currentWord)}
+          onFavorite={() => currentWord && toggleFavorite(currentWord)}
+          onTrouble={() => currentWord && toggleTrouble(currentWord)}
+          onCoach={() => activeTile && openCoach(activeTile)}
+          onRecord={() => setModal('record')}
+          onGotIt={() => reviewAnswer(true)}
+          onAgain={() => reviewAnswer(false)}
         />
-      </div>
-      <PlayerBar
-        data={data}
-        word={currentWord}
-        parts={parts}
-        target={targetDescription(activeTile)}
-        progressText={words.length ? `${index + 1} / ${words.length}` : ''}
-        listTitle={listTitle}
-        targets={currentTargets}
-        kind={currentKind}
-        settings={settings}
-        voices={speech.voices}
-        autoplay={autoplay}
-        isSpeaking={speech.isSpeaking}
-        favorite={!!currentWord && !!progress[currentWord.toLowerCase()]?.favorite}
-        trouble={!!currentWord && !!progress[currentWord.toLowerCase()]?.trouble}
-        isReview={category === 'mixed' && mixedId === 'review'}
-        onSettings={(next) => setSettings({ ...settings, ...next })}
-        onPlay={() => { repeatRef.current = settings.repeatCount; speakAtRef.current(index) }}
-        onSlow={() => currentWord && speakWord(currentWord, true)}
-        onPrevious={previousWord}
-        onNext={nextWord}
-        onToggleAutoplay={toggleAutoplay}
-        onReplay={() => currentWord && speakWord(currentWord)}
-        onFavorite={() => currentWord && toggleFavorite(currentWord)}
-        onTrouble={() => currentWord && toggleTrouble(currentWord)}
-        onCoach={() => activeTile && openCoach(activeTile)}
-        onRecord={() => setModal('record')}
-        onGotIt={() => reviewAnswer(true)}
-        onAgain={() => reviewAnswer(false)}
-      />
+
+        <p className="stage-hint">Space play · ⌘R replay · ⌘←/→ move · ⌘K search</p>
+      </main>
+
+      {libraryOpen && (
+        <div
+          className="overlay sheet-overlay library"
+          onMouseDown={(event) => event.target === event.currentTarget && setLibraryOpen(false)}
+        >
+          <section className="library-sheet" role="dialog" aria-modal="true" aria-label="Sounds and lists">
+            <header className="sheet-head">
+              <div className="sheet-tabs" role="tablist" aria-label="Library">
+                <button type="button" role="tab" aria-selected={libraryTab === 'sounds'} className={libraryTab === 'sounds' ? 'active' : ''} onClick={() => setLibraryTab('sounds')}>Sounds</button>
+                <button type="button" role="tab" aria-selected={libraryTab === 'lists'} className={libraryTab === 'lists' ? 'active' : ''} onClick={() => setLibraryTab('lists')}>Lists</button>
+              </div>
+              <span className="sheet-note">{libraryTab === 'sounds' ? `${tiles.length} sounds` : `${mixedLists.length} lists`}</span>
+              <button type="button" className="icon-button" onClick={() => setLibraryOpen(false)} aria-label="Close library">
+                <Icon name="close" />
+              </button>
+            </header>
+            <div className="sheet-body">
+              {libraryTab === 'sounds' ? (
+                <SoundPanel
+                  data={data}
+                  category={category}
+                  source={source}
+                  activeTile={activeTile}
+                  progress={progress}
+                  onSelect={(tile) => { selectTile(tile); setLibraryOpen(false) }}
+                  onCoach={(tile) => { setLibraryOpen(false); openCoach(tile) }}
+                  onSourceChange={(next) => { stopPlayback(); setSource(next) }}
+                />
+              ) : (
+                <MixedPanel
+                  lists={mixedLists}
+                  selectedId={mixedId}
+                  wordCount={(list) => list.id === 'review'
+                    ? review.length
+                    : imported.find((item) => item.id === list.id)?.words.length ?? data.library.lists[list.id]?.length ?? 0}
+                  onSelect={(list) => { selectMixed(list); setLibraryOpen(false) }}
+                  onImport={() => { setLibraryOpen(false); fileInput.current?.click() }}
+                />
+              )}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {wordsOpen && (
+        <div
+          className="overlay sheet-overlay drawer"
+          onMouseDown={(event) => event.target === event.currentTarget && setWordsOpen(false)}
+        >
+          <aside className="words-drawer" role="dialog" aria-modal="true" aria-label="Word list">
+            <WordPanel
+              data={data}
+              title={listTitle}
+              words={words}
+              currentIndex={index}
+              searchText={searchText}
+              onSearchChange={setSearchText}
+              practised={practised}
+              progress={progress}
+              targets={currentTargets}
+              kind={currentKind}
+              ipaMode={settings.ipaMode}
+              onSelect={(next) => { setWordsOpen(false); selectWord(next) }}
+              onFavorite={toggleFavorite}
+              onTrouble={toggleTrouble}
+              onClose={() => setWordsOpen(false)}
+            />
+          </aside>
+        </div>
+      )}
+
       <input
         ref={fileInput}
         type="file"

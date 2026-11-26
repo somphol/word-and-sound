@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { AppData, WordProgress } from '../lib/types'
 import { rowIPA } from '../lib/ipa'
+import { Icon } from './Icon'
 import { IPAView } from './IPAView'
 
-const ROW_HEIGHT = 34
+const ROW_HEIGHT = 44
 
 export function WordPanel({
   data, title, words, currentIndex, searchText, onSearchChange, practised, progress,
-  targets, kind, ipaMode, onSelect, onFavorite, onTrouble,
+  targets, kind, ipaMode, onSelect, onFavorite, onTrouble, onClose,
 }: {
   data: AppData
   title: string
@@ -23,6 +24,7 @@ export function WordPanel({
   onSelect: (index: number) => void
   onFavorite: (word: string) => void
   onTrouble: (word: string) => void
+  onClose?: () => void
 }) {
   const viewport = useRef<HTMLDivElement>(null)
   const [scrollTop, setScrollTop] = useState(0)
@@ -62,25 +64,30 @@ export function WordPanel({
   return (
     <section className="word-panel">
       <header className="word-panel-head">
-        <div>
+        <div className="word-panel-title">
           <h2>{title}</h2>
-          <span>{words.length} words</span>
-        </div>
-        <div className="list-progress">
-          <div className="progress-track"><span style={{ width: `${words.length ? (practised / words.length) * 100 : 0}%` }} /></div>
-          <span>{practised} practised</span>
+          <span>{words.length} words · {practised} practised</span>
         </div>
         <span className="counter">{words.length ? `${currentIndex + 1} / ${words.length}` : ''}</span>
+        {onClose && (
+          <button type="button" className="icon-button" onClick={onClose} aria-label="Close word list">
+            <Icon name="close" />
+          </button>
+        )}
       </header>
       <label className="search-field">
-        <span>⌕</span>
+        <Icon name="search" size={16} />
         <input
           value={searchText}
           onChange={(event) => onSearchChange(event.target.value)}
           placeholder="Search this list"
           aria-label="Search this list"
         />
-        {searchText && <button type="button" onClick={() => onSearchChange('')} aria-label="Clear search">×</button>}
+        {searchText && (
+          <button type="button" onClick={() => onSearchChange('')} aria-label="Clear search">
+            <Icon name="close" size={14} />
+          </button>
+        )}
       </label>
       <div
         className="word-scroll"
@@ -106,11 +113,26 @@ export function WordPanel({
                 <span className="row-ipa">
                   <IPAView ipa={rowIPA(data.us, data.uk, entry.word, ipaMode)} targets={targets} kind={kind} />
                 </span>
-                {item?.favorite && <span className="row-star" title="Favorite">★</span>}
-                {item?.trouble && <span className="row-flag" title="Difficult">▲</span>}
-                <button type="button" className="row-action" aria-label="Favorite" onClick={(event) => { event.stopPropagation(); onFavorite(entry.word) }}>☆</button>
-                <button type="button" className="row-action" aria-label="Difficult" onClick={(event) => { event.stopPropagation(); onTrouble(entry.word) }}>⚑</button>
-                <span className="row-speaker">{current ? '◖' : '◔'}</span>
+                <span className="row-actions">
+                  <button
+                    type="button"
+                    className={`row-action star ${item?.favorite ? 'on' : ''}`}
+                    aria-label={item?.favorite ? 'Remove from favorites' : 'Add to favorites'}
+                    aria-pressed={!!item?.favorite}
+                    onClick={(event) => { event.stopPropagation(); onFavorite(entry.word) }}
+                  >
+                    <Icon name="star" size={15} filled={!!item?.favorite} />
+                  </button>
+                  <button
+                    type="button"
+                    className={`row-action flag ${item?.trouble ? 'on' : ''}`}
+                    aria-label={item?.trouble ? 'Clear difficult mark' : 'Mark as difficult'}
+                    aria-pressed={!!item?.trouble}
+                    onClick={(event) => { event.stopPropagation(); onTrouble(entry.word) }}
+                  >
+                    <Icon name="flag" size={15} filled={!!item?.trouble} />
+                  </button>
+                </span>
               </div>
             )
           })}

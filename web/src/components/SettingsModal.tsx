@@ -1,5 +1,5 @@
 import type { ListSource } from '../lib/types'
-import type { Settings } from '../lib/progress'
+import { clampTextScale, clampWordScale, type Settings } from '../lib/progress'
 
 const accents = [
   ['en-US', 'American'], ['en-GB', 'British'], ['en-AU', 'Australian'],
@@ -22,6 +22,29 @@ export function SettingsModal({
     <div className="overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <div className="modal settings-modal" role="dialog" aria-modal="true" aria-label="Settings">
         <header className="modal-head"><div><h2>Settings</h2><p>Version {__APP_VERSION__}</p></div><button type="button" className="button small" onClick={onClose}>Close</button></header>
+        <section>
+          <h3>Reading</h3>
+          <div className="settings-row">
+            <span>Text size</span>
+            <div className="size-stepper" role="group" aria-label="Text size">
+              <button type="button" aria-label="Decrease text size" disabled={settings.textScale <= 0.9} onClick={() => onChange({ ...settings, textScale: clampTextScale(settings.textScale - 0.05) })}>A−</button>
+              <output>{Math.round(settings.textScale * 100)}%</output>
+              <button type="button" aria-label="Increase text size" disabled={settings.textScale >= 1.3} onClick={() => onChange({ ...settings, textScale: clampTextScale(settings.textScale + 0.05) })}>A+</button>
+            </div>
+          </div>
+          <div className="settings-row">
+            <span>Word size</span>
+            <div className="size-stepper" role="group" aria-label="Word size">
+              <button type="button" aria-label="Decrease word size" disabled={settings.wordScale <= 1} onClick={() => onChange({ ...settings, wordScale: clampWordScale(settings.wordScale - 0.1) })}>A−</button>
+              <output>{Math.round(settings.wordScale * 100)}%</output>
+              <button type="button" aria-label="Increase word size" disabled={settings.wordScale >= 1.6} onClick={() => onChange({ ...settings, wordScale: clampWordScale(settings.wordScale + 0.1) })}>A+</button>
+            </div>
+          </div>
+          <div className="settings-preview" aria-hidden="true">
+            <strong>sound</strong>
+            <span>US /saʊnd/</span>
+          </div>
+        </section>
         <section>
           <h3>Speech</h3>
           <label>Accent

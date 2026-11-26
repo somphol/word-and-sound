@@ -37,6 +37,12 @@ export function SoundPanel({
           <h2>{group.title}</h2>
           <span>{group.tiles.length} sounds · {source === 'built' ? 'pattern-built' : 'curated'}</span>
         </div>
+        {onSourceChange && (
+          <div className="source-switch panel-source" role="group" aria-label="List source">
+            <button type="button" className={source === 'curated' ? 'active' : ''} onClick={() => onSourceChange('curated')}>Curated</button>
+            <button type="button" className={source === 'built' ? 'active' : ''} onClick={() => onSourceChange('built')}>Built</button>
+          </div>
+        )}
       </div>
 
       {activeTile && (

@@ -5,6 +5,13 @@
 - Add a full-parity React + TypeScript PWA in `web/`, deployed to GitHub
   Pages. It shares `data/*.json`, adds SVG coach diagrams, search, minimal
   pairs, review, import, recording and offline caching.
+- Replace the web layout with a focus-first practice card; sounds, lists and
+  the word index open in sheets, and the bottom player bar is gone.
+- Add adjustable UI text size (90–130%) and hero word size (100–160%), both
+  persisted locally and applied before first paint.
+- Add Open Graph/Twitter metadata and a 1200×630 share card for social feeds.
+- Replace unicode glyphs with an inline SVG icon set; align spacing, type and
+  controls across desktop and mobile.
 - Export the 48 articulation guides to `data/articulation.json` so the web
   client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.

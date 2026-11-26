@@ -50,6 +50,8 @@ export function saveImported(lists: ImportedList[]) {
 
 export interface Settings {
   listSource: 'curated' | 'built'
+  textScale: number
+  wordScale: number
   accent: string
   voiceURI: string
   repeatCount: number
@@ -64,6 +66,8 @@ export interface Settings {
 
 export const defaultSettings: Settings = {
   listSource: 'built',
+  textScale: 1,
+  wordScale: 1,
   accent: 'en-US',
   voiceURI: '',
   repeatCount: 1,
@@ -82,6 +86,14 @@ export function loadSettings(): Settings {
 
 export function saveSettings(settings: Settings) {
   safeWrite(SETTINGS_KEY, settings)
+}
+
+export function clampTextScale(value: number): number {
+  return Math.min(1.3, Math.max(0.9, Math.round(value * 20) / 20))
+}
+
+export function clampWordScale(value: number): number {
+  return Math.min(1.6, Math.max(1, Math.round(value * 10) / 10))
 }
 
 export function nextStep(current: number, correct: boolean): number {
