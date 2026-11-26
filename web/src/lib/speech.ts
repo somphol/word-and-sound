@@ -52,8 +52,6 @@ export function useSpeech() {
       return
     }
     const synth = window.speechSynthesis
-    synth.cancel()
-    synth.resume()
 
     const utterance = new SpeechSynthesisUtterance(text)
     // Only pin a voice when the user chose one explicitly. Forcing a voice
@@ -70,12 +68,10 @@ export function useSpeech() {
     utterance.volume = 1
 
     let finished = false
-    let retry = 0
     const finish = () => {
       if (finished) return
       finished = true
       clearWatchdog()
-      window.clearTimeout(retry)
       if (current.current !== utterance) return
       current.current = null
       setIsSpeaking(false)
@@ -88,23 +84,16 @@ export function useSpeech() {
     current.current = utterance
     setIsSpeaking(true)
 
-    // Speak immediately so the first tap keeps its user activation. Some
-    // Android engines ignore the first call after cancel(); retry once if the
-    // engine has not started.
-    let started = false
-    let retried = false
-    utterance.onstart = () => { started = true }
-    synth.speak(utterance)
-    synth.resume()
-    retry = window.setTimeout(() => {
-      if (started || retried || current.current !== utterance || synth.speaking || synth.pending) return
-      retried = true
-      utterance.voice = null
-      utterance.lang = normaliseLang(options.lang)
+    // Android Chrome can swallow the first utterance when cancel() and
+    // speak() happen in the same task. Speak directly when idle; if something
+    // is already playing, cancel first and give the engine a short gap.
+    const start = () => synth.speak(utterance)
+    if (synth.speaking || synth.pending || synth.paused) {
       synth.cancel()
-      synth.speak(utterance)
-      synth.resume()
-    }, 1200)
+      window.setTimeout(start, 150)
+    } else {
+      start()
+    }
 
     // Some Android builds never fire onend/onerror. Keep autoplay moving with
     // a deliberately generous estimate; onend cancels this when it works.

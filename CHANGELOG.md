@@ -25,9 +25,10 @@
 - Add 45 IPA-checked words to sparse ending blends (`ʒd`, `kst`, `lf`, `ð`,
   `ʒ`, `sp`, `mp`, and others), taking the built lists to 11,813 words.
 - Harden Android speech: normalise `en_US` tags to BCP-47, keep Automatic
-  language-only instead of forcing a `getVoices()` entry, retry once if speech
-  never starts, and advance autoplay with a watchdog when `onend` never fires.
-  Add a Test voice button and a voice-count status in Settings.
+  language-only instead of forcing a `getVoices()` entry, speak directly when
+  idle and only cancel-and-delay while audio is already playing, and advance
+  autoplay with a watchdog when `onend` never fires. Add a Test voice button,
+  a voice-count status and an unlinked speech diagnostic page.
 - Add Open Graph/Twitter metadata and a 1200×630 share card.
 
 ## 1.4.2 — 2026-11-25
