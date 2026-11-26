@@ -1112,7 +1112,7 @@ mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 
 @media (min-width: 701px) and (max-width: 1199px) and (min-height: 501px) {
   .header { gap: 10px; padding: 10px 16px; }
   .brand { min-width: 0; }
-  .brand p { display: none; }
+  .brand p { display: block; font-size: 0.625rem; }
   .header-secondary { display: none; }
   .practice-button span { display: none; }
   .practice-button { width: 36px; padding: 0; justify-content: center; }
