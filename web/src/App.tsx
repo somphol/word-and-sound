@@ -11,6 +11,7 @@ import {
 } from './lib/progress'
 import { buildWordIndex, searchResults } from './lib/search'
 import { forceRefresh } from './lib/update'
+import { spokenWord } from './lib/pronounce'
 import { ipaParts, rowIPA, targetDescription } from './lib/ipa'
 import { Header } from './components/Header'
 import { BottomNav, type Screen } from './components/BottomNav'
@@ -245,7 +246,7 @@ export default function App() {
     const current = settingsRef.current
     recordListen(word)
     savePosition(word)
-    speech.speak(word, {
+    speech.speak(spokenWord(word), {
       lang: current.accent,
       voiceURI: current.voiceURI,
       rate: slow ? Math.min(current.rate, 0.6) : current.rate,

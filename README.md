@@ -83,7 +83,9 @@ Curated/Built sources, US/UK IPA with target highlighting, autoplay, the
 articulation coach, vowel space and lip comparison, minimal pairs, search,
 favorites/trouble, spaced review, import, recording and credits.
 
-It is focus-first: one large practice card, with sounds and word lists in
+Consonant-only interjections are respelled for the speech engine (`hmph` is
+spoken as “humph”) while the original spelling stays on screen. It is
+focus-first: one large practice card, with sounds and word lists in
 sheets instead of a permanent side rail. On phones the app uses a
 **Practice / Sounds / Words** bottom navigation, full-screen sound and word
 screens, 48 px rows, 44 px targets and a compact landscape card. On iPad it
