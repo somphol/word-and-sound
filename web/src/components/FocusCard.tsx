@@ -1,4 +1,5 @@
 import type { IpaPart } from '../lib/ipa'
+import { useRef } from 'react'
 import { clampWordScale, type Settings } from '../lib/progress'
 import type { IpaMode } from '../lib/types'
 import { Icon } from './Icon'
@@ -50,6 +51,7 @@ export function FocusCard({
   onGotIt: () => void
   onAgain: () => void
 }) {
+  const touchStart = useRef<{ x: number; y: number } | null>(null)
   const hasVoice = voices.some((voice) => voice.lang === settings.accent)
   if (!word) {
     return (
@@ -61,7 +63,23 @@ export function FocusCard({
     )
   }
   return (
-    <article className="focus-card">
+    <article
+      className="focus-card"
+      onTouchStart={(event) => {
+        if ((event.target as HTMLElement).closest('button, select, input, a')) return
+        touchStart.current = { x: event.touches[0].clientX, y: event.touches[0].clientY }
+      }}
+      onTouchEnd={(event) => {
+        const start = touchStart.current
+        touchStart.current = null
+        if (!start) return
+        const dx = event.changedTouches[0].clientX - start.x
+        const dy = event.changedTouches[0].clientY - start.y
+        if (Math.abs(dx) < 64 || Math.abs(dx) < Math.abs(dy) * 1.5) return
+        if (dx < 0) onNext()
+        else onPrevious()
+      }}
+    >
       <header className="focus-head">
         <div className="focus-heading">
           <p className="eyebrow">{eyebrow}</p>

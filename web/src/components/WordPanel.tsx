@@ -4,11 +4,11 @@ import { rowIPA } from '../lib/ipa'
 import { Icon } from './Icon'
 import { IPAView } from './IPAView'
 
-const ROW_HEIGHT = 44
+const ROW_HEIGHT = 48
 
 export function WordPanel({
   data, title, words, currentIndex, searchText, onSearchChange, practised, progress,
-  targets, kind, ipaMode, onSelect, onFavorite, onTrouble, onClose,
+  targets, kind, ipaMode, onSelect, onFavorite, onTrouble, onClose, onReview, reviewCount,
 }: {
   data: AppData
   title: string
@@ -25,6 +25,8 @@ export function WordPanel({
   onFavorite: (word: string) => void
   onTrouble: (word: string) => void
   onClose?: () => void
+  onReview?: () => void
+  reviewCount?: number
 }) {
   const viewport = useRef<HTMLDivElement>(null)
   const [scrollTop, setScrollTop] = useState(0)
@@ -68,6 +70,11 @@ export function WordPanel({
           <h2>{title}</h2>
           <span>{words.length} words · {practised} practised</span>
         </div>
+        {onReview && (reviewCount ?? 0) > 0 && (
+          <button type="button" className="review-jump" onClick={onReview}>
+            Review <span>{reviewCount}</span>
+          </button>
+        )}
         <span className="counter">{words.length ? `${currentIndex + 1} / ${words.length}` : ''}</span>
         {onClose && (
           <button type="button" className="icon-button" onClick={onClose} aria-label="Close word list">

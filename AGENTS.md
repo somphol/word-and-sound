@@ -53,8 +53,10 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   playback, autoplay, review, search, sheets and modal state;
   `web/src/components/FocusCard.tsx` is the practice surface (hero word, IPA,
   transport, autoplay and the word-size stepper); `SoundPanel`/`MixedPanel`/
-  `WordPanel` render inside library and word sheets; `Icon.tsx` is the only icon
-  set. `web/src/lib/` holds data loading, IPA highlighting, search, review
+  `WordPanel` render inside library and word sheets, and as full-screen phone
+  screens. `BottomNav.tsx` owns the phone tabs (Practice/Sounds/Words),
+  `CategoryTabs.tsx` is shared by the header and the Sounds screen, and
+  `Icon.tsx` is the only icon set. `web/src/lib/` holds data loading, IPA highlighting, search, review
   scheduling, Web Speech and MediaRecorder.
   `web/public/data/` is a generated copy of `data/*.json`; never edit it by
   hand, run `./scripts/sync-web-data.sh`.
@@ -106,8 +108,17 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   articulation guide must appear in the Swift and web clients; the web tests
   cover the parser, IPA matching, review schedule and search.
 - **The web layout is focus-first.** One practice card is the screen; sounds,
-  lists and the word index open as sheets. Do not reintroduce a permanent
-  left rail or bottom player without a deliberate design decision.
+  lists and the word index open as sheets on tablet/desktop and as full screens
+  under the bottom navigation on phones. Do not reintroduce a permanent left
+  rail or bottom player without a deliberate design decision.
+- **Breakpoints are phone ≤700, tablet 701–1099, desktop ≥1100.** The phone tier
+  hides header tabs and shows `BottomNav`; the tablet tier keeps the single card
+  and hides secondary header icons. Keep the tiers in this order when adding
+  layout rules, and put phone overrides after the base rules.
+- **Desktop-site detection is advisory.** Android Chrome in Desktop site mode
+  reports ~980 px and ignores the viewport meta; `App` shows a dismissible hint
+  when `screen.width <= 600` but `innerWidth > 700`. A page cannot turn the
+  browser setting off, so do not promise a scripted fix.
 - **Web type is scalable by settings.** Base sizes are `rem`, `settings.textScale`
   drives the root font size (0.9–1.3), and `settings.wordScale` multiplies the
   hero via `--word-scale` (1–1.6). Keep new type in `rem` so the control keeps
@@ -191,6 +202,12 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   deployment until a hard reload.
 - Social networks cache Open Graph data; refresh with Facebook's Sharing
   Debugger (or the equivalent) after deploying, or an old preview is shown.
+- The iPad has only the tablet tier so far; it uses the single practice card
+  without the phone bottom navigation and has not had a dedicated design pass.
+- Phone section history uses `pushState`; Android Back walks Practice → Sounds
+  → Words rather than always returning to Practice.
+- Desktop-site mode cannot be overridden from the page; the in-app hint is the
+  only mitigation.
 - Web import accepts the same `.txt`/`.csv` shapes as the Mac parser but is
   capped at 50,000 words per file.
 

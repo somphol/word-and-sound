@@ -84,9 +84,14 @@ articulation coach, vowel space and lip comparison, minimal pairs, search,
 favorites/trouble, spaced review, import, recording and credits.
 
 It is focus-first: one large practice card, with sounds and word lists in
-sheets instead of a permanent side rail. **Settings → Reading** adjusts UI text
-size (90–130%) and the hero word size (100–160%); both persist locally. The
-page ships Open Graph and Twitter metadata with a 1200×630 share card.
+sheets instead of a permanent side rail. On phones the app uses a
+**Practice / Sounds / Words** bottom navigation, full-screen sound and word
+screens, 48 px rows and touch-sized controls. **Settings → Reading** (or the
+**Aa** button) adjusts UI text size (90–130%) and the hero word size
+(100–160%); both persist locally. The page ships Open Graph and Twitter
+metadata with a 1200×630 share card.
+
+![Word & Sound on a phone](docs/web-phone.png)
 
 ```bash
 ./scripts/sync-web-data.sh   # copy data/*.json and the icon into web/public/
@@ -202,3 +207,9 @@ publishers of the original vocabulary lists. Those lists are not shipped.
   reload is required to pick up a new deployment.
 - Facebook and other networks cache link previews. Refresh the URL in the
   platform's sharing debugger after a deployment before judging the card.
+- Chrome's **Desktop site** mode on Android forces a ~980 px layout and ignores
+  the viewport meta tag. The app detects this and shows a dismissible hint, but
+  a web page cannot switch the browser setting. A normal mobile visit, which is
+  the default, gets the phone layout.
+- The iPad gets the 701–1099 px tablet tier (single card, no bottom navigation);
+  it has not yet had a dedicated iPad layout pass.

@@ -1,12 +1,6 @@
 import type { ListSource } from '../lib/types'
 import { Icon } from './Icon'
-
-const tabs = [
-  ['starting', 'Starting'],
-  ['vowel', 'Vowel'],
-  ['ending', 'Ending'],
-  ['mixed', 'Mixed'],
-] as const
+import { CategoryTabs } from './CategoryTabs'
 
 export function Header({
   category, source, onCategory, onSource, onSearch, onPractice, onImport, onSettings, onCredits, version, reviewCount,
@@ -29,13 +23,7 @@ export function Header({
         <h1>Word &amp; Sound</h1>
         <p>Pronunciation drills <span>v{version}</span></p>
       </div>
-      <nav className="tabs" aria-label="Sound categories">
-        {tabs.map(([id, label]) => (
-          <button key={id} type="button" className={category === id ? 'active' : ''} onClick={() => onCategory(id)}>
-            {label}
-          </button>
-        ))}
-      </nav>
+      <CategoryTabs category={category} onCategory={onCategory} />
       <div className="header-actions">
         {category !== 'mixed' && (
           <div className="source-switch" role="group" aria-label="List source">
@@ -55,6 +43,9 @@ export function Header({
         </button>
         <button type="button" className="icon-button header-secondary" onClick={onCredits} title="Credits and licenses" aria-label="Credits">
           <Icon name="info" />
+        </button>
+        <button type="button" className="icon-button text-size-button" onClick={onSettings} title="Text and word size" aria-label="Text and word size">
+          <span className="aa-label">Aa</span>
         </button>
         <button type="button" className="icon-button" onClick={onSettings} title="Settings" aria-label="Settings">
           <Icon name="settings" />

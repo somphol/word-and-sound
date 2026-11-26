@@ -12,6 +12,8 @@ import {
 import { buildWordIndex, searchResults } from './lib/search'
 import { ipaParts, rowIPA, targetDescription } from './lib/ipa'
 import { Header } from './components/Header'
+import { BottomNav, type Screen } from './components/BottomNav'
+import { CategoryTabs } from './components/CategoryTabs'
 import { SoundPanel } from './components/SoundPanel'
 import { WordPanel } from './components/WordPanel'
 import { FocusCard } from './components/FocusCard'
@@ -46,6 +48,10 @@ export default function App() {
   const [searchText, setSearchText] = useState('')
   const [autoplay, setAutoplay] = useState(false)
   const [modal, setModal] = useState<Modal>(null)
+  const [screen, setScreen] = useState<Screen>('practice')
+  const [isPhone, setIsPhone] = useState(() => window.matchMedia('(max-width: 700px)').matches)
+  const [desktopMode] = useState(() => window.screen.width <= 600 && window.innerWidth > 700)
+  const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem('word-and-sound:desktop-hint') === '1')
   const [libraryOpen, setLibraryOpen] = useState(false)
   const [libraryTab, setLibraryTab] = useState<'sounds' | 'lists'>('sounds')
   const [wordsOpen, setWordsOpen] = useState(false)
@@ -65,6 +71,31 @@ export default function App() {
   const speakAtRef = useRef<(i: number) => void>(() => {})
   const handleEndRef = useRef<() => void>(() => {})
   const commandsRef = useRef({ play: () => {}, next: () => {}, previous: () => {}, replay: () => {} })
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 700px)')
+    const onChange = () => setIsPhone(media.matches)
+    media.addEventListener('change', onChange)
+    return () => media.removeEventListener('change', onChange)
+  }, [])
+
+  useEffect(() => {
+    if (!isPhone) setScreen('practice')
+  }, [isPhone])
+
+  useEffect(() => {
+    const onPop = (event: PopStateEvent) => {
+      const next = (event.state as { screen?: Screen } | null)?.screen
+      setScreen(next ?? 'practice')
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
+  useEffect(() => {
+    if (!isPhone || screen === 'practice') return
+    window.history.pushState({ screen }, '')
+  }, [screen, isPhone])
 
   useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
@@ -450,6 +481,7 @@ export default function App() {
     saveImported(next)
     setCategory('mixed')
     setMixedId(list.id)
+    setScreen('practice')
     setToast(`Imported ${parsed.length} words from ${file.name}.`)
   }
 
@@ -474,6 +506,11 @@ export default function App() {
     setModal('coach')
   }
 
+  const countForList = (list: MixedList) => list.id === 'review'
+    ? review.length
+    : imported.find((item) => item.id === list.id)?.words.length ?? data!.library.lists[list.id]?.length ?? 0
+
+  const activeScreen: Screen = isPhone ? screen : 'practice'
   const coachComponents = coachTile && data ? componentsFor(coachTile.label, data.articulation) : []
   const coachSamples = coachTile && activeTile?.id === coachTile.id ? words.slice(0, 6) : []
 
@@ -505,12 +542,17 @@ export default function App() {
         version={__APP_VERSION__}
         reviewCount={review.length}
       />
+      {activeScreen === 'practice' && (
       <main className="stage">
         <div className="context-row">
           <button
             type="button"
             className="context-pill"
             onClick={() => {
+              if (isPhone) {
+                setScreen('sounds')
+                return
+              }
               setLibraryTab(category === 'mixed' ? 'lists' : 'sounds')
               setLibraryOpen(true)
             }}
@@ -519,7 +561,7 @@ export default function App() {
             <strong>{category === 'mixed' ? activeMixed?.title ?? 'Lists' : activeTile ? `${activeTile.label} · ${activeTile.exampleWord}` : 'Sounds'}</strong>
             <Icon name="chevronRight" size={14} />
           </button>
-          <button type="button" className="context-pill" onClick={() => setWordsOpen(true)}>
+          <button type="button" className="context-pill" onClick={() => isPhone ? setScreen('words') : setWordsOpen(true)}>
             <Icon name="list" size={15} />
             <strong>Words</strong>
             <span className="context-count">{words.length}</span>
@@ -564,6 +606,80 @@ export default function App() {
 
         <p className="stage-hint">Space play · ⌘R replay · ⌘←/→ move · ⌘K search</p>
       </main>
+      )}
+
+      {activeScreen === 'sounds' && (
+        <main className="screen-page sounds-screen">
+          <div className="screen-toolbar">
+            <CategoryTabs category={category} onCategory={selectCategory} />
+          </div>
+          {category === 'mixed' ? (
+            <MixedPanel
+              lists={mixedLists}
+              selectedId={mixedId}
+              wordCount={countForList}
+              onSelect={(list) => { selectMixed(list); setScreen('practice') }}
+              onImport={() => fileInput.current?.click()}
+            />
+          ) : (
+            <SoundPanel
+              data={data}
+              category={category}
+              source={source}
+              activeTile={activeTile}
+              progress={progress}
+              onSelect={(tile) => { selectTile(tile); setScreen('practice') }}
+              onCoach={openCoach}
+              onSourceChange={(next) => { stopPlayback(); setSource(next) }}
+            />
+          )}
+        </main>
+      )}
+
+      {activeScreen === 'words' && (
+        <main className="screen-page words-screen">
+          <WordPanel
+            data={data}
+            title={listTitle}
+            words={words}
+            currentIndex={index}
+            searchText={searchText}
+            onSearchChange={setSearchText}
+            practised={practised}
+            progress={progress}
+            targets={currentTargets}
+            kind={currentKind}
+            ipaMode={settings.ipaMode}
+            onSelect={(next) => { selectWord(next); setScreen('practice') }}
+            onFavorite={toggleFavorite}
+            onTrouble={toggleTrouble}
+            reviewCount={review.length}
+            onReview={() => {
+              const list = mixedLists.find((item) => item.id === 'review')
+              if (list) {
+                selectMixed(list)
+                setScreen('practice')
+              }
+            }}
+          />
+        </main>
+      )}
+
+      {desktopMode && !bannerDismissed && (
+        <div className="viewport-banner" role="status">
+          <Icon name="info" size={20} />
+          <p>Desktop site is on. For the phone layout, open your browser menu and turn off <b>Desktop site</b>.</p>
+          <button
+            type="button"
+            className="icon-button"
+            aria-label="Dismiss desktop-mode hint"
+            onClick={() => {
+              sessionStorage.setItem('word-and-sound:desktop-hint', '1')
+              setBannerDismissed(true)
+            }}
+          ><Icon name="close" size={16} /></button>
+        </div>
+      )}
 
       {libraryOpen && (
         <div
@@ -597,9 +713,7 @@ export default function App() {
                 <MixedPanel
                   lists={mixedLists}
                   selectedId={mixedId}
-                  wordCount={(list) => list.id === 'review'
-                    ? review.length
-                    : imported.find((item) => item.id === list.id)?.words.length ?? data.library.lists[list.id]?.length ?? 0}
+                  wordCount={countForList}
                   onSelect={(list) => { selectMixed(list); setLibraryOpen(false) }}
                   onImport={() => { setLibraryOpen(false); fileInput.current?.click() }}
                 />
@@ -636,6 +750,8 @@ export default function App() {
         </div>
       )}
 
+      <BottomNav screen={activeScreen} onScreen={setScreen} reviewCount={review.length} />
+
       <input
         ref={fileInput}
         type="file"
@@ -658,9 +774,7 @@ export default function App() {
           index={wordIndex}
           progress={progress}
           lists={mixedLists}
-          wordCount={(list) => list.id === 'review'
-            ? review.length
-            : imported.find((item) => item.id === list.id)?.words.length ?? data.library.lists[list.id]?.length ?? 0}
+          wordCount={countForList}
           onClose={() => setModal(null)}
           onTile={(tile) => { selectTile(tile); setModal(null) }}
           onList={(list) => { selectMixed(list); setModal(null) }}

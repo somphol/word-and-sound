@@ -12,6 +12,11 @@
 - Add Open Graph/Twitter metadata and a 1200×630 share card for social feeds.
 - Replace unicode glyphs with an inline SVG icon set; align spacing, type and
   controls across desktop and mobile.
+- Add a phone bottom navigation with full-screen Sounds and Words, a Review
+  jump, 48 px rows, 44 px touch targets, safe-area insets and larger form
+  controls that avoid mobile zoom-on-focus.
+- Add a dismissible hint when an Android browser is using Desktop site mode,
+  and move the desktop breakpoint to ≥1100 px so tablet widths stay readable.
 - Export the 48 articulation guides to `data/articulation.json` so the web
   client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.
