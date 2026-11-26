@@ -28,6 +28,8 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
 ## Build and run
 
 Requirements: macOS 14 or later, Xcode command-line tools, Python 3.
+CI runs the core/data tests on Linux; the SwiftUI app is built locally with
+`make app`.
 
 ```bash
 make check          # unit tests + headless self-test
