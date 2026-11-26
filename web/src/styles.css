@@ -1263,7 +1263,7 @@ mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 
 }
 .tablet-words { display: none; }
 
-@media (min-width: 780px) and (max-width: 1099px) and (min-height: 501px) {
+@media (min-width: 780px) and (max-width: 1099px) and (min-height: 501px) and (orientation: landscape) {
   .stage {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);

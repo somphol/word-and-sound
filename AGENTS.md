@@ -113,8 +113,9 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   rail or bottom player without a deliberate design decision.
 - **Breakpoints are phone ≤700, tablet 701–1099, desktop ≥1100.** Short
   landscape (`max-height: 500px` up to 1000px wide) also uses the phone tier.
-  The phone tier hides header tabs and shows `BottomNav`; 780–1099 px puts the
-  practice card beside a persistent `WordPanel`; desktop keeps the single card.
+  The phone tier hides header tabs and shows `BottomNav`; 780–1099 px in
+  landscape puts the practice card beside a persistent `WordPanel`, while
+  portrait keeps the single wide card; desktop keeps the single card.
   Keep the tiers in this order when adding layout rules, and put phone overrides
   after the base rules.
 - **Phone playback controls live in Settings.** The accent/repeat/delay/IPA

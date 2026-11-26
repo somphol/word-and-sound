@@ -22,7 +22,8 @@
 - Raise readable text to a 12 px floor, improve faint-text contrast, grow touch
   targets to 44 px and stop iOS zoom with 16 px inputs on phones and tablets.
 - Keep the bottom navigation on landscape phones with a two-column card, give
-  the iPad a two-pane card + word list, and surface Review from Practice.
+  the iPad a two-pane card + word list in landscape only (portrait keeps the
+  single card), and surface Review from Practice.
 - Move phone playback options into Settings so the default card fits without
   scrolling; add modal focus trapping, inert backgrounds and live toast
   announcements.
