@@ -2,10 +2,15 @@
 
 [![CI](https://github.com/somphol/word-and-sound-mac/actions/workflows/ci.yml/badge.svg)](https://github.com/somphol/word-and-sound-mac/actions/workflows/ci.yml)
 
-A native macOS pronunciation trainer built from the MIT App Inventor project
-`WordAndSound.aia`. The app keeps the original's five ways of working on a
-sound — starting sounds, starting blends, ending sounds, ending blends and
-vowels — and replaces the restricted vocabulary with openly licensed data.
+A native macOS pronunciation trainer and a matching React web app, both built
+from the MIT App Inventor project `WordAndSound.aia`. They keep the original's
+five ways of working on a sound — starting sounds, starting blends, ending
+sounds, ending blends and vowels — and replace the restricted vocabulary with
+openly licensed data.
+
+The macOS app is the primary build. The web app is a full-parity PWA at
+**https://somphol.github.io/word-and-sound-mac/**; it loads the same JSON and
+works offline after the first visit.
 
 ![Word & Sound screenshot](docs/screenshot.png)
 
@@ -26,7 +31,7 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
   ranked by frequency, up to 120 words per sound.
 - **US and UK IPA**, displayed together when available, with the target
   segment highlighted and a short articulatory tip.
-- **Animated articulation coach**: 47 phoneme guides with a side-view mouth,
+- **Animated articulation coach**: 48 phoneme guides with a side-view mouth,
   tongue/lip steps, contact points, common errors and physical anchors.
   Especially detailed for /r/ and /s/; blends show their component sounds.
 - **Vowel space and lip comparison**: every vowel shows a high/low ×
@@ -68,6 +73,27 @@ for a prebuilt app (ad-hoc signed, not notarized).
 The app is not notarized. On first launch from a downloaded copy, right-click
 the app and choose **Open**.
 
+## Web app
+
+The React + TypeScript app in `web/` mirrors the macOS feature set: 134 tiles,
+Curated/Built sources, US/UK IPA with target highlighting, autoplay, the
+articulation coach, vowel space and lip comparison, minimal pairs, search,
+favorites/trouble, spaced review, import, recording and credits.
+
+```bash
+./scripts/sync-web-data.sh   # copy data/*.json and the icon into web/public/
+make web                     # npm ci + tests + production build
+make web-dev                 # Vite dev server on http://127.0.0.1:5173/
+cd web && npm run preview    # serve the production build on :4173
+```
+
+`make web` and the GitHub Actions workflows run `npm ci`, so keep
+`web/package-lock.json` committed. Tests are Vitest (`web/src/lib/*.test.ts`).
+The production build is a static `web/dist/` directory with a service worker
+and a web app manifest; there is no backend and no analytics. Keyboard:
+Space plays the current word, ⌘/Ctrl+R replays it, ⌘/Ctrl+←/→ step through the
+list and ⌘/Ctrl+K opens search.
+
 ## Data pipeline
 
 The generated JSON is committed under `data/`. To rebuild it:
@@ -104,7 +130,7 @@ Pipeline:
 | US IPA entries | 39,886 |
 | UK IPA entries | 22,072 |
 | Tile-list IPA coverage | 96.8% US, 89.3% UK |
-| Articulation guides | 47 |
+| Articulation guides | 48 (47 used by tiles) |
 | Vowel anchor words | 24 |
 | Minimal pairs | 37 |
 | Review intervals | 1, 3, 7, 14, 30 days |
@@ -115,6 +141,7 @@ Pipeline:
 Sources/WordAndSoundCore/     models, data loader, sequencer, parser, self-test
 Sources/WordAndSound/         SwiftUI app, speech engine, views
 Resources/                    generated JSON, provenance, icon
+web/                          React PWA sharing data/ through web/public/data/
 tools/                        extraction and corpus builders
 scripts/make_app.sh           release bundle + ad-hoc signing
 Tests/                        XCTest coverage of core logic
@@ -157,3 +184,11 @@ publishers of the original vocabulary lists. Those lists are not shipped.
   description. Recordings and review history are local and deletable.
 - Minimal pairs and review are practice aids, not an automatic pronunciation
   score.
+- The web app speaks through the browser's Web Speech API. Voice availability,
+  accent coverage and quality depend on the browser and OS; headless browsers
+  usually report no English voice.
+- Web recordings are held in memory for the current dialog and are discarded
+  on close. Nothing is uploaded. Safari's MediaRecorder support differs from
+  Chrome's.
+- The PWA caches the shell and JSON after the first online visit. A hard
+  reload is required to pick up a new deployment.

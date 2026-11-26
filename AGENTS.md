@@ -2,11 +2,13 @@
 
 ## What it is
 
-Word & Sound is a native SwiftUI macOS pronunciation trainer derived from the
-MIT App Inventor project `WordAndSound.aia`. It drills English sounds through
-134 phoneme tiles grouped into starting sounds, starting blends, ending sounds,
-ending blends and vowels, with US/UK IPA, TTS, autoplay, mixed vocabulary lists
-and user-imported lists. It is not a dictionary, an LMS, or a mobile port.
+Word & Sound is a SwiftUI macOS pronunciation trainer plus a React PWA in
+`web/`, both derived from the MIT App Inventor project `WordAndSound.aia`.
+They drill English sounds through 134 phoneme tiles grouped into starting
+sounds, starting blends, ending sounds, ending blends and vowels, with US/UK
+IPA, TTS, autoplay, mixed vocabulary lists and user-imported lists. The two
+clients share `data/*.json` but have independent UI code and local storage.
+It is not a dictionary, an LMS, or a mobile port.
 
 ## Commands
 
@@ -15,6 +17,9 @@ make check                         # swift test + --selftest
 make app                           # build/WordAndSound.app, ad-hoc signed
 make run                           # build and open
 swift run wordandsound-selftest    # headless data + sequencer + parser checks
+make web-data                      # copy data/*.json + icons into web/public/
+make web                           # web: npm ci, Vitest, production build
+make web-dev                       # web: Vite dev server on 127.0.0.1:5173
 swift run WordAndSound --snapshot-practice /tmp/practice.png
 swift run WordAndSound --snapshot-record /tmp/record.png
 swift run WordAndSound --snapshot-search /tmp/search.png --query "θ"
@@ -43,7 +48,15 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   `pattern_report.json`, keyed by tile id.
 - `Sources/WordAndSoundCore` owns the Codable models, `LibraryStore` (resource
   loading), the pure `PlaybackSequencer`, `WordListParser`, and `SelfTest`.
-- `Sources/WordAndSoundCore/Articulation.swift` holds the 47 authored
+- `web/` is a Vite + React + TypeScript PWA. `web/src/App.tsx` owns selection,
+  playback, autoplay, review, search and modal state; `web/src/lib/` holds data
+  loading, IPA highlighting, search, review scheduling, Web Speech and
+  MediaRecorder; `web/src/components/` holds the panels, coach and modals.
+  `web/public/data/` is a generated copy of `data/*.json`; never edit it by
+  hand, run `./scripts/sync-web-data.sh`.
+- `data/articulation.json` is exported from `Articulation.swift` by
+  `tools/export_articulation.swift`; both clients read the same guides.
+- `Sources/WordAndSoundCore/Articulation.swift` holds the 48 authored
   phoneme guides (steps, errors, anchors, mouth shape, glide, anchor word,
   contrast list and length label).
 - `Sources/WordAndSound/Views/MouthDiagramView.swift` renders the labelled 2D
@@ -70,6 +83,20 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   icon, writes `Info.plist`, copies licenses, and ad-hoc signs.
 
 ## Decisions and constraints
+
+- **The web app is a static PWA, not a second backend.** Speech is the browser
+  Web Speech API; recordings use MediaRecorder and stay in memory; progress,
+  settings and imported lists live in `localStorage`. Do not add accounts,
+  cloud TTS, uploads or analytics.
+- **Web data is copied, not bundled through imports.** The JSON is fetched
+  from `web/public/data/` at runtime so the macOS resources stay the single
+  source. `scripts/sync-web-data.sh` is the only supported way to refresh it.
+- **Pages deploy path is a subdirectory.** Vite `base: './'` and relative
+  service-worker/manifest paths are deliberate; do not switch to absolute
+  `/assets/...` paths or the project Pages URL breaks.
+- **Both clients stay feature-consistent.** A new tile, list, pair or
+  articulation guide must appear in the Swift and web clients; the web tests
+  cover the parser, IPA matching, review schedule and search.
 
 - **Do not ship the original mixed lists.** Oxford 5000, GRE, EF, TOEFL and SVL
   are replaced by NGSL/NAWL/NGSL-S/FrequencyWords. Brand strings are checked by
@@ -127,7 +154,7 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   pixel-perfect screenshot of a live window.
 - The mixed lists contain 4 lists, not the original 13; subject lists were not
   regenerated.
-- Articulation guides cover 47 core phonemes; every tile resolves to one or
+- Articulation guides cover 48 core phonemes (47 used by tiles); every tile resolves to one or
   more components. The diagrams are teaching aids, not medical anatomy.
 - Vowel length is a cue, not a measured duration; formant analysis is not
   implemented.
@@ -139,12 +166,21 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   practice progress reset.
 - Recording is unscored and requires microphone permission; no audio leaves
   the Mac.
+- Web speech depends on installed browser voices; headless Chrome exposes no
+  English voice, and Safari/iOS voice lists differ.
+- Web recordings are ephemeral and Safari MediaRecorder behaviour varies.
+- The service worker serves cached assets first; a stale shell can survive a
+  deployment until a hard reload.
+- Web import accepts the same `.txt`/`.csv` shapes as the Mac parser but is
+  capped at 50,000 words per file.
 
 ## Continuity
 
 Local project: `~/Projects/word-and-sound-mac`.
 GitHub: https://github.com/somphol/word-and-sound-mac (public).
 Built app: `build/WordAndSound.app` (not committed).
-No hosted deployment; distribution is the GitHub source and release artifact.
+Web app: https://somphol.github.io/word-and-sound-mac/ (GitHub Pages, built
+from `web/` by `.github/workflows/pages.yml`). The macOS app has no hosted
+deployment; distribution is the GitHub source and release artifact.
 The original `.aia` remains at `~/Downloads/WordAndSound.aia` and is not
 committed.

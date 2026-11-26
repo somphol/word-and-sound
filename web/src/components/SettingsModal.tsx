@@ -1,0 +1,77 @@
+import type { ListSource } from '../lib/types'
+import type { Settings } from '../lib/progress'
+
+const accents = [
+  ['en-US', 'American'], ['en-GB', 'British'], ['en-AU', 'Australian'],
+  ['en-IN', 'Indian'], ['en-IE', 'Irish'],
+] as const
+
+export function SettingsModal({
+  settings, voices, onChange, onSource, onResetProgress, onResetSettings, onClose, onCredits,
+}: {
+  settings: Settings
+  voices: SpeechSynthesisVoice[]
+  onChange: (next: Settings) => void
+  onSource: (source: ListSource) => void
+  onResetProgress: () => void
+  onResetSettings: () => void
+  onClose: () => void
+  onCredits: () => void
+}) {
+  return (
+    <div className="overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <div className="modal settings-modal" role="dialog" aria-modal="true" aria-label="Settings">
+        <header className="modal-head"><div><h2>Settings</h2><p>Version {__APP_VERSION__}</p></div><button type="button" className="button small" onClick={onClose}>Close</button></header>
+        <section>
+          <h3>Speech</h3>
+          <label>Accent
+            <select value={settings.accent} onChange={(event) => onChange({ ...settings, accent: event.target.value, voiceURI: '' })}>
+              {accents.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+            </select>
+          </label>
+          <label>Voice
+            <select
+              value={settings.voiceURI}
+              onChange={(event) => {
+                const voice = voices.find((item) => item.voiceURI === event.target.value)
+                onChange({ ...settings, voiceURI: event.target.value, accent: voice?.lang ?? settings.accent })
+              }}
+            >
+              <option value="">Automatic</option>
+              {voices.map((voice) => <option key={voice.voiceURI} value={voice.voiceURI}>{voice.name} · {voice.lang}</option>)}
+            </select>
+          </label>
+          <label>Speech rate <span>{settings.rate.toFixed(1)}×</span>
+            <input type="range" min="0.2" max="1.8" step="0.1" value={settings.rate} onChange={(event) => onChange({ ...settings, rate: Number(event.target.value) })} />
+          </label>
+          <label>Pitch <span>{settings.pitch.toFixed(1)}×</span>
+            <input type="range" min="0.5" max="1.8" step="0.1" value={settings.pitch} onChange={(event) => onChange({ ...settings, pitch: Number(event.target.value) })} />
+          </label>
+        </section>
+        <section>
+          <h3>Playback</h3>
+          <label>Word lists
+            <div className="filter-switch">
+              <button type="button" className={settings.listSource === 'curated' ? 'active' : ''} onClick={() => { onSource('curated'); onChange({ ...settings, listSource: 'curated' }) }}>Curated</button>
+              <button type="button" className={settings.listSource === 'built' ? 'active' : ''} onClick={() => { onSource('built'); onChange({ ...settings, listSource: 'built' }) }}>Built</button>
+            </div>
+          </label>
+          <label>IPA display
+            <select value={settings.ipaMode} onChange={(event) => onChange({ ...settings, ipaMode: event.target.value as Settings['ipaMode'] })}>
+              <option value="both">US and UK</option><option value="us">US only</option><option value="uk">UK only</option>
+            </select>
+          </label>
+          <button type="button" className="button small" onClick={onCredits}>Credits and licenses</button>
+        </section>
+        <section>
+          <h3>Data</h3>
+          <p className="muted-note">Progress, imported lists and recordings stay in this browser.</p>
+          <div className="settings-actions">
+            <button type="button" className="button small" onClick={onResetSettings}>Reset speech settings</button>
+            <button type="button" className="button small danger" onClick={onResetProgress}>Reset practice history</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  )
+}

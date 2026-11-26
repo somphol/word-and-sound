@@ -1,0 +1,228 @@
+{
+  "source": "Curated minimal pairs",
+  "license": "CC BY-SA 4.0",
+  "pairs": [
+    {
+      "id": "ship-sheep",
+      "a": "ship",
+      "b": "sheep",
+      "focus": "/ɪ/ vs /iː/"
+    },
+    {
+      "id": "bad-bed",
+      "a": "bad",
+      "b": "bed",
+      "focus": "/æ/ vs /e/"
+    },
+    {
+      "id": "cot-caught",
+      "a": "cot",
+      "b": "caught",
+      "focus": "/ɒ/ vs /ɔː/"
+    },
+    {
+      "id": "pull-pool",
+      "a": "pull",
+      "b": "pool",
+      "focus": "/ʊ/ vs /uː/"
+    },
+    {
+      "id": "full-fool",
+      "a": "full",
+      "b": "fool",
+      "focus": "/ʊ/ vs /uː/"
+    },
+    {
+      "id": "pen-pan",
+      "a": "pen",
+      "b": "pan",
+      "focus": "/e/ vs /æ/"
+    },
+    {
+      "id": "luck-lock",
+      "a": "luck",
+      "b": "lock",
+      "focus": "/ʌ/ vs /ɒ/"
+    },
+    {
+      "id": "cart-cat",
+      "a": "cart",
+      "b": "cat",
+      "focus": "/ɑː/ vs /æ/"
+    },
+    {
+      "id": "beer-bear",
+      "a": "beer",
+      "b": "bear",
+      "focus": "/ɪə/ vs /eə/"
+    },
+    {
+      "id": "fear-fair",
+      "a": "fear",
+      "b": "fair",
+      "focus": "/ɪə/ vs /eə/"
+    },
+    {
+      "id": "tour-tore",
+      "a": "tour",
+      "b": "tore",
+      "focus": "/ʊə/ vs /ɔː/"
+    },
+    {
+      "id": "day-die",
+      "a": "day",
+      "b": "die",
+      "focus": "/eɪ/ vs /aɪ/"
+    },
+    {
+      "id": "oil-owl",
+      "a": "oil",
+      "b": "owl",
+      "focus": "/ɔɪ/ vs /aʊ/"
+    },
+    {
+      "id": "thin-sin",
+      "a": "thin",
+      "b": "sin",
+      "focus": "/θ/ vs /s/"
+    },
+    {
+      "id": "think-sink",
+      "a": "think",
+      "b": "sink",
+      "focus": "/θ/ vs /s/"
+    },
+    {
+      "id": "fan-van",
+      "a": "fan",
+      "b": "van",
+      "focus": "/f/ vs /v/"
+    },
+    {
+      "id": "light-right",
+      "a": "light",
+      "b": "right",
+      "focus": "/l/ vs /r/"
+    },
+    {
+      "id": "ship-chip",
+      "a": "ship",
+      "b": "chip",
+      "focus": "/ʃ/ vs /tʃ/"
+    },
+    {
+      "id": "cheap-jeep",
+      "a": "cheap",
+      "b": "jeep",
+      "focus": "/tʃ/ vs /dʒ/"
+    },
+    {
+      "id": "bat-pat",
+      "a": "bat",
+      "b": "pat",
+      "focus": "/b/ vs /p/"
+    },
+    {
+      "id": "dog-log",
+      "a": "dog",
+      "b": "log",
+      "focus": "/d/ vs /l/"
+    },
+    {
+      "id": "cap-gap",
+      "a": "cap",
+      "b": "gap",
+      "focus": "/k/ vs /g/"
+    },
+    {
+      "id": "wet-vet",
+      "a": "wet",
+      "b": "vet",
+      "focus": "/w/ vs /v/"
+    },
+    {
+      "id": "zoo-sue",
+      "a": "zoo",
+      "b": "Sue",
+      "focus": "/z/ vs /s/"
+    },
+    {
+      "id": "bad-bat",
+      "a": "bad",
+      "b": "bat",
+      "focus": "final /d/ vs /t/"
+    },
+    {
+      "id": "leaf-leave",
+      "a": "leaf",
+      "b": "leave",
+      "focus": "final /f/ vs /v/"
+    },
+    {
+      "id": "rice-rise",
+      "a": "rice",
+      "b": "rise",
+      "focus": "final /s/ vs /z/"
+    },
+    {
+      "id": "dog-dock",
+      "a": "dog",
+      "b": "dock",
+      "focus": "final /g/ vs /k/"
+    },
+    {
+      "id": "sun-sung",
+      "a": "sun",
+      "b": "sung",
+      "focus": "final /n/ vs /ŋ/"
+    },
+    {
+      "id": "thin-thing",
+      "a": "thin",
+      "b": "thing",
+      "focus": "final /n/ vs /ŋ/"
+    },
+    {
+      "id": "coat-caught",
+      "a": "coat",
+      "b": "caught",
+      "focus": "/əʊ/ vs /ɔː/"
+    },
+    {
+      "id": "boat-bought",
+      "a": "boat",
+      "b": "bought",
+      "focus": "/əʊ/ vs /ɔː/"
+    },
+    {
+      "id": "walk-work",
+      "a": "walk",
+      "b": "work",
+      "focus": "/ɔː/ vs /ɜː/"
+    },
+    {
+      "id": "cup-cop",
+      "a": "cup",
+      "b": "cop",
+      "focus": "/ʌ/ vs /ɒ/"
+    },
+    {
+      "id": "heart-hot",
+      "a": "heart",
+      "b": "hot",
+      "focus": "/ɑː/ vs /ɒ/"
+    },
+    {
+      "id": "leave-live",
+      "a": "leave",
+      "b": "live",
+      "focus": "/iː/ vs /ɪ/"
+    },
+    {
+      "id": "seat-sit",
+      "a": "seat",
+      "b": "sit",
+      "focus": "/iː/ vs /ɪ/"
+    }
+  ]
+}

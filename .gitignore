@@ -5,3 +5,9 @@ data/sources/
 .DS_Store
 __pycache__/
 *.pyc
+
+# Web app
+web/node_modules/
+web/dist/
+web/.vite/
+web/tsconfig.tsbuildinfo

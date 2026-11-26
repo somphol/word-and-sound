@@ -1,0 +1,1960 @@
+[
+  {
+    "anchorWord" : "time",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "eɪ",
+      "ɔɪ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 1,
+      "contact" : "none",
+      "jaw" : 0.08,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "aɪ",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "front closing diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 0.2,
+      "contact" : "none",
+      "jaw" : 0.4,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start with an open \/a\/; glide up to \/ɪ\/.",
+      "Do not hold the first part too long.",
+      "Move smoothly from the first position to the second."
+    ],
+    "symbol" : "aɪ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "fire",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "aɪ",
+      "ə"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 1,
+      "contact" : "none",
+      "jaw" : 0.08,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "aɪə",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "triphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 0.2,
+      "contact" : "none",
+      "jaw" : 0.4,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Glide \/a\/ → \/ɪ\/ → schwa.",
+      "Keep the middle part brief.",
+      "Move smoothly from the first position to the second."
+    ],
+    "symbol" : "aɪə",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "now",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "əʊ",
+      "ɔɪ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.75,
+      "body" : 0.8,
+      "contact" : "none",
+      "jaw" : 0.15,
+      "lipRound" : 0.7,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "aʊ",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "front-to-back closing diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 0.2,
+      "contact" : "none",
+      "jaw" : 0.4,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start open at \/a\/; round the lips as you glide to \/ʊ\/.",
+      "Move smoothly from the first position to the second.",
+      "Keep the glide short and voiced."
+    ],
+    "symbol" : "aʊ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "power",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "aʊ",
+      "ə"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.75,
+      "body" : 0.8,
+      "contact" : "none",
+      "jaw" : 0.15,
+      "lipRound" : 0.7,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "aʊə",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "triphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 0.2,
+      "contact" : "none",
+      "jaw" : 0.4,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Glide \/a\/ → \/ʊ\/ → schwa.",
+      "Keep the middle part brief.",
+      "Move smoothly from the first position to the second."
+    ],
+    "symbol" : "aʊə",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Build pressure and release once, cleanly.",
+        "heardAs" : "a weak stop"
+      }
+    ],
+    "id" : "b",
+    "isVowel" : false,
+    "manner" : "stop",
+    "name" : "voiced bilabial stop",
+    "place" : "bilabial",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.3,
+      "body" : 0.15,
+      "contact" : "lips",
+      "jaw" : 0.05,
+      "lipRound" : 0,
+      "tip" : 0.2,
+      "voiced" : true
+    },
+    "steps" : [
+      "Close both lips.",
+      "Stop the air completely, then release.",
+      "Turn voice on.",
+      "Release both lips with voice."
+    ],
+    "symbol" : "b",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Build pressure and release once, cleanly.",
+        "heardAs" : "a weak stop"
+      }
+    ],
+    "id" : "d",
+    "isVowel" : false,
+    "manner" : "stop",
+    "name" : "voiced alveolar stop",
+    "place" : "alveolar",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.45,
+      "body" : 0.55,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.95,
+      "voiced" : true
+    },
+    "steps" : [
+      "Put the tongue tip at the ridge behind the top teeth.",
+      "Stop the air completely, then release.",
+      "Turn voice on.",
+      "Release with voice."
+    ],
+    "symbol" : "d",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Say “judge” slowly."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Start with a \/d\/ stop before the voiced hiss.",
+        "heardAs" : "\/ʒ\/"
+      }
+    ],
+    "id" : "dʒ",
+    "isVowel" : false,
+    "manner" : "affricate",
+    "name" : "voiced post-alveolar affricate",
+    "place" : "post-alveolar",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.5,
+      "body" : 0.6,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0.2,
+      "tip" : 0.9,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start with the tongue at the ridge, as for \/d\/.",
+      "Release into a voiced hiss just behind the ridge.",
+      "Turn voice on."
+    ],
+    "symbol" : "dʒ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "bed",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ɪ",
+      "æ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "id" : "e",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "open-mid front unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.15,
+      "body" : 0.62,
+      "contact" : "none",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: mid-high, front.",
+      "Lips: spread; jaw: slightly open.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "e",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "hair",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ɪə",
+      "ɛː"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.5,
+      "body" : 0.5,
+      "contact" : "none",
+      "jaw" : 0.25,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "eə",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "centring diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.15,
+      "body" : 0.6,
+      "contact" : "none",
+      "jaw" : 0.25,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start at \/e\/; relax into schwa.",
+      "Move smoothly from the first position to the second.",
+      "Keep the glide short and voiced."
+    ],
+    "symbol" : "eə",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "day",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "e",
+      "aɪ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.05,
+      "body" : 1,
+      "contact" : "none",
+      "jaw" : 0.05,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "eɪ",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "front closing diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.15,
+      "body" : 0.62,
+      "contact" : "none",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start at \/e\/; glide up to \/ɪ\/.",
+      "Keep the first part longer.",
+      "Move smoothly from the first position to the second."
+    ],
+    "symbol" : "eɪ",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Blow out a candle with the top teeth on the lip."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Do not close both lips; keep the top teeth on the lip.",
+        "heardAs" : "\/p\/"
+      }
+    ],
+    "id" : "f",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiceless labiodental fricative",
+    "place" : "labiodental",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.3,
+      "body" : 0.15,
+      "contact" : "teeth",
+      "jaw" : 0.05,
+      "lipRound" : 0.1,
+      "tip" : 0.2,
+      "voiced" : false
+    },
+    "steps" : [
+      "Put the top teeth lightly on the bottom lip.",
+      "Narrow the gap and let the air hiss.",
+      "Keep voice off.",
+      "Blow through the gap; do not close the lips."
+    ],
+    "symbol" : "f",
+    "voiced" : false
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Build pressure and release once, cleanly.",
+        "heardAs" : "a weak stop"
+      }
+    ],
+    "id" : "g",
+    "isVowel" : false,
+    "manner" : "stop",
+    "name" : "voiced velar stop",
+    "place" : "velar",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.95,
+      "body" : 0.25,
+      "contact" : "velar",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.2,
+      "voiced" : true
+    },
+    "steps" : [
+      "Raise the back of the tongue to the soft palate.",
+      "Stop the air completely, then release.",
+      "Turn voice on.",
+      "Release with voice."
+    ],
+    "symbol" : "g",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Narrow the gap and keep the air moving.",
+        "heardAs" : "too little friction"
+      }
+    ],
+    "id" : "h",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiceless glottal fricative",
+    "place" : "glottal",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.5,
+      "body" : 0.3,
+      "contact" : "glottal",
+      "jaw" : 0.25,
+      "lipRound" : 0,
+      "tip" : 0.2,
+      "voiced" : false
+    },
+    "steps" : [
+      "Open the throat; do not block the mouth.",
+      "Narrow the gap and let the air hiss.",
+      "Keep voice off.",
+      "Breathe out as if fogging a mirror."
+    ],
+    "symbol" : "h",
+    "voiced" : false
+  },
+  {
+    "anchorWord" : "see",
+    "anchors" : [
+      "Smile and hold “see”."
+    ],
+    "contrasts" : [
+      "ɪ",
+      "eɪ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Stretch and lengthen the vowel.",
+        "heardAs" : "\/ɪ\/"
+      }
+    ],
+    "id" : "iː",
+    "isVowel" : true,
+    "lengthLabel" : "long",
+    "manner" : "vowel",
+    "name" : "close front unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.05,
+      "body" : 1,
+      "contact" : "none",
+      "jaw" : 0.05,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue high and front; lips spread.",
+      "Hold it long and tense; smile slightly.",
+      "Keep the vowel steady and voiced."
+    ],
+    "symbol" : "iː",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Say “yes” and hold the first sound."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Open the gap slightly; do not touch the roof of the mouth.",
+        "heardAs" : "too much friction"
+      }
+    ],
+    "id" : "j",
+    "isVowel" : false,
+    "manner" : "approximant",
+    "name" : "voiced palatal approximant",
+    "place" : "palatal",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.25,
+      "body" : 0.9,
+      "contact" : "palatal",
+      "jaw" : 0.08,
+      "lipRound" : 0,
+      "tip" : 0.45,
+      "voiced" : true
+    },
+    "steps" : [
+      "Raise the tongue body toward the hard palate.",
+      "Narrow the gap but do not touch.",
+      "Turn voice on.",
+      "Start with the tongue high, then glide into the vowel."
+    ],
+    "symbol" : "j",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Build pressure and release once, cleanly.",
+        "heardAs" : "a weak stop"
+      }
+    ],
+    "id" : "k",
+    "isVowel" : false,
+    "manner" : "stop",
+    "name" : "voiceless velar stop",
+    "place" : "velar",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.95,
+      "body" : 0.25,
+      "contact" : "velar",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.2,
+      "voiced" : false
+    },
+    "steps" : [
+      "Raise the back of the tongue to the soft palate.",
+      "Stop the air completely, then release.",
+      "Keep voice off.",
+      "Release with a puff."
+    ],
+    "symbol" : "k",
+    "voiced" : false
+  },
+  {
+    "anchors" : [
+      "Sing “la-la-la”.",
+      "Hold the tip on the ridge and let the air escape at the sides."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Touch the ridge with the tongue tip.",
+        "heardAs" : "\/r\/"
+      },
+      {
+        "fix" : "Do not round the lips; keep the tongue tip on the ridge.",
+        "heardAs" : "\/w\/"
+      }
+    ],
+    "id" : "l",
+    "isVowel" : false,
+    "manner" : "lateral",
+    "name" : "voiced alveolar lateral",
+    "place" : "alveolar",
+    "shape" : {
+      "airflow" : "side",
+      "back" : 0.45,
+      "body" : 0.55,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.95,
+      "voiced" : true
+    },
+    "steps" : [
+      "Touch the ridge with the tongue tip.",
+      "Let the air flow around the sides of the tongue.",
+      "Turn voice on."
+    ],
+    "symbol" : "l",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Seal the mouth and let the air flow through the nose.",
+        "heardAs" : "air through the mouth"
+      }
+    ],
+    "id" : "m",
+    "isVowel" : false,
+    "manner" : "nasal",
+    "name" : "voiced bilabial nasal",
+    "place" : "bilabial",
+    "shape" : {
+      "airflow" : "nasal",
+      "back" : 0.3,
+      "body" : 0.15,
+      "contact" : "lips",
+      "jaw" : 0.05,
+      "lipRound" : 0,
+      "tip" : 0.2,
+      "voiced" : true
+    },
+    "steps" : [
+      "Close both lips.",
+      "Let the air flow through the nose.",
+      "Turn voice on."
+    ],
+    "symbol" : "m",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Seal the mouth and let the air flow through the nose.",
+        "heardAs" : "air through the mouth"
+      }
+    ],
+    "id" : "n",
+    "isVowel" : false,
+    "manner" : "nasal",
+    "name" : "voiced alveolar nasal",
+    "place" : "alveolar",
+    "shape" : {
+      "airflow" : "nasal",
+      "back" : 0.45,
+      "body" : 0.55,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.95,
+      "voiced" : true
+    },
+    "steps" : [
+      "Put the tongue tip at the ridge behind the top teeth.",
+      "Let the air flow through the nose.",
+      "Turn voice on."
+    ],
+    "symbol" : "n",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Build pressure and release once, cleanly.",
+        "heardAs" : "a weak stop"
+      }
+    ],
+    "id" : "p",
+    "isVowel" : false,
+    "manner" : "stop",
+    "name" : "voiceless bilabial stop",
+    "place" : "bilabial",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.3,
+      "body" : 0.15,
+      "contact" : "lips",
+      "jaw" : 0.05,
+      "lipRound" : 0,
+      "tip" : 0.2,
+      "voiced" : false
+    },
+    "steps" : [
+      "Close both lips.",
+      "Stop the air completely, then release.",
+      "Keep voice off.",
+      "Build pressure, then release both lips."
+    ],
+    "symbol" : "p",
+    "voiced" : false
+  },
+  {
+    "anchors" : [
+      "Say “la” and pull the tip back without touching.",
+      "Growl like a dog; keep the lips neutral."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Relax the lips; do not round them.",
+        "heardAs" : "\/w\/"
+      },
+      {
+        "fix" : "Lift the tip slightly; do not touch the ridge.",
+        "heardAs" : "\/l\/"
+      },
+      {
+        "fix" : "Keep the tip still and bunched; do not tap.",
+        "heardAs" : "tapped or trilled \/r\/"
+      }
+    ],
+    "id" : "r",
+    "isVowel" : false,
+    "manner" : "approximant",
+    "name" : "voiced alveolar approximant",
+    "place" : "alveolar",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.55,
+      "body" : 0.78,
+      "contact" : "alveolar",
+      "jaw" : 0.08,
+      "lipRound" : 0,
+      "tip" : 0.82,
+      "voiced" : true
+    },
+    "steps" : [
+      "Raise the tongue tip toward the ridge, but do not touch it.",
+      "Bunch the tongue body and keep the lips neutral.",
+      "Turn voice on and hold the tongue still.",
+      "Do not tap or trill the tongue."
+    ],
+    "symbol" : "r",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Long snake hiss; feel the air on your palm.",
+      "Smile and keep the tongue behind the teeth."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Pull the tongue behind the teeth; do not show the tip.",
+        "heardAs" : "\/θ\/"
+      },
+      {
+        "fix" : "Spread the lips and move the tongue slightly forward.",
+        "heardAs" : "\/ʃ\/"
+      },
+      {
+        "fix" : "Leave a narrow gap; do not touch the ridge.",
+        "heardAs" : "\/t\/"
+      }
+    ],
+    "id" : "s",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiceless alveolar fricative",
+    "place" : "alveolar",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.4,
+      "body" : 0.55,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : -0.25,
+      "tip" : 0.9,
+      "voiced" : false
+    },
+    "steps" : [
+      "Put the tongue tip close behind the ridge, not touching.",
+      "Make a narrow groove down the middle; spread the lips.",
+      "Keep voice off and let the air hiss.",
+      "Seal the sides of the tongue against the upper molars."
+    ],
+    "symbol" : "s",
+    "voiced" : false
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Build pressure and release once, cleanly.",
+        "heardAs" : "a weak stop"
+      }
+    ],
+    "id" : "t",
+    "isVowel" : false,
+    "manner" : "stop",
+    "name" : "voiceless alveolar stop",
+    "place" : "alveolar",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.45,
+      "body" : 0.55,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.95,
+      "voiced" : false
+    },
+    "steps" : [
+      "Put the tongue tip at the ridge behind the top teeth.",
+      "Stop the air completely, then release.",
+      "Keep voice off.",
+      "Release with a puff of air."
+    ],
+    "symbol" : "t",
+    "voiced" : false
+  },
+  {
+    "anchors" : [
+      "Say “church” slowly."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Start with a \/t\/ stop before the hiss.",
+        "heardAs" : "\/ʃ\/"
+      },
+      {
+        "fix" : "Release into a hiss; do not stop after the release.",
+        "heardAs" : "\/t\/"
+      }
+    ],
+    "id" : "tʃ",
+    "isVowel" : false,
+    "manner" : "affricate",
+    "name" : "voiceless post-alveolar affricate",
+    "place" : "post-alveolar",
+    "shape" : {
+      "airflow" : "stop",
+      "back" : 0.5,
+      "body" : 0.6,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0.2,
+      "tip" : 0.9,
+      "voiced" : false
+    },
+    "steps" : [
+      "Start with the tongue at the ridge, as for \/t\/.",
+      "Release into a hiss just behind the ridge.",
+      "Keep voice off."
+    ],
+    "symbol" : "tʃ",
+    "voiced" : false
+  },
+  {
+    "anchorWord" : "food",
+    "anchors" : [
+      "Push the lips forward and hold “too”."
+    ],
+    "contrasts" : [
+      "ʊ",
+      "əʊ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Push the lips forward and lengthen.",
+        "heardAs" : "\/ʊ\/"
+      }
+    ],
+    "id" : "uː",
+    "isVowel" : true,
+    "lengthLabel" : "long",
+    "manner" : "vowel",
+    "name" : "close back rounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.9,
+      "body" : 1,
+      "contact" : "none",
+      "jaw" : 0.1,
+      "lipRound" : 1,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Push the lips forward; tongue high and back.",
+      "Hold it long and tense.",
+      "Keep the vowel steady and voiced."
+    ],
+    "symbol" : "uː",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Bite the bottom lip gently and hum."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Put the top teeth on the bottom lip.",
+        "heardAs" : "\/w\/"
+      },
+      {
+        "fix" : "Do not close both lips.",
+        "heardAs" : "\/b\/"
+      }
+    ],
+    "id" : "v",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiced labiodental fricative",
+    "place" : "labiodental",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.3,
+      "body" : 0.15,
+      "contact" : "teeth",
+      "jaw" : 0.05,
+      "lipRound" : 0.1,
+      "tip" : 0.2,
+      "voiced" : true
+    },
+    "steps" : [
+      "Put the top teeth lightly on the bottom lip.",
+      "Narrow the gap and let the air hiss.",
+      "Turn voice on.",
+      "Keep the teeth on the lip and add voice."
+    ],
+    "symbol" : "v",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Round the lips like a kiss, then open into the vowel."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Do not touch the bottom lip with the teeth.",
+        "heardAs" : "\/v\/"
+      }
+    ],
+    "id" : "w",
+    "isVowel" : false,
+    "manner" : "approximant",
+    "name" : "voiced labial-velar approximant",
+    "place" : "velar",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.8,
+      "body" : 0.55,
+      "contact" : "none",
+      "jaw" : 0.08,
+      "lipRound" : 0.95,
+      "tip" : 0.2,
+      "voiced" : true
+    },
+    "steps" : [
+      "Raise the back of the tongue to the soft palate.",
+      "Narrow the gap but do not touch.",
+      "Turn voice on.",
+      "Round the lips tightly, then relax into the vowel."
+    ],
+    "symbol" : "w",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Narrow the gap and keep the air moving.",
+        "heardAs" : "too little friction"
+      }
+    ],
+    "id" : "z",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiced alveolar fricative",
+    "place" : "alveolar",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.4,
+      "body" : 0.55,
+      "contact" : "alveolar",
+      "jaw" : 0.12,
+      "lipRound" : -0.2,
+      "tip" : 0.9,
+      "voiced" : true
+    },
+    "steps" : [
+      "Put the tongue tip at the ridge behind the top teeth.",
+      "Narrow the gap and let the air hiss.",
+      "Turn voice on.",
+      "Same tongue shape as \/s\/, but add voice."
+    ],
+    "symbol" : "z",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "cat",
+    "anchors" : [
+      "Open wide and say “cat”."
+    ],
+    "contrasts" : [
+      "ɛ",
+      "ɑː"
+    ],
+    "errors" : [
+      {
+        "fix" : "Open the jaw more.",
+        "heardAs" : "\/ɛ\/"
+      }
+    ],
+    "id" : "æ",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "near-open front unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 0.28,
+      "contact" : "none",
+      "jaw" : 0.48,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Open the jaw; tongue low and front.",
+      "Spread the lips and keep the sound short.",
+      "Keep the vowel steady and voiced."
+    ],
+    "symbol" : "æ",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Same as \/θ\/, but add voice; feel the buzz."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Keep the tip between the teeth and add voice.",
+        "heardAs" : "\/d\/"
+      },
+      {
+        "fix" : "Move the tongue forward, between the teeth.",
+        "heardAs" : "\/z\/"
+      }
+    ],
+    "id" : "ð",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiced dental fricative",
+    "place" : "dental",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.3,
+      "body" : 0.2,
+      "contact" : "betweenTeeth",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.95,
+      "voiced" : true
+    },
+    "steps" : [
+      "Put the tongue tip between the teeth.",
+      "Narrow the gap and let the air hiss.",
+      "Turn voice on.",
+      "Keep the tip between the teeth and add voice."
+    ],
+    "symbol" : "ð",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Say “sing” and hold the end."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Raise the back of the tongue, not the tip.",
+        "heardAs" : "\/n\/"
+      }
+    ],
+    "id" : "ŋ",
+    "isVowel" : false,
+    "manner" : "nasal",
+    "name" : "voiced velar nasal",
+    "place" : "velar",
+    "shape" : {
+      "airflow" : "nasal",
+      "back" : 0.95,
+      "body" : 0.25,
+      "contact" : "velar",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.2,
+      "voiced" : true
+    },
+    "steps" : [
+      "Raise the back of the tongue to the soft palate.",
+      "Let the air flow through the nose.",
+      "Turn voice on."
+    ],
+    "symbol" : "ŋ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "car",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "æ",
+      "ʌ",
+      "ɒ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "id" : "ɑː",
+    "isVowel" : true,
+    "lengthLabel" : "long",
+    "manner" : "vowel",
+    "name" : "open back unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 1,
+      "body" : 0.12,
+      "contact" : "none",
+      "jaw" : 0.55,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: low, back.",
+      "Lips: spread; jaw: open.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "ɑː",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "hot",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ɔː",
+      "ʌ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Shorten the vowel and open the jaw.",
+        "heardAs" : "\/ɔː\/"
+      }
+    ],
+    "id" : "ɒ",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "open back rounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.9,
+      "body" : 0.2,
+      "contact" : "none",
+      "jaw" : 0.45,
+      "lipRound" : 0.6,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: low, back.",
+      "Lips: slightly rounded; jaw: open.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "ɒ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "boy",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "aɪ",
+      "əʊ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 1,
+      "contact" : "none",
+      "jaw" : 0.08,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "ɔɪ",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "back-to-front closing diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.85,
+      "body" : 0.35,
+      "contact" : "none",
+      "jaw" : 0.4,
+      "lipRound" : 0.8,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start rounded at \/ɔ\/; glide to \/ɪ\/.",
+      "Finish with spread lips.",
+      "Move smoothly from the first position to the second."
+    ],
+    "symbol" : "ɔɪ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "saw",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ɒ",
+      "əʊ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Lengthen and round the lips more.",
+        "heardAs" : "\/ɒ\/"
+      }
+    ],
+    "id" : "ɔː",
+    "isVowel" : true,
+    "lengthLabel" : "long",
+    "manner" : "vowel",
+    "name" : "open-mid back rounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.85,
+      "body" : 0.35,
+      "contact" : "none",
+      "jaw" : 0.4,
+      "lipRound" : 0.8,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: low, back.",
+      "Lips: rounded; jaw: slightly open.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "ɔː",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "sofa",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ʌ",
+      "ɜː"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "id" : "ə",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "mid central schwa",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.5,
+      "body" : 0.5,
+      "contact" : "none",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Relax the tongue and jaw.",
+      "Keep it short and weak; no lip rounding.",
+      "Keep the vowel steady and voiced."
+    ],
+    "symbol" : "ə",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "go",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ɔː",
+      "aʊ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.75,
+      "body" : 0.8,
+      "contact" : "none",
+      "jaw" : 0.15,
+      "lipRound" : 0.6,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "əʊ",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "central-back closing diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.5,
+      "body" : 0.5,
+      "contact" : "none",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start at schwa; round the lips as you glide to \/ʊ\/.",
+      "Move smoothly from the first position to the second.",
+      "Keep the glide short and voiced."
+    ],
+    "symbol" : "əʊ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "bed",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "æ",
+      "ɪ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Close the jaw slightly.",
+        "heardAs" : "\/æ\/"
+      }
+    ],
+    "id" : "ɛ",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "open-mid front unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.15,
+      "body" : 0.6,
+      "contact" : "none",
+      "jaw" : 0.25,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: mid-high, front.",
+      "Lips: spread; jaw: slightly open.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "ɛ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "there",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "eə",
+      "e"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "id" : "ɛː",
+    "isVowel" : true,
+    "lengthLabel" : "long",
+    "manner" : "vowel",
+    "name" : "long open-mid front unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.15,
+      "body" : 0.6,
+      "contact" : "none",
+      "jaw" : 0.28,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue mid-front; lips spread.",
+      "Hold it long; do not glide into schwa.",
+      "Keep the vowel steady and voiced."
+    ],
+    "symbol" : "ɛː",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "bird",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ə",
+      "ɔː"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "id" : "ɜː",
+    "isVowel" : true,
+    "lengthLabel" : "long",
+    "manner" : "vowel",
+    "name" : "open-mid central unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.5,
+      "body" : 0.5,
+      "contact" : "none",
+      "jaw" : 0.28,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: mid, central.",
+      "Lips: spread; jaw: slightly open.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "ɜː",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "ship",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "iː",
+      "e"
+    ],
+    "errors" : [
+      {
+        "fix" : "Relax and shorten the vowel.",
+        "heardAs" : "\/iː\/"
+      }
+    ],
+    "id" : "ɪ",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "near-close front unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 0.82,
+      "contact" : "none",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue high and front, but relaxed.",
+      "Keep it short; do not smile as much as \/iː\/.",
+      "Keep the vowel steady and voiced."
+    ],
+    "symbol" : "ɪ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "near",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "eə",
+      "ɪ"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.5,
+      "body" : 0.5,
+      "contact" : "none",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "ɪə",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "centring diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.1,
+      "body" : 0.82,
+      "contact" : "none",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start at \/ɪ\/; relax into schwa.",
+      "Move smoothly from the first position to the second.",
+      "Keep the glide short and voiced."
+    ],
+    "symbol" : "ɪə",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Ask for quiet: “shhh”."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Move the tongue back and round the lips slightly.",
+        "heardAs" : "\/s\/"
+      }
+    ],
+    "id" : "ʃ",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiceless post-alveolar fricative",
+    "place" : "post-alveolar",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.55,
+      "body" : 0.65,
+      "contact" : "postAlveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0.35,
+      "tip" : 0.8,
+      "voiced" : false
+    },
+    "steps" : [
+      "Put the tongue just behind the ridge.",
+      "Narrow the gap and let the air hiss.",
+      "Keep voice off.",
+      "Round the lips slightly; tongue just behind the ridge."
+    ],
+    "symbol" : "ʃ",
+    "voiced" : false
+  },
+  {
+    "anchorWord" : "book",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "uː",
+      "ɔː"
+    ],
+    "errors" : [
+      {
+        "fix" : "Relax and shorten the vowel.",
+        "heardAs" : "\/uː\/"
+      }
+    ],
+    "id" : "ʊ",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "near-close back rounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.75,
+      "body" : 0.8,
+      "contact" : "none",
+      "jaw" : 0.15,
+      "lipRound" : 0.55,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: mid-high, back.",
+      "Lips: slightly rounded; jaw: nearly closed.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "ʊ",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "tour",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ɔː",
+      "uː"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "glide" : {
+      "airflow" : "none",
+      "back" : 0.5,
+      "body" : 0.5,
+      "contact" : "none",
+      "jaw" : 0.22,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "id" : "ʊə",
+    "isVowel" : true,
+    "lengthLabel" : "glide",
+    "manner" : "vowel",
+    "name" : "centring diphthong",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.75,
+      "body" : 0.8,
+      "contact" : "none",
+      "jaw" : 0.15,
+      "lipRound" : 0.55,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Start at \/ʊ\/; relax into schwa.",
+      "Move smoothly from the first position to the second.",
+      "Keep the glide short and voiced."
+    ],
+    "symbol" : "ʊə",
+    "voiced" : true
+  },
+  {
+    "anchorWord" : "cup",
+    "anchors" : [
+      "Hold the vowel, then copy the example word."
+    ],
+    "contrasts" : [
+      "ɑː",
+      "ɒ",
+      "ə"
+    ],
+    "errors" : [
+      {
+        "fix" : "Match the tongue height, backness and lip rounding, then hold the vowel.",
+        "heardAs" : "a nearby vowel"
+      }
+    ],
+    "id" : "ʌ",
+    "isVowel" : true,
+    "lengthLabel" : "short",
+    "manner" : "vowel",
+    "name" : "open-mid central unrounded vowel",
+    "place" : "vowel",
+    "shape" : {
+      "airflow" : "none",
+      "back" : 0.5,
+      "body" : 0.45,
+      "contact" : "none",
+      "jaw" : 0.32,
+      "lipRound" : 0,
+      "tip" : 0.16,
+      "voiced" : true
+    },
+    "steps" : [
+      "Tongue: mid, central.",
+      "Lips: spread; jaw: slightly open.",
+      "Voice on; keep the vowel steady."
+    ],
+    "symbol" : "ʌ",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Listen, copy the position, then add the word."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Narrow the gap and keep the air moving.",
+        "heardAs" : "too little friction"
+      }
+    ],
+    "id" : "ʒ",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiced post-alveolar fricative",
+    "place" : "post-alveolar",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.55,
+      "body" : 0.65,
+      "contact" : "postAlveolar",
+      "jaw" : 0.12,
+      "lipRound" : 0.35,
+      "tip" : 0.8,
+      "voiced" : true
+    },
+    "steps" : [
+      "Put the tongue just behind the ridge.",
+      "Narrow the gap and let the air hiss.",
+      "Turn voice on."
+    ],
+    "symbol" : "ʒ",
+    "voiced" : true
+  },
+  {
+    "anchors" : [
+      "Peek the tongue between the teeth and blow."
+    ],
+    "contrasts" : [
+
+    ],
+    "errors" : [
+      {
+        "fix" : "Put the tongue tip between the teeth.",
+        "heardAs" : "\/s\/"
+      },
+      {
+        "fix" : "Keep the air flowing; do not stop it.",
+        "heardAs" : "\/t\/"
+      }
+    ],
+    "id" : "θ",
+    "isVowel" : false,
+    "manner" : "fricative",
+    "name" : "voiceless dental fricative",
+    "place" : "dental",
+    "shape" : {
+      "airflow" : "center",
+      "back" : 0.3,
+      "body" : 0.2,
+      "contact" : "betweenTeeth",
+      "jaw" : 0.12,
+      "lipRound" : 0,
+      "tip" : 0.95,
+      "voiced" : false
+    },
+    "steps" : [
+      "Put the tongue tip between the teeth.",
+      "Narrow the gap and let the air hiss.",
+      "Keep voice off.",
+      "Let the air hiss over the tongue tip."
+    ],
+    "symbol" : "θ",
+    "voiced" : false
+  }
+]

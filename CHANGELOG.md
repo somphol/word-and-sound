@@ -2,6 +2,11 @@
 
 ## 1.4.2 — 2026-11-25
 
+- Add a full-parity React + TypeScript PWA in `web/`, deployed to GitHub
+  Pages. It shares `data/*.json`, adds SVG coach diagrams, search, minimal
+  pairs, review, import, recording and offline caching.
+- Export the 48 articulation guides to `data/articulation.json` so the web
+  client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.
 - Read version/build from `Info.plist`; `swift run` shows “dev build”.
 

@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 KAIAKI ?= /tmp/kaikki_en.jsonl.gz
 
-.PHONY: data build test selftest check app run snapshot clean
+.PHONY: data web-data web web-dev build test selftest check app run snapshot clean
 
 data:
 	python3 tools/extract_aia.py
@@ -21,6 +21,15 @@ test:
 selftest:
 	swift run wordandsound-selftest
 
+web-data:
+	./scripts/sync-web-data.sh
+
+web:
+	cd web && npm ci && npm test && npm run build
+
+web-dev:
+	cd web && npm run dev
+
 check: test selftest
 
 app:
@@ -34,4 +43,4 @@ snapshot:
 	swift run WordAndSound --snapshot docs/screenshot.png
 
 clean:
-	rm -rf .build build
+	rm -rf .build build web/dist web/node_modules

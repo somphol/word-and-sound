@@ -1,0 +1,639 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import type {
+  AppData, ImportedList, ListSource, SearchFilter, SoundTile, WordProgress,
+} from './lib/types'
+import { allTiles, categoryForTile, componentsFor, loadData, wordsForTile } from './lib/data'
+import { useSpeech } from './lib/speech'
+import {
+  dueCount, loadImported, loadPositions, loadProgress, loadSettings, nextDue, nextStep,
+  parseWordList, reviewWords, saveImported, savePositions, saveProgress, saveSettings,
+  type Settings,
+} from './lib/progress'
+import { buildWordIndex, searchResults } from './lib/search'
+import { ipaParts, rowIPA, targetDescription } from './lib/ipa'
+import { Header } from './components/Header'
+import { SoundPanel } from './components/SoundPanel'
+import { WordPanel } from './components/WordPanel'
+import { PlayerBar } from './components/PlayerBar'
+import { MixedPanel } from './components/MixedPanel'
+import { SearchPalette } from './components/SearchPalette'
+import { PracticeModal } from './components/PracticeModal'
+import { CoachModal } from './components/CoachModal'
+import { SettingsModal } from './components/SettingsModal'
+import { CreditsModal } from './components/CreditsModal'
+import { RecordDialog } from './components/RecordDialog'
+import type { MixedList } from './lib/types'
+
+type Modal = 'search' | 'practice' | 'coach' | 'settings' | 'credits' | 'record' | null
+
+const REVIEW_LIST: Omit<MixedList, 'source'> = {
+  id: 'review', title: 'Review', author: 'This Mac', license: 'Local', url: '',
+}
+
+export default function App() {
+  const [settings, setSettings] = useState<Settings>(() => loadSettings())
+  const [source, setSource] = useState<ListSource>(settings.listSource)
+  const [category, setCategory] = useState(settings.category)
+  const [tileId, setTileId] = useState(settings.tile)
+  const [mixedId, setMixedId] = useState(settings.mixed)
+  const [data, setData] = useState<AppData | null>(null)
+  const [loadError, setLoadError] = useState<string | null>(null)
+  const [progress, setProgress] = useState<Record<string, WordProgress>>(() => loadProgress())
+  const [positions, setPositions] = useState<Record<string, string>>(() => loadPositions())
+  const [imported, setImported] = useState<ImportedList[]>(() => loadImported())
+  const [index, setIndex] = useState(0)
+  const [searchText, setSearchText] = useState('')
+  const [autoplay, setAutoplay] = useState(false)
+  const [modal, setModal] = useState<Modal>(null)
+  const [coachTile, setCoachTile] = useState<SoundTile | null>(null)
+  const [pendingWord, setPendingWord] = useState<string | null>(null)
+  const [toast, setToast] = useState<string | null>(null)
+  const fileInput = useRef<HTMLInputElement>(null)
+  const speech = useSpeech()
+
+  const autoplayRef = useRef(false)
+  const repeatRef = useRef(settings.repeatCount)
+  const wordsRef = useRef<string[]>([])
+  const indexRef = useRef(0)
+  const listKeyRef = useRef('')
+  const settingsRef = useRef(settings)
+  const timerRef = useRef<number | null>(null)
+  const speakAtRef = useRef<(i: number) => void>(() => {})
+  const handleEndRef = useRef<() => void>(() => {})
+  const commandsRef = useRef({ play: () => {}, next: () => {}, previous: () => {}, replay: () => {} })
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        setModal('search')
+        return
+      }
+      const target = event.target as HTMLElement | null
+      if (target && (target.isContentEditable || ['INPUT', 'SELECT', 'TEXTAREA'].includes(target.tagName))) return
+      if (document.querySelector('.overlay')) return
+      if (event.key === ' ') {
+        event.preventDefault()
+        commandsRef.current.play()
+        return
+      }
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'r') {
+        event.preventDefault()
+        commandsRef.current.replay()
+        return
+      }
+      if (event.metaKey || event.ctrlKey) {
+        if (event.key === 'ArrowRight') {
+          event.preventDefault()
+          commandsRef.current.next()
+        } else if (event.key === 'ArrowLeft') {
+          event.preventDefault()
+          commandsRef.current.previous()
+        }
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  useEffect(() => {
+    loadData().then(setData).catch((error: unknown) => {
+      setLoadError(error instanceof Error ? error.message : 'Could not load the data bundle.')
+    })
+  }, [])
+
+  const tiles = useMemo(() => data ? allTiles(data.library) : [], [data])
+  const activeTile = tiles.find((tile) => tile.id === tileId) ?? tiles[0] ?? null
+  const review = useMemo(() => reviewWords(progress), [progress])
+
+  const mixedLists = useMemo<MixedList[]>(() => {
+    if (!data) return []
+    const lists: MixedList[] = [
+      ...data.library.mixed,
+      ...imported.map((list) => ({
+        id: list.id, title: list.title, source: 'Imported', author: 'You',
+        license: 'Your own content', url: '',
+      })),
+    ]
+    if (review.length) {
+      lists.unshift({
+        ...REVIEW_LIST,
+        source: `${review.length} words · ${dueCount(progress)} due · favorites and trouble`,
+      })
+    }
+    return lists
+  }, [data, imported, review, progress])
+
+  const activeMixed = mixedLists.find((list) => list.id === mixedId) ?? null
+  const words = useMemo(() => {
+    if (!data) return []
+    if (category === 'mixed') {
+      if (!activeMixed) return []
+      if (activeMixed.id === 'review') return review
+      return imported.find((list) => list.id === activeMixed.id)?.words
+        ?? data.library.lists[activeMixed.id] ?? []
+    }
+    return activeTile ? wordsForTile(data, activeTile, source) : []
+  }, [data, category, activeTile, source, activeMixed, imported, review])
+
+  const listKey = category === 'mixed' ? activeMixed?.id ?? '' : activeTile?.id ?? ''
+  const listTitle = category === 'mixed'
+    ? activeMixed?.title ?? 'Word list'
+    : activeTile ? `${data?.library.categories.find((group) => group.tiles.includes(activeTile))?.title ?? 'Sound'} · ${activeTile.label}` : 'Word list'
+  const currentWord = words[index] ?? null
+  const currentTargets = activeTile?.targets ?? []
+  const currentKind = activeTile?.kind ?? 'onset'
+  const parts = currentWord && data ? ipaParts(data.us, data.uk, currentWord, settings.ipaMode) : []
+  const practised = words.reduce((total, word) => total + ((progress[word.toLowerCase()]?.listens ?? 0) > 0 ? 1 : 0), 0)
+  const wordIndex = useMemo(() => data ? buildWordIndex(data, source, imported) : new Map(), [data, source, imported])
+
+  wordsRef.current = words
+  indexRef.current = index
+  listKeyRef.current = listKey
+  settingsRef.current = settings
+  autoplayRef.current = autoplay
+
+  const updateProgress = useCallback((word: string, mutate: (item: WordProgress) => WordProgress) => {
+    setProgress((previous) => {
+      const key = word.toLowerCase()
+      const base: WordProgress = previous[key] ?? {
+        word, listens: 0, correct: 0, wrong: 0, step: 0, due: null,
+        favorite: false, trouble: false, lastSeen: null,
+      }
+      const next = { ...previous, [key]: mutate(base) }
+      saveProgress(next)
+      return next
+    })
+  }, [])
+
+  const recordListen = useCallback((word: string) => {
+    updateProgress(word, (item) => ({
+      ...item, listens: item.listens + 1, lastSeen: Date.now(),
+    }))
+  }, [updateProgress])
+
+  const savePosition = useCallback((word: string) => {
+    const key = listKeyRef.current
+    if (!key) return
+    setPositions((previous) => {
+      const next = { ...previous, [key]: word }
+      savePositions(next)
+      return next
+    })
+  }, [])
+
+  const speakWord = useCallback((word: string, slow = false) => {
+    const current = settingsRef.current
+    recordListen(word)
+    savePosition(word)
+    speech.speak(word, {
+      lang: current.accent,
+      voiceURI: current.voiceURI,
+      rate: slow ? Math.min(current.rate, 0.6) : current.rate,
+      pitch: current.pitch,
+    }, () => handleEndRef.current())
+  }, [recordListen, savePosition, speech])
+
+  const speakAt = useCallback((targetIndex: number) => {
+    const word = wordsRef.current[targetIndex]
+    if (!word) return
+    setIndex(targetIndex)
+    indexRef.current = targetIndex
+    speakWord(word)
+  }, [speakWord])
+  speakAtRef.current = speakAt
+
+  const schedule = useCallback((targetIndex: number) => {
+    if (timerRef.current) window.clearTimeout(timerRef.current)
+    timerRef.current = window.setTimeout(() => {
+      if (autoplayRef.current) speakAtRef.current(targetIndex)
+    }, Math.max(1, settingsRef.current.delay) * 1000)
+  }, [])
+
+  handleEndRef.current = () => {
+    if (!autoplayRef.current || wordsRef.current.length === 0) return
+    if (repeatRef.current > 1) {
+      repeatRef.current -= 1
+      schedule(indexRef.current)
+    } else {
+      repeatRef.current = settingsRef.current.repeatCount
+      const next = (indexRef.current + 1) % wordsRef.current.length
+      setIndex(next)
+      indexRef.current = next
+      schedule(next)
+    }
+  }
+
+  const stopPlayback = useCallback(() => {
+    speech.stop()
+    setAutoplay(false)
+    autoplayRef.current = false
+    if (timerRef.current) window.clearTimeout(timerRef.current)
+    timerRef.current = null
+  }, [speech])
+
+  const toggleAutoplay = useCallback(() => {
+    if (autoplayRef.current) {
+      stopPlayback()
+    } else {
+      if (!wordsRef.current.length) return
+      autoplayRef.current = true
+      setAutoplay(true)
+      repeatRef.current = settingsRef.current.repeatCount
+      speakAtRef.current(indexRef.current)
+    }
+  }, [stopPlayback])
+
+  const selectCategory = (next: string) => {
+    stopPlayback()
+    setCategory(next)
+    if (next === 'mixed') {
+      setMixedId(mixedLists[0]?.id ?? '')
+      setTileId('')
+    } else {
+      const group = data?.library.categories.find((item) => item.id === next)
+      setTileId(group?.tiles[0]?.id ?? '')
+      setMixedId('')
+    }
+  }
+
+  const selectTile = (tile: SoundTile) => {
+    stopPlayback()
+    const group = data ? categoryForTile(data.library, tile.id) : undefined
+    if (group) setCategory(group.id)
+    setTileId(tile.id)
+    setMixedId('')
+  }
+
+  const selectMixed = (list: MixedList) => {
+    stopPlayback()
+    setCategory('mixed')
+    setMixedId(list.id)
+    setTileId('')
+  }
+
+  const selectWord = (next: number) => {
+    if (!words[next]) return
+    if (timerRef.current) window.clearTimeout(timerRef.current)
+    setIndex(next)
+    indexRef.current = next
+    repeatRef.current = settings.repeatCount
+    speakWord(words[next])
+  }
+
+  const nextWord = () => {
+    if (!words.length) return
+    const next = (index + 1) % words.length
+    setIndex(next)
+    indexRef.current = next
+    repeatRef.current = settings.repeatCount
+    speakWord(words[next])
+  }
+
+  const previousWord = () => {
+    if (!words.length) return
+    const next = (index - 1 + words.length) % words.length
+    setIndex(next)
+    indexRef.current = next
+    repeatRef.current = settings.repeatCount
+    speakWord(words[next])
+  }
+
+  commandsRef.current = {
+    play: () => speakAtRef.current(indexRef.current),
+    next: () => {
+      if (!wordsRef.current.length) return
+      const next = (indexRef.current + 1) % wordsRef.current.length
+      speakAtRef.current(next)
+    },
+    previous: () => {
+      if (!wordsRef.current.length) return
+      const next = (indexRef.current - 1 + wordsRef.current.length) % wordsRef.current.length
+      speakAtRef.current(next)
+    },
+    replay: () => {
+      const word = wordsRef.current[indexRef.current]
+      if (word) speakWord(word)
+    },
+  }
+
+  const toggleFavorite = (word: string) => {
+    updateProgress(word, (item) => ({ ...item, favorite: !item.favorite }))
+  }
+
+  const toggleTrouble = (word: string) => {
+    updateProgress(word, (item) => ({ ...item, trouble: !item.trouble }))
+  }
+
+  const recordQuiz = (word: string, correct: boolean) => {
+    updateProgress(word, (item) => correct
+      ? { ...item, correct: item.correct + 1, step: nextStep(item.step, true), due: nextDue(nextStep(item.step, true)), lastSeen: Date.now() }
+      : { ...item, wrong: item.wrong + 1, step: 0, due: Date.now(), lastSeen: Date.now() })
+  }
+
+  const reviewAnswer = (correct: boolean) => {
+    if (!currentWord) return
+    const word = currentWord
+    recordQuiz(word, correct)
+    if (category === 'mixed' && mixedId === 'review') {
+      const nextProgress = { ...progress }
+      const key = word.toLowerCase()
+      const item = nextProgress[key]
+      const updated = correct
+        ? { ...item, step: nextStep(item.step, true), due: nextDue(nextStep(item.step, true)) }
+        : { ...item, step: 0, due: Date.now() }
+      nextProgress[key] = updated
+      const nextReview = reviewWords(nextProgress)
+      if (!nextReview.length) {
+        stopPlayback()
+        setMixedId('')
+        return
+      }
+      const same = nextReview.findIndex((entry) => entry.toLowerCase() === word.toLowerCase())
+      const nextIndex = same >= 0 ? (same + 1) % nextReview.length : Math.min(index, nextReview.length - 1)
+      setIndex(nextIndex)
+      indexRef.current = nextIndex
+      speakWord(nextReview[nextIndex])
+    } else {
+      nextWord()
+    }
+  }
+
+  useEffect(() => {
+    if (!data) return
+    if (category === 'mixed') {
+      if (!mixedLists.some((list) => list.id === mixedId)) setMixedId(mixedLists[0]?.id ?? '')
+      return
+    }
+    const group = data.library.categories.find((item) => item.id === category) ?? data.library.categories[0]
+    if (group.id !== category) setCategory(group.id)
+    if (!group.tiles.some((tile) => tile.id === tileId)) setTileId(group.tiles[0].id)
+  }, [data, category, tileId, mixedId, mixedLists])
+
+  useEffect(() => {
+    if (!listKey) return
+    const saved = positions[listKey]
+    const found = saved ? words.findIndex((word) => word.toLowerCase() === saved.toLowerCase()) : -1
+    setIndex(found >= 0 ? found : 0)
+  }, [listKey, source, data]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (index >= words.length) setIndex(Math.max(0, words.length - 1))
+  }, [index, words.length])
+
+  useEffect(() => {
+    saveSettings({ ...settings, category, tile: tileId, mixed: mixedId, listSource: source })
+  }, [settings, category, tileId, mixedId, source])
+
+  useEffect(() => {
+    if (!pendingWord || !words.length) return
+    const found = words.findIndex((word) => word.toLowerCase() === pendingWord.toLowerCase())
+    if (found >= 0) {
+      setPendingWord(null)
+      setIndex(found)
+      indexRef.current = found
+      speakAtRef.current(found)
+    }
+  }, [pendingWord, words])
+
+  const openSearchWord = (hit: { word: string; tileID: string | null; listID: string }) => {
+    stopPlayback()
+    setPendingWord(hit.word)
+    if (hit.tileID) {
+      const tile = tiles.find((item) => item.id === hit.tileID)
+      if (tile) selectTile(tile)
+    } else {
+      const list = mixedLists.find((item) => item.id === hit.listID)
+      if (list) selectMixed(list)
+    }
+    setModal(null)
+  }
+
+  const importFile = async (file: File) => {
+    const text = await file.text()
+    const parsed = parseWordList(text)
+    if (!parsed.length) {
+      setToast('No usable words found in that file.')
+      return
+    }
+    const list: ImportedList = {
+      id: `imported-${Date.now()}`,
+      title: file.name.replace(/\.[^.]+$/, '') || 'Imported list',
+      words: parsed,
+      source: file.name,
+    }
+    const next = [...imported, list]
+    setImported(next)
+    saveImported(next)
+    setCategory('mixed')
+    setMixedId(list.id)
+    setToast(`Imported ${parsed.length} words from ${file.name}.`)
+  }
+
+  const resetProgress = () => {
+    setProgress({})
+    saveProgress({})
+    if (mixedId === 'review') setMixedId('')
+    setToast('Practice history reset.')
+  }
+
+  const resetSettings = () => {
+    const fresh: Settings = {
+      ...settings, listSource: 'built', accent: 'en-US', voiceURI: '', repeatCount: 1,
+      delay: 2, rate: 1, pitch: 1, ipaMode: 'both',
+    }
+    setSettings(fresh)
+    setSource('built')
+  }
+
+  const openCoach = (tile: SoundTile) => {
+    setCoachTile(tile)
+    setModal('coach')
+  }
+
+  const coachComponents = coachTile && data ? componentsFor(coachTile.label, data.articulation) : []
+  const coachSamples = coachTile && activeTile?.id === coachTile.id ? words.slice(0, 6) : []
+
+  if (loadError) {
+    return (
+      <main className="loading">
+        <h1>Word &amp; Sound</h1>
+        <p>{loadError}</p>
+        <p>Run the app from the `web/` directory or check `public/data/`.</p>
+      </main>
+    )
+  }
+  if (!data) {
+    return <main className="loading"><h1>Word &amp; Sound</h1><p>Loading the data bundle…</p></main>
+  }
+
+  return (
+    <div className="app">
+      <Header
+        category={category}
+        source={source}
+        onCategory={selectCategory}
+        onSource={(next) => { stopPlayback(); setSource(next) }}
+        onSearch={() => setModal('search')}
+        onPractice={() => setModal('practice')}
+        onImport={() => fileInput.current?.click()}
+        onSettings={() => setModal('settings')}
+        onCredits={() => setModal('credits')}
+        version={__APP_VERSION__}
+        reviewCount={review.length}
+      />
+      <div className="workspace">
+        {category === 'mixed' ? (
+          <MixedPanel
+            lists={mixedLists}
+            selectedId={mixedId}
+            wordCount={(list) => list.id === 'review'
+              ? review.length
+              : imported.find((item) => item.id === list.id)?.words.length ?? data.library.lists[list.id]?.length ?? 0}
+            onSelect={selectMixed}
+            onImport={() => fileInput.current?.click()}
+          />
+        ) : (
+          <SoundPanel
+            data={data}
+            category={category}
+            source={source}
+            activeTile={activeTile}
+            progress={progress}
+            onSelect={selectTile}
+            onCoach={openCoach}
+            onSourceChange={(next) => { stopPlayback(); setSource(next) }}
+          />
+        )}
+        <WordPanel
+          data={data}
+          title={listTitle}
+          words={words}
+          currentIndex={index}
+          searchText={searchText}
+          onSearchChange={setSearchText}
+          practised={practised}
+          progress={progress}
+          targets={currentTargets}
+          kind={currentKind}
+          ipaMode={settings.ipaMode}
+          onSelect={selectWord}
+          onFavorite={toggleFavorite}
+          onTrouble={toggleTrouble}
+        />
+      </div>
+      <PlayerBar
+        data={data}
+        word={currentWord}
+        parts={parts}
+        target={targetDescription(activeTile)}
+        progressText={words.length ? `${index + 1} / ${words.length}` : ''}
+        listTitle={listTitle}
+        targets={currentTargets}
+        kind={currentKind}
+        settings={settings}
+        voices={speech.voices}
+        autoplay={autoplay}
+        isSpeaking={speech.isSpeaking}
+        favorite={!!currentWord && !!progress[currentWord.toLowerCase()]?.favorite}
+        trouble={!!currentWord && !!progress[currentWord.toLowerCase()]?.trouble}
+        isReview={category === 'mixed' && mixedId === 'review'}
+        onSettings={(next) => setSettings({ ...settings, ...next })}
+        onPlay={() => { repeatRef.current = settings.repeatCount; speakAtRef.current(index) }}
+        onSlow={() => currentWord && speakWord(currentWord, true)}
+        onPrevious={previousWord}
+        onNext={nextWord}
+        onToggleAutoplay={toggleAutoplay}
+        onReplay={() => currentWord && speakWord(currentWord)}
+        onFavorite={() => currentWord && toggleFavorite(currentWord)}
+        onTrouble={() => currentWord && toggleTrouble(currentWord)}
+        onCoach={() => activeTile && openCoach(activeTile)}
+        onRecord={() => setModal('record')}
+        onGotIt={() => reviewAnswer(true)}
+        onAgain={() => reviewAnswer(false)}
+      />
+      <input
+        ref={fileInput}
+        type="file"
+        accept=".txt,.csv,text/plain,text/csv"
+        hidden
+        onChange={(event) => {
+          const file = event.target.files?.[0]
+          if (file) void importFile(file)
+          event.currentTarget.value = ''
+        }}
+      />
+      {toast && (
+        <button type="button" className="toast" onClick={() => setToast(null)}>
+          {toast}
+        </button>
+      )}
+      {modal === 'search' && (
+        <SearchPalette
+          data={data}
+          index={wordIndex}
+          progress={progress}
+          lists={mixedLists}
+          wordCount={(list) => list.id === 'review'
+            ? review.length
+            : imported.find((item) => item.id === list.id)?.words.length ?? data.library.lists[list.id]?.length ?? 0}
+          onClose={() => setModal(null)}
+          onTile={(tile) => { selectTile(tile); setModal(null) }}
+          onList={(list) => { selectMixed(list); setModal(null) }}
+          onWord={openSearchWord}
+        />
+      )}
+      {modal === 'practice' && (
+        <PracticeModal
+          pairs={data.pairs.pairs}
+          us={data.us}
+          uk={data.uk}
+          ipaMode={settings.ipaMode}
+          onClose={() => setModal(null)}
+          onPlay={speakWord}
+          onQuiz={recordQuiz}
+        />
+      )}
+      {modal === 'coach' && coachTile && (
+        <CoachModal
+          tile={coachTile}
+          components={coachComponents}
+          articulation={data.articulation}
+          samples={coachSamples}
+          us={data.us}
+          uk={data.uk}
+          ipaMode={settings.ipaMode}
+          targets={coachTile.targets}
+          kind={coachTile.kind}
+          onClose={() => setModal(null)}
+          onPlay={speakWord}
+          onRecord={() => setModal('record')}
+        />
+      )}
+      {modal === 'settings' && (
+        <SettingsModal
+          settings={settings}
+          voices={speech.voices}
+          onChange={(next) => setSettings(next)}
+          onSource={(next) => { stopPlayback(); setSource(next) }}
+          onResetProgress={resetProgress}
+          onResetSettings={resetSettings}
+          onClose={() => setModal(null)}
+          onCredits={() => setModal('credits')}
+        />
+      )}
+      {modal === 'credits' && (
+        <CreditsModal provenance={data.provenance} onClose={() => setModal(null)} />
+      )}
+      {modal === 'record' && currentWord && (
+        <RecordDialog
+          word={currentWord}
+          parts={parts}
+          onPlay={() => speakWord(currentWord)}
+          onSlow={() => speakWord(currentWord, true)}
+          onClose={() => setModal(null)}
+        />
+      )}
+    </div>
+  )
+}

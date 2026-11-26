@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ArticulationContact: String, Hashable {
+public enum ArticulationContact: String, Hashable, Codable {
     case none
     case lips
     case teeth
@@ -12,7 +12,7 @@ public enum ArticulationContact: String, Hashable {
     case glottal
 }
 
-public enum ArticulationAirflow: String, Hashable {
+public enum ArticulationAirflow: String, Hashable, Codable {
     case none
     case center
     case side
@@ -20,7 +20,7 @@ public enum ArticulationAirflow: String, Hashable {
     case stop
 }
 
-public struct MouthShape: Hashable {
+public struct MouthShape: Hashable, Codable {
     public var tip: Double
     public var body: Double
     public var back: Double
@@ -65,7 +65,7 @@ public struct MouthShape: Hashable {
     }
 }
 
-public struct ArticulationError: Hashable {
+public struct ArticulationError: Hashable, Codable {
     public let heardAs: String
     public let fix: String
 
@@ -75,7 +75,7 @@ public struct ArticulationError: Hashable {
     }
 }
 
-public struct Articulation: Identifiable, Hashable {
+public struct Articulation: Identifiable, Hashable, Codable {
     public let id: String
     public let symbol: String
     public let name: String
