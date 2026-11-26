@@ -1,0 +1,389 @@
+{
+  "app": {
+    "name": "Word & Sound",
+    "tagline": "English pronunciation drills with IPA and speech",
+    "dataLicense": "CC BY-SA 4.0",
+    "codeLicense": "MIT"
+  },
+  "categories": [
+    {
+      "id": "starting",
+      "title": "Starting Sound",
+      "tiles": [
+        {
+          "id": "startingD",
+          "label": "d",
+          "exampleWord": "do",
+          "listKey": "startingDWordList"
+        },
+        {
+          "id": "startingL",
+          "label": "l",
+          "exampleWord": "love",
+          "listKey": "startingLWordList"
+        },
+        {
+          "id": "startingR",
+          "label": "r",
+          "exampleWord": "right",
+          "listKey": "startingRWordList"
+        },
+        {
+          "id": "startingS",
+          "label": "s",
+          "exampleWord": "sight",
+          "listKey": "startingSWordList"
+        },
+        {
+          "id": "startingCH",
+          "label": "tʃ",
+          "exampleWord": "check",
+          "listKey": "startingCHWordList"
+        },
+        {
+          "id": "startingSH",
+          "label": "ʃ",
+          "exampleWord": "shy",
+          "listKey": "startingSHWordList"
+        },
+        {
+          "id": "startingW",
+          "label": "w",
+          "exampleWord": "win",
+          "listKey": "startingWWordList"
+        },
+        {
+          "id": "startingF",
+          "label": "f",
+          "exampleWord": "fame",
+          "listKey": "startingFWordList"
+        },
+        {
+          "id": "startingV",
+          "label": "v",
+          "exampleWord": "van",
+          "listKey": "startingVWordList"
+        },
+        {
+          "id": "startingB",
+          "label": "b",
+          "exampleWord": "bell",
+          "listKey": "startingBWordList"
+        },
+        {
+          "id": "startingP",
+          "label": "p",
+          "exampleWord": "pen",
+          "listKey": "startingPWordList"
+        },
+        {
+          "id": "startingTHUMB",
+          "label": "θ",
+          "exampleWord": "think",
+          "listKey": "startingTHUMBWordList"
+        },
+        {
+          "id": "startingTHAT",
+          "label": "ð",
+          "exampleWord": "that",
+          "listKey": "startingTHATWordList"
+        },
+        {
+          "id": "startingJ",
+          "label": "dʒ",
+          "exampleWord": "jack",
+          "listKey": "startingJWordList"
+        },
+        {
+          "id": "startingH",
+          "label": "h",
+          "exampleWord": "head",
+          "listKey": "startingHWordList"
+        },
+        {
+          "id": "startingK",
+          "label": "k",
+          "exampleWord": "cook",
+          "listKey": "startingKWordList"
+        },
+        {
+          "id": "startingY",
+          "label": "j",
+          "exampleWord": "yet",
+          "listKey": "startingYWordList"
+        },
+        {
+          "id": "startingG",
+          "label": "g",
+          "exampleWord": "game",
+          "listKey": "startingGWordList"
+        },
+        {
+          "id": "startingFEW",
+          "label": "fj",
+          "exampleWord": "few",
+          "listKey": "startingFEWWordList"
+        },
+        {
+          "id": "startingNIOR",
+          "label": "nj",
+          "exampleWord": "new",
+          "listKey": "startingNIORWordList"
+        },
+        {
+          "id": "startingTHROUGH",
+          "label": "θr",
+          "exampleWord": "through",
+          "listKey": "startingTHROUGHWordList"
+        },
+        {
+          "id": "startingTR",
+          "label": "tr",
+          "exampleWord": "true",
+          "listKey": "startingTRWordList"
+        },
+        {
+          "id": "startingBL",
+          "label": "bl",
+          "exampleWord": "blue",
+          "listKey": "startingBLWordList"
+        },
+        {
+          "id": "startingSTR",
+          "label": "str",
+          "exampleWord": "straw",
+          "listKey": "startingSTRWordList"
+        }
+      ]
+    },
+    {
+      "id": "vowel",
+      "title": "Vowel",
+      "tiles": [
+        {
+          "id": "vowelNut",
+          "label": "ʌ",
+          "exampleWord": "nut",
+          "listKey": "nutWordList"
+        },
+        {
+          "id": "vowelMar",
+          "label": "ɑː",
+          "exampleWord": "mar",
+          "listKey": "marWordList"
+        },
+        {
+          "id": "vowelKit",
+          "label": "ɪ",
+          "exampleWord": "kit",
+          "listKey": "kitWordList"
+        },
+        {
+          "id": "vowelBee",
+          "label": "iː",
+          "exampleWord": "peak",
+          "listKey": "beeWordList"
+        },
+        {
+          "id": "vowelPut",
+          "label": "ʊ",
+          "exampleWord": "put",
+          "listKey": "putWordList"
+        },
+        {
+          "id": "vowelPool",
+          "label": "uː",
+          "exampleWord": "pool",
+          "listKey": "boolWordList"
+        },
+        {
+          "id": "vowelAhead",
+          "label": "ə",
+          "exampleWord": "ahead",
+          "listKey": "aheadWordList"
+        },
+        {
+          "id": "vowelEarn",
+          "label": "əː",
+          "exampleWord": "earn",
+          "listKey": "earnWordList"
+        },
+        {
+          "id": "vowelBet",
+          "label": "ɛ",
+          "exampleWord": "bet",
+          "listKey": "betWordList"
+        },
+        {
+          "id": "vowelDay",
+          "label": "eɪ",
+          "exampleWord": "day",
+          "listKey": "dayWordList"
+        },
+        {
+          "id": "vowelRock",
+          "label": "ɒ",
+          "exampleWord": "rock",
+          "listKey": "rockWordList"
+        },
+        {
+          "id": "vowelAwe",
+          "label": "ɔː",
+          "exampleWord": "awe",
+          "listKey": "aweWordList"
+        },
+        {
+          "id": "vowelCat",
+          "label": "æ/a",
+          "exampleWord": "cat",
+          "listKey": "catWordList"
+        },
+        {
+          "id": "vowelWear",
+          "label": "ɛː",
+          "exampleWord": "wear",
+          "listKey": "wearWordList"
+        },
+        {
+          "id": "vowelGo",
+          "label": "oʊ/əʊ",
+          "exampleWord": "go",
+          "listKey": "goWordList"
+        },
+        {
+          "id": "vowelNear",
+          "label": "ɪə",
+          "exampleWord": "near",
+          "listKey": "nearWordList"
+        },
+        {
+          "id": "vowelTime",
+          "label": "ʌɪ",
+          "exampleWord": "time",
+          "listKey": "timeWordList"
+        },
+        {
+          "id": "vowelOwl",
+          "label": "aʊ",
+          "exampleWord": "owl",
+          "listKey": "owlWordList"
+        },
+        {
+          "id": "vowelBoy",
+          "label": "ɔɪ",
+          "exampleWord": "boy",
+          "listKey": "boyWordList"
+        },
+        {
+          "id": "vowelTour",
+          "label": "ʊə",
+          "exampleWord": "tour",
+          "listKey": "tourWordList"
+        }
+      ]
+    },
+    {
+      "id": "ending",
+      "title": "Ending Sound",
+      "tiles": [
+        {
+          "id": "endingD",
+          "label": "d",
+          "exampleWord": "kid",
+          "listKey": "endingDWordList"
+        },
+        {
+          "id": "endingF",
+          "label": "f",
+          "exampleWord": "puff",
+          "listKey": "endingFWordList"
+        },
+        {
+          "id": "endingL",
+          "label": "l",
+          "exampleWord": "hill",
+          "listKey": "endingLWordList"
+        },
+        {
+          "id": "endingN",
+          "label": "n",
+          "exampleWord": "bin",
+          "listKey": "endingNWordList"
+        },
+        {
+          "id": "endingNG",
+          "label": "ŋ",
+          "exampleWord": "sing",
+          "listKey": "endingNGWordList"
+        },
+        {
+          "id": "endingS",
+          "label": "s",
+          "exampleWord": "gas",
+          "listKey": "endingSWordList"
+        },
+        {
+          "id": "endingK",
+          "label": "k",
+          "exampleWord": "kick",
+          "listKey": "endingKWordList"
+        },
+        {
+          "id": "endingT",
+          "label": "t",
+          "exampleWord": "kit",
+          "listKey": "endingTWordList"
+        },
+        {
+          "id": "endingTH",
+          "label": "θ",
+          "exampleWord": "earth",
+          "listKey": "endingTHWordList"
+        },
+        {
+          "id": "endingJ",
+          "label": "dʒ",
+          "exampleWord": "cage",
+          "listKey": "endingJWordList"
+        },
+        {
+          "id": "endingV",
+          "label": "v",
+          "exampleWord": "give",
+          "listKey": "endingVWordList"
+        },
+        {
+          "id": "endingSH",
+          "label": "ʃ",
+          "exampleWord": "dish",
+          "listKey": "endingSHWordList"
+        },
+        {
+          "id": "endingCH",
+          "label": "tʃ",
+          "exampleWord": "each",
+          "listKey": "endingCHWordList"
+        },
+        {
+          "id": "endingKT",
+          "label": "kt",
+          "exampleWord": "act",
+          "listKey": "endingKTWordList"
+        },
+        {
+          "id": "endingST",
+          "label": "st",
+          "exampleWord": "best",
+          "listKey": "endingSTWordList"
+        },
+        {
+          "id": "endingLM",
+          "label": "lm",
+          "exampleWord": "film",
+          "listKey": "endingLMWordList"
+        }
+      ]
+    }
+  ],
+  "mixed": []
+}

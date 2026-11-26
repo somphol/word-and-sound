@@ -1,0 +1,61 @@
+import SwiftUI
+
+struct HeaderView: View {
+    @ObservedObject var model: AppModel
+    @Binding var showCredits: Bool
+    @Binding var showImporter: Bool
+
+    private var categoryBinding: Binding<String> {
+        Binding(
+            get: { model.selectedCategoryID },
+            set: { model.selectCategory($0) }
+        )
+    }
+
+    var body: some View {
+        HStack(spacing: 16) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(model.appInfo?.name ?? "Word & Sound")
+                    .font(.system(size: 22, weight: .bold, design: .rounded))
+                Text(model.appInfo?.tagline ?? "English pronunciation drills")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            Spacer(minLength: 12)
+
+            Picker("Category", selection: categoryBinding) {
+                Text("Starting").tag("starting")
+                Text("Vowel").tag("vowel")
+                Text("Ending").tag("ending")
+                Text("Mixed").tag("mixed")
+            }
+            .pickerStyle(.segmented)
+            .labelsHidden()
+            .frame(maxWidth: 430)
+
+            Spacer(minLength: 12)
+
+            Button {
+                showImporter = true
+            } label: {
+                Label("Import", systemImage: "square.and.arrow.down")
+            }
+            .help("Import a text or CSV word list")
+
+            Button {
+                showCredits = true
+            } label: {
+                Label("Credits", systemImage: "text.book.closed")
+            }
+            .help("Data sources and licenses")
+
+            SettingsLink {
+                Label("Settings", systemImage: "gearshape")
+            }
+            .help("Speech and playback settings")
+        }
+        .padding(.horizontal, 18)
+        .padding(.vertical, 12)
+    }
+}

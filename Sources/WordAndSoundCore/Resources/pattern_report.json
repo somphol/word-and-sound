@@ -1,0 +1,1200 @@
+{
+  "startingD": {
+    "label": "d",
+    "group": "onset",
+    "pattern": "d",
+    "count": 120,
+    "samples": [
+      "don",
+      "did",
+      "down",
+      "doing",
+      "day",
+      "done",
+      "dad",
+      "dead",
+      "door",
+      "days",
+      "die",
+      "doctor"
+    ]
+  },
+  "startingL": {
+    "label": "l",
+    "group": "onset",
+    "pattern": "l",
+    "count": 120,
+    "samples": [
+      "let",
+      "look",
+      "little",
+      "love",
+      "last",
+      "long",
+      "leave",
+      "lot",
+      "left",
+      "listen",
+      "looking",
+      "live"
+    ]
+  },
+  "startingR": {
+    "label": "r",
+    "group": "onset",
+    "pattern": "r",
+    "count": 120,
+    "samples": [
+      "right",
+      "really",
+      "wrong",
+      "remember",
+      "real",
+      "room",
+      "ready",
+      "run",
+      "rest",
+      "reason",
+      "running",
+      "red"
+    ]
+  },
+  "startingS": {
+    "label": "s",
+    "group": "onset",
+    "pattern": "s",
+    "count": 120,
+    "samples": [
+      "so",
+      "see",
+      "some",
+      "say",
+      "said",
+      "sorry",
+      "sir",
+      "stop",
+      "someone",
+      "same",
+      "son",
+      "saw"
+    ]
+  },
+  "startingCH": {
+    "label": "tʃ",
+    "group": "onset",
+    "pattern": "tʃ",
+    "count": 120,
+    "samples": [
+      "change",
+      "check",
+      "chance",
+      "child",
+      "changed",
+      "chief",
+      "charge",
+      "church",
+      "cheers",
+      "choose",
+      "chicken",
+      "cheering"
+    ]
+  },
+  "startingSH": {
+    "label": "ʃ",
+    "group": "onset",
+    "pattern": "ʃ",
+    "count": 120,
+    "samples": [
+      "she",
+      "sure",
+      "show",
+      "shot",
+      "shoot",
+      "ship",
+      "short",
+      "share",
+      "shop",
+      "shoes",
+      "shh",
+      "showed"
+    ]
+  },
+  "startingW": {
+    "label": "w",
+    "group": "onset",
+    "pattern": "w",
+    "count": 120,
+    "samples": [
+      "we",
+      "was",
+      "with",
+      "one",
+      "well",
+      "will",
+      "want",
+      "were",
+      "way",
+      "work",
+      "wait",
+      "won"
+    ]
+  },
+  "startingF": {
+    "label": "f",
+    "group": "onset",
+    "pattern": "f",
+    "count": 120,
+    "samples": [
+      "for",
+      "from",
+      "first",
+      "find",
+      "feel",
+      "father",
+      "fine",
+      "found",
+      "friend",
+      "family",
+      "phone",
+      "friends"
+    ]
+  },
+  "startingV": {
+    "label": "v",
+    "group": "onset",
+    "pattern": "v",
+    "count": 120,
+    "samples": [
+      "very",
+      "voice",
+      "visit",
+      "village",
+      "video",
+      "van",
+      "vote",
+      "victory",
+      "vacation",
+      "violence",
+      "value",
+      "vehicle"
+    ]
+  },
+  "startingB": {
+    "label": "b",
+    "group": "onset",
+    "pattern": "b",
+    "count": 120,
+    "samples": [
+      "back",
+      "by",
+      "because",
+      "before",
+      "better",
+      "big",
+      "believe",
+      "being",
+      "bad",
+      "best",
+      "boy",
+      "baby"
+    ]
+  },
+  "startingP": {
+    "label": "p",
+    "group": "onset",
+    "pattern": "p",
+    "count": 120,
+    "samples": [
+      "people",
+      "please",
+      "put",
+      "place",
+      "pretty",
+      "problem",
+      "police",
+      "probably",
+      "person",
+      "part",
+      "pay",
+      "party"
+    ]
+  },
+  "startingTHUMB": {
+    "label": "θ",
+    "group": "onset",
+    "pattern": "θ",
+    "count": 88,
+    "samples": [
+      "think",
+      "thank",
+      "thing",
+      "thought",
+      "things",
+      "thanks",
+      "thinking",
+      "thinks",
+      "third",
+      "thousand",
+      "thousands",
+      "thoughts"
+    ]
+  },
+  "startingTHAT": {
+    "label": "ð",
+    "group": "onset",
+    "pattern": "ð",
+    "count": 32,
+    "samples": [
+      "the",
+      "that",
+      "there",
+      "they",
+      "then",
+      "these",
+      "their",
+      "those",
+      "though",
+      "themselves",
+      "thou",
+      "therefore"
+    ]
+  },
+  "startingJ": {
+    "label": "dʒ",
+    "group": "onset",
+    "pattern": "dʒ",
+    "count": 120,
+    "samples": [
+      "just",
+      "job",
+      "john",
+      "jack",
+      "jesus",
+      "general",
+      "george",
+      "joe",
+      "join",
+      "judge",
+      "joke",
+      "jail"
+    ]
+  },
+  "startingH": {
+    "label": "h",
+    "group": "onset",
+    "pattern": "h",
+    "count": 120,
+    "samples": [
+      "he",
+      "have",
+      "here",
+      "her",
+      "how",
+      "who",
+      "hey",
+      "help",
+      "home",
+      "hello",
+      "house",
+      "happened"
+    ]
+  },
+  "startingK": {
+    "label": "k",
+    "group": "onset",
+    "pattern": "k",
+    "count": 120,
+    "samples": [
+      "can",
+      "come",
+      "call",
+      "keep",
+      "kind",
+      "course",
+      "came",
+      "kill",
+      "care",
+      "car",
+      "called",
+      "killed"
+    ]
+  },
+  "startingY": {
+    "label": "j",
+    "group": "onset",
+    "pattern": "j",
+    "count": 120,
+    "samples": [
+      "you",
+      "your",
+      "yes",
+      "years",
+      "yourself",
+      "used",
+      "yet",
+      "use",
+      "year",
+      "yours",
+      "yesterday",
+      "ya"
+    ]
+  },
+  "startingG": {
+    "label": "g",
+    "group": "onset",
+    "pattern": "g",
+    "count": 120,
+    "samples": [
+      "get",
+      "go",
+      "got",
+      "good",
+      "going",
+      "gonna",
+      "give",
+      "god",
+      "great",
+      "guys",
+      "guy",
+      "girl"
+    ]
+  },
+  "startingFEW": {
+    "label": "fj",
+    "group": "blend",
+    "pattern": "fj",
+    "count": 23,
+    "samples": [
+      "few",
+      "future",
+      "funeral",
+      "furious",
+      "fury",
+      "fuse",
+      "fugitive",
+      "fusion",
+      "futile",
+      "fumes",
+      "feud",
+      "fused"
+    ]
+  },
+  "startingNIOR": {
+    "label": "nj",
+    "group": "blend",
+    "pattern": "nj",
+    "count": 57,
+    "samples": [
+      "new",
+      "knew",
+      "news",
+      "newspaper",
+      "nuclear",
+      "newspapers",
+      "nude",
+      "newton",
+      "nuisance",
+      "neutral",
+      "numerous",
+      "newly"
+    ]
+  },
+  "startingTHROUGH": {
+    "label": "θr",
+    "group": "blend",
+    "pattern": "θr",
+    "count": 38,
+    "samples": [
+      "through",
+      "three",
+      "throw",
+      "throat",
+      "threw",
+      "threat",
+      "throwing",
+      "thrown",
+      "threatened",
+      "throne",
+      "threaten",
+      "threats"
+    ]
+  },
+  "startingTR": {
+    "label": "tr",
+    "group": "blend",
+    "pattern": "tr",
+    "count": 120,
+    "samples": [
+      "try",
+      "trying",
+      "true",
+      "truth",
+      "tried",
+      "train",
+      "trip",
+      "truck",
+      "track",
+      "treat",
+      "trial",
+      "training"
+    ]
+  },
+  "startingBL": {
+    "label": "bl",
+    "group": "blend",
+    "pattern": "bl",
+    "count": 120,
+    "samples": [
+      "black",
+      "blue",
+      "blow",
+      "bloody",
+      "blame",
+      "blind",
+      "block",
+      "bleep",
+      "bless",
+      "bleeding",
+      "blake",
+      "blew"
+    ]
+  },
+  "startingSTR": {
+    "label": "str",
+    "group": "blend",
+    "pattern": "str",
+    "count": 107,
+    "samples": [
+      "street",
+      "straight",
+      "strange",
+      "strength",
+      "strike",
+      "streets",
+      "stronger",
+      "stranger",
+      "strangers",
+      "strip",
+      "stretch",
+      "strategy"
+    ]
+  },
+  "endingD": {
+    "label": "d",
+    "group": "coda",
+    "pattern": "d",
+    "count": 120,
+    "samples": [
+      "and",
+      "did",
+      "good",
+      "need",
+      "said",
+      "find",
+      "god",
+      "told",
+      "made",
+      "old",
+      "wanted",
+      "kind"
+    ]
+  },
+  "endingF": {
+    "label": "f",
+    "group": "coda",
+    "pattern": "f",
+    "count": 120,
+    "samples": [
+      "off",
+      "enough",
+      "yourself",
+      "wife",
+      "stuff",
+      "half",
+      "safe",
+      "chief",
+      "tough",
+      "laugh",
+      "herself",
+      "itself"
+    ]
+  },
+  "endingL": {
+    "label": "l",
+    "group": "coda",
+    "pattern": "l",
+    "count": 120,
+    "samples": [
+      "all",
+      "well",
+      "will",
+      "people",
+      "little",
+      "call",
+      "feel",
+      "girl",
+      "kill",
+      "hell",
+      "real",
+      "whole"
+    ]
+  },
+  "endingN": {
+    "label": "n",
+    "group": "coda",
+    "pattern": "n",
+    "count": 120,
+    "samples": [
+      "on",
+      "don",
+      "can",
+      "one",
+      "an",
+      "then",
+      "man",
+      "down",
+      "mean",
+      "even",
+      "again",
+      "won"
+    ]
+  },
+  "endingNG": {
+    "label": "ŋ",
+    "group": "coda",
+    "pattern": "ŋ",
+    "count": 120,
+    "samples": [
+      "doing",
+      "thing",
+      "anything",
+      "nothing",
+      "long",
+      "being",
+      "wrong",
+      "talking",
+      "getting",
+      "looking",
+      "morning",
+      "trying"
+    ]
+  },
+  "endingS": {
+    "label": "s",
+    "group": "coda",
+    "pattern": "s",
+    "count": 120,
+    "samples": [
+      "yes",
+      "us",
+      "place",
+      "nice",
+      "thanks",
+      "house",
+      "course",
+      "else",
+      "miss",
+      "use",
+      "since",
+      "guess"
+    ]
+  },
+  "endingK": {
+    "label": "k",
+    "group": "coda",
+    "pattern": "k",
+    "count": 120,
+    "samples": [
+      "think",
+      "back",
+      "look",
+      "thank",
+      "work",
+      "talk",
+      "ask",
+      "took",
+      "music",
+      "check",
+      "week",
+      "speak"
+    ]
+  },
+  "endingT": {
+    "label": "t",
+    "group": "coda",
+    "pattern": "t",
+    "count": 120,
+    "samples": [
+      "it",
+      "that",
+      "what",
+      "not",
+      "just",
+      "get",
+      "right",
+      "out",
+      "about",
+      "got",
+      "want",
+      "let"
+    ]
+  },
+  "endingTH": {
+    "label": "θ",
+    "group": "coda",
+    "pattern": "θ",
+    "count": 97,
+    "samples": [
+      "both",
+      "death",
+      "truth",
+      "earth",
+      "worth",
+      "south",
+      "north",
+      "faith",
+      "health",
+      "breath",
+      "strength",
+      "teeth"
+    ]
+  },
+  "endingJ": {
+    "label": "dʒ",
+    "group": "coda",
+    "pattern": "dʒ",
+    "count": 120,
+    "samples": [
+      "change",
+      "strange",
+      "age",
+      "george",
+      "message",
+      "marriage",
+      "charge",
+      "judge",
+      "college",
+      "huge",
+      "village",
+      "stage"
+    ]
+  },
+  "endingV": {
+    "label": "v",
+    "group": "coda",
+    "pattern": "v",
+    "count": 120,
+    "samples": [
+      "of",
+      "have",
+      "love",
+      "give",
+      "leave",
+      "believe",
+      "move",
+      "live",
+      "five",
+      "save",
+      "alive",
+      "drive"
+    ]
+  },
+  "endingSH": {
+    "label": "ʃ",
+    "group": "coda",
+    "pattern": "ʃ",
+    "count": 120,
+    "samples": [
+      "wish",
+      "finish",
+      "fish",
+      "english",
+      "cash",
+      "push",
+      "fresh",
+      "wash",
+      "british",
+      "spanish",
+      "gosh",
+      "crash"
+    ]
+  },
+  "endingCH": {
+    "label": "tʃ",
+    "group": "coda",
+    "pattern": "tʃ",
+    "count": 120,
+    "samples": [
+      "much",
+      "such",
+      "watch",
+      "touch",
+      "catch",
+      "lunch",
+      "rich",
+      "church",
+      "french",
+      "teach",
+      "reach",
+      "search"
+    ]
+  },
+  "endingKT": {
+    "label": "kt",
+    "group": "codaBlend",
+    "pattern": "kt",
+    "count": 120,
+    "samples": [
+      "asked",
+      "fact",
+      "perfect",
+      "worked",
+      "looked",
+      "act",
+      "talked",
+      "protect",
+      "respect",
+      "liked",
+      "contact",
+      "picked"
+    ]
+  },
+  "endingST": {
+    "label": "st",
+    "group": "codaBlend",
+    "pattern": "st",
+    "count": 120,
+    "samples": [
+      "just",
+      "first",
+      "best",
+      "lost",
+      "against",
+      "least",
+      "rest",
+      "past",
+      "fast",
+      "test",
+      "list",
+      "missed"
+    ]
+  },
+  "endingLM": {
+    "label": "lm",
+    "group": "codaBlend",
+    "pattern": "lm",
+    "count": 10,
+    "samples": [
+      "film",
+      "realm",
+      "stockholm",
+      "helm",
+      "wilhelm",
+      "elm",
+      "overwhelm",
+      "microfilm",
+      "palme",
+      "colm"
+    ]
+  },
+  "vowelNut": {
+    "label": "ʌ",
+    "group": "vowel",
+    "pattern": "ʌ",
+    "count": 120,
+    "samples": [
+      "just",
+      "one",
+      "come",
+      "some",
+      "love",
+      "much",
+      "nothing",
+      "other",
+      "won",
+      "money",
+      "done",
+      "someone"
+    ]
+  },
+  "vowelMar": {
+    "label": "ɑː",
+    "group": "vowel",
+    "pattern": "ɑː",
+    "count": 120,
+    "samples": [
+      "after",
+      "last",
+      "father",
+      "ask",
+      "car",
+      "start",
+      "hard",
+      "heart",
+      "part",
+      "far",
+      "asked",
+      "chance"
+    ]
+  },
+  "vowelKit": {
+    "label": "ɪ",
+    "group": "vowel",
+    "pattern": "ɪ",
+    "count": 120,
+    "samples": [
+      "it",
+      "with",
+      "will",
+      "think",
+      "did",
+      "going",
+      "because",
+      "little",
+      "give",
+      "doing",
+      "thing",
+      "into"
+    ]
+  },
+  "vowelBee": {
+    "label": "iː",
+    "group": "vowel",
+    "pattern": "iː",
+    "count": 120,
+    "samples": [
+      "we",
+      "he",
+      "she",
+      "see",
+      "need",
+      "people",
+      "please",
+      "mean",
+      "even",
+      "these",
+      "keep",
+      "leave"
+    ]
+  },
+  "vowelPut": {
+    "label": "ʊ",
+    "group": "vowel",
+    "pattern": "ʊ",
+    "count": 120,
+    "samples": [
+      "good",
+      "put",
+      "today",
+      "looking",
+      "woman",
+      "together",
+      "room",
+      "took",
+      "looks",
+      "full",
+      "book",
+      "pull"
+    ]
+  },
+  "vowelPool": {
+    "label": "uː",
+    "group": "vowel",
+    "pattern": "uː",
+    "count": 120,
+    "samples": [
+      "who",
+      "too",
+      "doing",
+      "into",
+      "new",
+      "through",
+      "move",
+      "used",
+      "knew",
+      "use",
+      "school",
+      "few"
+    ]
+  },
+  "vowelAhead": {
+    "label": "ə",
+    "group": "vowel",
+    "pattern": "ə",
+    "count": 120,
+    "samples": [
+      "the",
+      "that",
+      "was",
+      "are",
+      "there",
+      "about",
+      "as",
+      "us",
+      "where",
+      "were",
+      "or",
+      "gonna"
+    ]
+  },
+  "vowelEarn": {
+    "label": "əː",
+    "group": "vowel",
+    "pattern": "əː",
+    "count": 120,
+    "samples": [
+      "her",
+      "first",
+      "sir",
+      "work",
+      "girl",
+      "world",
+      "heard",
+      "turn",
+      "working",
+      "person",
+      "word",
+      "hurt"
+    ]
+  },
+  "vowelBet": {
+    "label": "ɛ",
+    "group": "vowel",
+    "pattern": "ɛ",
+    "count": 120,
+    "samples": [
+      "get",
+      "well",
+      "let",
+      "yes",
+      "where",
+      "then",
+      "very",
+      "never",
+      "said",
+      "any",
+      "help",
+      "anything"
+    ]
+  },
+  "vowelDay": {
+    "label": "eɪ",
+    "group": "vowel",
+    "pattern": "eɪ",
+    "count": 120,
+    "samples": [
+      "a",
+      "they",
+      "say",
+      "hey",
+      "way",
+      "day",
+      "maybe",
+      "wait",
+      "away",
+      "great",
+      "always",
+      "name"
+    ]
+  },
+  "vowelRock": {
+    "label": "ɒ",
+    "group": "vowel",
+    "pattern": "ɒ",
+    "count": 120,
+    "samples": [
+      "of",
+      "what",
+      "on",
+      "not",
+      "don",
+      "got",
+      "want",
+      "from",
+      "sorry",
+      "off",
+      "god",
+      "stop"
+    ]
+  },
+  "vowelAwe": {
+    "label": "ɔː",
+    "group": "vowel",
+    "pattern": "ɔː",
+    "count": 120,
+    "samples": [
+      "for",
+      "your",
+      "all",
+      "more",
+      "sure",
+      "before",
+      "call",
+      "talk",
+      "thought",
+      "always",
+      "course",
+      "talking"
+    ]
+  },
+  "vowelCat": {
+    "label": "æ/a",
+    "group": "vowel",
+    "pattern": "æ/a",
+    "count": 120,
+    "samples": [
+      "and",
+      "have",
+      "can",
+      "an",
+      "back",
+      "man",
+      "am",
+      "thank",
+      "thanks",
+      "dad",
+      "happened",
+      "bad"
+    ]
+  },
+  "vowelWear": {
+    "label": "ɛː",
+    "group": "vowel",
+    "pattern": "ɛː",
+    "count": 120,
+    "samples": [
+      "where",
+      "their",
+      "care",
+      "parents",
+      "scared",
+      "hair",
+      "air",
+      "somewhere",
+      "careful",
+      "wear",
+      "swear",
+      "anywhere"
+    ]
+  },
+  "vowelGo": {
+    "label": "oʊ/əʊ",
+    "group": "vowel",
+    "pattern": "oʊ/əʊ",
+    "count": 120,
+    "samples": [
+      "no",
+      "know",
+      "so",
+      "go",
+      "oh",
+      "going",
+      "over",
+      "home",
+      "those",
+      "told",
+      "old",
+      "hello"
+    ]
+  },
+  "vowelNear": {
+    "label": "ɪə",
+    "group": "vowel",
+    "pattern": "ɪə",
+    "count": 120,
+    "samples": [
+      "here",
+      "really",
+      "years",
+      "hear",
+      "idea",
+      "year",
+      "dear",
+      "clear",
+      "serious",
+      "near",
+      "fear",
+      "realize"
+    ]
+  },
+  "vowelTime": {
+    "label": "ʌɪ",
+    "group": "vowel",
+    "pattern": "ʌɪ",
+    "count": 120,
+    "samples": [
+      "right",
+      "time",
+      "by",
+      "find",
+      "night",
+      "guys",
+      "guy",
+      "nice",
+      "fine",
+      "kind",
+      "might",
+      "try"
+    ]
+  },
+  "vowelOwl": {
+    "label": "aʊ",
+    "group": "vowel",
+    "pattern": "aʊ",
+    "count": 120,
+    "samples": [
+      "out",
+      "about",
+      "now",
+      "how",
+      "our",
+      "down",
+      "around",
+      "house",
+      "found",
+      "without",
+      "hours",
+      "town"
+    ]
+  },
+  "vowelBoy": {
+    "label": "ɔɪ",
+    "group": "vowel",
+    "pattern": "ɔɪ",
+    "count": 120,
+    "samples": [
+      "boy",
+      "boys",
+      "voice",
+      "join",
+      "enjoy",
+      "destroy",
+      "oil",
+      "destroyed",
+      "joy",
+      "points",
+      "toilet",
+      "royal"
+    ]
+  },
+  "vowelTour": {
+    "label": "ʊə",
+    "group": "vowel",
+    "pattern": "ʊə",
+    "count": 120,
+    "samples": [
+      "during",
+      "security",
+      "usually",
+      "usual",
+      "jury",
+      "pure",
+      "curious",
+      "secure",
+      "individual",
+      "furious",
+      "mature",
+      "tournament"
+    ]
+  }
+}

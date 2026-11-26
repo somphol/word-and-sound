@@ -1,0 +1,1650 @@
+{
+  "generated": "2026-11-25",
+  "uniqueWords": 12628,
+  "phoneticsUs": 12260,
+  "phoneticsUk": 10826,
+  "lists": {
+    "aheadWordList": {
+      "words": 995,
+      "us": 965,
+      "uk": 882,
+      "usPct": 97.0,
+      "ukPct": 88.6,
+      "missingUs": [
+        "geum",
+        "jism",
+        "yuca",
+        "gyrus",
+        "litre",
+        "gibber",
+        "jarrah",
+        "jigger",
+        "jitter",
+        "judder",
+        "juicer",
+        "tragus"
+      ],
+      "missingUk": [
+        "Mr",
+        "atom",
+        "idea",
+        "idol",
+        "user",
+        "yuca",
+        "actor",
+        "album",
+        "allow",
+        "altar",
+        "arena",
+        "civil"
+      ]
+    },
+    "aweWordList": {
+      "words": 289,
+      "us": 283,
+      "uk": 270,
+      "usPct": 97.9,
+      "ukPct": 93.4,
+      "missingUs": [
+        "yawl",
+        "yaws",
+        "trawl",
+        "barial",
+        "holdall",
+        "jackdaw"
+      ],
+      "missingUk": [
+        "call",
+        "hall",
+        "altar",
+        "audit",
+        "corps",
+        "forum",
+        "order",
+        "trawl",
+        "absorb",
+        "afford",
+        "barial",
+        "coarse"
+      ]
+    },
+    "beeWordList": {
+      "words": 371,
+      "us": 359,
+      "uk": 342,
+      "usPct": 96.8,
+      "ukPct": 92.2,
+      "missingUs": [
+        "geode",
+        "litre",
+        "treed",
+        "trios",
+        "purine",
+        "treens",
+        "yeasty",
+        "Negress",
+        "uridine",
+        "jalousie",
+        "jamboree",
+        "morpheme"
+      ],
+      "missingUk": [
+        "CEO",
+        "idea",
+        "meat",
+        "weak",
+        "arena",
+        "creek",
+        "field",
+        "litre",
+        "niece",
+        "pizza",
+        "treed",
+        "trios"
+      ]
+    },
+    "betWordList": {
+      "words": 1065,
+      "us": 1043,
+      "uk": 958,
+      "usPct": 97.9,
+      "ukPct": 90.0,
+      "missingUs": [
+        "tret",
+        "gelid",
+        "gesso",
+        "jebel",
+        "trebly",
+        "yester",
+        "deltoid",
+        "genitor",
+        "poetess",
+        "blackleg",
+        "geniture",
+        "gerontic"
+      ],
+      "missingUk": [
+        "chef",
+        "yeti",
+        "asset",
+        "entry",
+        "every",
+        "hotel",
+        "motel",
+        "treks",
+        "Senate",
+        "clever",
+        "defend",
+        "energy"
+      ]
+    },
+    "boolWordList": {
+      "words": 124,
+      "us": 118,
+      "uk": 115,
+      "usPct": 95.2,
+      "ukPct": 92.7,
+      "missingUs": [
+        "hoodie",
+        "jalousie",
+        "genuflect",
+        "juridical",
+        "procuress",
+        "straddler"
+      ],
+      "missingUk": [
+        "July",
+        "pull",
+        "formula",
+        "evacuate",
+        "stimulus",
+        "education",
+        "fortunate",
+        "sexuality",
+        "straddler"
+      ]
+    },
+    "boyWordList": {
+      "words": 135,
+      "us": 116,
+      "uk": 126,
+      "usPct": 85.9,
+      "ukPct": 93.3,
+      "missingUs": [
+        "koi",
+        "coir",
+        "kikoi",
+        "hoyden",
+        "lipoid",
+        "mucoid",
+        "opioid",
+        "cycloid",
+        "deltoid",
+        "despoil",
+        "disjoin",
+        "homeboy"
+      ],
+      "missingUk": [
+        "goy",
+        "cloy",
+        "loyal",
+        "broiler",
+        "homeboy",
+        "killjoy",
+        "loyalty",
+        "alkaloid",
+        "unvoiced"
+      ]
+    },
+    "catWordList": {
+      "words": 814,
+      "us": 781,
+      "uk": 709,
+      "usPct": 95.9,
+      "ukPct": 87.1,
+      "missingUs": [
+        "jag",
+        "trad",
+        "mammy",
+        "trank",
+        "trass",
+        "yabby",
+        "jacana",
+        "jarrah",
+        "tranny",
+        "trepan",
+        "yabber",
+        "yantra"
+      ],
+      "missingUk": [
+        "map",
+        "atom",
+        "trad",
+        "actor",
+        "album",
+        "asset",
+        "cache",
+        "handy",
+        "mammy",
+        "relax",
+        "salad",
+        "smash"
+      ]
+    },
+    "dayWordList": {
+      "words": 523,
+      "us": 508,
+      "uk": 481,
+      "usPct": 97.1,
+      "ukPct": 92.0,
+      "missingUs": [
+        "jape",
+        "traik",
+        "treys",
+        "ageing",
+        "isdain",
+        "strake",
+        "tragus",
+        "vapour",
+        "flavour",
+        "ladyboy",
+        "tracery",
+        "tramway"
+      ],
+      "missingUk": [
+        "pave",
+        "play",
+        "April",
+        "agent",
+        "labor",
+        "paint",
+        "traik",
+        "trays",
+        "waist",
+        "agency",
+        "change",
+        "domain"
+      ]
+    },
+    "earnWordList": {
+      "words": 256,
+      "us": 246,
+      "uk": 229,
+      "usPct": 96.1,
+      "ukPct": 89.5,
+      "missingUs": [
+        "yerba",
+        "jerkin",
+        "ergative",
+        "jongleur",
+        "yardbird",
+        "bloodworm",
+        "fertilise",
+        "germanium",
+        "jerkwater",
+        "blameworthy"
+      ],
+      "missingUk": [
+        "curl",
+        "nerd",
+        "work",
+        "serve",
+        "yerba",
+        "virtue",
+        "adverse",
+        "bluebird",
+        "earnings",
+        "eternity",
+        "firework",
+        "homework"
+      ]
+    },
+    "endingCHWordList": {
+      "words": 61,
+      "us": 61,
+      "uk": 60,
+      "usPct": 100.0,
+      "ukPct": 98.4,
+      "missingUs": [],
+      "missingUk": [
+        "watch"
+      ]
+    },
+    "endingDWordList": {
+      "words": 294,
+      "us": 285,
+      "uk": 280,
+      "usPct": 96.9,
+      "ukPct": 95.2,
+      "missingUs": [
+        "trad",
+        "gelid",
+        "geode",
+        "treed",
+        "jocund",
+        "lipoid",
+        "mucoid",
+        "opioid",
+        "triode"
+      ],
+      "missingUk": [
+        "code",
+        "nerd",
+        "trad",
+        "field",
+        "salad",
+        "slide",
+        "treed",
+        "triad",
+        "valid",
+        "afford",
+        "defend",
+        "exceed"
+      ]
+    },
+    "endingFWordList": {
+      "words": 62,
+      "us": 60,
+      "uk": 56,
+      "usPct": 96.8,
+      "ukPct": 90.3,
+      "missingUs": [
+        "gif",
+        "jiff"
+      ],
+      "missingUk": [
+        "chef",
+        "selves",
+        "giraffe",
+        "oneself",
+        "blastoff",
+        "tradeoff"
+      ]
+    },
+    "endingJWordList": {
+      "words": 81,
+      "us": 81,
+      "uk": 77,
+      "usPct": 100.0,
+      "ukPct": 95.1,
+      "missingUs": [],
+      "missingUk": [
+        "change",
+        "charge",
+        "engage",
+        "shortage"
+      ]
+    },
+    "endingKTWordList": {
+      "words": 98,
+      "us": 98,
+      "uk": 90,
+      "usPct": 100.0,
+      "ukPct": 91.8,
+      "missingUs": [],
+      "missingUk": [
+        "actor",
+        "insect",
+        "sector",
+        "tracts",
+        "actress",
+        "activate",
+        "activist",
+        "director"
+      ]
+    },
+    "endingKWordList": {
+      "words": 247,
+      "us": 242,
+      "uk": 232,
+      "usPct": 98.0,
+      "ukPct": 93.9,
+      "missingUs": [
+        "yock",
+        "traik",
+        "trike",
+        "strake",
+        "gerontic"
+      ],
+      "missingUk": [
+        "suck",
+        "weak",
+        "work",
+        "creek",
+        "traik",
+        "mosque",
+        "poetic",
+        "dramatic",
+        "firework",
+        "homework",
+        "magnetic",
+        "notebook"
+      ]
+    },
+    "endingLMWordList": {
+      "words": 3,
+      "us": 3,
+      "uk": 3,
+      "usPct": 100.0,
+      "ukPct": 100.0,
+      "missingUs": [],
+      "missingUk": []
+    },
+    "endingLWordList": {
+      "words": 336,
+      "us": 331,
+      "uk": 318,
+      "usPct": 98.5,
+      "ukPct": 94.6,
+      "missingUs": [
+        "yawl",
+        "enrol",
+        "jebel",
+        "trawl",
+        "curial"
+      ],
+      "missingUk": [
+        "call",
+        "curl",
+        "hall",
+        "idol",
+        "mile",
+        "pull",
+        "April",
+        "aisle",
+        "civil",
+        "enrol",
+        "hotel",
+        "loyal"
+      ]
+    },
+    "endingNGWordList": {
+      "words": 279,
+      "us": 278,
+      "uk": 269,
+      "usPct": 99.6,
+      "ukPct": 96.4,
+      "missingUs": [
+        "ageing"
+      ],
+      "missingUk": [
+        "inning",
+        "failing",
+        "climbing",
+        "opposing",
+        "steering",
+        "stunning",
+        "upcoming",
+        "yearlong",
+        "offspring",
+        "strapping"
+      ]
+    },
+    "endingNWordList": {
+      "words": 375,
+      "us": 365,
+      "uk": 359,
+      "usPct": 97.3,
+      "ukPct": 95.7,
+      "missingUs": [
+        "enrol",
+        "jawan",
+        "hoyden",
+        "jerkin",
+        "purine",
+        "treens",
+        "trepan",
+        "trigon",
+        "triune",
+        "trogon"
+      ],
+      "missingUk": [
+        "dune",
+        "town",
+        "vine",
+        "enrol",
+        "onion",
+        "domain",
+        "engage",
+        "gallon",
+        "immune",
+        "invade",
+        "lagoon",
+        "notion"
+      ]
+    },
+    "endingSHWordList": {
+      "words": 62,
+      "us": 61,
+      "uk": 54,
+      "usPct": 98.4,
+      "ukPct": 87.1,
+      "missingUs": [
+        "bluefish"
+      ],
+      "missingUk": [
+        "brush",
+        "cache",
+        "smash",
+        "foolish",
+        "publish",
+        "bluefish",
+        "diminish",
+        "jellyfish"
+      ]
+    },
+    "endingSTWordList": {
+      "words": 131,
+      "us": 130,
+      "uk": 123,
+      "usPct": 99.2,
+      "ukPct": 93.9,
+      "missingUs": [
+        "unvoiced"
+      ],
+      "missingUk": [
+        "oust",
+        "waist",
+        "adjust",
+        "modest",
+        "activist",
+        "unvoiced",
+        "scientist",
+        "socialist"
+      ]
+    },
+    "endingSWordList": {
+      "words": 257,
+      "us": 248,
+      "uk": 242,
+      "usPct": 96.5,
+      "ukPct": 94.2,
+      "missingUs": [
+        "yips",
+        "gyrus",
+        "trass",
+        "tragus",
+        "tripos",
+        "Negress",
+        "disjoin",
+        "durance",
+        "poetess"
+      ],
+      "missingUk": [
+        "Mrs",
+        "yips",
+        "genus",
+        "niece",
+        "coarse",
+        "device",
+        "grease",
+        "quartz",
+        "unless",
+        "actress",
+        "adverse",
+        "endless"
+      ]
+    },
+    "endingTHWordList": {
+      "words": 68,
+      "us": 67,
+      "uk": 64,
+      "usPct": 98.5,
+      "ukPct": 94.1,
+      "missingUs": [
+        "sooth"
+      ],
+      "missingUk": [
+        "myth",
+        "growth",
+        "health",
+        "sympathy"
+      ]
+    },
+    "endingTWordList": {
+      "words": 382,
+      "us": 377,
+      "uk": 361,
+      "usPct": 98.7,
+      "ukPct": 94.5,
+      "missingUs": [
+        "tret",
+        "quoit",
+        "gibbet",
+        "trivet",
+        "thereat"
+      ],
+      "missingUk": [
+        "bite",
+        "cute",
+        "meat",
+        "asset",
+        "audit",
+        "comet",
+        "fight",
+        "unite",
+        "Senate",
+        "donate",
+        "magnet",
+        "market"
+      ]
+    },
+    "endingVWordList": {
+      "words": 84,
+      "us": 83,
+      "uk": 80,
+      "usPct": 98.8,
+      "ukPct": 95.2,
+      "missingUs": [
+        "ergative"
+      ],
+      "missingUk": [
+        "pave",
+        "serve",
+        "deprive",
+        "decisive"
+      ]
+    },
+    "goWordList": {
+      "words": 425,
+      "us": 411,
+      "uk": 379,
+      "usPct": 96.7,
+      "ukPct": 89.2,
+      "missingUs": [
+        "yoni",
+        "geode",
+        "gesso",
+        "jingo",
+        "trios",
+        "trona",
+        "trope",
+        "gelato",
+        "opioid",
+        "trogon",
+        "trover",
+        "holdall"
+      ],
+      "missingUk": [
+        "CEO",
+        "code",
+        "soda",
+        "below",
+        "donor",
+        "hotel",
+        "joker",
+        "motel",
+        "owner",
+        "strow",
+        "trios",
+        "trona"
+      ]
+    },
+    "kitWordList": {
+      "words": 1329,
+      "us": 1299,
+      "uk": 1233,
+      "usPct": 97.7,
+      "ukPct": 92.8,
+      "missingUs": [
+        "jip",
+        "jiff",
+        "jism",
+        "jizz",
+        "yips",
+        "cissy",
+        "gelid",
+        "jingo",
+        "trigs",
+        "gibber",
+        "gibbet",
+        "jerkin"
+      ],
+      "missingUk": [
+        "Mr",
+        "jip",
+        "city",
+        "myth",
+        "yips",
+        "audit",
+        "below",
+        "civil",
+        "comet",
+        "drink",
+        "relax",
+        "trigs"
+      ]
+    },
+    "marWordList": {
+      "words": 253,
+      "us": 246,
+      "uk": 236,
+      "usPct": 97.2,
+      "ukPct": 93.3,
+      "missingUs": [
+        "jawan",
+        "gelato",
+        "gymkhana",
+        "yardbird",
+        "tarpaulin",
+        "giardiasis",
+        "jargonelle"
+      ],
+      "missingUk": [
+        "army",
+        "tsar",
+        "charge",
+        "farmer",
+        "market",
+        "grandpa",
+        "harbour",
+        "harmony",
+        "blastoff",
+        "darkness",
+        "gymkhana",
+        "hardware"
+      ]
+    },
+    "nearWordList": {
+      "words": 61,
+      "us": 59,
+      "uk": 57,
+      "usPct": 96.7,
+      "ukPct": 93.4,
+      "missingUs": [
+        "curial",
+        "trivium"
+      ],
+      "missingUk": [
+        "deer",
+        "appear",
+        "series",
+        "theater"
+      ]
+    },
+    "nutWordList": {
+      "words": 385,
+      "us": 380,
+      "uk": 364,
+      "usPct": 98.7,
+      "ukPct": 94.5,
+      "missingUs": [
+        "runt",
+        "trug",
+        "judder",
+        "truckle",
+        "unvoiced"
+      ],
+      "missingUk": [
+        "suck",
+        "brush",
+        "onion",
+        "yucky",
+        "abrupt",
+        "adjust",
+        "colour",
+        "hungry",
+        "income",
+        "suffer",
+        "unless",
+        "blowgun"
+      ]
+    },
+    "owlWordList": {
+      "words": 141,
+      "us": 139,
+      "uk": 124,
+      "usPct": 98.6,
+      "ukPct": 87.9,
+      "missingUs": [
+        "councillor",
+        "counselling"
+      ],
+      "missingUk": [
+        "oust",
+        "plow",
+        "town",
+        "allow",
+        "outlet",
+        "account",
+        "blowout",
+        "browser",
+        "hometown",
+        "thousand",
+        "trousers",
+        "strikeout"
+      ]
+    },
+    "putWordList": {
+      "words": 91,
+      "us": 89,
+      "uk": 86,
+      "usPct": 97.8,
+      "ukPct": 94.5,
+      "missingUs": [
+        "hoodie",
+        "jalousie"
+      ],
+      "missingUk": [
+        "July",
+        "pull",
+        "formula",
+        "evacuate",
+        "stimulus"
+      ]
+    },
+    "rockWordList": {
+      "words": 395,
+      "us": 386,
+      "uk": 368,
+      "usPct": 97.7,
+      "ukPct": 93.2,
+      "missingUs": [
+        "trog",
+        "yock",
+        "strop",
+        "jobbie",
+        "trigon",
+        "tripos",
+        "trogon",
+        "geometer",
+        "gerontic"
+      ],
+      "missingUk": [
+        "comet",
+        "watch",
+        "column",
+        "comedy",
+        "dollar",
+        "donkey",
+        "horror",
+        "modest",
+        "mosque",
+        "oxygen",
+        "wallet",
+        "alcohol"
+      ]
+    },
+    "startingBLWordList": {
+      "words": 101,
+      "us": 96,
+      "uk": 87,
+      "usPct": 95.0,
+      "ukPct": 86.1,
+      "missingUs": [
+        "bloop",
+        "trebly",
+        "bluefin",
+        "blackleg",
+        "bluefish"
+      ],
+      "missingUk": [
+        "trebly",
+        "bloated",
+        "blowgun",
+        "blowout",
+        "bluefin",
+        "notably",
+        "publish",
+        "assembly",
+        "biblical",
+        "blackleg",
+        "blastoff",
+        "bluebell"
+      ]
+    },
+    "startingBWordList": {
+      "words": 187,
+      "us": 181,
+      "uk": 171,
+      "usPct": 96.8,
+      "ukPct": 91.4,
+      "missingUs": [
+        "barial",
+        "djembe",
+        "homeboy",
+        "jailbait",
+        "jamboree",
+        "yardbird"
+      ],
+      "missingUk": [
+        "album",
+        "barial",
+        "member",
+        "ability",
+        "baptism",
+        "battery",
+        "billion",
+        "homeboy",
+        "December",
+        "November",
+        "abortion",
+        "biblical"
+      ]
+    },
+    "startingCHWordList": {
+      "words": 111,
+      "us": 110,
+      "uk": 106,
+      "usPct": 99.1,
+      "ukPct": 95.5,
+      "missingUs": [
+        "geniture"
+      ],
+      "missingUk": [
+        "change",
+        "charge",
+        "virtue",
+        "century",
+        "pinched"
+      ]
+    },
+    "startingDWordList": {
+      "words": 183,
+      "us": 181,
+      "uk": 167,
+      "usPct": 98.9,
+      "ukPct": 91.3,
+      "missingUs": [
+        "durance",
+        "jackdaw"
+      ],
+      "missingUk": [
+        "idea",
+        "donor",
+        "handy",
+        "dealer",
+        "decent",
+        "dollar",
+        "donkey",
+        "handle",
+        "deficit",
+        "endless",
+        "addition",
+        "darkness"
+      ]
+    },
+    "startingFEWWordList": {
+      "words": 15,
+      "us": 15,
+      "uk": 15,
+      "usPct": 100.0,
+      "ukPct": 100.0,
+      "missingUs": [],
+      "missingUk": []
+    },
+    "startingFWordList": {
+      "words": 193,
+      "us": 190,
+      "uk": 180,
+      "usPct": 98.4,
+      "ukPct": 93.3,
+      "missingUs": [
+        "furore",
+        "therefor",
+        "trustful"
+      ],
+      "missingUk": [
+        "forum",
+        "afford",
+        "defend",
+        "farmer",
+        "failing",
+        "failure",
+        "foolish",
+        "formula",
+        "harmful",
+        "February",
+        "firework",
+        "symphony"
+      ]
+    },
+    "startingGWordList": {
+      "words": 289,
+      "us": 278,
+      "uk": 271,
+      "usPct": 96.2,
+      "ukPct": 93.8,
+      "missingUs": [
+        "gif",
+        "jingo",
+        "jougs",
+        "jigger",
+        "tragus",
+        "trigon",
+        "trogon",
+        "Negress",
+        "trigram",
+        "ergative",
+        "jiggered"
+      ],
+      "missingUk": [
+        "goy",
+        "tiger",
+        "degree",
+        "engage",
+        "gallon",
+        "grease",
+        "growth",
+        "hungry",
+        "lagoon",
+        "magnet",
+        "slogan",
+        "yogurt"
+      ]
+    },
+    "startingHWordList": {
+      "words": 237,
+      "us": 233,
+      "uk": 213,
+      "usPct": 98.3,
+      "ukPct": 89.9,
+      "missingUs": [
+        "hoodie",
+        "hoyden",
+        "holdall",
+        "homeboy"
+      ],
+      "missingUk": [
+        "hall",
+        "handy",
+        "hotel",
+        "handle",
+        "health",
+        "horror",
+        "hungry",
+        "wholly",
+        "alcohol",
+        "enhance",
+        "habitat",
+        "harbour"
+      ]
+    },
+    "startingJWordList": {
+      "words": 332,
+      "us": 287,
+      "uk": 304,
+      "usPct": 86.4,
+      "ukPct": 91.6,
+      "missingUs": [
+        "gif",
+        "jag",
+        "jip",
+        "geum",
+        "gyre",
+        "jape",
+        "jiff",
+        "jism",
+        "jizz",
+        "jube",
+        "gelid",
+        "geode"
+      ],
+      "missingUk": [
+        "jip",
+        "July",
+        "agent",
+        "genus",
+        "joker",
+        "adjust",
+        "agency",
+        "energy",
+        "gently",
+        "juicer",
+        "oxygen",
+        "January"
+      ]
+    },
+    "startingKWordList": {
+      "words": 256,
+      "us": 243,
+      "uk": 241,
+      "usPct": 94.9,
+      "ukPct": 94.1,
+      "missingUs": [
+        "yuca",
+        "kikoi",
+        "jerkin",
+        "jocund",
+        "mucoid",
+        "tricot",
+        "yakuza",
+        "choroid",
+        "jackdaw",
+        "truckle",
+        "gymkhana",
+        "jerrycan"
+      ],
+      "missingUk": [
+        "yuca",
+        "joker",
+        "yucky",
+        "donkey",
+        "income",
+        "market",
+        "account",
+        "alcohol",
+        "anarchy",
+        "alkaloid",
+        "biblical",
+        "darkness"
+      ]
+    },
+    "startingLWordList": {
+      "words": 195,
+      "us": 191,
+      "uk": 178,
+      "usPct": 97.9,
+      "ukPct": 91.3,
+      "missingUs": [
+        "litre",
+        "gelato",
+        "lipoid",
+        "ladyboy"
+      ],
+      "missingUk": [
+        "July",
+        "allow",
+        "below",
+        "labor",
+        "litre",
+        "relax",
+        "openly",
+        "unless",
+        "wholly",
+        "lengthy",
+        "library",
+        "loyalty"
+      ]
+    },
+    "startingNIORWordList": {
+      "words": 37,
+      "us": 36,
+      "uk": 33,
+      "usPct": 97.3,
+      "ukPct": 89.2,
+      "missingUs": [
+        "genuflect"
+      ],
+      "missingUk": [
+        "onion",
+        "senior",
+        "January",
+        "unionism"
+      ]
+    },
+    "startingPWordList": {
+      "words": 227,
+      "us": 221,
+      "uk": 207,
+      "usPct": 97.4,
+      "ukPct": 91.2,
+      "missingUs": [
+        "sepoy",
+        "purine",
+        "trepan",
+        "poetess",
+        "tarpaulin",
+        "trapezoid"
+      ],
+      "missingUk": [
+        "pizza",
+        "appear",
+        "oppose",
+        "report",
+        "yippee",
+        "compete",
+        "grandpa",
+        "penalty",
+        "publish",
+        "suppose",
+        "appalled",
+        "apparent"
+      ]
+    },
+    "startingRWordList": {
+      "words": 187,
+      "us": 181,
+      "uk": 167,
+      "usPct": 96.8,
+      "ukPct": 89.3,
+      "missingUs": [
+        "enrol",
+        "furore",
+        "tracery",
+        "gerontic",
+        "gyratory",
+        "jamboree"
+      ],
+      "missingUk": [
+        "arena",
+        "enrol",
+        "every",
+        "camera",
+        "racism",
+        "raider",
+        "rarely",
+        "reader",
+        "recipe",
+        "already",
+        "battery",
+        "giraffe"
+      ]
+    },
+    "startingSHWordList": {
+      "words": 113,
+      "us": 113,
+      "uk": 108,
+      "usPct": 100.0,
+      "ukPct": 95.6,
+      "missingUs": [],
+      "missingUk": [
+        "notion",
+        "mansion",
+        "abortion",
+        "addition",
+        "rotation"
+      ]
+    },
+    "startingSTRWordList": {
+      "words": 88,
+      "us": 79,
+      "uk": 79,
+      "usPct": 89.8,
+      "ukPct": 89.8,
+      "missingUs": [
+        "stria",
+        "strop",
+        "strake",
+        "strappy",
+        "strainer",
+        "strapper",
+        "strewing",
+        "strickle",
+        "striping"
+      ],
+      "missingUk": [
+        "strow",
+        "strayed",
+        "industry",
+        "strainer",
+        "strapped",
+        "strapper",
+        "streamed",
+        "stressor",
+        "strewing"
+      ]
+    },
+    "startingSWordList": {
+      "words": 347,
+      "us": 341,
+      "uk": 305,
+      "usPct": 98.3,
+      "ukPct": 87.9,
+      "missingUs": [
+        "cissy",
+        "sepoy",
+        "cycloid",
+        "despoil",
+        "oilskin",
+        "schizoid"
+      ],
+      "missingUk": [
+        "city",
+        "soda",
+        "civil",
+        "pizza",
+        "salad",
+        "Senate",
+        "absorb",
+        "agency",
+        "cinema",
+        "insect",
+        "sailor",
+        "sector"
+      ]
+    },
+    "startingTHATWordList": {
+      "words": 52,
+      "us": 50,
+      "uk": 52,
+      "usPct": 96.2,
+      "ukPct": 100.0,
+      "missingUs": [
+        "thereat",
+        "therefor"
+      ],
+      "missingUk": []
+    },
+    "startingTHROUGHWordList": {
+      "words": 23,
+      "us": 23,
+      "uk": 23,
+      "usPct": 100.0,
+      "ukPct": 100.0,
+      "missingUs": [],
+      "missingUk": []
+    },
+    "startingTHUMBWordList": {
+      "words": 66,
+      "us": 66,
+      "uk": 61,
+      "usPct": 100.0,
+      "ukPct": 92.4,
+      "missingUs": [],
+      "missingUk": [
+        "lengthy",
+        "theater",
+        "sympathy",
+        "thousand",
+        "authority"
+      ]
+    },
+    "startingTRWordList": {
+      "words": 259,
+      "us": 217,
+      "uk": 218,
+      "usPct": 83.8,
+      "ukPct": 84.2,
+      "missingUs": [
+        "trad",
+        "tret",
+        "trog",
+        "trug",
+        "traik",
+        "trank",
+        "trass",
+        "trawl",
+        "treed",
+        "trews",
+        "treys",
+        "trigs"
+      ],
+      "missingUk": [
+        "trad",
+        "entry",
+        "traik",
+        "trams",
+        "trawl",
+        "trays",
+        "treed",
+        "treks",
+        "triad",
+        "trigs",
+        "trims",
+        "trios"
+      ]
+    },
+    "startingVWordList": {
+      "words": 164,
+      "us": 162,
+      "uk": 149,
+      "usPct": 98.8,
+      "ukPct": 90.9,
+      "missingUs": [
+        "vapour",
+        "unvoiced"
+      ],
+      "missingUk": [
+        "valid",
+        "vital",
+        "vitro",
+        "device",
+        "invade",
+        "vapour",
+        "virtue",
+        "adverse",
+        "vaccine",
+        "November",
+        "evacuate",
+        "severely"
+      ]
+    },
+    "startingWWordList": {
+      "words": 164,
+      "us": 161,
+      "uk": 152,
+      "usPct": 98.2,
+      "ukPct": 92.7,
+      "missingUs": [
+        "jawan",
+        "tramway",
+        "tripwire"
+      ],
+      "missingUk": [
+        "was",
+        "toward",
+        "wallet",
+        "winner",
+        "tramway",
+        "driveway",
+        "firework",
+        "hardware",
+        "homework",
+        "sidewalk",
+        "software",
+        "tripwire"
+      ]
+    },
+    "startingYWordList": {
+      "words": 326,
+      "us": 301,
+      "uk": 288,
+      "usPct": 92.3,
+      "ukPct": 88.3,
+      "missingUs": [
+        "yawl",
+        "yaws",
+        "yips",
+        "yock",
+        "yoni",
+        "yuca",
+        "yabby",
+        "yerba",
+        "curial",
+        "mucoid",
+        "purine",
+        "triune"
+      ],
+      "missingUk": [
+        "cute",
+        "user",
+        "yeti",
+        "yips",
+        "yuca",
+        "onion",
+        "unite",
+        "yerba",
+        "yucky",
+        "immune",
+        "senior",
+        "studio"
+      ]
+    },
+    "timeWordList": {
+      "words": 539,
+      "us": 520,
+      "uk": 479,
+      "usPct": 96.5,
+      "ukPct": 88.9,
+      "missingUs": [
+        "gyre",
+        "gyrus",
+        "trike",
+        "trigon",
+        "trimer",
+        "tripos",
+        "triune",
+        "cycloid",
+        "trigram",
+        "aerolite",
+        "striping",
+        "fertilise"
+      ],
+      "missingUk": [
+        "July",
+        "bite",
+        "idea",
+        "idol",
+        "mile",
+        "vine",
+        "aisle",
+        "fight",
+        "slide",
+        "tiger",
+        "unite",
+        "vital"
+      ]
+    },
+    "tourWordList": {
+      "words": 56,
+      "us": 51,
+      "uk": 51,
+      "usPct": 91.1,
+      "ukPct": 91.1,
+      "missingUs": [
+        "curial",
+        "purine",
+        "durance",
+        "uridine",
+        "voluptuary"
+      ],
+      "missingUk": [
+        "Europe",
+        "security",
+        "insurance",
+        "conceptual",
+        "tournament"
+      ]
+    },
+    "wearWordList": {
+      "words": 107,
+      "us": 100,
+      "uk": 100,
+      "usPct": 93.5,
+      "ukPct": 93.5,
+      "missingUs": [
+        "thereat",
+        "aerofoil",
+        "aerolite",
+        "therefor",
+        "therefrom",
+        "thereinto",
+        "therewith"
+      ],
+      "missingUk": [
+        "rarely",
+        "airfield",
+        "hardware",
+        "software",
+        "awareness",
+        "hilarious",
+        "underwear"
+      ]
+    },
+    "core_3k": {
+      "words": 2806,
+      "us": 2806,
+      "uk": 2587,
+      "usPct": 100.0,
+      "ukPct": 92.2,
+      "missingUs": [],
+      "missingUk": [
+        "from",
+        "work",
+        "call",
+        "change",
+        "play",
+        "report",
+        "system",
+        "every",
+        "important",
+        "order",
+        "government",
+        "market"
+      ]
+    },
+    "spoken": {
+      "words": 721,
+      "us": 721,
+      "uk": 673,
+      "usPct": 100.0,
+      "ukPct": 93.3,
+      "missingUs": [],
+      "missingUk": [
+        "mile",
+        "million",
+        "city",
+        "realize",
+        "shall",
+        "toward",
+        "charge",
+        "unless",
+        "trouble",
+        "quality",
+        "available",
+        "development"
+      ]
+    },
+    "academic": {
+      "words": 957,
+      "us": 955,
+      "uk": 822,
+      "usPct": 99.8,
+      "ukPct": 85.9,
+      "missingUs": [
+        "factorial",
+        "postgraduate"
+      ],
+      "missingUk": [
+        "absorb",
+        "activate",
+        "adaptive",
+        "adverse",
+        "afterward",
+        "agriculture",
+        "algebra",
+        "algorithm",
+        "amplitude",
+        "artificial",
+        "assembly",
+        "atom"
+      ]
+    },
+    "common_10k": {
+      "words": 10000,
+      "us": 9836,
+      "uk": 8540,
+      "usPct": 98.4,
+      "ukPct": 85.4,
+      "missingUs": [
+        "didn",
+        "doesn",
+        "isn",
+        "wasn",
+        "wouldn",
+        "couldn",
+        "ain",
+        "shouldn",
+        "weren",
+        "hasn",
+        "mm-hmm",
+        "i-i"
+      ],
+      "missingUk": [
+        "was",
+        "from",
+        "didn",
+        "two",
+        "work",
+        "call",
+        "doesn",
+        "isn",
+        "every",
+        "remember",
+        "wasn",
+        "wouldn"
+      ]
+    }
+  }
+}
