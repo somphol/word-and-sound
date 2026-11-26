@@ -9,7 +9,7 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
 
 ## What it does
 
-- **60 sound tiles** across starting sounds, starting blends, ending sounds,
+- **134 sound tiles** across starting sounds, starting blends, ending sounds,
   ending blends and vowels.
 - **Curated / Built switch.** *Curated* is the author's original 60 lists.
   *Built* selects words from open IPA data by onset, coda or vowel pattern,
@@ -62,13 +62,16 @@ Pipeline:
 
 | Item | Count |
 |---|---|
-| Sound tiles | 60 |
+| Sound tiles | 134 |
+| Starting sounds | 58 (23 single + 35 blends) |
+| Ending sounds | 53 (20 single + 33 blends) |
+| Vowels | 23 |
 | Authored words | 15,326 |
-| Pattern-built words | 6,692 |
+| Pattern-built words | 11,768 |
 | Mixed-list words | 14,484 |
 | US IPA entries | 39,886 |
 | UK IPA entries | 22,072 |
-| Authored-list IPA coverage | 96.7% US, 85.7% UK |
+| Tile-list IPA coverage | 96.8% US, 89.3% UK |
 
 ## Project layout
 
@@ -97,6 +100,10 @@ publishers of the original vocabulary lists. Those lists are not shipped.
   forms are left to the US fallback. About 14% of the authored lists fall back.
 - Pattern-built lists are frequency-ranked and can include inflected forms and
   proper names; they are drills, not a dictionary.
+- Rare clusters have short lists: `ʒ` onset has 3 words, `ŋθ` and `ʒd` have 3
+  each, `mf` has 4. Rhotic coda clusters (`rd`, `rk`, `rt`, …) are omitted
+  because the tile inventory is non-rhotic RP; US rhotic vowels are still shown
+  in the IPA line.
 - The app is unsigned/not notarized and is not distributed through the App
   Store (the CC BY-SA data must remain extractable).
 - Voice quality depends on the macOS voices installed. Missing voices are

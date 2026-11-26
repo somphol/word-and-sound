@@ -11,7 +11,7 @@ public enum SelfTest {
 
             check(library.categories.count == 3, "expected 3 sound categories, found \(library.categories.count)", &failures)
             let tiles = library.categories.flatMap(\.tiles)
-            check(tiles.count == 60, "expected 60 sound tiles, found \(tiles.count)", &failures)
+            check(tiles.count >= 60, "expected at least 60 sound tiles, found \(tiles.count)", &failures)
             check(library.mixed.count == 4, "expected 4 mixed lists, found \(library.mixed.count)", &failures)
 
             var authoredTotal = 0
@@ -38,12 +38,12 @@ public enum SelfTest {
             check(ukPct >= 0.75, String(format: "UK IPA coverage %.1f%% is below 75%%", ukPct * 100), &failures)
 
             if let patterns = data.patternLists {
-                check(patterns.lists.count == 60, "expected 60 pattern lists, found \(patterns.lists.count)", &failures)
+                check(patterns.lists.count == tiles.count, "expected \(tiles.count) pattern lists, found \(patterns.lists.count)", &failures)
                 for tile in tiles {
                     check((patterns.lists[tile.id]?.count ?? 0) > 0, "pattern list \(tile.id) is empty", &failures)
                 }
                 let patternWords = patterns.lists.values.reduce(0) { $0 + $1.count }
-                print("  built lists 60, words \(patternWords)")
+                print("  built lists \(patterns.lists.count), words \(patternWords)")
             }
 
             let raw = try LibraryStore.rawData(named: "library", extension: "json")
@@ -52,7 +52,7 @@ public enum SelfTest {
                 check(!text.contains(phrase), "restricted phrase still present: \(phrase)", &failures)
             }
 
-            print(String(format: "  tiles 60, words %d, US %.1f%%, UK %.1f%%", authoredTotal, usPct * 100, ukPct * 100))
+            print(String(format: "  tiles %d, words %d, US %.1f%%, UK %.1f%%", tiles.count, authoredTotal, usPct * 100, ukPct * 100))
         } catch {
             failures.append(error.localizedDescription)
         }

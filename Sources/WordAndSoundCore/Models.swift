@@ -19,12 +19,14 @@ public struct SoundTile: Codable, Identifiable, Hashable {
     public let label: String
     public let exampleWord: String
     public let listKey: String
+    public let group: String
 
-    public init(id: String, label: String, exampleWord: String, listKey: String) {
+    public init(id: String, label: String, exampleWord: String, listKey: String, group: String) {
         self.id = id
         self.label = label
         self.exampleWord = exampleWord
         self.listKey = listKey
+        self.group = group
     }
 }
 

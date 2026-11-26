@@ -4,7 +4,7 @@
 
 Word & Sound is a native SwiftUI macOS pronunciation trainer derived from the
 MIT App Inventor project `WordAndSound.aia`. It drills English sounds through
-60 phoneme tiles grouped into starting sounds, starting blends, ending sounds,
+134 phoneme tiles grouped into starting sounds, starting blends, ending sounds,
 ending blends and vowels, with US/UK IPA, TTS, autoplay, mixed vocabulary lists
 and user-imported lists. It is not a dictionary, an LMS, or a mobile port.
 
@@ -56,8 +56,10 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   (CC BY-SA). `ipa-dict en_UK` is GPL-3.0-derived and must not be added.
 - **Code MIT, data CC BY-SA 4.0.** Data must stay extractable and reusable; no
   DRM. This is why the app is not an App Store build.
-- **60 tiles are the contract.** Pattern lists are keyed by tile id; the UI
-  splits them into single sounds and blends without changing the model.
+- **Tile inventory is data-driven.** The original 60 tiles are extended to 134
+  by `EXTRA_TILES` in `build_pattern_lists.py`; every tile has a `group`
+  (`single`, `blend`, `vowel`) and a pattern list keyed by tile id. The UI
+  splits groups using that field, not a hardcoded ID list.
 - **UK IPA is conservative.** The extractor takes the first entry with sounds,
   prefers RP, then a single UK form, then a single untagged form. If several
   forms compete, it leaves the word without UK IPA; do not "fix" this by taking
@@ -71,6 +73,9 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - About 14% of authored-list words have no UK IPA and fall back to US.
 - Kaikki contains noisy regional variants; the conservative filter drops some
   valid pronunciations (for example `film` has no UK entry).
+- Rare clusters have short lists: `ʒ` onset 3 words, `ŋθ` 3, `ʒd` 3, `mf` 4.
+- Rhotic coda clusters (`rd`, `rk`, `rt`, …) are not tiles; the inventory is
+  non-rhotic RP, with US IPA shown only as reference.
 - Pattern lists are frequency-ranked and include inflections/names.
 - The app is unsigned and not notarized.
 - `--snapshot` renders through `NSHostingView`; it is for visual checks, not a

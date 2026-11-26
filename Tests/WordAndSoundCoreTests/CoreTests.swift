@@ -59,7 +59,7 @@ final class LibraryTests: XCTestCase {
     func testLibraryLoads() throws {
         let data = try LibraryStore.load()
         XCTAssertEqual(data.library.categories.count, 3)
-        XCTAssertEqual(data.library.categories.flatMap(\.tiles).count, 60)
+        XCTAssertGreaterThanOrEqual(data.library.categories.flatMap(\.tiles).count, 60)
         XCTAssertEqual(data.library.mixed.count, 4)
     }
 

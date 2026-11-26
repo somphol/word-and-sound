@@ -6,27 +6,21 @@ struct SoundPanel: View {
 
     private let columns = [GridItem(.adaptive(minimum: 82), spacing: 10)]
 
-    private let startingBlends: Set<String> = [
-        "startingFEW", "startingNIOR", "startingTHROUGH",
-        "startingTR", "startingBL", "startingSTR",
-    ]
-    private let endingBlends: Set<String> = ["endingKT", "endingST", "endingLM"]
-
     private var sections: [(String, [SoundTile])] {
         guard let category = model.currentCategory else { return [] }
         switch category.id {
         case "starting":
             return [
-                ("Single sounds", category.tiles.filter { !startingBlends.contains($0.id) }),
-                ("Starting blends", category.tiles.filter { startingBlends.contains($0.id) }),
+                ("Single sounds", category.tiles.filter { $0.group == "single" }),
+                ("Starting blends", category.tiles.filter { $0.group == "blend" }),
             ].filter { !$0.1.isEmpty }
         case "ending":
             return [
-                ("Single endings", category.tiles.filter { !endingBlends.contains($0.id) }),
-                ("Ending blends", category.tiles.filter { endingBlends.contains($0.id) }),
+                ("Single endings", category.tiles.filter { $0.group == "single" }),
+                ("Ending blends", category.tiles.filter { $0.group == "blend" }),
             ].filter { !$0.1.isEmpty }
         default:
-            return [("Vowel sounds", category.tiles)]
+            return [("Vowel sounds", category.tiles.filter { $0.group == "vowel" })]
         }
     }
 

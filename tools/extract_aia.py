@@ -27,6 +27,12 @@ CATEGORIES = [
     ("ending", "Ending Sound", "endingSelector"),
 ]
 
+STARTING_BLENDS = {
+    "startingFEW", "startingNIOR", "startingTHROUGH",
+    "startingTR", "startingBL", "startingSTR",
+}
+ENDING_BLENDS = {"endingKT", "endingST", "endingLM"}
+
 
 def field(block: ET.Element, name: str) -> str | None:
     node = block.find(f'{NS}field[@name="{name}"]')
@@ -208,12 +214,16 @@ def main() -> int:
                 lists[list_key] = words
                 stats.append((list_key, len(words), dropped, duplicates))
                 example = (meta.get("example") or "").split(" /")[0].strip()
+                group = "vowel" if cat_id == "vowel" else (
+                    "blend" if tile_id in STARTING_BLENDS or tile_id in ENDING_BLENDS else "single"
+                )
                 tiles.append(
                     {
                         "id": tile_id,
                         "label": button_text.get(tile_id, tile_id),
                         "exampleWord": example,
                         "listKey": list_key,
+                        "group": group,
                     }
                 )
             categories.append({"id": cat_id, "title": cat_title, "tiles": tiles})

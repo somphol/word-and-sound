@@ -72,11 +72,11 @@
       "said",
       "sorry",
       "sir",
-      "stop",
       "someone",
       "same",
       "son",
-      "saw"
+      "saw",
+      "seen"
     ]
   },
   "startingCH": {
@@ -146,17 +146,17 @@
     "count": 120,
     "samples": [
       "for",
-      "from",
       "first",
       "find",
       "feel",
       "father",
       "fine",
       "found",
-      "friend",
       "family",
       "phone",
-      "friends"
+      "face",
+      "forget",
+      "five"
     ]
   },
   "startingV": {
@@ -206,17 +206,17 @@
     "count": 120,
     "samples": [
       "people",
-      "please",
       "put",
-      "place",
-      "pretty",
-      "problem",
       "police",
-      "probably",
       "person",
       "part",
       "pay",
-      "party"
+      "party",
+      "power",
+      "pick",
+      "perfect",
+      "parents",
+      "perhaps"
     ]
   },
   "startingTHUMB": {
@@ -353,10 +353,10 @@
       "gonna",
       "give",
       "god",
-      "great",
       "guys",
       "guy",
-      "girl"
+      "girl",
+      "getting"
     ]
   },
   "startingFEW": {
@@ -1061,20 +1061,20 @@
     "label": "ɛː",
     "group": "vowel",
     "pattern": "ɛː",
-    "count": 120,
+    "count": 18,
     "samples": [
-      "where",
-      "their",
-      "care",
-      "parents",
-      "scared",
-      "hair",
-      "air",
       "somewhere",
       "careful",
-      "wear",
-      "swear",
-      "anywhere"
+      "carefully",
+      "chairman",
+      "shared",
+      "rarely",
+      "scaring",
+      "med",
+      "merci",
+      "concierge",
+      "humanitarian",
+      "laird"
     ]
   },
   "vowelGo": {
@@ -1195,6 +1195,1389 @@
       "furious",
       "mature",
       "tournament"
+    ]
+  },
+  "startingT": {
+    "label": "t",
+    "group": "onset",
+    "pattern": "t",
+    "count": 120,
+    "samples": [
+      "time",
+      "too",
+      "talk",
+      "told",
+      "today",
+      "talking",
+      "together",
+      "took",
+      "tomorrow",
+      "tonight",
+      "turn",
+      "taking"
+    ]
+  },
+  "startingM": {
+    "label": "m",
+    "group": "onset",
+    "pattern": "m",
+    "count": 120,
+    "samples": [
+      "man",
+      "more",
+      "mean",
+      "much",
+      "maybe",
+      "money",
+      "made",
+      "may",
+      "mother",
+      "might",
+      "many",
+      "mind"
+    ]
+  },
+  "startingN": {
+    "label": "n",
+    "group": "onset",
+    "pattern": "n",
+    "count": 120,
+    "samples": [
+      "no",
+      "not",
+      "know",
+      "now",
+      "need",
+      "never",
+      "nothing",
+      "night",
+      "name",
+      "nice",
+      "next",
+      "knows"
+    ]
+  },
+  "startingZ": {
+    "label": "z",
+    "group": "onset",
+    "pattern": "z",
+    "count": 54,
+    "samples": [
+      "zero",
+      "zone",
+      "zoe",
+      "zoo",
+      "zombie",
+      "zack",
+      "zip",
+      "zoom",
+      "zen",
+      "zipper",
+      "zap",
+      "zodiac"
+    ]
+  },
+  "startingZH": {
+    "label": "ʒ",
+    "group": "onset",
+    "pattern": "ʒ",
+    "count": 3,
+    "samples": [
+      "gendarme",
+      "gendarmerie",
+      "jalousie"
+    ]
+  },
+  "startingBR": {
+    "label": "br",
+    "group": "blend",
+    "pattern": "br",
+    "count": 120,
+    "samples": [
+      "brother",
+      "break",
+      "brought",
+      "broke",
+      "brain",
+      "broken",
+      "brothers",
+      "breakfast",
+      "breath",
+      "breathe",
+      "bridge",
+      "breaking"
+    ]
+  },
+  "startingDR": {
+    "label": "dr",
+    "group": "blend",
+    "pattern": "dr",
+    "count": 120,
+    "samples": [
+      "drive",
+      "dream",
+      "drop",
+      "dress",
+      "drunk",
+      "driving",
+      "dreams",
+      "driver",
+      "drug",
+      "dropped",
+      "dressed",
+      "dry"
+    ]
+  },
+  "startingDW": {
+    "label": "dw",
+    "group": "blend",
+    "pattern": "dw",
+    "count": 6,
+    "samples": [
+      "dwarf",
+      "dwell",
+      "dwelling",
+      "dwells",
+      "dweeb",
+      "dweller"
+    ]
+  },
+  "startingFR": {
+    "label": "fr",
+    "group": "blend",
+    "pattern": "fr",
+    "count": 120,
+    "samples": [
+      "from",
+      "friend",
+      "friends",
+      "free",
+      "front",
+      "frank",
+      "french",
+      "fresh",
+      "freedom",
+      "friday",
+      "freak",
+      "fred"
+    ]
+  },
+  "startingGL": {
+    "label": "gl",
+    "group": "blend",
+    "pattern": "gl",
+    "count": 77,
+    "samples": [
+      "glad",
+      "glass",
+      "glasses",
+      "glory",
+      "global",
+      "gloves",
+      "glorious",
+      "glue",
+      "globe",
+      "gladly",
+      "glow",
+      "glen"
+    ]
+  },
+  "startingGR": {
+    "label": "gr",
+    "group": "blend",
+    "pattern": "gr",
+    "count": 120,
+    "samples": [
+      "great",
+      "group",
+      "ground",
+      "green",
+      "grab",
+      "grunts",
+      "grow",
+      "grand",
+      "grunting",
+      "groans",
+      "grace",
+      "greatest"
+    ]
+  },
+  "startingGW": {
+    "label": "gw",
+    "group": "blend",
+    "pattern": "gw",
+    "count": 4,
+    "samples": [
+      "guido",
+      "guan",
+      "guano",
+      "guapo"
+    ]
+  },
+  "startingHJ": {
+    "label": "hj",
+    "group": "blend",
+    "pattern": "hj",
+    "count": 25,
+    "samples": [
+      "huge",
+      "humans",
+      "humor",
+      "hugo",
+      "humiliating",
+      "humour",
+      "humiliation",
+      "humiliate",
+      "hyung",
+      "humility",
+      "huey",
+      "humanitarian"
+    ]
+  },
+  "startingKL": {
+    "label": "kl",
+    "group": "blend",
+    "pattern": "kl",
+    "count": 120,
+    "samples": [
+      "close",
+      "clear",
+      "clean",
+      "class",
+      "clothes",
+      "club",
+      "closed",
+      "closer",
+      "client",
+      "clearly",
+      "clock",
+      "closes"
+    ]
+  },
+  "startingKR": {
+    "label": "kr",
+    "group": "blend",
+    "pattern": "kr",
+    "count": 120,
+    "samples": [
+      "crazy",
+      "christmas",
+      "crime",
+      "crying",
+      "cry",
+      "christ",
+      "crap",
+      "cross",
+      "crowd",
+      "crew",
+      "criminal",
+      "credit"
+    ]
+  },
+  "startingKW": {
+    "label": "kw",
+    "group": "blend",
+    "pattern": "kw",
+    "count": 82,
+    "samples": [
+      "quite",
+      "quiet",
+      "questions",
+      "quick",
+      "quickly",
+      "queen",
+      "quit",
+      "quarter",
+      "quality",
+      "quarters",
+      "quote",
+      "qualified"
+    ]
+  },
+  "startingLJ": {
+    "label": "lj",
+    "group": "blend",
+    "pattern": "lj",
+    "count": 5,
+    "samples": [
+      "lucid",
+      "lukewarm",
+      "lurid",
+      "luminol",
+      "lucidity"
+    ]
+  },
+  "startingMJ": {
+    "label": "mj",
+    "group": "blend",
+    "pattern": "mj",
+    "count": 28,
+    "samples": [
+      "music",
+      "museum",
+      "musical",
+      "mutual",
+      "musician",
+      "mutant",
+      "mule",
+      "mute",
+      "muse",
+      "mutation",
+      "municipal",
+      "mules"
+    ]
+  },
+  "startingPL": {
+    "label": "pl",
+    "group": "blend",
+    "pattern": "pl",
+    "count": 120,
+    "samples": [
+      "please",
+      "place",
+      "playing",
+      "plan",
+      "pleasure",
+      "plane",
+      "planet",
+      "played",
+      "places",
+      "plans",
+      "plenty",
+      "plays"
+    ]
+  },
+  "startingPR": {
+    "label": "pr",
+    "group": "blend",
+    "pattern": "pr",
+    "count": 120,
+    "samples": [
+      "pretty",
+      "problem",
+      "probably",
+      "promise",
+      "president",
+      "protect",
+      "present",
+      "problems",
+      "prison",
+      "proud",
+      "prove",
+      "professor"
+    ]
+  },
+  "startingSK": {
+    "label": "sk",
+    "group": "blend",
+    "pattern": "sk",
+    "count": 120,
+    "samples": [
+      "school",
+      "scared",
+      "screaming",
+      "sky",
+      "skin",
+      "screw",
+      "scott",
+      "scare",
+      "scary",
+      "scream",
+      "score",
+      "squad"
+    ]
+  },
+  "startingSKR": {
+    "label": "skr",
+    "group": "blend",
+    "pattern": "skr",
+    "count": 41,
+    "samples": [
+      "screaming",
+      "screw",
+      "scream",
+      "screen",
+      "script",
+      "scratch",
+      "screeching",
+      "screech",
+      "scrap",
+      "scrub",
+      "scratching",
+      "scratched"
+    ]
+  },
+  "startingSKW": {
+    "label": "skw",
+    "group": "blend",
+    "pattern": "skw",
+    "count": 33,
+    "samples": [
+      "squad",
+      "squeeze",
+      "squirrel",
+      "squeal",
+      "squadron",
+      "squash",
+      "squeaks",
+      "squid",
+      "squat",
+      "squire",
+      "squirt",
+      "squared"
+    ]
+  },
+  "startingSL": {
+    "label": "sl",
+    "group": "blend",
+    "pattern": "sl",
+    "count": 118,
+    "samples": [
+      "sleep",
+      "sleeping",
+      "slow",
+      "slowly",
+      "slept",
+      "slip",
+      "slave",
+      "slightly",
+      "slap",
+      "slipped",
+      "slide",
+      "slaves"
+    ]
+  },
+  "startingSM": {
+    "label": "sm",
+    "group": "blend",
+    "pattern": "sm",
+    "count": 50,
+    "samples": [
+      "small",
+      "smart",
+      "smell",
+      "smoke",
+      "smith",
+      "smoking",
+      "smiling",
+      "smaller",
+      "smooth",
+      "smash",
+      "smashed",
+      "smack"
+    ]
+  },
+  "startingSN": {
+    "label": "sn",
+    "group": "blend",
+    "pattern": "sn",
+    "count": 68,
+    "samples": [
+      "snow",
+      "snake",
+      "snap",
+      "sneak",
+      "snakes",
+      "snack",
+      "snoring",
+      "snapped",
+      "snuck",
+      "snatch",
+      "sniff",
+      "snitch"
+    ]
+  },
+  "startingSP": {
+    "label": "sp",
+    "group": "blend",
+    "pattern": "sp",
+    "count": 120,
+    "samples": [
+      "speak",
+      "special",
+      "speaking",
+      "spend",
+      "space",
+      "spent",
+      "spot",
+      "spirit",
+      "speed",
+      "spoke",
+      "split",
+      "spanish"
+    ]
+  },
+  "startingSPL": {
+    "label": "spl",
+    "group": "blend",
+    "pattern": "spl",
+    "count": 15,
+    "samples": [
+      "split",
+      "splash",
+      "splitting",
+      "splinter",
+      "spleen",
+      "splits",
+      "splat",
+      "splendor",
+      "splendour",
+      "splint",
+      "splurge",
+      "spliff"
+    ]
+  },
+  "startingSPR": {
+    "label": "spr",
+    "group": "blend",
+    "pattern": "spr",
+    "count": 20,
+    "samples": [
+      "spread",
+      "spring",
+      "spray",
+      "spreading",
+      "springs",
+      "spree",
+      "sprayed",
+      "sprinkle",
+      "sprint",
+      "sprinkles",
+      "sprain",
+      "sprang"
+    ]
+  },
+  "startingST": {
+    "label": "st",
+    "group": "blend",
+    "pattern": "st",
+    "count": 120,
+    "samples": [
+      "stop",
+      "start",
+      "stuff",
+      "story",
+      "stand",
+      "started",
+      "stupid",
+      "street",
+      "straight",
+      "step",
+      "state",
+      "strange"
+    ]
+  },
+  "startingSW": {
+    "label": "sw",
+    "group": "blend",
+    "pattern": "sw",
+    "count": 77,
+    "samples": [
+      "sweet",
+      "swear",
+      "sweetheart",
+      "sweetie",
+      "switch",
+      "swim",
+      "swing",
+      "sweat",
+      "swallow",
+      "suite",
+      "swell",
+      "sweep"
+    ]
+  },
+  "startingTW": {
+    "label": "tw",
+    "group": "blend",
+    "pattern": "tw",
+    "count": 43,
+    "samples": [
+      "twice",
+      "twenty",
+      "twelve",
+      "twins",
+      "twist",
+      "twin",
+      "twisted",
+      "twilight",
+      "twitter",
+      "twenty-five",
+      "tweet",
+      "twinkle"
+    ]
+  },
+  "startingVJ": {
+    "label": "vj",
+    "group": "blend",
+    "pattern": "vj",
+    "count": 4,
+    "samples": [
+      "views",
+      "viewing",
+      "viewed",
+      "viewer"
+    ]
+  },
+  "startingSHR": {
+    "label": "ʃr",
+    "group": "blend",
+    "pattern": "ʃr",
+    "count": 22,
+    "samples": [
+      "shrink",
+      "shrimp",
+      "shrine",
+      "shredder",
+      "shred",
+      "shrapnel",
+      "shrinking",
+      "shrewd",
+      "shrunk",
+      "shroud",
+      "shriek",
+      "shrek"
+    ]
+  },
+  "endingP": {
+    "label": "p",
+    "group": "coda",
+    "pattern": "p",
+    "count": 120,
+    "samples": [
+      "help",
+      "stop",
+      "keep",
+      "hope",
+      "sleep",
+      "top",
+      "drop",
+      "step",
+      "ship",
+      "group",
+      "deep",
+      "trip"
+    ]
+  },
+  "endingB": {
+    "label": "b",
+    "group": "coda",
+    "pattern": "b",
+    "count": 120,
+    "samples": [
+      "job",
+      "club",
+      "grab",
+      "bob",
+      "lab",
+      "babe",
+      "rob",
+      "cab",
+      "describe",
+      "tribe",
+      "jacob",
+      "disturb"
+    ]
+  },
+  "endingG": {
+    "label": "g",
+    "group": "coda",
+    "pattern": "g",
+    "count": 120,
+    "samples": [
+      "big",
+      "dog",
+      "bag",
+      "drug",
+      "pig",
+      "dig",
+      "drag",
+      "flag",
+      "league",
+      "bug",
+      "colleague",
+      "log"
+    ]
+  },
+  "endingM": {
+    "label": "m",
+    "group": "coda",
+    "pattern": "m",
+    "count": 120,
+    "samples": [
+      "come",
+      "from",
+      "time",
+      "some",
+      "am",
+      "home",
+      "name",
+      "came",
+      "same",
+      "mom",
+      "room",
+      "um"
+    ]
+  },
+  "endingZ": {
+    "label": "z",
+    "group": "coda",
+    "pattern": "z",
+    "count": 120,
+    "samples": [
+      "was",
+      "as",
+      "because",
+      "please",
+      "these",
+      "those",
+      "things",
+      "always",
+      "years",
+      "guys",
+      "days",
+      "friends"
+    ]
+  },
+  "endingDH": {
+    "label": "ð",
+    "group": "coda",
+    "pattern": "ð",
+    "count": 10,
+    "samples": [
+      "with",
+      "breathe",
+      "smooth",
+      "bathe",
+      "loathe",
+      "soothe",
+      "clothe",
+      "sunbathe",
+      "eth",
+      "blithe"
+    ]
+  },
+  "endingZH": {
+    "label": "ʒ",
+    "group": "coda",
+    "pattern": "ʒ",
+    "count": 9,
+    "samples": [
+      "sabotage",
+      "rouge",
+      "camouflage",
+      "concierge",
+      "beige",
+      "barrage",
+      "montage",
+      "collage",
+      "corsage"
+    ]
+  },
+  "endingDZ": {
+    "label": "dz",
+    "group": "codaBlend",
+    "pattern": "dz",
+    "count": 120,
+    "samples": [
+      "friends",
+      "hands",
+      "needs",
+      "words",
+      "besides",
+      "seconds",
+      "towards",
+      "records",
+      "heads",
+      "cards",
+      "birds",
+      "ends"
+    ]
+  },
+  "endingKS": {
+    "label": "ks",
+    "group": "codaBlend",
+    "pattern": "ks",
+    "count": 120,
+    "samples": [
+      "thanks",
+      "looks",
+      "six",
+      "weeks",
+      "takes",
+      "works",
+      "thinks",
+      "box",
+      "relax",
+      "likes",
+      "max",
+      "books"
+    ]
+  },
+  "endingKST": {
+    "label": "kst",
+    "group": "codaBlend",
+    "pattern": "kst",
+    "count": 15,
+    "samples": [
+      "fixed",
+      "text",
+      "mixed",
+      "relaxed",
+      "context",
+      "pretext",
+      "waxed",
+      "faxed",
+      "angst",
+      "vexed",
+      "perplexed",
+      "axed"
+    ]
+  },
+  "endingLD": {
+    "label": "ld",
+    "group": "codaBlend",
+    "pattern": "ld",
+    "count": 120,
+    "samples": [
+      "told",
+      "old",
+      "world",
+      "called",
+      "hold",
+      "killed",
+      "child",
+      "cold",
+      "gold",
+      "sold",
+      "build",
+      "wild"
+    ]
+  },
+  "endingLF": {
+    "label": "lf",
+    "group": "codaBlend",
+    "pattern": "lf",
+    "count": 16,
+    "samples": [
+      "yourself",
+      "herself",
+      "itself",
+      "wolf",
+      "golf",
+      "ralph",
+      "shelf",
+      "alf",
+      "elf",
+      "oneself",
+      "thyself",
+      "hisself"
+    ]
+  },
+  "endingLK": {
+    "label": "lk",
+    "group": "codaBlend",
+    "pattern": "lk",
+    "count": 7,
+    "samples": [
+      "milk",
+      "silk",
+      "hulk",
+      "elk",
+      "buttermilk",
+      "ilk",
+      "wilk"
+    ]
+  },
+  "endingLP": {
+    "label": "lp",
+    "group": "codaBlend",
+    "pattern": "lp",
+    "count": 7,
+    "samples": [
+      "help",
+      "scalp",
+      "pulp",
+      "gulp",
+      "yelp",
+      "kelp",
+      "palp"
+    ]
+  },
+  "endingLS": {
+    "label": "ls",
+    "group": "codaBlend",
+    "pattern": "ls",
+    "count": 7,
+    "samples": [
+      "else",
+      "false",
+      "pulse",
+      "impulse",
+      "dulce",
+      "repulse",
+      "chels"
+    ]
+  },
+  "endingLT": {
+    "label": "lt",
+    "group": "codaBlend",
+    "pattern": "lt",
+    "count": 42,
+    "samples": [
+      "fault",
+      "difficult",
+      "built",
+      "result",
+      "belt",
+      "adult",
+      "guilt",
+      "insult",
+      "halt",
+      "dealt",
+      "melt",
+      "consult"
+    ]
+  },
+  "endingLZ": {
+    "label": "lz",
+    "group": "codaBlend",
+    "pattern": "lz",
+    "count": 120,
+    "samples": [
+      "girls",
+      "miles",
+      "feels",
+      "calls",
+      "rules",
+      "tells",
+      "walls",
+      "pills",
+      "falls",
+      "files",
+      "skills",
+      "kills"
+    ]
+  },
+  "endingMF": {
+    "label": "mf",
+    "group": "codaBlend",
+    "pattern": "mf",
+    "count": 4,
+    "samples": [
+      "triumph",
+      "hmph",
+      "humph",
+      "lymph"
+    ]
+  },
+  "endingMP": {
+    "label": "mp",
+    "group": "codaBlend",
+    "pattern": "mp",
+    "count": 47,
+    "samples": [
+      "jump",
+      "camp",
+      "dump",
+      "pump",
+      "lamp",
+      "champ",
+      "shrimp",
+      "swamp",
+      "stamp",
+      "pimp",
+      "trump",
+      "tramp"
+    ]
+  },
+  "endingMPT": {
+    "label": "mpt",
+    "group": "codaBlend",
+    "pattern": "mpt",
+    "count": 15,
+    "samples": [
+      "attempt",
+      "jumped",
+      "dumped",
+      "bumped",
+      "contempt",
+      "pumped",
+      "tempt",
+      "stamped",
+      "cramped",
+      "camped",
+      "prompt",
+      "clamped"
+    ]
+  },
+  "endingMZ": {
+    "label": "mz",
+    "group": "codaBlend",
+    "pattern": "mz",
+    "count": 81,
+    "samples": [
+      "times",
+      "comes",
+      "seems",
+      "sometimes",
+      "problems",
+      "dreams",
+      "arms",
+      "names",
+      "games",
+      "terms",
+      "rooms",
+      "films"
+    ]
+  },
+  "endingND": {
+    "label": "nd",
+    "group": "codaBlend",
+    "pattern": "nd",
+    "count": 120,
+    "samples": [
+      "and",
+      "find",
+      "kind",
+      "happened",
+      "understand",
+      "found",
+      "mind",
+      "friend",
+      "hand",
+      "second",
+      "stand",
+      "behind"
+    ]
+  },
+  "endingNS": {
+    "label": "ns",
+    "group": "codaBlend",
+    "pattern": "ns",
+    "count": 120,
+    "samples": [
+      "chance",
+      "difference",
+      "prince",
+      "nonsense",
+      "science",
+      "audience",
+      "defense",
+      "insurance",
+      "license",
+      "intelligence",
+      "presence",
+      "convince"
+    ]
+  },
+  "endingNT": {
+    "label": "nt",
+    "group": "codaBlend",
+    "pattern": "nt",
+    "count": 120,
+    "samples": [
+      "want",
+      "went",
+      "different",
+      "important",
+      "moment",
+      "front",
+      "sent",
+      "president",
+      "present",
+      "count",
+      "accident",
+      "government"
+    ]
+  },
+  "endingNTS": {
+    "label": "nts",
+    "group": "codaBlend",
+    "pattern": "nts",
+    "count": 62,
+    "samples": [
+      "wants",
+      "parents",
+      "grunts",
+      "students",
+      "points",
+      "moments",
+      "events",
+      "agents",
+      "prints",
+      "presents",
+      "documents",
+      "plants"
+    ]
+  },
+  "endingNZ": {
+    "label": "nz",
+    "group": "codaBlend",
+    "pattern": "nz",
+    "count": 120,
+    "samples": [
+      "means",
+      "happens",
+      "questions",
+      "ones",
+      "congratulations",
+      "turns",
+      "plans",
+      "groans",
+      "guns",
+      "weapons",
+      "opens",
+      "lines"
+    ]
+  },
+  "endingPS": {
+    "label": "ps",
+    "group": "codaBlend",
+    "pattern": "ps",
+    "count": 102,
+    "samples": [
+      "perhaps",
+      "cops",
+      "keeps",
+      "stops",
+      "lips",
+      "steps",
+      "helps",
+      "beeps",
+      "troops",
+      "ships",
+      "footsteps",
+      "hopes"
+    ]
+  },
+  "endingPT": {
+    "label": "pt",
+    "group": "codaBlend",
+    "pattern": "pt",
+    "count": 93,
+    "samples": [
+      "kept",
+      "except",
+      "stopped",
+      "accept",
+      "helped",
+      "dropped",
+      "slept",
+      "attempt",
+      "jumped",
+      "script",
+      "dumped",
+      "interrupt"
+    ]
+  },
+  "endingSK": {
+    "label": "sk",
+    "group": "codaBlend",
+    "pattern": "sk",
+    "count": 27,
+    "samples": [
+      "ask",
+      "risk",
+      "desk",
+      "task",
+      "mask",
+      "mosque",
+      "disk",
+      "disc",
+      "dusk",
+      "flask",
+      "grotesque",
+      "fisk"
+    ]
+  },
+  "endingSP": {
+    "label": "sp",
+    "group": "codaBlend",
+    "pattern": "sp",
+    "count": 7,
+    "samples": [
+      "gasp",
+      "grasp",
+      "crisp",
+      "wasp",
+      "clasp",
+      "wisp",
+      "rasp"
+    ]
+  },
+  "endingTS": {
+    "label": "ts",
+    "group": "codaBlend",
+    "pattern": "ts",
+    "count": 120,
+    "samples": [
+      "wants",
+      "its",
+      "minutes",
+      "parents",
+      "grunts",
+      "lots",
+      "starts",
+      "lights",
+      "states",
+      "hurts",
+      "nuts",
+      "students"
+    ]
+  },
+  "endingDHD": {
+    "label": "ðd",
+    "group": "codaBlend",
+    "pattern": "ðd",
+    "count": 4,
+    "samples": [
+      "bathed",
+      "breathed",
+      "clothed",
+      "unscathed"
+    ]
+  },
+  "endingNGK": {
+    "label": "ŋk",
+    "group": "codaBlend",
+    "pattern": "ŋk",
+    "count": 63,
+    "samples": [
+      "think",
+      "thank",
+      "frank",
+      "bank",
+      "drunk",
+      "hank",
+      "tank",
+      "pink",
+      "trunk",
+      "drank",
+      "sink",
+      "punk"
+    ]
+  },
+  "endingNGZ": {
+    "label": "ŋz",
+    "group": "codaBlend",
+    "pattern": "ŋz",
+    "count": 47,
+    "samples": [
+      "things",
+      "rings",
+      "feelings",
+      "brings",
+      "belongs",
+      "songs",
+      "wings",
+      "greetings",
+      "beings",
+      "buildings",
+      "meetings",
+      "kings"
+    ]
+  },
+  "endingNGTH": {
+    "label": "ŋθ",
+    "group": "codaBlend",
+    "pattern": "ŋθ",
+    "count": 3,
+    "samples": [
+      "strength",
+      "length",
+      "wavelength"
+    ]
+  },
+  "endingSHT": {
+    "label": "ʃt",
+    "group": "codaBlend",
+    "pattern": "ʃt",
+    "count": 81,
+    "samples": [
+      "finished",
+      "reached",
+      "watched",
+      "touched",
+      "pushed",
+      "punished",
+      "washed",
+      "attached",
+      "searched",
+      "crushed",
+      "crashed",
+      "wished"
+    ]
+  },
+  "endingZHD": {
+    "label": "ʒd",
+    "group": "codaBlend",
+    "pattern": "ʒd",
+    "count": 3,
+    "samples": [
+      "sabotaged",
+      "camouflaged",
+      "massaged"
+    ]
+  },
+  "vowelSquare": {
+    "label": "eə",
+    "group": "vowel",
+    "pattern": "eə",
+    "count": 120,
+    "samples": [
+      "where",
+      "their",
+      "care",
+      "parents",
+      "scared",
+      "hair",
+      "air",
+      "wear",
+      "swear",
+      "anywhere",
+      "fair",
+      "area"
+    ]
+  },
+  "vowelFire": {
+    "label": "aɪə",
+    "group": "vowel",
+    "pattern": "aɪə",
+    "count": 120,
+    "samples": [
+      "fire",
+      "quiet",
+      "tired",
+      "entire",
+      "fired",
+      "client",
+      "trial",
+      "science",
+      "society",
+      "liar",
+      "higher",
+      "giant"
+    ]
+  },
+  "vowelPower": {
+    "label": "aʊə",
+    "group": "vowel",
+    "pattern": "aʊə",
+    "count": 51,
+    "samples": [
+      "our",
+      "hours",
+      "power",
+      "hour",
+      "ourselves",
+      "flowers",
+      "powerful",
+      "ours",
+      "shower",
+      "powers",
+      "flower",
+      "tower"
     ]
   }
 }

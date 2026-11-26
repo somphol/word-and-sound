@@ -14,145 +14,169 @@
           "id": "startingD",
           "label": "d",
           "exampleWord": "do",
-          "listKey": "startingDWordList"
+          "listKey": "startingDWordList",
+          "group": "single"
         },
         {
           "id": "startingL",
           "label": "l",
           "exampleWord": "love",
-          "listKey": "startingLWordList"
+          "listKey": "startingLWordList",
+          "group": "single"
         },
         {
           "id": "startingR",
           "label": "r",
           "exampleWord": "right",
-          "listKey": "startingRWordList"
+          "listKey": "startingRWordList",
+          "group": "single"
         },
         {
           "id": "startingS",
           "label": "s",
           "exampleWord": "sight",
-          "listKey": "startingSWordList"
+          "listKey": "startingSWordList",
+          "group": "single"
         },
         {
           "id": "startingCH",
           "label": "tʃ",
           "exampleWord": "check",
-          "listKey": "startingCHWordList"
+          "listKey": "startingCHWordList",
+          "group": "single"
         },
         {
           "id": "startingSH",
           "label": "ʃ",
           "exampleWord": "shy",
-          "listKey": "startingSHWordList"
+          "listKey": "startingSHWordList",
+          "group": "single"
         },
         {
           "id": "startingW",
           "label": "w",
           "exampleWord": "win",
-          "listKey": "startingWWordList"
+          "listKey": "startingWWordList",
+          "group": "single"
         },
         {
           "id": "startingF",
           "label": "f",
           "exampleWord": "fame",
-          "listKey": "startingFWordList"
+          "listKey": "startingFWordList",
+          "group": "single"
         },
         {
           "id": "startingV",
           "label": "v",
           "exampleWord": "van",
-          "listKey": "startingVWordList"
+          "listKey": "startingVWordList",
+          "group": "single"
         },
         {
           "id": "startingB",
           "label": "b",
           "exampleWord": "bell",
-          "listKey": "startingBWordList"
+          "listKey": "startingBWordList",
+          "group": "single"
         },
         {
           "id": "startingP",
           "label": "p",
           "exampleWord": "pen",
-          "listKey": "startingPWordList"
+          "listKey": "startingPWordList",
+          "group": "single"
         },
         {
           "id": "startingTHUMB",
           "label": "θ",
           "exampleWord": "think",
-          "listKey": "startingTHUMBWordList"
+          "listKey": "startingTHUMBWordList",
+          "group": "single"
         },
         {
           "id": "startingTHAT",
           "label": "ð",
           "exampleWord": "that",
-          "listKey": "startingTHATWordList"
+          "listKey": "startingTHATWordList",
+          "group": "single"
         },
         {
           "id": "startingJ",
           "label": "dʒ",
           "exampleWord": "jack",
-          "listKey": "startingJWordList"
+          "listKey": "startingJWordList",
+          "group": "single"
         },
         {
           "id": "startingH",
           "label": "h",
           "exampleWord": "head",
-          "listKey": "startingHWordList"
+          "listKey": "startingHWordList",
+          "group": "single"
         },
         {
           "id": "startingK",
           "label": "k",
           "exampleWord": "cook",
-          "listKey": "startingKWordList"
+          "listKey": "startingKWordList",
+          "group": "single"
         },
         {
           "id": "startingY",
           "label": "j",
           "exampleWord": "yet",
-          "listKey": "startingYWordList"
+          "listKey": "startingYWordList",
+          "group": "single"
         },
         {
           "id": "startingG",
           "label": "g",
           "exampleWord": "game",
-          "listKey": "startingGWordList"
+          "listKey": "startingGWordList",
+          "group": "single"
         },
         {
           "id": "startingFEW",
           "label": "fj",
           "exampleWord": "few",
-          "listKey": "startingFEWWordList"
+          "listKey": "startingFEWWordList",
+          "group": "blend"
         },
         {
           "id": "startingNIOR",
           "label": "nj",
           "exampleWord": "new",
-          "listKey": "startingNIORWordList"
+          "listKey": "startingNIORWordList",
+          "group": "blend"
         },
         {
           "id": "startingTHROUGH",
           "label": "θr",
           "exampleWord": "through",
-          "listKey": "startingTHROUGHWordList"
+          "listKey": "startingTHROUGHWordList",
+          "group": "blend"
         },
         {
           "id": "startingTR",
           "label": "tr",
           "exampleWord": "true",
-          "listKey": "startingTRWordList"
+          "listKey": "startingTRWordList",
+          "group": "blend"
         },
         {
           "id": "startingBL",
           "label": "bl",
           "exampleWord": "blue",
-          "listKey": "startingBLWordList"
+          "listKey": "startingBLWordList",
+          "group": "blend"
         },
         {
           "id": "startingSTR",
           "label": "str",
           "exampleWord": "straw",
-          "listKey": "startingSTRWordList"
+          "listKey": "startingSTRWordList",
+          "group": "blend"
         }
       ]
     },
@@ -164,121 +188,141 @@
           "id": "vowelNut",
           "label": "ʌ",
           "exampleWord": "nut",
-          "listKey": "nutWordList"
+          "listKey": "nutWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelMar",
           "label": "ɑː",
           "exampleWord": "mar",
-          "listKey": "marWordList"
+          "listKey": "marWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelKit",
           "label": "ɪ",
           "exampleWord": "kit",
-          "listKey": "kitWordList"
+          "listKey": "kitWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelBee",
           "label": "iː",
           "exampleWord": "peak",
-          "listKey": "beeWordList"
+          "listKey": "beeWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelPut",
           "label": "ʊ",
           "exampleWord": "put",
-          "listKey": "putWordList"
+          "listKey": "putWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelPool",
           "label": "uː",
           "exampleWord": "pool",
-          "listKey": "boolWordList"
+          "listKey": "boolWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelAhead",
           "label": "ə",
           "exampleWord": "ahead",
-          "listKey": "aheadWordList"
+          "listKey": "aheadWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelEarn",
           "label": "əː",
           "exampleWord": "earn",
-          "listKey": "earnWordList"
+          "listKey": "earnWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelBet",
           "label": "ɛ",
           "exampleWord": "bet",
-          "listKey": "betWordList"
+          "listKey": "betWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelDay",
           "label": "eɪ",
           "exampleWord": "day",
-          "listKey": "dayWordList"
+          "listKey": "dayWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelRock",
           "label": "ɒ",
           "exampleWord": "rock",
-          "listKey": "rockWordList"
+          "listKey": "rockWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelAwe",
           "label": "ɔː",
           "exampleWord": "awe",
-          "listKey": "aweWordList"
+          "listKey": "aweWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelCat",
           "label": "æ/a",
           "exampleWord": "cat",
-          "listKey": "catWordList"
+          "listKey": "catWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelWear",
           "label": "ɛː",
           "exampleWord": "wear",
-          "listKey": "wearWordList"
+          "listKey": "wearWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelGo",
           "label": "oʊ/əʊ",
           "exampleWord": "go",
-          "listKey": "goWordList"
+          "listKey": "goWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelNear",
           "label": "ɪə",
           "exampleWord": "near",
-          "listKey": "nearWordList"
+          "listKey": "nearWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelTime",
           "label": "ʌɪ",
           "exampleWord": "time",
-          "listKey": "timeWordList"
+          "listKey": "timeWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelOwl",
           "label": "aʊ",
           "exampleWord": "owl",
-          "listKey": "owlWordList"
+          "listKey": "owlWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelBoy",
           "label": "ɔɪ",
           "exampleWord": "boy",
-          "listKey": "boyWordList"
+          "listKey": "boyWordList",
+          "group": "vowel"
         },
         {
           "id": "vowelTour",
           "label": "ʊə",
           "exampleWord": "tour",
-          "listKey": "tourWordList"
+          "listKey": "tourWordList",
+          "group": "vowel"
         }
       ]
     },
@@ -290,97 +334,113 @@
           "id": "endingD",
           "label": "d",
           "exampleWord": "kid",
-          "listKey": "endingDWordList"
+          "listKey": "endingDWordList",
+          "group": "single"
         },
         {
           "id": "endingF",
           "label": "f",
           "exampleWord": "puff",
-          "listKey": "endingFWordList"
+          "listKey": "endingFWordList",
+          "group": "single"
         },
         {
           "id": "endingL",
           "label": "l",
           "exampleWord": "hill",
-          "listKey": "endingLWordList"
+          "listKey": "endingLWordList",
+          "group": "single"
         },
         {
           "id": "endingN",
           "label": "n",
           "exampleWord": "bin",
-          "listKey": "endingNWordList"
+          "listKey": "endingNWordList",
+          "group": "single"
         },
         {
           "id": "endingNG",
           "label": "ŋ",
           "exampleWord": "sing",
-          "listKey": "endingNGWordList"
+          "listKey": "endingNGWordList",
+          "group": "single"
         },
         {
           "id": "endingS",
           "label": "s",
           "exampleWord": "gas",
-          "listKey": "endingSWordList"
+          "listKey": "endingSWordList",
+          "group": "single"
         },
         {
           "id": "endingK",
           "label": "k",
           "exampleWord": "kick",
-          "listKey": "endingKWordList"
+          "listKey": "endingKWordList",
+          "group": "single"
         },
         {
           "id": "endingT",
           "label": "t",
           "exampleWord": "kit",
-          "listKey": "endingTWordList"
+          "listKey": "endingTWordList",
+          "group": "single"
         },
         {
           "id": "endingTH",
           "label": "θ",
           "exampleWord": "earth",
-          "listKey": "endingTHWordList"
+          "listKey": "endingTHWordList",
+          "group": "single"
         },
         {
           "id": "endingJ",
           "label": "dʒ",
           "exampleWord": "cage",
-          "listKey": "endingJWordList"
+          "listKey": "endingJWordList",
+          "group": "single"
         },
         {
           "id": "endingV",
           "label": "v",
           "exampleWord": "give",
-          "listKey": "endingVWordList"
+          "listKey": "endingVWordList",
+          "group": "single"
         },
         {
           "id": "endingSH",
           "label": "ʃ",
           "exampleWord": "dish",
-          "listKey": "endingSHWordList"
+          "listKey": "endingSHWordList",
+          "group": "single"
         },
         {
           "id": "endingCH",
           "label": "tʃ",
           "exampleWord": "each",
-          "listKey": "endingCHWordList"
+          "listKey": "endingCHWordList",
+          "group": "single"
         },
         {
           "id": "endingKT",
           "label": "kt",
           "exampleWord": "act",
-          "listKey": "endingKTWordList"
+          "listKey": "endingKTWordList",
+          "group": "blend"
         },
         {
           "id": "endingST",
           "label": "st",
           "exampleWord": "best",
-          "listKey": "endingSTWordList"
+          "listKey": "endingSTWordList",
+          "group": "blend"
         },
         {
           "id": "endingLM",
           "label": "lm",
           "exampleWord": "film",
-          "listKey": "endingLMWordList"
+          "listKey": "endingLMWordList",
+          "group": "blend"
         }
       ]
     }
