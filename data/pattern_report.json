@@ -1943,7 +1943,7 @@
     "label": "ð",
     "group": "coda",
     "pattern": "ð",
-    "count": 10,
+    "count": 13,
     "samples": [
       "with",
       "breathe",
@@ -1961,7 +1961,7 @@
     "label": "ʒ",
     "group": "coda",
     "pattern": "ʒ",
-    "count": 9,
+    "count": 14,
     "samples": [
       "sabotage",
       "rouge",
@@ -2018,7 +2018,7 @@
     "label": "kst",
     "group": "codaBlend",
     "pattern": "kst",
-    "count": 15,
+    "count": 18,
     "samples": [
       "fixed",
       "text",
@@ -2058,7 +2058,7 @@
     "label": "lf",
     "group": "codaBlend",
     "pattern": "lf",
-    "count": 16,
+    "count": 22,
     "samples": [
       "yourself",
       "herself",
@@ -2078,7 +2078,7 @@
     "label": "lk",
     "group": "codaBlend",
     "pattern": "lk",
-    "count": 7,
+    "count": 9,
     "samples": [
       "milk",
       "silk",
@@ -2163,7 +2163,7 @@
     "label": "mf",
     "group": "codaBlend",
     "pattern": "mf",
-    "count": 4,
+    "count": 5,
     "samples": [
       "triumph",
       "hmph",
@@ -2195,7 +2195,7 @@
     "label": "mpt",
     "group": "codaBlend",
     "pattern": "mpt",
-    "count": 15,
+    "count": 16,
     "samples": [
       "attempt",
       "jumped",
@@ -2395,7 +2395,7 @@
     "label": "sp",
     "group": "codaBlend",
     "pattern": "sp",
-    "count": 7,
+    "count": 9,
     "samples": [
       "gasp",
       "grasp",
@@ -2430,7 +2430,7 @@
     "label": "ðd",
     "group": "codaBlend",
     "pattern": "ðd",
-    "count": 4,
+    "count": 7,
     "samples": [
       "bathed",
       "breathed",
@@ -2513,7 +2513,7 @@
     "label": "ʒd",
     "group": "codaBlend",
     "pattern": "ʒd",
-    "count": 3,
+    "count": 22,
     "samples": [
       "sabotaged",
       "camouflaged",

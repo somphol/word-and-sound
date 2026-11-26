@@ -9856,7 +9856,10 @@
       "clothe",
       "sunbathe",
       "eth",
-      "blithe"
+      "blithe",
+      "lathe",
+      "writhe",
+      "booth"
     ],
     "endingZH": [
       "sabotage",
@@ -9867,7 +9870,12 @@
       "barrage",
       "montage",
       "collage",
-      "corsage"
+      "corsage",
+      "massage",
+      "mirage",
+      "garage",
+      "prestige",
+      "entourage"
     ],
     "endingDZ": [
       "friends",
@@ -10128,7 +10136,10 @@
       "axed",
       "betwixt",
       "annexed",
-      "twixt"
+      "twixt",
+      "next",
+      "taxed",
+      "subtext"
     ],
     "endingLD": [
       "told",
@@ -10268,7 +10279,13 @@
       "milf",
       "bookshelf",
       "engulf",
-      "themself"
+      "themself",
+      "gulf",
+      "self",
+      "myself",
+      "himself",
+      "werewolf",
+      "ourself"
     ],
     "endingLK": [
       "milk",
@@ -10277,7 +10294,9 @@
       "elk",
       "buttermilk",
       "ilk",
-      "wilk"
+      "wilk",
+      "bulk",
+      "sulk"
     ],
     "endingLP": [
       "help",
@@ -10467,7 +10486,8 @@
       "triumph",
       "hmph",
       "humph",
-      "lymph"
+      "lymph",
+      "nymph"
     ],
     "endingMP": [
       "jump",
@@ -10533,7 +10553,8 @@
       "clamped",
       "amped",
       "humped",
-      "pimped"
+      "pimped",
+      "exempt"
     ],
     "endingMZ": [
       "times",
@@ -11405,7 +11426,9 @@
       "wasp",
       "clasp",
       "wisp",
-      "rasp"
+      "rasp",
+      "cusp",
+      "lisp"
     ],
     "endingTS": [
       "wants",
@@ -11533,7 +11556,10 @@
       "bathed",
       "breathed",
       "clothed",
-      "unscathed"
+      "unscathed",
+      "mouthed",
+      "smoothed",
+      "loathed"
     ],
     "endingNGK": [
       "think",
@@ -11740,7 +11766,26 @@
     "endingZHD": [
       "sabotaged",
       "camouflaged",
-      "massaged"
+      "massaged",
+      "aged",
+      "forged",
+      "judged",
+      "alleged",
+      "changed",
+      "charged",
+      "damaged",
+      "engaged",
+      "managed",
+      "obliged",
+      "arranged",
+      "challenged",
+      "discharged",
+      "encouraged",
+      "enraged",
+      "pledged",
+      "plunged",
+      "besieged",
+      "enlarged"
     ],
     "vowelSquare": [
       "where",

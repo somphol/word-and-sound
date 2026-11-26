@@ -380,6 +380,22 @@ def main() -> int:
         }
         print(f"  {tile_id:16} {label:8} {len(selected):4}  {', '.join(selected[:8])}")
 
+    # Merge hand-curated additions for sparse coda clusters. The companion
+    # tools/apply_ending_extras.py validates them against the IPA dictionaries.
+    extras_path = DATA / "ending_extras.json"
+    if extras_path.exists():
+        extras = json.loads(extras_path.read_text(encoding="utf-8")).get("lists", {})
+        for tile_id, extra_words in extras.items():
+            if tile_id not in lists:
+                continue
+            seen = {word.lower() for word in lists[tile_id]}
+            for word in extra_words:
+                if word.lower() not in seen:
+                    lists[tile_id].append(word)
+                    seen.add(word.lower())
+            if tile_id in report:
+                report[tile_id]["count"] = len(lists[tile_id])
+
     # Add the new tiles to the library and give them their generated list as a
     # curated fallback. Existing tiles keep their authored lists.
     # Annotate every tile with the pattern kind and the IPA strings that
@@ -435,6 +451,12 @@ def main() -> int:
             "license": "CC BY-SA 4.0",
             "note": "Onset/coda/vowel word lists generated from open IPA and frequency data.",
         })
+        if not any(source.get("name") == "Curated ending additions" for source in provenance["sources"]):
+            provenance["sources"].append({
+                "name": "Curated ending additions",
+                "license": "CC BY-SA 4.0",
+                "note": "Hand-picked words for sparse coda clusters, checked against the US/UK IPA dictionaries.",
+            })
         if not any(source.get("name") == "Minimal pairs" for source in provenance["sources"]):
             provenance["sources"].append({
                 "name": "Minimal pairs",

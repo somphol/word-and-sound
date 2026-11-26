@@ -22,6 +22,8 @@
 - Add a one-tap Refresh pill to the context row, reload through a fresh `?v=`
   URL, and remove the `100vw` cap plus body-level `overflow-x: hidden` so iPad
   rotation reflows to the full width without a reload.
+- Add 45 IPA-checked words to sparse ending blends (`ʒd`, `kst`, `lf`, `ð`,
+  `ʒ`, `sp`, `mp`, and others), taking the built lists to 11,813 words.
 - Add Open Graph/Twitter metadata and a 1200×630 share card.
 
 ## 1.4.2 — 2026-11-25

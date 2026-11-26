@@ -33,6 +33,7 @@ Rebuilding data:
 ```bash
 python3 tools/fetch_corpus.py --kaikki
 make data                          # needs ~/Downloads/WordAndSound.aia and /tmp/kaikki_en.jsonl.gz
+python3 tools/apply_ending_extras.py  # merge curated sparse-coda words into pattern_lists.json
 ```
 
 `make data` order matters: `extract_aia.py`, then `build_corpus.py`, then
@@ -46,7 +47,10 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - `tools/build_corpus.py` writes `library.json`, `phonetics_us.json`,
   `phonetics_uk.json`, `provenance.json` and `coverage.json`.
 - `tools/build_pattern_lists.py` writes `pattern_lists.json` and
-  `pattern_report.json`, keyed by tile id.
+  `pattern_report.json`, keyed by tile id, and merges
+  `data/ending_extras.json` for sparse coda clusters.
+- `tools/apply_ending_extras.py` re-applies those curated words to the committed
+  data, rejecting any word without a US/UK IPA ending in the tile target.
 - `Sources/WordAndSoundCore` owns the Codable models, `LibraryStore` (resource
   loading), the pure `PlaybackSequencer`, `WordListParser`, and `SelfTest`.
 - `web/` is a Vite + React + TypeScript PWA. `web/src/App.tsx` owns selection,
@@ -200,7 +204,9 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - Rare clusters have short lists: `ʒ` onset 3 words, `ŋθ` 3, `ʒd` 3, `mf` 4.
 - Rhotic coda clusters (`rd`, `rk`, `rt`, …) are not tiles; the inventory is
   non-rhotic RP, with US IPA shown only as reference.
-- Pattern lists are frequency-ranked and include inflections/names.
+- Pattern lists are frequency-ranked and include inflections/names. Curated
+  extras for rare codas are appended after the ranked words, so they are not
+  frequency-ordered.
 - The app is unsigned and not notarized.
 - `--snapshot` renders through `NSHostingView`; it is for visual checks, not a
   pixel-perfect screenshot of a live window.

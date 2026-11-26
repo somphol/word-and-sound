@@ -67,6 +67,11 @@
       "name": "Articulation guides",
       "license": "CC BY-SA 4.0",
       "note": "Authored side-view mouth guidance, tips and common-error fixes."
+    },
+    {
+      "name": "Curated ending additions",
+      "license": "CC BY-SA 4.0",
+      "note": "Hand-picked words for sparse coda clusters, checked against the US/UK IPA dictionaries."
     }
   ]
 }

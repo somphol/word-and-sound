@@ -1,0 +1,20 @@
+{
+  "note": "Hand-curated additions for genuinely sparse ending blends. Every word must have US or UK IPA ending in the tile target. CC BY-SA 4.0.",
+  "lists": {
+    "endingDH": ["lathe", "writhe", "booth"],
+    "endingZH": ["massage", "mirage", "garage", "prestige", "entourage", "rouge"],
+    "endingKST": ["next", "taxed", "subtext", "annexed", "betwixt"],
+    "endingLF": ["gulf", "self", "myself", "himself", "werewolf", "ourself"],
+    "endingLK": ["bulk", "sulk"],
+    "endingMF": ["nymph"],
+    "endingMPT": ["exempt", "humped", "pimped", "amped"],
+    "endingSP": ["cusp", "lisp"],
+    "endingDHD": ["mouthed", "smoothed", "loathed"],
+    "endingZHD": [
+      "aged", "forged", "judged", "alleged", "changed", "charged",
+      "damaged", "engaged", "managed", "obliged", "arranged",
+      "challenged", "discharged", "encouraged", "enraged", "pledged",
+      "plunged", "besieged", "enlarged"
+    ]
+  }
+}

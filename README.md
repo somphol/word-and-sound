@@ -142,6 +142,9 @@ Pipeline:
 2. `tools/build_corpus.py` adds the NGSL/NAWL/NGSL-S/FrequencyWords lists and
    builds US/UK IPA dictionaries from ipa-dict and Kaikki.
 3. `tools/build_pattern_lists.py` generates onset, coda, blend and vowel lists.
+   Sparse coda clusters are topped up from `data/ending_extras.json`; every
+   extra is checked against the IPA dictionaries by
+   `tools/apply_ending_extras.py`.
 
 ## Numbers
 
@@ -152,7 +155,7 @@ Pipeline:
 | Ending sounds | 53 (20 single + 33 blends) |
 | Vowels | 23 |
 | Authored words | 15,326 |
-| Pattern-built words | 11,768 |
+| Pattern-built words | 11,813 |
 | Mixed-list words | 14,484 |
 | US IPA entries | 39,886 |
 | UK IPA entries | 22,072 |
