@@ -8,15 +8,17 @@ const accents = [
 ] as const
 
 export function SettingsModal({
-  settings, voices, onChange, onSource, onResetProgress, onResetSettings, onRefresh, onClose, onCredits,
+  settings, voices, speechSupported, onChange, onSource, onResetProgress, onResetSettings, onRefresh, onTestVoice, onClose, onCredits,
 }: {
   settings: Settings
   voices: SpeechSynthesisVoice[]
+  speechSupported: boolean
   onChange: (next: Settings) => void
   onSource: (source: ListSource) => void
   onResetProgress: () => void
   onResetSettings: () => void
   onRefresh: () => void
+  onTestVoice: () => void
   onClose: () => void
   onCredits: () => void
 }) {
@@ -102,6 +104,10 @@ export function SettingsModal({
               {voices.map((voice) => <option key={voice.voiceURI} value={voice.voiceURI}>{voice.name} · {voice.lang}</option>)}
             </select>
           </label>
+          <div className="settings-row">
+            <span>{speechSupported ? `${voices.length} English voices` : 'Speech synthesis is unavailable in this browser'}</span>
+            <button type="button" className="button small" onClick={onTestVoice} disabled={!speechSupported}>Test voice</button>
+          </div>
           <label>Speech rate <span>{settings.rate.toFixed(1)}×</span>
             <input type="range" min="0.2" max="1.8" step="0.1" value={settings.rate} onChange={(event) => onChange({ ...settings, rate: Number(event.target.value) })} />
           </label>

@@ -686,6 +686,7 @@ export default function App() {
           practised={practised}
           settings={settings}
           voices={speech.voices}
+          speechSupported={speech.supported}
           autoplay={autoplay}
           isSpeaking={speech.isSpeaking}
           favorite={!!currentWord && !!progress[currentWord.toLowerCase()]?.favorite}
@@ -941,6 +942,13 @@ export default function App() {
         <SettingsModal
           settings={settings}
           voices={speech.voices}
+          speechSupported={speech.supported}
+          onTestVoice={() => speech.speak('Word and Sound', {
+            lang: settings.accent,
+            voiceURI: settings.voiceURI,
+            rate: settings.rate,
+            pitch: settings.pitch,
+          })}
           onChange={(next) => setSettings(next)}
           onSource={(next) => { stopPlayback(); setSource(next) }}
           onResetProgress={resetProgress}

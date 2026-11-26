@@ -15,7 +15,7 @@ const accents = [
 
 export function FocusCard({
   word, parts, target, eyebrow, listTitle, targets, kind, index, total, practised,
-  settings, voices, autoplay, isSpeaking, favorite, trouble, isReview,
+  settings, voices, speechSupported, autoplay, isSpeaking, favorite, trouble, isReview,
   onSettings, onOpenSettings, onPlay, onStop, onSlow, onPrevious, onNext, onToggleAutoplay, onReplay,
   onFavorite, onTrouble, onCoach, onRecord, onGotIt, onAgain,
 }: {
@@ -31,6 +31,7 @@ export function FocusCard({
   practised: number
   settings: Settings
   voices: SpeechSynthesisVoice[]
+  speechSupported: boolean
   autoplay: boolean
   isSpeaking: boolean
   favorite: boolean
@@ -77,7 +78,7 @@ export function FocusCard({
     observer.observe(parent)
     return () => observer.disconnect()
   }, [word, settings.wordScale, settings.textScale])
-  const hasVoice = voices.some((voice) => voice.lang === settings.accent)
+  const hasVoice = speechSupported && (voices.length === 0 || voices.some((voice) => voice.lang.replace('_', '-') === settings.accent))
   if (!word) {
     return (
       <article className="focus-card empty">
@@ -255,7 +256,7 @@ export function FocusCard({
         </span>
         <span className="voice-name">
           <span className={`voice-dot ${hasVoice ? '' : 'missing'}`} />
-          {voices.find((voice) => voice.lang === settings.accent)?.name ?? 'No voice'}
+          {!speechSupported ? 'Speech unavailable' : voices.length === 0 ? 'Default voice' : voices.find((voice) => voice.lang.replace('_', '-') === settings.accent)?.name ?? 'No voice'}
         </span>
       </div>
     </article>

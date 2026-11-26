@@ -100,7 +100,10 @@ python3 tools/apply_ending_extras.py  # merge curated sparse-coda words into pat
 
 - **The web app is a static PWA, not a second backend.** Speech is the browser
   Web Speech API; recordings use MediaRecorder and stay in memory; progress,
-  settings and imported lists live in `localStorage`. Do not add accounts,
+  settings and imported lists live in `localStorage`. Android adds `en_US`
+  voice tags, can ignore `speak()` after an idle `cancel()`, and may never fire
+  `onend`; `speech.ts` normalises tags, skips idle cancels, retries once and
+  runs a watchdog so autoplay cannot stall. Do not add accounts,
   cloud TTS, uploads or analytics.
 - **Web data is copied, not bundled through imports.** The JSON is fetched
   from `web/public/data/` at runtime so the macOS resources stay the single
