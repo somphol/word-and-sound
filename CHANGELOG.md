@@ -17,6 +17,8 @@
 - Respell consonant-only interjections for speech synthesis (`hmph` → “humph”,
   `tsk` → “tisk”, `mph` → “miles per hour”) while keeping the original spelling
   on screen.
+- Replace orientation-dependent iPad splitting with an explicit Single/Split
+  choice (context-row button and Settings), defaulting to Single.
 - Add Open Graph/Twitter metadata and a 1200×630 share card.
 
 ## 1.4.2 — 2026-11-25

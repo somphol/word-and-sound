@@ -56,6 +56,7 @@ export default function App() {
   const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem('word-and-sound:desktop-hint') === '1')
   const [updateReady, setUpdateReady] = useState(false)
   const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() => window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+  const [tabletViewport, setTabletViewport] = useState(() => window.matchMedia('(min-width: 701px) and (max-width: 1199px) and (min-height: 501px)').matches)
   const [libraryOpen, setLibraryOpen] = useState(false)
   const [libraryTab, setLibraryTab] = useState<'sounds' | 'lists'>('sounds')
   const [wordsOpen, setWordsOpen] = useState(false)
@@ -87,11 +88,25 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)')
-    const onChange = () => setIsPhone(media.matches)
-    media.addEventListener('change', onChange)
-    return () => media.removeEventListener('change', onChange)
+    const phone = window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)')
+    const tablet = window.matchMedia('(min-width: 701px) and (max-width: 1199px) and (min-height: 501px)')
+    const onChange = () => {
+      setIsPhone(phone.matches)
+      setTabletViewport(tablet.matches)
+    }
+    phone.addEventListener('change', onChange)
+    tablet.addEventListener('change', onChange)
+    return () => {
+      phone.removeEventListener('change', onChange)
+      tablet.removeEventListener('change', onChange)
+    }
   }, [])
+
+  const splitView = tabletViewport && settings.tabletLayout === 'split'
+
+  useEffect(() => {
+    document.documentElement.dataset.split = splitView ? 'true' : 'false'
+  }, [splitView])
 
   useEffect(() => {
     if (!isPhone) setScreen('practice')
@@ -528,7 +543,7 @@ export default function App() {
     const fresh: Settings = {
       ...settings, listSource: 'built', accent: 'en-US', voiceURI: '', repeatCount: 1,
       delay: 2, rate: 1, pitch: 1, ipaMode: 'both', textScale: 1, wordScale: 1,
-      theme: settings.theme, palette: settings.palette,
+      theme: settings.theme, palette: settings.palette, tabletLayout: settings.tabletLayout,
     }
     setSettings(fresh)
     setSource('built')
@@ -620,6 +635,18 @@ export default function App() {
             <strong>Words</strong>
             <span className="context-count">{words.length}</span>
           </button>
+          {tabletViewport && (
+            <button
+              type="button"
+              className={`context-pill split-toggle ${splitView ? 'active' : ''}`}
+              aria-pressed={splitView}
+              onClick={() => setSettings({ ...settings, tabletLayout: splitView ? 'single' : 'split' })}
+              title={splitView ? 'Hide the word list' : 'Show the word list beside the card'}
+            >
+              <Icon name="grid" size={15} />
+              <strong>Split</strong>
+            </button>
+          )}
           {review.length > 0 && (
             <button type="button" className="review-jump" onClick={openReview}>
               Review <span>{review.length}</span>

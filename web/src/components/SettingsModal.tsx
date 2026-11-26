@@ -1,6 +1,6 @@
 import type { ListSource } from '../lib/types'
 import type { CSSProperties } from 'react'
-import { clampTextScale, clampWordScale, type AccentName, type Settings, type ThemeMode } from '../lib/progress'
+import { clampTextScale, clampWordScale, type AccentName, type Settings, type TabletLayout, type ThemeMode } from '../lib/progress'
 
 const accents = [
   ['en-US', 'American'], ['en-GB', 'British'], ['en-AU', 'Australian'],
@@ -31,6 +31,14 @@ export function SettingsModal({
             <div className="filter-switch" role="group" aria-label="Theme">
               {([['system', 'Auto'], ['light', 'Light'], ['dark', 'Dark']] as Array<[ThemeMode, string]>).map(([value, label]) => (
                 <button key={value} type="button" className={settings.theme === value ? 'active' : ''} aria-pressed={settings.theme === value} onClick={() => onChange({ ...settings, theme: value })}>{label}</button>
+              ))}
+            </div>
+          </div>
+          <div className="settings-row">
+            <span>Tablet layout</span>
+            <div className="filter-switch" role="group" aria-label="Tablet layout">
+              {([['single', 'Single'], ['split', 'Split']] as Array<[TabletLayout, string]>).map(([value, label]) => (
+                <button key={value} type="button" className={settings.tabletLayout === value ? 'active' : ''} aria-pressed={settings.tabletLayout === value} onClick={() => onChange({ ...settings, tabletLayout: value })}>{label}</button>
               ))}
             </div>
           </div>

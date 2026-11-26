@@ -21,6 +21,8 @@
         document.documentElement.style.setProperty('--word-scale', String(word));
         document.documentElement.dataset.theme = theme;
         document.documentElement.dataset.palette = palette;
+        var split = saved.tabletLayout === 'split' && window.matchMedia('(min-width: 701px) and (max-width: 1199px) and (min-height: 501px)').matches;
+        document.documentElement.dataset.split = split ? 'true' : 'false';
         var meta = document.querySelector('meta[name="theme-color"]');
         if (meta) meta.setAttribute('content', theme === 'light' ? '#f4f6fa' : '#090d13');
       } catch (error) {}

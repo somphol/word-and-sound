@@ -111,6 +111,9 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   lists and the word index open as sheets on tablet/desktop and as full screens
   under the bottom navigation on phones. Do not reintroduce a permanent left
   rail or bottom player without a deliberate design decision.
+- **Tablet split view is explicit, never orientation-driven.** The Split button
+  and Settings → Tablet layout write `single`/`split`; do not re-add an
+  `orientation` media query for the list, it proved unreliable on iPad Chrome.
 - **Breakpoints are phone ≤700, tablet 701–1199, desktop ≥1200.** Short
   landscape (`max-height: 500px` up to 1000px wide) also uses the phone tier.
   The phone tier hides header tabs and shows `BottomNav`; 800–1199 px in

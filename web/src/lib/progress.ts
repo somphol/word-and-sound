@@ -50,6 +50,7 @@ export function saveImported(lists: ImportedList[]) {
 
 export type ThemeMode = 'system' | 'light' | 'dark'
 export type AccentName = 'blue' | 'teal' | 'violet' | 'amber'
+export type TabletLayout = 'split' | 'single'
 
 export interface Settings {
   listSource: 'curated' | 'built'
@@ -57,6 +58,7 @@ export interface Settings {
   wordScale: number
   theme: ThemeMode
   palette: AccentName
+  tabletLayout: TabletLayout
   accent: string
   voiceURI: string
   repeatCount: number
@@ -75,6 +77,7 @@ export const defaultSettings: Settings = {
   wordScale: 1,
   theme: 'dark',
   palette: 'blue',
+  tabletLayout: 'single',
   accent: 'en-US',
   voiceURI: '',
   repeatCount: 1,
