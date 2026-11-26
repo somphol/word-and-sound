@@ -1355,3 +1355,8 @@ mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 
   .playback-strip { display: none; }
   .playback-link { display: inline-flex; }
 }
+
+/* Keyboard hints are meaningless on touch-only devices. */
+@media (pointer: coarse), (hover: none) {
+  .stage-hint { display: none; }
+}

@@ -26,6 +26,8 @@
 - Move phone playback options into Settings so the default card fits without
   scrolling; add modal focus trapping, inert backgrounds and live toast
   announcements.
+- Hide the keyboard shortcut hint on touch-only devices (iPad, Android); the
+  shortcuts still work with a physical keyboard.
 - Export the 48 articulation guides to `data/articulation.json` so the web
   client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.
