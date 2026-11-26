@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.0 — 2026-11-25
+
+- Add a vowel space chart with target and contrast vowels.
+- Add a front-view lip shape for spread and rounded vowels.
+- Add anchor words, contrast playback and a short/long/glide meter.
+- Add whole-blend sequences with component diagrams and blend-specific errors.
+- Add sample words from the current tile to every coach.
+- Add a default common-error line for every guide.
+
 ## 1.3.0 — 2026-11-25
 
 - Add an animated articulation coach with 47 phoneme guides.

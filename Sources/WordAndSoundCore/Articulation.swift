@@ -88,6 +88,9 @@ public struct Articulation: Identifiable, Hashable {
     public let shape: MouthShape
     public let glide: MouthShape?
     public let isVowel: Bool
+    public let anchorWord: String?
+    public let contrasts: [String]
+    public let lengthLabel: String?
 
     public init(
         id: String,
@@ -101,7 +104,10 @@ public struct Articulation: Identifiable, Hashable {
         anchors: [String],
         shape: MouthShape,
         glide: MouthShape? = nil,
-        isVowel: Bool = false
+        isVowel: Bool = false,
+        anchorWord: String? = nil,
+        contrasts: [String] = [],
+        lengthLabel: String? = nil
     ) {
         self.id = id
         self.symbol = symbol
@@ -115,6 +121,9 @@ public struct Articulation: Identifiable, Hashable {
         self.shape = shape
         self.glide = glide
         self.isVowel = isVowel
+        self.anchorWord = anchorWord
+        self.contrasts = contrasts
+        self.lengthLabel = lengthLabel
     }
 }
 
@@ -130,6 +139,10 @@ public enum ArticulationLibrary {
 
     public static func articulation(for label: String) -> Articulation? {
         all[labelMap[label] ?? label]
+    }
+
+    public static var guides: [Articulation] {
+        Array(all.values)
     }
 
     private static let labelMap: [String: String] = [
@@ -216,7 +229,7 @@ public enum ArticulationLibrary {
         stepsOverride: [String]? = nil
     ) -> Articulation {
         let steps = stepsOverride ?? ([cue(place: place), mannerCue(manner), voiced ? "Turn voice on." : "Keep voice off."] + extraSteps)
-        let errors = errorsBySound[symbol] ?? []
+        let errors = errorsBySound[symbol] ?? defaultErrors(manner: manner)
         let anchors = anchorsBySound[symbol] ?? ["Listen, copy the position, then add the word."]
         return Articulation(
             id: symbol,
@@ -260,6 +273,17 @@ public enum ArticulationLibrary {
             "Lips: \(roundWord(round)); jaw: \(jawWord(jaw)).",
             "Voice on; keep the vowel steady.",
         ]
+        var finalSteps = steps.isEmpty ? defaultSteps : steps
+        if finalSteps.count < 3 {
+            finalSteps.append(
+                glide == nil
+                    ? "Keep the vowel steady and voiced."
+                    : "Move smoothly from the first position to the second."
+            )
+        }
+        if finalSteps.count < 3 {
+            finalSteps.append("Keep the glide short and voiced.")
+        }
         return Articulation(
             id: symbol,
             symbol: symbol,
@@ -267,13 +291,33 @@ public enum ArticulationLibrary {
             place: "vowel",
             manner: "vowel",
             voiced: true,
-            steps: steps.isEmpty ? defaultSteps : steps,
-            errors: errorsBySound[symbol] ?? [],
+            steps: finalSteps,
+            errors: errorsBySound[symbol] ?? [ArticulationError(heardAs: "a nearby vowel", fix: "Match the tongue height, backness and lip rounding, then hold the vowel.")],
             anchors: anchorsBySound[symbol] ?? ["Hold the vowel, then copy the example word."],
             shape: start,
             glide: end,
-            isVowel: true
+            isVowel: true,
+            anchorWord: anchorWords[symbol],
+            contrasts: vowelContrasts[symbol] ?? [],
+            lengthLabel: symbol.contains("ː") ? "long" : (glide == nil ? "short" : "glide")
         )
+    }
+
+    private static func defaultErrors(manner: String) -> [ArticulationError] {
+        switch manner {
+        case "stop":
+            return [ArticulationError(heardAs: "a weak stop", fix: "Build pressure and release once, cleanly.")]
+        case "fricative":
+            return [ArticulationError(heardAs: "too little friction", fix: "Narrow the gap and keep the air moving.")]
+        case "affricate":
+            return [ArticulationError(heardAs: "a plain fricative", fix: "Start with a complete stop, then release into the hiss.")]
+        case "nasal":
+            return [ArticulationError(heardAs: "air through the mouth", fix: "Seal the mouth and let the air flow through the nose.")]
+        case "lateral":
+            return [ArticulationError(heardAs: "a plain /l/", fix: "Keep the tip on the ridge and let the air pass around the sides.")]
+        default:
+            return [ArticulationError(heardAs: "too much friction", fix: "Open the gap slightly; do not touch the roof of the mouth.")]
+        }
     }
 
     private static func heightWord(_ value: Double) -> String {
@@ -353,6 +397,25 @@ public enum ArticulationLibrary {
         v("ʊə", "centring diphthong", height: 0.8, back: 0.75, round: 0.55, jaw: 0.15, glide: (0.5, 0.5, 0, 0.22), steps: ["Start at /ʊ/; relax into schwa."]),
         v("aɪə", "triphthong", height: 0.2, back: 0.1, round: 0, jaw: 0.4, glide: (1, 0.1, 0, 0.08), steps: ["Glide /a/ → /ɪ/ → schwa.", "Keep the middle part brief."]),
         v("aʊə", "triphthong", height: 0.2, back: 0.1, round: 0, jaw: 0.4, glide: (0.8, 0.75, 0.7, 0.15), steps: ["Glide /a/ → /ʊ/ → schwa.", "Keep the middle part brief."]),
+    ]
+
+    private static let anchorWords: [String: String] = [
+        "iː": "see", "ɪ": "ship", "e": "bed", "ɛ": "bed", "æ": "cat",
+        "ɑː": "car", "ɒ": "hot", "ɔː": "saw", "ʊ": "book", "uː": "food",
+        "ʌ": "cup", "ɜː": "bird", "ə": "sofa", "eɪ": "day", "aɪ": "time",
+        "ɔɪ": "boy", "əʊ": "go", "aʊ": "now", "ɪə": "near", "eə": "hair",
+        "ʊə": "tour", "ɛː": "there", "aɪə": "fire", "aʊə": "power",
+    ]
+
+    private static let vowelContrasts: [String: [String]] = [
+        "iː": ["ɪ", "eɪ"], "ɪ": ["iː", "e"], "e": ["ɪ", "æ"], "ɛ": ["æ", "ɪ"],
+        "æ": ["ɛ", "ɑː"], "ɑː": ["æ", "ʌ", "ɒ"], "ɒ": ["ɔː", "ʌ"],
+        "ɔː": ["ɒ", "əʊ"], "ʊ": ["uː", "ɔː"], "uː": ["ʊ", "əʊ"],
+        "ʌ": ["ɑː", "ɒ", "ə"], "ɜː": ["ə", "ɔː"], "ə": ["ʌ", "ɜː"],
+        "eɪ": ["e", "aɪ"], "aɪ": ["eɪ", "ɔɪ"], "ɔɪ": ["aɪ", "əʊ"],
+        "əʊ": ["ɔː", "aʊ"], "aʊ": ["əʊ", "ɔɪ"], "ɪə": ["eə", "ɪ"],
+        "eə": ["ɪə", "ɛː"], "ʊə": ["ɔː", "uː"], "ɛː": ["eə", "e"],
+        "aɪə": ["aɪ", "ə"], "aʊə": ["aʊ", "ə"],
     ]
 
     private static let errorsBySound: [String: [ArticulationError]] = [

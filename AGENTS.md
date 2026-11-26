@@ -44,9 +44,11 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - `Sources/WordAndSoundCore` owns the Codable models, `LibraryStore` (resource
   loading), the pure `PlaybackSequencer`, `WordListParser`, and `SelfTest`.
 - `Sources/WordAndSoundCore/Articulation.swift` holds the 47 authored
-  phoneme guides (steps, errors, anchors, mouth shape and glide).
+  phoneme guides (steps, errors, anchors, mouth shape, glide, anchor word,
+  contrast list and length label).
 - `Sources/WordAndSound/Views/MouthDiagramView.swift` renders the animated 2D
-  sagittal diagram; `ArticulationCoachView` is the sheet for a tile.
+  sagittal diagram; `VowelChartView` renders the vowel space and front lip
+  view; `ArticulationCoachView` is the sheet for a tile.
 - `Sources/WordAndSound` owns `AppModel`, `SpeechEngine` (AVSpeechSynthesizer),
   `Snapshot`, commands and the SwiftUI views. `AppModel` is the single owner of
   list selection, playback state, imported lists, favorites, trouble marks,
@@ -96,6 +98,12 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   physical checkpoints alongside the drawing; accuracy beats novelty.
 - **Blends are component-based.** A cluster such as /str/ shows /s/, /t/, /r/
   in sequence; do not draw a fake single "cluster tongue" position.
+- **Vowels are space + lips + length.** The vowel chart (`height` × `back`),
+  front lip view (`lipRound`), anchor word, contrast list and
+  short/long/glide label are deliberate cues. Do not replace them with a
+  single abstract diagram.
+- **No automatic vowel scoring.** Formant analysis and pitch scoring are not
+  shipped; the chart is a teaching map, not a measurement of the learner.
 - **Microphone usage description** is in `scripts/make_app.sh`; recording
   refuses to start under `swift run` without the bundle key.
 
@@ -115,6 +123,8 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   regenerated.
 - Articulation guides cover 47 core phonemes; every tile resolves to one or
   more components. The diagrams are teaching aids, not medical anatomy.
+- Vowel length is a cue, not a measured duration; formant analysis is not
+  implemented.
 - Minimal pairs are a curated set of 37, not generated from the IPA inventory.
 - Global search indexes the first occurrence of a word; duplicate words jump to
   the first containing list. The index is lazy and rebuilt when the list

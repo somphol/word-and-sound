@@ -96,6 +96,14 @@ final class ArticulationTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(s.steps.count, 3)
     }
 
+    func testEveryGuideHasStepsAndErrors() {
+        XCTAssertGreaterThanOrEqual(ArticulationLibrary.guides.count, 47)
+        for guide in ArticulationLibrary.guides {
+            XCTAssertGreaterThanOrEqual(guide.steps.count, 3, guide.id)
+            XCTAssertFalse(guide.errors.isEmpty, guide.id)
+        }
+    }
+
     func testBlendComponents() {
         XCTAssertEqual(
             ArticulationLibrary.components(for: "str").map(\.symbol),

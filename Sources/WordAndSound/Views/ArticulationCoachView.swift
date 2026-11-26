@@ -83,9 +83,16 @@ struct ArticulationCoachView: View {
                     if components.count > 1 {
                         badge("Blend")
                     } else if let current {
-                        badge(current.place.capitalized)
-                        badge(current.manner.capitalized)
+                        if current.isVowel {
+                            badge("Vowel")
+                        } else {
+                            badge(current.place.capitalized)
+                            badge(current.manner.capitalized)
+                        }
                         badge(current.voiced ? "Voice on" : "Voice off")
+                        if let length = current.lengthLabel {
+                            badge(length.capitalized)
+                        }
                     }
                 }
             }
@@ -104,29 +111,38 @@ struct ArticulationCoachView: View {
                     .font(.callout)
                     .foregroundStyle(.secondary)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
+                    HStack(spacing: 8) {
                         ForEach(Array(components.enumerated()), id: \.offset) { index, component in
                             Button {
                                 selectedComponent = index
                             } label: {
                                 VStack(spacing: 4) {
-                                    Text(component.symbol)
-                                        .font(.system(size: 22, weight: .bold, design: .rounded))
-                                    Text(component.place)
-                                        .font(.caption2)
-                                        .foregroundStyle(.secondary)
+                                    MouthDiagramView(articulation: component, compact: true)
+                                        .frame(width: 138, height: 92)
+                                    HStack(spacing: 5) {
+                                        Text(component.symbol)
+                                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                                        Text(component.place)
+                                            .font(.caption2)
+                                            .foregroundStyle(.secondary)
+                                    }
                                 }
-                                .frame(width: 118, height: 72)
+                                .padding(6)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(index == selectedComponent ? Theme.accent.opacity(0.18) : Theme.panel)
+                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                        .fill(index == selectedComponent ? Theme.accent.opacity(0.16) : Theme.panel)
                                 )
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
                                         .strokeBorder(index == selectedComponent ? Theme.accent.opacity(0.7) : Theme.subtle, lineWidth: 1)
                                 )
                             }
                             .buttonStyle(.plain)
+                            if index < components.count - 1 {
+                                Image(systemName: "arrow.right")
+                                    .font(.caption)
+                                    .foregroundStyle(.tertiary)
+                            }
                         }
                     }
                 }
@@ -134,10 +150,54 @@ struct ArticulationCoachView: View {
         }
     }
 
+    private var sampleWords: [String] {
+        guard model.currentTile?.id == tile.id else { return [] }
+        return Array(model.words.prefix(6))
+    }
+
+    private var blendGuidance: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Say the whole blend")
+                .font(.headline)
+            ForEach(components) { component in
+                HStack(alignment: .top, spacing: 8) {
+                    Text(component.symbol)
+                        .font(.callout.bold())
+                        .frame(width: 28, alignment: .leading)
+                    Text(component.steps.first ?? "Hold this position.")
+                        .font(.callout)
+                }
+            }
+            Text("Do not insert a vowel between the consonants.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            HStack(alignment: .top, spacing: 8) {
+                Text("extra vowel")
+                    .font(.caption.bold())
+                    .foregroundStyle(.orange)
+                    .frame(width: 88, alignment: .leading)
+                Text("Keep moving; do not relax between sounds.")
+                    .font(.caption)
+            }
+            HStack(alignment: .top, spacing: 8) {
+                Text("dropped sound")
+                    .font(.caption.bold())
+                    .foregroundStyle(.orange)
+                    .frame(width: 88, alignment: .leading)
+                Text("Hold each position briefly, then blend faster.")
+                    .font(.caption)
+            }
+        }
+    }
+
     private func leftColumn(_ articulation: Articulation) -> some View {
         VStack(alignment: .leading, spacing: 14) {
-            MouthDiagramView(articulation: articulation)
-                .frame(height: 330)
+            HStack(alignment: .top, spacing: 10) {
+                MouthDiagramView(articulation: articulation)
+                    .frame(height: 330)
+                LipShapeView(articulation: articulation)
+                    .frame(width: 104, height: 178)
+            }
 
             HStack(spacing: 14) {
                 legend(color: Color(red: 0.36, green: 0.95, blue: 0.56), text: "target zone")
@@ -147,6 +207,10 @@ struct ArticulationCoachView: View {
                 Text("Side view")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
+            }
+
+            if articulation.isVowel {
+                VowelChartView(current: articulation)
             }
 
             HStack(spacing: 10) {
@@ -184,11 +248,52 @@ struct ArticulationCoachView: View {
             .padding(14)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.panel))
+
+            if !sampleWords.isEmpty {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Hear it in words")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                    ForEach(Array(sampleWords.prefix(4)), id: \.self) { word in
+                        HStack(spacing: 8) {
+                            Text(word)
+                                .font(.callout)
+                            IPAHighlighter.text(model.rowIPA(for: word), targets: tile.targets, kind: tile.kind)
+                                .font(.caption.monospaced())
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            Button {
+                                model.playWord(word)
+                            } label: {
+                                Image(systemName: "speaker.wave.2.fill")
+                            }
+                            .buttonStyle(.borderless)
+                            .help("Hear \(word)")
+                        }
+                    }
+                    Text("Each word comes from this tile’s current list.")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+                .padding(14)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.panel))
+            }
         }
     }
 
     private func rightColumn(_ articulation: Articulation) -> some View {
         VStack(alignment: .leading, spacing: 18) {
+            if components.count > 1 {
+                blendGuidance
+                Divider()
+            }
+
+            if articulation.isVowel {
+                vowelGuidance(articulation)
+                Divider()
+            }
+
             VStack(alignment: .leading, spacing: 8) {
                 Text("How to make it")
                     .font(.headline)
@@ -266,6 +371,61 @@ struct ArticulationCoachView: View {
             Text(text)
                 .font(.caption2)
                 .foregroundStyle(.secondary)
+        }
+    }
+
+    private func vowelGuidance(_ articulation: Articulation) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Anchor and contrasts")
+                .font(.headline)
+            Text("Front vowels are left, back vowels right; high vowels are at the top.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
+            HStack(spacing: 8) {
+                if let anchor = articulation.anchorWord {
+                    Button {
+                        model.playWord(anchor)
+                    } label: {
+                        Text("\(articulation.symbol) · \(anchor)")
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                ForEach(articulation.contrasts, id: \.self) { contrastID in
+                    if let contrast = ArticulationLibrary.articulation(for: contrastID),
+                       let anchor = contrast.anchorWord {
+                        Button {
+                            model.playWord(anchor)
+                        } label: {
+                            Text("\(contrast.symbol) · \(anchor)")
+                        }
+                        .buttonStyle(.bordered)
+                    }
+                }
+            }
+            .controlSize(.small)
+
+            if let length = articulation.lengthLabel {
+                HStack(spacing: 8) {
+                    Text("Length")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    ZStack(alignment: .leading) {
+                        Capsule()
+                            .fill(Theme.subtle)
+                            .frame(width: 118, height: 6)
+                        Capsule()
+                            .fill(Theme.accent)
+                            .frame(width: length == "short" ? 42 : 118, height: 6)
+                    }
+                    Text(length)
+                        .font(.caption.bold())
+                        .foregroundStyle(Theme.accent)
+                }
+                Text(length == "glide" ? "Move smoothly from the first position to the second." : "Short vowels are quick; long vowels are held.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
         }
     }
 
