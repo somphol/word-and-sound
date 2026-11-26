@@ -5,6 +5,13 @@ struct PlaybackCommands: Commands {
 
     var body: some Commands {
         CommandMenu("Playback") {
+            Button("Search…") {
+                model.isSearchPresented = true
+            }
+            .keyboardShortcut("k", modifiers: .command)
+
+            Divider()
+
             Button("Play / Pause") {
                 model.toggleAutoplay()
             }

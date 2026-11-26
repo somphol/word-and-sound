@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 — 2026-11-25
+
+- Add ⌘K global search across tiles, lists, words and IPA.
+- Add search filters for favorites, trouble words and due review items.
+- Resume the last word per sound/list across launches.
+- Add a search snapshot command and documentation.
+
 ## 1.1.0 — 2026-11-25
 
 - Highlight the target IPA segment and add articulatory tips.

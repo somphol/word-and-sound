@@ -11,6 +11,8 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
 
 ![Minimal pairs](docs/practice.png)
 
+![Global search](docs/search.png)
+
 ## What it does
 
 - **134 sound tiles** across starting sounds, starting blends, ending sounds,
@@ -22,6 +24,8 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
   segment highlighted and a short articulatory tip.
 - **37 minimal pairs** with listen and quiz modes for the contrasts ESL
   learners need most.
+- **Global search (⌘K)** across every sound, list and word, with IPA search;
+  the last word in each list is remembered.
 - **Favorites, trouble words and a review queue** with local spaced review.
 - **Record and compare**: hear the model, record yourself, replay both. No
   automatic score; recordings stay on the Mac.

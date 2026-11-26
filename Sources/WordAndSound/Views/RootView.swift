@@ -48,6 +48,9 @@ struct RootView: View {
         .sheet(isPresented: $showPractice) {
             PracticeView(model: model)
         }
+        .sheet(isPresented: $model.isSearchPresented) {
+            GlobalSearchView(model: model)
+        }
         .fileImporter(
             isPresented: $showImporter,
             allowedContentTypes: [.plainText, .commaSeparatedText],

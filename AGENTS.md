@@ -17,6 +17,7 @@ make run                           # build and open
 swift run wordandsound-selftest    # headless data + sequencer + parser checks
 swift run WordAndSound --snapshot-practice /tmp/practice.png
 swift run WordAndSound --snapshot-record /tmp/record.png
+swift run WordAndSound --snapshot-search /tmp/search.png --query "θ"
 swift run WordAndSound --snapshot docs/screenshot.png --category vowel --tile vowelMar
 ```
 
@@ -50,6 +51,11 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - `PracticeView` drives the minimal-pair listen/quiz sheet. `RecordController`
   owns AVAudioRecorder/AVAudioPlayer; `RecordView` presents it. Both are
   local-only.
+- `Search.swift` + `GlobalSearchView` provide ⌘K search over tiles, lists and
+  words. `AppModel.ensureWordIndex()` builds a lazy 40k-word index and
+  invalidates it when the list source or imported lists change.
+- `lastPositions` in UserDefaults maps tile/mixed-list id to the last word; it
+  is restored by `applyTile`/`applyMixed` and saved on every utterance.
 - `scripts/make_app.sh` builds the SwiftPM binary, copies the generated
   `WordAndSound_WordAndSoundCore.bundle` into `Contents/Resources`, builds the
   icon, writes `Info.plist`, copies licenses, and ad-hoc signs.
@@ -98,6 +104,11 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - The mixed lists contain 4 lists, not the original 13; subject lists were not
   regenerated.
 - Minimal pairs are a curated set of 37, not generated from the IPA inventory.
+- Global search indexes the first occurrence of a word; duplicate words jump to
+  the first containing list. The index is lazy and rebuilt when the list
+  source or imported lists change.
+- Last positions live in UserDefaults (`lastPositions`) and are separate from
+  practice progress reset.
 - Recording is unscored and requires microphone permission; no audio leaves
   the Mac.
 

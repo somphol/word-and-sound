@@ -10,6 +10,23 @@ struct WordAndSoundApp: App {
         if CommandLine.arguments.contains("--selftest") {
             exit(SelfTest.run() ? 0 : 1)
         }
+        if let index = CommandLine.arguments.firstIndex(of: "--snapshot-search"),
+           index + 1 < CommandLine.arguments.count {
+            let model = AppModel()
+            let query: String
+            if let queryIndex = CommandLine.arguments.firstIndex(of: "--query"),
+               queryIndex + 1 < CommandLine.arguments.count {
+                query = CommandLine.arguments[queryIndex + 1]
+            } else {
+                query = "ship"
+            }
+            let ok = Snapshot.write(
+                GlobalSearchView(model: model, initialQuery: query),
+                to: CommandLine.arguments[index + 1],
+                size: CGSize(width: 760, height: 580)
+            )
+            exit(ok ? 0 : 1)
+        }
         if let index = CommandLine.arguments.firstIndex(of: "--snapshot-practice"),
            index + 1 < CommandLine.arguments.count {
             let model = AppModel()

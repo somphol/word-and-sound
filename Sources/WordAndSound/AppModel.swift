@@ -22,6 +22,7 @@ final class AppModel: ObservableObject {
     @Published private(set) var importedLists: [ImportedList] = []
     @Published private(set) var progress: [String: WordProgress] = [:]
     @Published var importMessage: String?
+    @Published var isSearchPresented = false
 
     @Published var accent: Accent = .us {
         didSet {
@@ -53,6 +54,7 @@ final class AppModel: ObservableObject {
     @Published var listSource: ListSource = .curated {
         didSet {
             defaults.set(listSource.rawValue, forKey: Keys.listSource)
+            invalidateSearchIndex()
             reloadForSourceChange()
         }
     }
@@ -62,6 +64,8 @@ final class AppModel: ObservableObject {
     private var sequencer: PlaybackSequencer?
     private var pendingWork: DispatchWorkItem?
     private var isStandaloneSpeech = false
+    private var lastPositions: [String: String] = [:]
+    private var wordIndex: [String: WordHit]?
     private let banned: Set<String> = ["rape", "sex", "sexual"]
 
     init() {
@@ -73,6 +77,7 @@ final class AppModel: ObservableObject {
         }
         loadImported()
         loadProgress()
+        lastPositions = defaults.dictionary(forKey: Keys.lastPositions) as? [String: String] ?? [:]
         if libraryData?.patternLists != nil, defaults.string(forKey: Keys.listSource) == nil {
             listSource = .built
         }
@@ -299,7 +304,7 @@ final class AppModel: ObservableObject {
         applyMixed(list, speak: false)
     }
 
-    private func applyTile(_ tile: SoundTile, speak: Bool) {
+    private func applyTile(_ tile: SoundTile, speak: Bool, resumeAutoplay: Bool = true) {
         let wasAutoplay = isAutoplay
         cancelPending()
         if let category = categories.first(where: { $0.tiles.contains(tile) }) {
@@ -310,16 +315,16 @@ final class AppModel: ObservableObject {
         selectedMixedID = nil
         listKey = tile.listKey
         words = wordsForTile(tile)
-        currentIndex = 0
+        currentIndex = restoredIndex(listID: tile.id, words: words)
         searchText = ""
-        sequencer = PlaybackSequencer(index: 0, repeatCount: repeatCount, wordCount: words.count)
+        sequencer = PlaybackSequencer(index: currentIndex, repeatCount: repeatCount, wordCount: words.count)
         defaults.set(tile.id, forKey: Keys.tile)
-        if wasAutoplay || speak {
+        if (wasAutoplay && resumeAutoplay) || speak {
             speakCurrent()
         }
     }
 
-    private func applyMixed(_ list: MixedList, speak: Bool) {
+    private func applyMixed(_ list: MixedList, speak: Bool, resumeAutoplay: Bool = true) {
         let wasAutoplay = isAutoplay
         cancelPending()
         selectedCategoryID = "mixed"
@@ -327,14 +332,163 @@ final class AppModel: ObservableObject {
         selectedTileID = nil
         listKey = list.id
         words = wordsForList(list.id)
-        currentIndex = 0
+        currentIndex = restoredIndex(listID: list.id, words: words)
         searchText = ""
-        sequencer = PlaybackSequencer(index: 0, repeatCount: repeatCount, wordCount: words.count)
+        sequencer = PlaybackSequencer(index: currentIndex, repeatCount: repeatCount, wordCount: words.count)
         defaults.set("mixed", forKey: Keys.category)
         defaults.set(list.id, forKey: Keys.mixed)
-        if wasAutoplay || speak {
+        if (wasAutoplay && resumeAutoplay) || speak {
             speakCurrent()
         }
+    }
+
+    func openTile(_ tile: SoundTile, resumeAutoplay: Bool = true) {
+        applyTile(tile, speak: false, resumeAutoplay: resumeAutoplay)
+    }
+
+    func openMixed(_ list: MixedList, resumeAutoplay: Bool = true) {
+        applyMixed(list, speak: false, resumeAutoplay: resumeAutoplay)
+    }
+
+    func openWord(_ hit: WordHit) {
+        if let tileID = hit.tileID,
+           let tile = categories.flatMap(\.tiles).first(where: { $0.id == tileID }) {
+            openTile(tile, resumeAutoplay: false)
+        } else if let list = mixedLists.first(where: { $0.id == hit.listID }) {
+            openMixed(list, resumeAutoplay: false)
+        }
+        guard let index = words.firstIndex(where: {
+            $0.caseInsensitiveCompare(hit.word) == .orderedSame
+        }) else {
+            isSearchPresented = false
+            return
+        }
+        cancelPending()
+        currentIndex = index
+        sequencer = PlaybackSequencer(index: index, repeatCount: repeatCount, wordCount: words.count)
+        isSearchPresented = false
+        speakCurrent()
+    }
+
+    private func currentListID() -> String? {
+        if let selectedMixedID { return selectedMixedID }
+        return selectedTileID
+    }
+
+    private func restoredIndex(listID: String, words: [String]) -> Int {
+        guard let saved = lastPositions[listID],
+              let index = words.firstIndex(where: { $0.caseInsensitiveCompare(saved) == .orderedSame })
+        else { return 0 }
+        return index
+    }
+
+    private func saveCurrentPosition() {
+        guard let listID = currentListID(), let word = currentWord else { return }
+        lastPositions[listID] = word
+        defaults.set(lastPositions, forKey: Keys.lastPositions)
+    }
+
+    private func invalidateSearchIndex() {
+        wordIndex = nil
+    }
+
+    private func ensureWordIndex() -> [String: WordHit] {
+        if let wordIndex { return wordIndex }
+        var index: [String: WordHit] = [:]
+        for category in categories {
+            for tile in category.tiles {
+                let title = "\(category.title) · \(tile.label)"
+                for (position, word) in wordsForTile(tile).enumerated() {
+                    let key = word.lowercased()
+                    if index[key] == nil {
+                        index[key] = WordHit(
+                            id: key,
+                            word: word,
+                            listID: tile.id,
+                            tileID: tile.id,
+                            listTitle: title,
+                            index: position
+                        )
+                    }
+                }
+            }
+        }
+        for list in mixedLists where list.id != "review" {
+            for (position, word) in wordsForList(list.id).enumerated() {
+                let key = word.lowercased()
+                if index[key] == nil {
+                    index[key] = WordHit(
+                        id: key,
+                        word: word,
+                        listID: list.id,
+                        tileID: nil,
+                        listTitle: list.title,
+                        index: position
+                    )
+                }
+            }
+        }
+        wordIndex = index
+        return index
+    }
+
+    func search(_ query: String, filter: SearchFilter = .all) -> SearchResults {
+        let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        let options: String.CompareOptions = [.caseInsensitive, .diacriticInsensitive]
+        let matchesQuery: (String) -> Bool = { value in
+            trimmed.isEmpty || value.range(of: trimmed, options: options) != nil
+        }
+
+        var results = SearchResults()
+        results.tiles = categories
+            .flatMap(\.tiles)
+            .filter { matchesQuery($0.label) || matchesQuery($0.exampleWord) }
+            .prefix(24)
+            .map { $0 }
+
+        results.lists = mixedLists
+            .filter { matchesQuery($0.title) || matchesQuery($0.source) }
+            .prefix(12)
+            .map { $0 }
+
+        guard !trimmed.isEmpty else { return results }
+
+        let now = Date()
+        var hits: [(rank: Int, hit: WordHit)] = []
+        for hit in ensureWordIndex().values {
+            switch filter {
+            case .all:
+                break
+            case .favorites:
+                guard isFavorite(hit.word) else { continue }
+            case .trouble:
+                guard isTrouble(hit.word) else { continue }
+            case .due:
+                guard ReviewScheduler.isDue(progress[hit.word.lowercased()]?.due, now: now) else { continue }
+            }
+
+            let word = hit.word
+            let ipa = (phoneticUS(for: word) ?? "") + " " + (phoneticUK(for: word) ?? "")
+            let rank: Int
+            if word.caseInsensitiveCompare(trimmed) == .orderedSame {
+                rank = 0
+            } else if word.lowercased().hasPrefix(trimmed.lowercased()) {
+                rank = 1
+            } else if word.range(of: trimmed, options: options) != nil {
+                rank = 2
+            } else if ipa.range(of: trimmed, options: options) != nil {
+                rank = 3
+            } else {
+                continue
+            }
+            hits.append((rank, hit))
+        }
+        hits.sort {
+            if $0.rank != $1.rank { return $0.rank < $1.rank }
+            return $0.hit.word < $1.hit.word
+        }
+        results.words = hits.prefix(80).map(\.hit)
+        return results
     }
 
     func wordCount(for list: MixedList) -> Int {
@@ -459,6 +613,7 @@ final class AppModel: ObservableObject {
             return
         }
         recordListen(word: word)
+        saveCurrentPosition()
         isStandaloneSpeech = false
         isSpeaking = true
         speech.speak(word, accent: accent, rate: rateMultiplier, pitch: pitchMultiplier)
@@ -645,6 +800,7 @@ final class AppModel: ObservableObject {
             source: url.lastPathComponent
         )
         importedLists.append(list)
+        invalidateSearchIndex()
         saveImported()
         importMessage = "Imported \(words.count) words from \(url.lastPathComponent)."
         if let mixed = mixedLists.first(where: { $0.id == list.id }) {
@@ -657,6 +813,7 @@ final class AppModel: ObservableObject {
             clearSelection()
         }
         importedLists.removeAll { $0.id == list.id }
+        invalidateSearchIndex()
         saveImported()
     }
 
@@ -692,6 +849,7 @@ final class AppModel: ObservableObject {
         static let pitch = "pitch"
         static let ipaMode = "ipaMode"
         static let listSource = "listSource"
+        static let lastPositions = "lastPositions"
         static let category = "category"
         static let tile = "tile"
         static let mixed = "mixed"

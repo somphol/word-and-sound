@@ -38,6 +38,14 @@ struct HeaderView: View {
             Spacer(minLength: 12)
 
             Button {
+                model.isSearchPresented = true
+            } label: {
+                Label("Search", systemImage: "magnifyingglass")
+                    .labelStyle(.iconOnly)
+            }
+            .help("Search words, sounds and lists (⌘K)")
+
+            Button {
                 showPractice = true
             } label: {
                 Label("Practice", systemImage: "target")
