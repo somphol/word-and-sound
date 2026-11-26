@@ -46,9 +46,11 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - `Sources/WordAndSoundCore/Articulation.swift` holds the 47 authored
   phoneme guides (steps, errors, anchors, mouth shape, glide, anchor word,
   contrast list and length label).
-- `Sources/WordAndSound/Views/MouthDiagramView.swift` renders the animated 2D
-  sagittal diagram; `VowelChartView` renders the vowel space and front lip
-  view; `ArticulationCoachView` is the sheet for a tile.
+- `Sources/WordAndSound/Views/MouthDiagramView.swift` renders the labelled 2D
+  sagittal diagram with a dashed rest tongue, movement arrow, contact zone,
+  airflow and voicing; `VowelChartView` renders the vowel space and the
+  spread/neutral/rounded lip comparison; `ArticulationCoachView` is the sheet
+  for a tile.
 - `Sources/WordAndSound` owns `AppModel`, `SpeechEngine` (AVSpeechSynthesizer),
   `Snapshot`, commands and the SwiftUI views. `AppModel` is the single owner of
   list selection, playback state, imported lists, favorites, trouble marks,
@@ -96,11 +98,15 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - **Articulation diagrams are 2D and stylised.** Do not replace them with an
   unvalidated 3D mouth or camera tongue tracking. Keep the text steps and
   physical checkpoints alongside the drawing; accuracy beats novelty.
+- **Side-view labels are part of the contract.** Tongue tip, tongue body,
+  ridge, lips and vocal folds are labelled; the dashed tongue is the rest
+  position and the arrow points to the target. Do not remove the labels or the
+  rest ghost to make the drawing look prettier.
 - **Blends are component-based.** A cluster such as /str/ shows /s/, /t/, /r/
   in sequence; do not draw a fake single "cluster tongue" position.
 - **Vowels are space + lips + length.** The vowel chart (`height` × `back`),
-  front lip view (`lipRound`), anchor word, contrast list and
-  short/long/glide label are deliberate cues. Do not replace them with a
+  spread/neutral/rounded lip comparison (`lipRound`), anchor word, contrast
+  list and short/long/glide label are deliberate cues. Do not replace them with a
   single abstract diagram.
 - **No automatic vowel scoring.** Formant analysis and pitch scoring are not
   shipped; the chart is a teaching map, not a measurement of the learner.

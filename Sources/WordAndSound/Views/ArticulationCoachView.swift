@@ -192,26 +192,24 @@ struct ArticulationCoachView: View {
 
     private func leftColumn(_ articulation: Articulation) -> some View {
         VStack(alignment: .leading, spacing: 14) {
-            HStack(alignment: .top, spacing: 10) {
-                MouthDiagramView(articulation: articulation)
-                    .frame(height: 330)
-                LipShapeView(articulation: articulation)
-                    .frame(width: 104, height: 178)
-            }
+            MouthDiagramView(articulation: articulation)
+                .frame(height: 300)
 
-            HStack(spacing: 14) {
+            LipCueView(articulation: articulation)
+
+            HStack(spacing: 12) {
                 legend(color: Color(red: 0.36, green: 0.95, blue: 0.56), text: "target zone")
                 legend(color: Color(red: 0.35, green: 0.78, blue: 1.0), text: "airflow")
-                legend(color: Color(red: 1.0, green: 0.68, blue: 0.25), text: "voice on")
+                legend(color: Color(red: 1.0, green: 0.68, blue: 0.25), text: "voice")
+                legendDashed(text: "rest")
                 Spacer()
                 Text("Side view")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
             }
-
-            if articulation.isVowel {
-                VowelChartView(current: articulation)
-            }
+            Text("Solid tongue = target; dashed outline = rest.")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
 
             HStack(spacing: 10) {
                 Button {
@@ -284,6 +282,11 @@ struct ArticulationCoachView: View {
 
     private func rightColumn(_ articulation: Articulation) -> some View {
         VStack(alignment: .leading, spacing: 18) {
+            if articulation.isVowel {
+                VowelChartView(current: articulation)
+                Divider()
+            }
+
             if components.count > 1 {
                 blendGuidance
                 Divider()
@@ -360,6 +363,17 @@ struct ArticulationCoachView: View {
                 .buttonStyle(.bordered)
                 .controlSize(.small)
             }
+        }
+    }
+
+    private func legendDashed(text: String) -> some View {
+        HStack(spacing: 4) {
+            RoundedRectangle(cornerRadius: 1)
+                .fill(Color.white.opacity(0.35))
+                .frame(width: 12, height: 1.5)
+            Text(text)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
         }
     }
 

@@ -28,6 +28,7 @@ struct MouthDiagramView: View {
                     size: size,
                     articulation: articulation,
                     shape: shape,
+                    restShape: from,
                     phase: phase,
                     compact: compact
                 )
@@ -65,11 +66,47 @@ private enum MouthRenderer {
         size: CGSize,
         articulation: Articulation,
         shape: MouthShape,
+        restShape: MouthShape,
         phase: Double,
         compact: Bool
     ) {
         func p(_ x: Double, _ y: Double) -> CGPoint {
             CGPoint(x: x * size.width, y: y * size.height)
+        }
+
+        func tongueTipPoint(_ s: MouthShape) -> (Double, Double) {
+            var tipX = 0.48 + s.tip * 0.19
+            var tipY = 0.74 - s.tip * 0.30
+            if s.contact == .alveolar, s.airflow != .center {
+                tipX = 0.65
+                tipY = 0.425
+            } else if s.contact == .betweenTeeth {
+                tipX = 0.80
+                tipY = 0.52
+            }
+            return (tipX, tipY)
+        }
+
+        func tongueGeometry(_ s: MouthShape) -> (tip: (Double, Double), body: (Double, Double), jaw: Double) {
+            let tip = tongueTipPoint(s)
+            let bodyX = 0.37 + s.back * 0.12
+            let bodyY = 0.74 - s.body * 0.22
+            return (tip, (bodyX, bodyY), s.jaw * 0.04)
+        }
+
+        func tonguePath(_ s: MouthShape) -> Path {
+            let geometry = tongueGeometry(s)
+            let tip = geometry.tip
+            let body = geometry.body
+            let jawDrop = geometry.jaw
+            var path = Path()
+            path.move(to: p(0.24, 0.67 + jawDrop))
+            path.addCurve(to: p(body.0, body.1), control1: p(0.29, 0.57), control2: p(0.31, body.1))
+            path.addCurve(to: p(tip.0, tip.1), control1: p(body.0 + 0.10, body.1 - 0.04), control2: p(tip.0 - 0.09, tip.1))
+            path.addCurve(to: p(0.70, 0.77 + jawDrop), control1: p(tip.0 + 0.02, tip.1 + 0.10), control2: p(0.68, 0.70))
+            path.addCurve(to: p(0.24, 0.80 + jawDrop), control1: p(0.50, 0.85), control2: p(0.30, 0.83))
+            path.closeSubpath()
+            return path
         }
 
         let background = Path(roundedRect: CGRect(origin: .zero, size: size), cornerRadius: compact ? 10 : 16)
@@ -122,43 +159,63 @@ private enum MouthRenderer {
         velum.addCurve(to: p(0.22, 0.55), control1: p(0.24, 0.45), control2: p(0.20, 0.50))
         context.stroke(velum, with: .color(Color(red: 0.92, green: 0.62, blue: 0.62).opacity(0.55)), style: StrokeStyle(lineWidth: compact ? 4 : 6, lineCap: .round))
 
-        // Tongue.
-        var tipX = 0.48 + shape.tip * 0.19
-        var tipY = 0.74 - shape.tip * 0.30
-        if shape.contact == .alveolar, shape.airflow != .center {
-            // Stops, nasals and laterals close at the ridge; /s/, /z/ and /r/
-            // stay close but do not touch.
-            tipX = 0.65
-            tipY = 0.425
-        } else if shape.contact == .betweenTeeth {
-            tipX = 0.80
-            tipY = 0.52
-        }
-        let bodyX = 0.37 + shape.back * 0.12
-        let bodyY = 0.74 - shape.body * 0.22
-        let jawDrop = shape.jaw * 0.04
+        // Tongue: dashed rest position, solid target position.
+        let ghost = tonguePath(restShape)
+        context.stroke(
+            ghost,
+            with: .color(Color.white.opacity(0.30)),
+            style: StrokeStyle(lineWidth: 1.3, dash: [4, 4])
+        )
 
-        var tongue = Path()
-        tongue.move(to: p(0.24, 0.67 + jawDrop))
-        tongue.addCurve(to: p(bodyX, bodyY), control1: p(0.29, 0.57), control2: p(0.31, bodyY))
-        tongue.addCurve(to: p(tipX, tipY), control1: p(bodyX + 0.10, bodyY - 0.04), control2: p(tipX - 0.09, tipY))
-        tongue.addCurve(to: p(0.70, 0.77 + jawDrop), control1: p(tipX + 0.02, tipY + 0.10), control2: p(0.68, 0.70))
-        tongue.addCurve(to: p(0.24, 0.80 + jawDrop), control1: p(0.50, 0.85), control2: p(0.30, 0.83))
-        tongue.closeSubpath()
+        let tongue = tonguePath(shape)
         context.fill(
             tongue,
             with: .linearGradient(
                 Gradient(colors: [
-                    Color(red: 0.94, green: 0.40, blue: 0.42),
-                    Color(red: 0.72, green: 0.20, blue: 0.28),
+                    Color(red: 0.96, green: 0.44, blue: 0.45),
+                    Color(red: 0.74, green: 0.20, blue: 0.28),
                 ]),
                 startPoint: p(0.3, 0.55),
                 endPoint: p(0.7, 0.8)
             )
         )
-        context.stroke(tongue, with: .color(Color(red: 1, green: 0.72, blue: 0.70).opacity(0.45)), lineWidth: 1)
+        context.stroke(tongue, with: .color(Color(red: 1, green: 0.76, blue: 0.72).opacity(0.55)), lineWidth: 1)
 
-        // Teeth.
+        // Movement arrow from the rest position to the target.
+        let fromTip = tongueTipPoint(restShape)
+        let toTip = tongueTipPoint(shape)
+        let startPoint = p(fromTip.0, fromTip.1)
+        let endPoint = p(toTip.0, toTip.1)
+        let dx = endPoint.x - startPoint.x
+        let dy = endPoint.y - startPoint.y
+        let distance = sqrt(dx * dx + dy * dy)
+        if distance > size.width * 0.03 {
+            var arrow = Path()
+            arrow.move(to: startPoint)
+            arrow.addLine(to: endPoint)
+            context.stroke(
+                arrow,
+                with: .color(Color.white.opacity(0.45)),
+                style: StrokeStyle(lineWidth: 1.2, dash: [4, 3])
+            )
+            let angle = atan2(dy, dx)
+            let head = 7.0
+            var arrowHead = Path()
+            arrowHead.move(to: endPoint)
+            arrowHead.addLine(to: CGPoint(
+                x: endPoint.x - head * cos(angle - .pi / 6),
+                y: endPoint.y - head * sin(angle - .pi / 6)
+            ))
+            arrowHead.addLine(to: CGPoint(
+                x: endPoint.x - head * cos(angle + .pi / 6),
+                y: endPoint.y - head * sin(angle + .pi / 6)
+            ))
+            arrowHead.closeSubpath()
+            context.fill(arrowHead, with: .color(Color.white.opacity(0.55)))
+        }
+
+        // Teeth and lips.
+        let jawDrop = shape.jaw * 0.04
         let upperTooth = CGRect(x: 0.70 * size.width, y: 0.445 * size.height, width: 0.045 * size.width, height: 0.055 * size.height)
         let lowerTooth = CGRect(x: 0.70 * size.width, y: (0.575 + jawDrop) * size.height, width: 0.045 * size.width, height: 0.045 * size.height)
         let toothPath = Path(roundedRect: upperTooth, cornerRadius: 0.008 * size.width)
@@ -223,10 +280,31 @@ private enum MouthRenderer {
         }
 
         if !compact {
-            let labelColor = Color.white.opacity(0.55)
-            context.draw(Text("ridge").font(.system(size: 9, weight: .medium)).foregroundColor(labelColor), at: p(0.64, 0.33))
-            context.draw(Text("tongue").font(.system(size: 9, weight: .medium)).foregroundColor(labelColor), at: p(0.43, 0.74))
-            context.draw(Text("lips").font(.system(size: 9, weight: .medium)).foregroundColor(labelColor), at: p(0.90, 0.59))
+            let labelColor = Color.white.opacity(0.62)
+            let geometry = tongueGeometry(shape)
+
+            func label(_ text: String, at: (Double, Double), to: (Double, Double)) {
+                var leader = Path()
+                leader.move(to: p(at.0, at.1))
+                leader.addLine(to: p(to.0, to.1))
+                context.stroke(
+                    leader,
+                    with: .color(Color.white.opacity(0.22)),
+                    style: StrokeStyle(lineWidth: 0.8, dash: [2, 2])
+                )
+                context.draw(
+                    Text(text)
+                        .font(.system(size: 8, weight: .medium))
+                        .foregroundColor(labelColor),
+                    at: p(at.0, at.1)
+                )
+            }
+
+            label("ridge", at: (0.60, 0.28), to: (0.65, 0.405))
+            label("tongue tip", at: (0.53, 0.22), to: geometry.tip)
+            label("tongue body", at: (0.17, 0.56), to: geometry.body)
+            label("lips", at: (0.92, 0.52), to: (0.82, 0.55))
+            label("vocal folds", at: (0.10, 0.86), to: (0.19, 0.79))
         }
     }
 

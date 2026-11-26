@@ -29,9 +29,11 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
 - **Animated articulation coach**: 47 phoneme guides with a side-view mouth,
   tongue/lip steps, contact points, common errors and physical anchors.
   Especially detailed for /r/ and /s/; blends show their component sounds.
-- **Vowel space and lip view**: every vowel shows a high/low × front/back
-  chart, a front-view lip shape, an anchor word, contrast vowels, and a
-  short/long/glide meter.
+- **Vowel space and lip comparison**: every vowel shows a high/low ×
+  front/back chart, a spread/neutral/rounded lip comparison, an anchor word,
+  contrast vowels, and a short/long/glide meter.
+- **Labelled side view**: tongue tip, tongue body, ridge, lips and vocal folds;
+  a dashed rest position and an arrow show the movement to the target.
 - **37 minimal pairs** with listen and quiz modes for the contrasts ESL
   learners need most.
 - **Global search (⌘K)** across every sound, list and word, with IPA search;

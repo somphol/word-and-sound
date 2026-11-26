@@ -1,9 +1,19 @@
 # Changelog
 
+## 1.4.1 — 2026-11-25
+
+- Replace the single front-lip drawing with a clear spread / neutral /
+  rounded comparison and a highlighted target.
+- Label the tongue tip, tongue body, alveolar ridge, lips and vocal folds.
+- Add a dashed rest tongue and a movement arrow to the side view.
+- Clarify the legend: solid tongue = target, dashed = rest.
+
 ## 1.4.0 — 2026-11-25
 
 - Add a vowel space chart with target and contrast vowels.
-- Add a front-view lip shape for spread and rounded vowels.
+- Add a spread / neutral / rounded lip comparison with the target highlighted.
+- Add labelled tongue tip/body, ridge, lips and vocal folds; dashed rest
+  tongue and movement arrow.
 - Add anchor words, contrast playback and a short/long/glide meter.
 - Add whole-blend sequences with component diagrams and blend-specific errors.
 - Add sample words from the current tile to every coach.
