@@ -180,7 +180,8 @@ Local project: `~/Projects/word-and-sound-mac`.
 GitHub: https://github.com/somphol/word-and-sound-mac (public).
 Built app: `build/WordAndSound.app` (not committed).
 Web app: https://somphol.github.io/word-and-sound-mac/ (GitHub Pages, built
-from `web/` by `.github/workflows/pages.yml`). The macOS app has no hosted
-deployment; distribution is the GitHub source and release artifact.
+from `web/` by `.github/workflows/pages.yml`). Pages is enabled with
+`build_type: workflow`; there is no `gh-pages` branch. The macOS app has no
+hosted deployment; distribution is the GitHub source and release artifact.
 The original `.aia` remains at `~/Downloads/WordAndSound.aia` and is not
 committed.
