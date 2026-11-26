@@ -111,22 +111,23 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   lists and the word index open as sheets on tablet/desktop and as full screens
   under the bottom navigation on phones. Do not reintroduce a permanent left
   rail or bottom player without a deliberate design decision.
-- **Breakpoints are phone ≤700, tablet 701–1099, desktop ≥1100.** Short
+- **Breakpoints are phone ≤700, tablet 701–1199, desktop ≥1200.** Short
   landscape (`max-height: 500px` up to 1000px wide) also uses the phone tier.
-  The phone tier hides header tabs and shows `BottomNav`; 780–1099 px in
+  The phone tier hides header tabs and shows `BottomNav`; 780–1199 px in
   landscape puts the practice card beside a persistent `WordPanel`; portrait
   keeps one centred card with the word on the left and transport on the right;
-  desktop keeps the single card.
+  desktop ≥1200 keeps the single card.
   Keep the tiers in this order when adding layout rules, and put phone overrides
   after the base rules.
 - **Phone playback controls live in Settings.** The accent/repeat/delay/IPA
   strip is hidden ≤700 px so the card fits without scrolling; the card links to
   Settings, which owns Repeat, Delay and IPA alongside Reading and Appearance.
   Do not re-add a dense select row to the phone card.
-- **Desktop-site detection is advisory.** Android Chrome in Desktop site mode
-  reports ~980 px and ignores the viewport meta; `App` shows a dismissible hint
-  when `screen.width <= 600` but `innerWidth > 700`. A page cannot turn the
-  browser setting off, so do not promise a scripted fix.
+- **Desktop-site detection is advisory.** Desktop mode ignores the viewport
+  meta: Android Chrome reports ~980 px, iPad Safari ~1180 px. `App` shows a
+  dismissible hint when `innerWidth > screen.width + 100` (screen ≤1400). The
+  701–1199 tablet tier keeps that iPad width readable, but a page cannot turn
+  the browser setting off, so do not promise a scripted fix.
 - **Web type is scalable by settings.** Base sizes are `rem`, `settings.textScale`
   drives the root font size (0.9–1.3), and `settings.wordScale` multiplies the
   hero via `--word-scale` (1–1.6). Keep new type in `rem` so the control keeps
@@ -223,7 +224,8 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - Phone section history uses `pushState`; Android Back walks Practice → Sounds
   → Words rather than always returning to Practice.
 - Desktop-site mode cannot be overridden from the page; the in-app hint is the
-  only mitigation.
+  only mitigation. On iPad, aA → Request Desktop Website must be switched off
+  once per site.
 - Web import accepts the same `.txt`/`.csv` shapes as the Mac parser but is
   capped at 50,000 words per file.
 

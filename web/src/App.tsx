@@ -50,7 +50,7 @@ export default function App() {
   const [modal, setModal] = useState<Modal>(null)
   const [screen, setScreen] = useState<Screen>('practice')
   const [isPhone, setIsPhone] = useState(() => window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)').matches)
-  const [desktopMode] = useState(() => window.screen.width <= 600 && window.innerWidth > 700)
+  const [desktopMode] = useState(() => window.screen.width <= 1400 && window.innerWidth > window.screen.width + 100)
   const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem('word-and-sound:desktop-hint') === '1')
   const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() => window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
   const [libraryOpen, setLibraryOpen] = useState(false)
@@ -730,7 +730,7 @@ export default function App() {
       {desktopMode && !bannerDismissed && (
         <div className="viewport-banner" role="status">
           <Icon name="info" size={20} />
-          <p>Desktop site is on. For the phone layout, open your browser menu and turn off <b>Desktop site</b>.</p>
+          <p>Desktop site is on. For the phone or tablet layout, open your browser menu and turn off <b>Desktop site</b>.</p>
           <button
             type="button"
             className="icon-button"

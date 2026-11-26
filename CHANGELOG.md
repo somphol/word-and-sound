@@ -40,6 +40,8 @@
   announcements.
 - Hide the keyboard shortcut hint on touch-only devices (iPad, Android); the
   shortcuts still work with a physical keyboard.
+- Move the tablet tier up to 1199 px and detect iPad Safari Desktop mode, so a
+  ~1180 px desktop-mode viewport gets the readable tablet layout plus a hint.
 - Export the 48 articulation guides to `data/articulation.json` so the web
   client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.
