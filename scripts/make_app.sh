@@ -66,9 +66,9 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0</string>
+    <string>1.1.0</string>
     <key>CFBundleVersion</key>
-    <string>1</string>
+    <string>2</string>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
     <key>LSMinimumSystemVersion</key>
@@ -79,6 +79,8 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
     <true/>
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Record your voice to compare with the model pronunciation. Recordings stay on this Mac.</string>
     <key>NSHumanReadableCopyright</key>
     <string>Data CC BY-SA 4.0; code MIT.</string>
 </dict>

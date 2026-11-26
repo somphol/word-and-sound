@@ -55,12 +55,35 @@ final class WordListParserTests: XCTestCase {
     }
 }
 
+final class ReviewSchedulerTests: XCTestCase {
+    func testCorrectAnswerAdvancesInterval() {
+        XCTAssertEqual(ReviewScheduler.nextStep(current: 0, correct: true), 1)
+        XCTAssertEqual(ReviewScheduler.nextStep(current: 4, correct: true), 4)
+        XCTAssertEqual(ReviewScheduler.nextStep(current: 2, correct: false), 0)
+    }
+
+    func testDueDateUsesInterval() {
+        let start = Date(timeIntervalSince1970: 1_700_000_000)
+        let due = ReviewScheduler.nextDue(step: 2, from: start, calendar: Calendar(identifier: .gregorian))
+        XCTAssertEqual(due.timeIntervalSince(start), 7 * 86_400, accuracy: 1)
+    }
+
+    func testDueCheck() {
+        let now = Date()
+        XCTAssertTrue(ReviewScheduler.isDue(now.addingTimeInterval(-1), now: now))
+        XCTAssertFalse(ReviewScheduler.isDue(now.addingTimeInterval(60), now: now))
+        XCTAssertFalse(ReviewScheduler.isDue(nil, now: now))
+    }
+}
+
 final class LibraryTests: XCTestCase {
     func testLibraryLoads() throws {
         let data = try LibraryStore.load()
         XCTAssertEqual(data.library.categories.count, 3)
         XCTAssertGreaterThanOrEqual(data.library.categories.flatMap(\.tiles).count, 60)
         XCTAssertEqual(data.library.mixed.count, 4)
+        XCTAssertGreaterThanOrEqual(data.minimalPairs?.pairs.count ?? 0, 30)
+        XCTAssertTrue(data.library.categories.flatMap(\.tiles).allSatisfy { !$0.targets.isEmpty })
     }
 
     func testPatternListsCoverEveryTile() throws {

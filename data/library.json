@@ -15,406 +15,638 @@
           "label": "d",
           "exampleWord": "do",
           "listKey": "startingDWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "d"
+          ]
         },
         {
           "id": "startingL",
           "label": "l",
           "exampleWord": "love",
           "listKey": "startingLWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "l"
+          ]
         },
         {
           "id": "startingR",
           "label": "r",
           "exampleWord": "right",
           "listKey": "startingRWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "r"
+          ]
         },
         {
           "id": "startingS",
           "label": "s",
           "exampleWord": "sight",
           "listKey": "startingSWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "s"
+          ]
         },
         {
           "id": "startingCH",
           "label": "tʃ",
           "exampleWord": "check",
           "listKey": "startingCHWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "tʃ"
+          ]
         },
         {
           "id": "startingSH",
           "label": "ʃ",
           "exampleWord": "shy",
           "listKey": "startingSHWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "ʃ"
+          ]
         },
         {
           "id": "startingW",
           "label": "w",
           "exampleWord": "win",
           "listKey": "startingWWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "w"
+          ]
         },
         {
           "id": "startingF",
           "label": "f",
           "exampleWord": "fame",
           "listKey": "startingFWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "f"
+          ]
         },
         {
           "id": "startingV",
           "label": "v",
           "exampleWord": "van",
           "listKey": "startingVWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "v"
+          ]
         },
         {
           "id": "startingB",
           "label": "b",
           "exampleWord": "bell",
           "listKey": "startingBWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "b"
+          ]
         },
         {
           "id": "startingP",
           "label": "p",
           "exampleWord": "pen",
           "listKey": "startingPWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "p"
+          ]
         },
         {
           "id": "startingTHUMB",
           "label": "θ",
           "exampleWord": "think",
           "listKey": "startingTHUMBWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "θ"
+          ]
         },
         {
           "id": "startingTHAT",
           "label": "ð",
           "exampleWord": "that",
           "listKey": "startingTHATWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "ð"
+          ]
         },
         {
           "id": "startingJ",
           "label": "dʒ",
           "exampleWord": "jack",
           "listKey": "startingJWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "dʒ"
+          ]
         },
         {
           "id": "startingH",
           "label": "h",
           "exampleWord": "head",
           "listKey": "startingHWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "h"
+          ]
         },
         {
           "id": "startingK",
           "label": "k",
           "exampleWord": "cook",
           "listKey": "startingKWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "k"
+          ]
         },
         {
           "id": "startingY",
           "label": "j",
           "exampleWord": "yet",
           "listKey": "startingYWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "j"
+          ]
         },
         {
           "id": "startingG",
           "label": "g",
           "exampleWord": "game",
           "listKey": "startingGWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "g"
+          ]
         },
         {
           "id": "startingFEW",
           "label": "fj",
           "exampleWord": "few",
           "listKey": "startingFEWWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "fj"
+          ]
         },
         {
           "id": "startingNIOR",
           "label": "nj",
           "exampleWord": "new",
           "listKey": "startingNIORWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "nj"
+          ]
         },
         {
           "id": "startingTHROUGH",
           "label": "θr",
           "exampleWord": "through",
           "listKey": "startingTHROUGHWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "θr"
+          ]
         },
         {
           "id": "startingTR",
           "label": "tr",
           "exampleWord": "true",
           "listKey": "startingTRWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "tr"
+          ]
         },
         {
           "id": "startingBL",
           "label": "bl",
           "exampleWord": "blue",
           "listKey": "startingBLWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "bl"
+          ]
         },
         {
           "id": "startingSTR",
           "label": "str",
           "exampleWord": "straw",
           "listKey": "startingSTRWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "str"
+          ]
         },
         {
           "id": "startingT",
           "label": "t",
           "exampleWord": "top",
           "listKey": "startingTList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "t"
+          ]
         },
         {
           "id": "startingM",
           "label": "m",
           "exampleWord": "man",
           "listKey": "startingMList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "m"
+          ]
         },
         {
           "id": "startingN",
           "label": "n",
           "exampleWord": "no",
           "listKey": "startingNList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "n"
+          ]
         },
         {
           "id": "startingZ",
           "label": "z",
           "exampleWord": "zoo",
           "listKey": "startingZList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "z"
+          ]
         },
         {
           "id": "startingZH",
           "label": "ʒ",
           "exampleWord": "genre",
           "listKey": "startingZHList",
-          "group": "single"
+          "group": "single",
+          "kind": "onset",
+          "targets": [
+            "ʒ"
+          ]
         },
         {
           "id": "startingBR",
           "label": "br",
           "exampleWord": "bring",
           "listKey": "startingBRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "br"
+          ]
         },
         {
           "id": "startingDR",
           "label": "dr",
           "exampleWord": "drink",
           "listKey": "startingDRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "dr"
+          ]
         },
         {
           "id": "startingDW",
           "label": "dw",
           "exampleWord": "dwell",
           "listKey": "startingDWList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "dw"
+          ]
         },
         {
           "id": "startingFR",
           "label": "fr",
           "exampleWord": "friend",
           "listKey": "startingFRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "fr"
+          ]
         },
         {
           "id": "startingGL",
           "label": "gl",
           "exampleWord": "glass",
           "listKey": "startingGLList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "gl"
+          ]
         },
         {
           "id": "startingGR",
           "label": "gr",
           "exampleWord": "green",
           "listKey": "startingGRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "gr"
+          ]
         },
         {
           "id": "startingGW",
           "label": "gw",
           "exampleWord": "Gwen",
           "listKey": "startingGWList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "gw"
+          ]
         },
         {
           "id": "startingHJ",
           "label": "hj",
           "exampleWord": "human",
           "listKey": "startingHJList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "hj"
+          ]
         },
         {
           "id": "startingKL",
           "label": "kl",
           "exampleWord": "class",
           "listKey": "startingKLList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "kl"
+          ]
         },
         {
           "id": "startingKR",
           "label": "kr",
           "exampleWord": "cream",
           "listKey": "startingKRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "kr"
+          ]
         },
         {
           "id": "startingKW",
           "label": "kw",
           "exampleWord": "queen",
           "listKey": "startingKWList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "kw"
+          ]
         },
         {
           "id": "startingLJ",
           "label": "lj",
           "exampleWord": "lute",
           "listKey": "startingLJList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "lj"
+          ]
         },
         {
           "id": "startingMJ",
           "label": "mj",
           "exampleWord": "music",
           "listKey": "startingMJList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "mj"
+          ]
         },
         {
           "id": "startingPL",
           "label": "pl",
           "exampleWord": "play",
           "listKey": "startingPLList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "pl"
+          ]
         },
         {
           "id": "startingPR",
           "label": "pr",
           "exampleWord": "price",
           "listKey": "startingPRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "pr"
+          ]
         },
         {
           "id": "startingSK",
           "label": "sk",
           "exampleWord": "sky",
           "listKey": "startingSKList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "sk"
+          ]
         },
         {
           "id": "startingSKR",
           "label": "skr",
           "exampleWord": "screen",
           "listKey": "startingSKRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "skr"
+          ]
         },
         {
           "id": "startingSKW",
           "label": "skw",
           "exampleWord": "square",
           "listKey": "startingSKWList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "skw"
+          ]
         },
         {
           "id": "startingSL",
           "label": "sl",
           "exampleWord": "slow",
           "listKey": "startingSLList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "sl"
+          ]
         },
         {
           "id": "startingSM",
           "label": "sm",
           "exampleWord": "small",
           "listKey": "startingSMList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "sm"
+          ]
         },
         {
           "id": "startingSN",
           "label": "sn",
           "exampleWord": "snow",
           "listKey": "startingSNList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "sn"
+          ]
         },
         {
           "id": "startingSP",
           "label": "sp",
           "exampleWord": "spoon",
           "listKey": "startingSPList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "sp"
+          ]
         },
         {
           "id": "startingSPL",
           "label": "spl",
           "exampleWord": "splash",
           "listKey": "startingSPLList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "spl"
+          ]
         },
         {
           "id": "startingSPR",
           "label": "spr",
           "exampleWord": "spring",
           "listKey": "startingSPRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "spr"
+          ]
         },
         {
           "id": "startingST",
           "label": "st",
           "exampleWord": "stop",
           "listKey": "startingSTList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "st"
+          ]
         },
         {
           "id": "startingSW",
           "label": "sw",
           "exampleWord": "swim",
           "listKey": "startingSWList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "sw"
+          ]
         },
         {
           "id": "startingTW",
           "label": "tw",
           "exampleWord": "twin",
           "listKey": "startingTWList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "tw"
+          ]
         },
         {
           "id": "startingVJ",
           "label": "vj",
           "exampleWord": "view",
           "listKey": "startingVJList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "vj"
+          ]
         },
         {
           "id": "startingSHR",
           "label": "ʃr",
           "exampleWord": "shrimp",
           "listKey": "startingSHRList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "blend",
+          "targets": [
+            "ʃr"
+          ]
         }
       ]
     },
@@ -427,161 +659,261 @@
           "label": "ʌ",
           "exampleWord": "nut",
           "listKey": "nutWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ʌ"
+          ]
         },
         {
           "id": "vowelMar",
           "label": "ɑː",
           "exampleWord": "mar",
           "listKey": "marWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɑː"
+          ]
         },
         {
           "id": "vowelKit",
           "label": "ɪ",
           "exampleWord": "kit",
           "listKey": "kitWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɪ"
+          ]
         },
         {
           "id": "vowelBee",
           "label": "iː",
           "exampleWord": "peak",
           "listKey": "beeWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "iː"
+          ]
         },
         {
           "id": "vowelPut",
           "label": "ʊ",
           "exampleWord": "put",
           "listKey": "putWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ʊ"
+          ]
         },
         {
           "id": "vowelPool",
           "label": "uː",
           "exampleWord": "pool",
           "listKey": "boolWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "uː"
+          ]
         },
         {
           "id": "vowelAhead",
           "label": "ə",
           "exampleWord": "ahead",
           "listKey": "aheadWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ə"
+          ]
         },
         {
           "id": "vowelEarn",
           "label": "əː",
           "exampleWord": "earn",
           "listKey": "earnWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "əː",
+            "ɜː"
+          ]
         },
         {
           "id": "vowelBet",
           "label": "ɛ",
           "exampleWord": "bet",
           "listKey": "betWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɛ"
+          ]
         },
         {
           "id": "vowelDay",
           "label": "eɪ",
           "exampleWord": "day",
           "listKey": "dayWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "eɪ",
+            "ɛɪ"
+          ]
         },
         {
           "id": "vowelRock",
           "label": "ɒ",
           "exampleWord": "rock",
           "listKey": "rockWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɒ"
+          ]
         },
         {
           "id": "vowelAwe",
           "label": "ɔː",
           "exampleWord": "awe",
           "listKey": "aweWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɔː"
+          ]
         },
         {
           "id": "vowelCat",
           "label": "æ/a",
           "exampleWord": "cat",
           "listKey": "catWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "æ",
+            "a"
+          ]
         },
         {
           "id": "vowelWear",
           "label": "ɛː",
           "exampleWord": "wear",
           "listKey": "wearWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɛː"
+          ]
         },
         {
           "id": "vowelGo",
           "label": "oʊ/əʊ",
           "exampleWord": "go",
           "listKey": "goWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "əʊ",
+            "oʊ"
+          ]
         },
         {
           "id": "vowelNear",
           "label": "ɪə",
           "exampleWord": "near",
           "listKey": "nearWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɪə"
+          ]
         },
         {
           "id": "vowelTime",
           "label": "ʌɪ",
           "exampleWord": "time",
           "listKey": "timeWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "aɪ",
+            "ʌɪ",
+            "ɑj"
+          ]
         },
         {
           "id": "vowelOwl",
           "label": "aʊ",
           "exampleWord": "owl",
           "listKey": "owlWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "aʊ",
+            "ɑʊ"
+          ]
         },
         {
           "id": "vowelBoy",
           "label": "ɔɪ",
           "exampleWord": "boy",
           "listKey": "boyWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ɔɪ"
+          ]
         },
         {
           "id": "vowelTour",
           "label": "ʊə",
           "exampleWord": "tour",
           "listKey": "tourWordList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "ʊə"
+          ]
         },
         {
           "id": "vowelSquare",
           "label": "eə",
           "exampleWord": "there",
           "listKey": "vowelSquareList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "eə",
+            "ɛə"
+          ]
         },
         {
           "id": "vowelFire",
           "label": "aɪə",
           "exampleWord": "fire",
           "listKey": "vowelFireList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "aɪə"
+          ]
         },
         {
           "id": "vowelPower",
           "label": "aʊə",
           "exampleWord": "power",
           "listKey": "vowelPowerList",
-          "group": "vowel"
+          "group": "vowel",
+          "kind": "vowel",
+          "targets": [
+            "aʊə"
+          ]
         }
       ]
     },
@@ -594,371 +926,584 @@
           "label": "d",
           "exampleWord": "kid",
           "listKey": "endingDWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "d"
+          ]
         },
         {
           "id": "endingF",
           "label": "f",
           "exampleWord": "puff",
           "listKey": "endingFWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "f"
+          ]
         },
         {
           "id": "endingL",
           "label": "l",
           "exampleWord": "hill",
           "listKey": "endingLWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "l"
+          ]
         },
         {
           "id": "endingN",
           "label": "n",
           "exampleWord": "bin",
           "listKey": "endingNWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "n"
+          ]
         },
         {
           "id": "endingNG",
           "label": "ŋ",
           "exampleWord": "sing",
           "listKey": "endingNGWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "ŋ"
+          ]
         },
         {
           "id": "endingS",
           "label": "s",
           "exampleWord": "gas",
           "listKey": "endingSWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "s"
+          ]
         },
         {
           "id": "endingK",
           "label": "k",
           "exampleWord": "kick",
           "listKey": "endingKWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "k"
+          ]
         },
         {
           "id": "endingT",
           "label": "t",
           "exampleWord": "kit",
           "listKey": "endingTWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "t"
+          ]
         },
         {
           "id": "endingTH",
           "label": "θ",
           "exampleWord": "earth",
           "listKey": "endingTHWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "θ"
+          ]
         },
         {
           "id": "endingJ",
           "label": "dʒ",
           "exampleWord": "cage",
           "listKey": "endingJWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "dʒ"
+          ]
         },
         {
           "id": "endingV",
           "label": "v",
           "exampleWord": "give",
           "listKey": "endingVWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "v"
+          ]
         },
         {
           "id": "endingSH",
           "label": "ʃ",
           "exampleWord": "dish",
           "listKey": "endingSHWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "ʃ"
+          ]
         },
         {
           "id": "endingCH",
           "label": "tʃ",
           "exampleWord": "each",
           "listKey": "endingCHWordList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "tʃ"
+          ]
         },
         {
           "id": "endingKT",
           "label": "kt",
           "exampleWord": "act",
           "listKey": "endingKTWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "kt"
+          ]
         },
         {
           "id": "endingST",
           "label": "st",
           "exampleWord": "best",
           "listKey": "endingSTWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "st"
+          ]
         },
         {
           "id": "endingLM",
           "label": "lm",
           "exampleWord": "film",
           "listKey": "endingLMWordList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "lm"
+          ]
         },
         {
           "id": "endingP",
           "label": "p",
           "exampleWord": "up",
           "listKey": "endingPList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "p"
+          ]
         },
         {
           "id": "endingB",
           "label": "b",
           "exampleWord": "job",
           "listKey": "endingBList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "b"
+          ]
         },
         {
           "id": "endingG",
           "label": "g",
           "exampleWord": "dog",
           "listKey": "endingGList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "g"
+          ]
         },
         {
           "id": "endingM",
           "label": "m",
           "exampleWord": "time",
           "listKey": "endingMList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "m"
+          ]
         },
         {
           "id": "endingZ",
           "label": "z",
           "exampleWord": "is",
           "listKey": "endingZList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "z"
+          ]
         },
         {
           "id": "endingDH",
           "label": "ð",
           "exampleWord": "bathe",
           "listKey": "endingDHList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "ð"
+          ]
         },
         {
           "id": "endingZH",
           "label": "ʒ",
           "exampleWord": "beige",
           "listKey": "endingZHList",
-          "group": "single"
+          "group": "single",
+          "kind": "coda",
+          "targets": [
+            "ʒ"
+          ]
         },
         {
           "id": "endingDZ",
           "label": "dz",
           "exampleWord": "kids",
           "listKey": "endingDZList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "dz"
+          ]
         },
         {
           "id": "endingKS",
           "label": "ks",
           "exampleWord": "books",
           "listKey": "endingKSList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ks"
+          ]
         },
         {
           "id": "endingKST",
           "label": "kst",
           "exampleWord": "asked",
           "listKey": "endingKSTList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "kst"
+          ]
         },
         {
           "id": "endingLD",
           "label": "ld",
           "exampleWord": "old",
           "listKey": "endingLDList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ld"
+          ]
         },
         {
           "id": "endingLF",
           "label": "lf",
           "exampleWord": "self",
           "listKey": "endingLFList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "lf"
+          ]
         },
         {
           "id": "endingLK",
           "label": "lk",
           "exampleWord": "milk",
           "listKey": "endingLKList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "lk"
+          ]
         },
         {
           "id": "endingLP",
           "label": "lp",
           "exampleWord": "help",
           "listKey": "endingLPList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "lp"
+          ]
         },
         {
           "id": "endingLS",
           "label": "ls",
           "exampleWord": "else",
           "listKey": "endingLSList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ls"
+          ]
         },
         {
           "id": "endingLT",
           "label": "lt",
           "exampleWord": "salt",
           "listKey": "endingLTList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "lt"
+          ]
         },
         {
           "id": "endingLZ",
           "label": "lz",
           "exampleWord": "fills",
           "listKey": "endingLZList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "lz"
+          ]
         },
         {
           "id": "endingMF",
           "label": "mf",
           "exampleWord": "nymph",
           "listKey": "endingMFList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "mf"
+          ]
         },
         {
           "id": "endingMP",
           "label": "mp",
           "exampleWord": "jump",
           "listKey": "endingMPList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "mp"
+          ]
         },
         {
           "id": "endingMPT",
           "label": "mpt",
           "exampleWord": "jumped",
           "listKey": "endingMPTList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "mpt"
+          ]
         },
         {
           "id": "endingMZ",
           "label": "mz",
           "exampleWord": "comes",
           "listKey": "endingMZList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "mz"
+          ]
         },
         {
           "id": "endingND",
           "label": "nd",
           "exampleWord": "hand",
           "listKey": "endingNDList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "nd"
+          ]
         },
         {
           "id": "endingNS",
           "label": "ns",
           "exampleWord": "dance",
           "listKey": "endingNSList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ns"
+          ]
         },
         {
           "id": "endingNT",
           "label": "nt",
           "exampleWord": "want",
           "listKey": "endingNTList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "nt"
+          ]
         },
         {
           "id": "endingNTS",
           "label": "nts",
           "exampleWord": "students",
           "listKey": "endingNTSList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "nts"
+          ]
         },
         {
           "id": "endingNZ",
           "label": "nz",
           "exampleWord": "wins",
           "listKey": "endingNZList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "nz"
+          ]
         },
         {
           "id": "endingPS",
           "label": "ps",
           "exampleWord": "maps",
           "listKey": "endingPSList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ps"
+          ]
         },
         {
           "id": "endingPT",
           "label": "pt",
           "exampleWord": "kept",
           "listKey": "endingPTList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "pt"
+          ]
         },
         {
           "id": "endingSK",
           "label": "sk",
           "exampleWord": "ask",
           "listKey": "endingSKList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "sk"
+          ]
         },
         {
           "id": "endingSP",
           "label": "sp",
           "exampleWord": "wasp",
           "listKey": "endingSPList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "sp"
+          ]
         },
         {
           "id": "endingTS",
           "label": "ts",
           "exampleWord": "cats",
           "listKey": "endingTSList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ts"
+          ]
         },
         {
           "id": "endingDHD",
           "label": "ðd",
           "exampleWord": "bathed",
           "listKey": "endingDHDList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ðd"
+          ]
         },
         {
           "id": "endingNGK",
           "label": "ŋk",
           "exampleWord": "think",
           "listKey": "endingNGKList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ŋk"
+          ]
         },
         {
           "id": "endingNGZ",
           "label": "ŋz",
           "exampleWord": "songs",
           "listKey": "endingNGZList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ŋz"
+          ]
         },
         {
           "id": "endingNGTH",
           "label": "ŋθ",
           "exampleWord": "length",
           "listKey": "endingNGTHList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ŋkθ",
+            "ŋθ"
+          ]
         },
         {
           "id": "endingSHT",
           "label": "ʃt",
           "exampleWord": "washed",
           "listKey": "endingSHTList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ʃt"
+          ]
         },
         {
           "id": "endingZHD",
           "label": "ʒd",
           "exampleWord": "massaged",
           "listKey": "endingZHDList",
-          "group": "blend"
+          "group": "blend",
+          "kind": "codaBlend",
+          "targets": [
+            "ʒd"
+          ]
         }
       ]
     }

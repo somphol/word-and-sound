@@ -9,6 +9,8 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
 
 ![Word & Sound screenshot](docs/screenshot.png)
 
+![Minimal pairs](docs/practice.png)
+
 ## What it does
 
 - **134 sound tiles** across starting sounds, starting blends, ending sounds,
@@ -16,11 +18,18 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
 - **Curated / Built switch.** *Curated* is the author's original 60 lists.
   *Built* selects words from open IPA data by onset, coda or vowel pattern,
   ranked by frequency, up to 120 words per sound.
-- **US and UK IPA**, displayed together when available.
-- **Autoplay** with repeat count, delay, four accents (US, UK, Australian,
-  Indian), rate and pitch.
-- **Four mixed lists**: Core English 3k, Everyday Spoken, Academic English and
-  Common English 10k.
+- **US and UK IPA**, displayed together when available, with the target
+  segment highlighted and a short articulatory tip.
+- **37 minimal pairs** with listen and quiz modes for the contrasts ESL
+  learners need most.
+- **Favorites, trouble words and a review queue** with local spaced review.
+- **Record and compare**: hear the model, record yourself, replay both. No
+  automatic score; recordings stay on the Mac.
+- **Autoplay** with repeat count, delay, five accents (US, UK, Australian,
+  Indian, Irish), rate and pitch.
+- **Four mixed vocabulary lists** — Core English 3k, Everyday Spoken,
+  Academic English and Common English 10k — plus a local **Review** list built
+  from favorites, trouble words and due items.
 - **Import** your own `.txt` or `.csv` word list. Imported lists stay on the
   Mac.
 - Keyboard: Space play/pause, ⌘R replay, ⌘←/⌘→ previous/next word.
@@ -79,6 +88,8 @@ Pipeline:
 | US IPA entries | 39,886 |
 | UK IPA entries | 22,072 |
 | Tile-list IPA coverage | 96.8% US, 89.3% UK |
+| Minimal pairs | 37 |
+| Review intervals | 1, 3, 7, 14, 30 days |
 
 ## Project layout
 
@@ -124,3 +135,7 @@ publishers of the original vocabulary lists. Those lists are not shipped.
   Store (the CC BY-SA data must remain extractable).
 - Voice quality depends on the macOS voices installed. Missing voices are
   reported in the player bar.
+- Recording needs the bundled app (not `swift run`) for the microphone usage
+  description. Recordings and review history are local and deletable.
+- Minimal pairs and review are practice aids, not an automatic pronunciation
+  score.

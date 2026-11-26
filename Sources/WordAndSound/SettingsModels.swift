@@ -5,6 +5,7 @@ enum Accent: String, CaseIterable, Identifiable {
     case uk = "en-GB"
     case au = "en-AU"
     case india = "en-IN"
+    case ireland = "en-IE"
 
     var id: String { rawValue }
 
@@ -14,6 +15,7 @@ enum Accent: String, CaseIterable, Identifiable {
         case .uk: return "British"
         case .au: return "Australian"
         case .india: return "Indian"
+        case .ireland: return "Irish"
         }
     }
 
@@ -23,6 +25,7 @@ enum Accent: String, CaseIterable, Identifiable {
         case .uk: return "UK"
         case .au: return "AU"
         case .india: return "IN"
+        case .ireland: return "IE"
         }
     }
 }

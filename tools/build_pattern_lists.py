@@ -228,6 +228,32 @@ ONSET_EXCLUSIONS = {
 }
 
 LIMIT = 120
+TARGETS = {
+    "æ/a": ["æ", "a"],
+    "oʊ/əʊ": ["əʊ", "oʊ"],
+    "əː": ["əː", "ɜː"],
+    "ʌɪ": ["aɪ", "ʌɪ", "ɑj"],
+    "ɑː": ["ɑː"],
+    "iː": ["iː"],
+    "uː": ["uː"],
+    "ɒ": ["ɒ"],
+    "ɔː": ["ɔː"],
+    "ɛː": ["ɛː"],
+    "eə": ["eə", "ɛə"],
+    "ɪə": ["ɪə"],
+    "ʊə": ["ʊə"],
+    "aɪə": ["aɪə"],
+    "aʊə": ["aʊə"],
+    "ʌ": ["ʌ"],
+    "ɪ": ["ɪ"],
+    "ʊ": ["ʊ"],
+    "ə": ["ə"],
+    "ɛ": ["ɛ"],
+    "eɪ": ["eɪ", "ɛɪ"],
+    "aʊ": ["aʊ", "ɑʊ"],
+    "ɔɪ": ["ɔɪ"],
+    "ŋθ": ["ŋkθ", "ŋθ"],
+}
 LM_EXCLUDE = {"calm", "palm", "psalm", "salmon", "almond", "balm", "yolk", "half", "talk", "walk"}
 
 
@@ -356,6 +382,14 @@ def main() -> int:
 
     # Add the new tiles to the library and give them their generated list as a
     # curated fallback. Existing tiles keep their authored lists.
+    # Annotate every tile with the pattern kind and the IPA strings that
+    # should be highlighted in the app.
+    for category in library["categories"]:
+        for tile in category["tiles"]:
+            kind, label = PATTERNS[tile["id"]]
+            tile["kind"] = kind
+            tile["targets"] = TARGETS.get(label, [label])
+
     for extra in EXTRA_TILES:
         category = next(
             category for category in library["categories"]
@@ -401,6 +435,12 @@ def main() -> int:
             "license": "CC BY-SA 4.0",
             "note": "Onset/coda/vowel word lists generated from open IPA and frequency data.",
         })
+        if not any(source.get("name") == "Minimal pairs" for source in provenance["sources"]):
+            provenance["sources"].append({
+                "name": "Minimal pairs",
+                "license": "CC BY-SA 4.0",
+                "note": "37 curated ESL contrast pairs; recordings and review history stay local.",
+            })
         provenance_path.write_text(
             json.dumps(provenance, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0 — 2026-11-25
+
+- Highlight the target IPA segment and add articulatory tips.
+- Add 37 minimal pairs with listen and quiz modes.
+- Add favorites, trouble words, per-list progress and a local 1/3/7/14/30-day
+  review queue.
+- Add record-and-compare with microphone permission; recordings stay local.
+- Add Irish English voice and a slow replay button.
+- Add Practice and review UI, plus snapshot commands for QA.
+
 ## 1.0.0 — 2026-11-25
 
 - Native SwiftUI macOS app derived from the MIT App Inventor project.

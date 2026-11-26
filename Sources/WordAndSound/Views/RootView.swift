@@ -6,13 +6,15 @@ struct RootView: View {
     @ObservedObject var model: AppModel
     @State private var showCredits = false
     @State private var showImporter = false
+    @State private var showPractice = false
 
     var body: some View {
         VStack(spacing: 0) {
             HeaderView(
                 model: model,
                 showCredits: $showCredits,
-                showImporter: $showImporter
+                showImporter: $showImporter,
+                showPractice: $showPractice
             )
             Divider()
 
@@ -42,6 +44,9 @@ struct RootView: View {
         }
         .sheet(isPresented: $showCredits) {
             CreditsView(model: model)
+        }
+        .sheet(isPresented: $showPractice) {
+            PracticeView(model: model)
         }
         .fileImporter(
             isPresented: $showImporter,

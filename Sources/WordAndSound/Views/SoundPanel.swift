@@ -136,10 +136,50 @@ struct SoundPanel: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            Text(model.ipaLine(for: tile.exampleWord))
-                .font(.system(size: 13, design: .monospaced))
+            HStack(spacing: 14) {
+                ForEach(Array(model.ipaParts(for: tile.exampleWord).enumerated()), id: \.offset) { _, part in
+                    HStack(spacing: 4) {
+                        Text(part.label)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                        IPAHighlighter.text(part.ipa, targets: tile.targets, kind: tile.kind)
+                            .font(.system(size: 13, design: .monospaced))
+                            .foregroundStyle(.secondary)
+                            .textSelection(.enabled)
+                    }
+                }
+                Text(model.targetDescription)
+                    .font(.caption2)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(Capsule().fill(Theme.subtle))
+                    .foregroundStyle(.secondary)
+                if model.ipaMode != .us, model.phoneticUK(for: tile.exampleWord) == nil {
+                    Text("UK unavailable")
+                        .font(.caption2)
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Capsule().fill(Theme.subtle))
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+            }
+
+            Text(SoundTips.tip(for: tile))
+                .font(.caption)
                 .foregroundStyle(.secondary)
-                .textSelection(.enabled)
+                .fixedSize(horizontal: false, vertical: true)
+
+            let progress = model.currentListProgress
+            if progress.total > 0 {
+                HStack(spacing: 8) {
+                    ProgressView(value: Double(progress.practised), total: Double(progress.total))
+                        .frame(width: 120)
+                    Text("\(progress.practised) / \(progress.total) practised")
+                        .font(.caption2.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                }
+            }
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)

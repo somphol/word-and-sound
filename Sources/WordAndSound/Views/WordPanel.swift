@@ -31,6 +31,14 @@ struct WordPanel: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 Spacer()
+                let progress = model.currentListProgress
+                if progress.total > 0 {
+                    ProgressView(value: Double(progress.practised), total: Double(progress.total))
+                        .frame(width: 90)
+                    Text("\(progress.practised) practised")
+                        .font(.caption2.monospacedDigit())
+                        .foregroundStyle(.secondary)
+                }
                 if !model.progressText.isEmpty {
                     Text(model.progressText)
                         .font(.caption.monospacedDigit())
@@ -100,10 +108,20 @@ struct WordPanel: View {
                     .font(.system(size: 15, weight: isCurrent ? .semibold : .regular))
                     .lineLimit(1)
                 Spacer(minLength: 8)
-                Text(model.rowIPA(for: row.word))
+                IPAHighlighter.text(model.rowIPA(for: row.word), targets: model.currentTargets, kind: model.currentTile?.kind ?? "onset")
                     .font(.system(size: 12, design: .monospaced))
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
+                if model.isFavorite(row.word) {
+                    Image(systemName: "star.fill")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.yellow)
+                }
+                if model.isTrouble(row.word) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.orange)
+                }
                 Image(systemName: isCurrent ? "speaker.wave.2.fill" : "speaker.wave.2")
                     .font(.system(size: 11))
                     .foregroundStyle(isCurrent ? Theme.accent : Color.secondary.opacity(0.45))
@@ -115,5 +133,13 @@ struct WordPanel: View {
             .background(isCurrent ? Theme.accent.opacity(0.12) : Color.clear)
         }
         .buttonStyle(.plain)
+        .contextMenu {
+            Button(model.isFavorite(row.word) ? "Remove favorite" : "Mark as favorite") {
+                model.toggleFavorite(row.word)
+            }
+            Button(model.isTrouble(row.word) ? "Remove difficult mark" : "Mark as difficult") {
+                model.toggleTrouble(row.word)
+            }
+        }
     }
 }

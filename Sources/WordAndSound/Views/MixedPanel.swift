@@ -38,9 +38,7 @@ struct MixedPanel: View {
 
     private func listCard(_ list: MixedList) -> some View {
         let selected = model.selectedMixedID == list.id
-        let count = model.libraryData?.library.lists[list.id]?.count
-            ?? model.importedLists.first(where: { $0.id == list.id })?.words.count
-            ?? 0
+        let count = model.wordCount(for: list)
         return Button {
             model.selectMixed(list)
         } label: {

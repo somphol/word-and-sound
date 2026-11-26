@@ -9,7 +9,7 @@ data:
 	python3 tools/build_pattern_lists.py
 	cp data/library.json data/phonetics_us.json data/phonetics_uk.json \
 		data/provenance.json data/pattern_lists.json data/pattern_report.json \
-		Sources/WordAndSoundCore/Resources/
+		data/minimal_pairs.json Sources/WordAndSoundCore/Resources/
 	cp data/AppIcon.png Sources/WordAndSoundCore/Resources/AppIcon.png
 
 build:

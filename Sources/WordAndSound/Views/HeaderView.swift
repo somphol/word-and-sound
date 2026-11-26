@@ -4,6 +4,7 @@ struct HeaderView: View {
     @ObservedObject var model: AppModel
     @Binding var showCredits: Bool
     @Binding var showImporter: Bool
+    @Binding var showPractice: Bool
 
     private var categoryBinding: Binding<String> {
         Binding(
@@ -37,9 +38,17 @@ struct HeaderView: View {
             Spacer(minLength: 12)
 
             Button {
+                showPractice = true
+            } label: {
+                Label("Practice", systemImage: "target")
+            }
+            .help("Minimal-pair listening and quiz")
+
+            Button {
                 showImporter = true
             } label: {
                 Label("Import", systemImage: "square.and.arrow.down")
+                    .labelStyle(.iconOnly)
             }
             .help("Import a text or CSV word list")
 
@@ -47,11 +56,13 @@ struct HeaderView: View {
                 showCredits = true
             } label: {
                 Label("Credits", systemImage: "text.book.closed")
+                    .labelStyle(.iconOnly)
             }
             .help("Data sources and licenses")
 
             SettingsLink {
                 Label("Settings", systemImage: "gearshape")
+                    .labelStyle(.iconOnly)
             }
             .help("Speech and playback settings")
         }

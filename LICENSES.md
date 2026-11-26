@@ -18,6 +18,7 @@ CC BY-SA 4.0. The data remains extractable from the application bundle.
 | Everyday Spoken | NGSL-S 1.2, Browne & Culligan | CC BY-SA 4.0 |
 | Academic English | NAWL 1.2, Browne & Culligan | CC BY-SA 4.0 |
 | Common English 10k | FrequencyWords / OpenSubtitles 2018 | CC BY-SA 4.0 |
+| Minimal pairs | Curated for this app | CC BY-SA 4.0 |
 | US IPA | ipa-dict en_US (derived from CMUdict) | MIT; CMUdict BSD-2 |
 | UK IPA | English Wiktionary via Kaikki | CC BY-SA 4.0 and GFDL |
 

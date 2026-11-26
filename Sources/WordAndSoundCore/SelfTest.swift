@@ -31,6 +31,15 @@ public enum SelfTest {
             for mixed in library.mixed {
                 check((library.lists[mixed.id]?.count ?? 0) > 0, "mixed list \(mixed.id) is empty", &failures)
             }
+            for tile in tiles {
+                check(!tile.targets.isEmpty, "tile \(tile.id) has no IPA target", &failures)
+            }
+            if let pairs = data.minimalPairs {
+                check(pairs.pairs.count >= 30, "expected at least 30 minimal pairs, found \(pairs.pairs.count)", &failures)
+                print("  minimal pairs \(pairs.pairs.count)")
+            } else {
+                failures.append("minimal pairs bundle is missing")
+            }
 
             let usPct = authoredTotal == 0 ? 0 : Double(authoredUS) / Double(authoredTotal)
             let ukPct = authoredTotal == 0 ? 0 : Double(authoredUK) / Double(authoredTotal)

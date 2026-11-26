@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PlayerBar: View {
     @ObservedObject var model: AppModel
+    @State private var showRecorder = false
 
     var body: some View {
         Group {
@@ -17,6 +18,9 @@ struct PlayerBar: View {
         .padding(.horizontal, 18)
         .padding(.vertical, 12)
         .background(Theme.panel)
+        .sheet(isPresented: $showRecorder) {
+            RecordView(model: model, word: model.currentWord ?? "")
+        }
     }
 
     private func content(_ word: String) -> some View {
@@ -28,10 +32,52 @@ struct PlayerBar: View {
                         .lineLimit(1)
                         .minimumScaleFactor(0.6)
                         .textSelection(.enabled)
-                    Text(model.ipaLine(for: word))
-                        .font(.system(size: 13, design: .monospaced))
-                        .foregroundStyle(.secondary)
-                        .textSelection(.enabled)
+                    HStack(spacing: 14) {
+                        ForEach(model.ipaParts(for: word), id: \.label) { part in
+                            HStack(spacing: 4) {
+                                Text(part.label)
+                                    .font(.caption2)
+                                    .foregroundStyle(.tertiary)
+                                IPAHighlighter.text(part.ipa, targets: model.currentTargets, kind: model.currentTile?.kind ?? "onset")
+                                    .font(.system(size: 13, design: .monospaced))
+                                    .foregroundStyle(.secondary)
+                                    .textSelection(.enabled)
+                            }
+                        }
+                        if !model.targetDescription.isEmpty {
+                            Text(model.targetDescription)
+                                .font(.caption2)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(Capsule().fill(Theme.subtle))
+                                .foregroundStyle(.secondary)
+                        }
+                        if model.ipaMode != .us, model.phoneticUK(for: word) == nil {
+                            Text("UK unavailable")
+                                .font(.caption2)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(Capsule().fill(Theme.subtle))
+                                .foregroundStyle(.secondary)
+                        }
+                        Button {
+                            model.toggleFavorite(word)
+                        } label: {
+                            Image(systemName: model.isFavorite(word) ? "star.fill" : "star")
+                                .foregroundStyle(model.isFavorite(word) ? .yellow : .secondary)
+                        }
+                        .buttonStyle(.borderless)
+                        .help(model.isFavorite(word) ? "Remove favorite" : "Mark as favorite")
+
+                        Button {
+                            model.toggleTrouble(word)
+                        } label: {
+                            Image(systemName: model.isTrouble(word) ? "exclamationmark.triangle.fill" : "exclamationmark.triangle")
+                                .foregroundStyle(model.isTrouble(word) ? .orange : .secondary)
+                        }
+                        .buttonStyle(.borderless)
+                        .help(model.isTrouble(word) ? "Remove difficult mark" : "Mark as difficult")
+                    }
                     HStack(spacing: 8) {
                         Text(model.progressText)
                             .font(.caption.monospacedDigit())
@@ -86,6 +132,20 @@ struct PlayerBar: View {
                         Image(systemName: "speaker.wave.2.fill")
                     }
                     .help("Replay this word (⌘R)")
+
+                    Button {
+                        model.replaySlow()
+                    } label: {
+                        Image(systemName: "tortoise.fill")
+                    }
+                    .help("Replay slowly")
+
+                    Button {
+                        showRecorder = true
+                    } label: {
+                        Image(systemName: "mic.fill")
+                    }
+                    .help("Record yourself and compare")
                 }
                 .buttonStyle(.borderless)
                 .font(.system(size: 14))
@@ -107,7 +167,7 @@ struct PlayerBar: View {
                         Text(accent.title).tag(accent)
                     }
                 }
-                .frame(width: 118)
+                .frame(width: 132)
 
                 Picker("Repeat", selection: $model.repeatCount) {
                     ForEach(1...8, id: \.self) { count in
@@ -138,6 +198,13 @@ struct PlayerBar: View {
                     }
                 }
                 .frame(width: 92)
+
+                if model.selectedMixedID == "review" {
+                    Button("Got it") { model.reviewCurrent(correct: true) }
+                        .controlSize(.small)
+                    Button("Again") { model.reviewCurrent(correct: false) }
+                        .controlSize(.small)
+                }
 
                 Spacer(minLength: 4)
 

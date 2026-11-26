@@ -15,6 +15,8 @@ make check                         # swift test + --selftest
 make app                           # build/WordAndSound.app, ad-hoc signed
 make run                           # build and open
 swift run wordandsound-selftest    # headless data + sequencer + parser checks
+swift run WordAndSound --snapshot-practice /tmp/practice.png
+swift run WordAndSound --snapshot-record /tmp/record.png
 swift run WordAndSound --snapshot docs/screenshot.png --category vowel --tile vowelMar
 ```
 
@@ -41,7 +43,13 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   loading), the pure `PlaybackSequencer`, `WordListParser`, and `SelfTest`.
 - `Sources/WordAndSound` owns `AppModel`, `SpeechEngine` (AVSpeechSynthesizer),
   `Snapshot`, commands and the SwiftUI views. `AppModel` is the single owner of
-  list selection, playback state and imported lists.
+  list selection, playback state, imported lists, favorites, trouble marks,
+  review scheduling and local progress.
+- `Sources/WordAndSoundCore/ReviewScheduler.swift` holds the pure 1/3/7/14/30
+  day schedule; it is covered by XCTest.
+- `PracticeView` drives the minimal-pair listen/quiz sheet. `RecordController`
+  owns AVAudioRecorder/AVAudioPlayer; `RecordView` presents it. Both are
+  local-only.
 - `scripts/make_app.sh` builds the SwiftPM binary, copies the generated
   `WordAndSound_WordAndSoundCore.bundle` into `Contents/Resources`, builds the
   icon, writes `Info.plist`, copies licenses, and ad-hoc signs.
@@ -67,6 +75,13 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - **Resources are copied, not flattened.** `Bundle.module` expects the
   `WordAndSound_WordAndSoundCore.bundle` directory in the app's Resources.
 - **Offline at runtime.** No analytics, no network calls, no remote fonts.
+- **Progress and recordings are local.** `progress.json` and `recordings/`
+  live in `~/Library/Application Support/WordAndSound/`. Never add cloud sync
+  or upload without explicit consent.
+- **No pronunciation scoring.** Record-and-compare is deliberately unscored;
+  the quiz is the only objective feedback.
+- **Microphone usage description** is in `scripts/make_app.sh`; recording
+  refuses to start under `swift run` without the bundle key.
 
 ## Known issues
 
@@ -82,6 +97,9 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   pixel-perfect screenshot of a live window.
 - The mixed lists contain 4 lists, not the original 13; subject lists were not
   regenerated.
+- Minimal pairs are a curated set of 37, not generated from the IPA inventory.
+- Recording is unscored and requires microphone permission; no audio leaves
+  the Mac.
 
 ## Continuity
 

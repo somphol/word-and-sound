@@ -20,6 +20,7 @@ final class AppModel: ObservableObject {
     @Published private(set) var isAutoplay = false
     @Published private(set) var isSpeaking = false
     @Published private(set) var importedLists: [ImportedList] = []
+    @Published private(set) var progress: [String: WordProgress] = [:]
     @Published var importMessage: String?
 
     @Published var accent: Accent = .us {
@@ -60,6 +61,7 @@ final class AppModel: ObservableObject {
     private let speech = SpeechEngine()
     private var sequencer: PlaybackSequencer?
     private var pendingWork: DispatchWorkItem?
+    private var isStandaloneSpeech = false
     private let banned: Set<String> = ["rape", "sex", "sexual"]
 
     init() {
@@ -70,6 +72,7 @@ final class AppModel: ObservableObject {
             loadError = error.localizedDescription
         }
         loadImported()
+        loadProgress()
         if libraryData?.patternLists != nil, defaults.string(forKey: Keys.listSource) == nil {
             listSource = .built
         }
@@ -97,7 +100,68 @@ final class AppModel: ObservableObject {
                 url: ""
             )
         }
+        if !reviewWords.isEmpty {
+            lists.insert(
+                MixedList(
+                    id: "review",
+                    title: "Review",
+                    source: "\(reviewWords.count) words · \(dueCount) due · favorites and trouble",
+                    author: "This Mac",
+                    license: "Local",
+                    url: ""
+                ),
+                at: 0
+            )
+        }
         return lists
+    }
+
+    var minimalPairs: [MinimalPair] {
+        libraryData?.minimalPairs?.pairs ?? []
+    }
+
+    var currentTargets: [String] {
+        currentTile?.targets ?? []
+    }
+
+    var targetDescription: String {
+        guard let tile = currentTile else { return "" }
+        switch tile.kind {
+        case "onset", "blend":
+            return "initial /\(tile.label)/"
+        case "coda", "codaBlend":
+            return "final /\(tile.label)/"
+        default:
+            return tile.label.contains("/") ? "vowel \(tile.label)" : "vowel /\(tile.label)/"
+        }
+    }
+
+    var currentListProgress: (practised: Int, total: Int) {
+        let practised = words.reduce(0) { total, word in
+            total + ((progress[word.lowercased()]?.listens ?? 0) > 0 ? 1 : 0)
+        }
+        return (practised, words.count)
+    }
+
+    var reviewWords: [String] {
+        let now = Date()
+        return progress.values
+            .filter { item in
+                item.favorite || item.trouble || ReviewScheduler.isDue(item.due, now: now)
+            }
+            .sorted { lhs, rhs in
+                let left = lhs.due ?? .distantFuture
+                let right = rhs.due ?? .distantFuture
+                if left == right { return lhs.word < rhs.word }
+                return left < right
+            }
+            .prefix(500)
+            .map(\.word)
+    }
+
+    var dueCount: Int {
+        let now = Date()
+        return progress.values.filter { ReviewScheduler.isDue($0.due, now: now) }.count
     }
 
     var currentCategory: SoundCategory? {
@@ -161,14 +225,19 @@ final class AppModel: ObservableObject {
         libraryData?.phoneticUK(for: word)
     }
 
-    func ipaLine(for word: String) -> String {
-        var parts: [String] = []
+    func ipaParts(for word: String) -> [(label: String, ipa: String)] {
+        var parts: [(label: String, ipa: String)] = []
         if ipaMode != .uk, let us = phoneticUS(for: word) {
-            parts.append("US \(us)")
+            parts.append(("US", us))
         }
         if ipaMode != .us, let uk = phoneticUK(for: word) {
-            parts.append("UK \(uk)")
+            parts.append(("UK", uk))
         }
+        return parts
+    }
+
+    func ipaLine(for word: String) -> String {
+        let parts = ipaParts(for: word).map { "\($0.label) \($0.ipa)" }
         return parts.isEmpty ? "—" : parts.joined(separator: "   ")
     }
 
@@ -268,7 +337,16 @@ final class AppModel: ObservableObject {
         }
     }
 
+    func wordCount(for list: MixedList) -> Int {
+        if list.id == "review" { return reviewWords.count }
+        if let imported = importedLists.first(where: { $0.id == list.id }) {
+            return imported.words.count
+        }
+        return libraryData?.library.lists[list.id]?.count ?? 0
+    }
+
     private func wordsForList(_ id: String) -> [String] {
+        if id == "review" { return reviewWords }
         if let imported = importedLists.first(where: { $0.id == id }) {
             return imported.words
         }
@@ -287,6 +365,19 @@ final class AppModel: ObservableObject {
     private func reloadForSourceChange() {
         guard selectedCategoryID != "mixed", let tile = currentTile else { return }
         applyTile(tile, speak: false)
+    }
+
+    func refreshReviewIfNeeded() {
+        guard selectedMixedID == "review" else { return }
+        let previous = currentIndex
+        let refreshed = reviewWords
+        if refreshed.isEmpty {
+            clearSelection()
+            return
+        }
+        words = refreshed
+        currentIndex = min(previous, refreshed.count - 1)
+        sequencer?.setWordCount(refreshed.count)
     }
 
     private func clearSelection() {
@@ -367,12 +458,121 @@ final class AppModel: ObservableObject {
             stopAutoplay()
             return
         }
+        recordListen(word: word)
+        isStandaloneSpeech = false
         isSpeaking = true
         speech.speak(word, accent: accent, rate: rateMultiplier, pitch: pitchMultiplier)
     }
 
+    /// Speak a word without changing the current list or advancing autoplay.
+    /// Used by minimal-pair practice and the slow replay button.
+    func playWord(_ word: String, slow: Bool = false) {
+        cancelPending()
+        isStandaloneSpeech = true
+        recordListen(word: word)
+        isSpeaking = true
+        let rate = slow ? min(rateMultiplier, 0.6) : rateMultiplier
+        speech.speak(word, accent: accent, rate: rate, pitch: pitchMultiplier)
+    }
+
+    func replaySlow() {
+        guard let word = currentWord else { return }
+        playWord(word, slow: true)
+    }
+
+    func isFavorite(_ word: String) -> Bool {
+        progress[word.lowercased()]?.favorite ?? false
+    }
+
+    func isTrouble(_ word: String) -> Bool {
+        progress[word.lowercased()]?.trouble ?? false
+    }
+
+    func toggleFavorite(_ word: String) {
+        updateProgress(word) { $0.favorite.toggle() }
+        refreshReviewIfNeeded()
+    }
+
+    func toggleTrouble(_ word: String) {
+        updateProgress(word) { $0.trouble.toggle() }
+        refreshReviewIfNeeded()
+    }
+
+    func recordListen(word: String) {
+        updateProgress(word) { item in
+            item.listens += 1
+            item.lastSeen = Date()
+        }
+    }
+
+    func reviewCurrent(correct: Bool) {
+        guard let reviewed = currentWord else { return }
+        recordQuiz(word: reviewed, correct: correct)
+        guard selectedMixedID == "review" else { return }
+        // recordQuiz refreshes the review list. If the word graduated, the
+        // current index already points at the next word; do not skip it.
+        if let current = currentWord, current.lowercased() == reviewed.lowercased() {
+            nextWord()
+        } else if !words.isEmpty {
+            speakCurrent()
+        } else {
+            stopAutoplay()
+        }
+    }
+
+    func recordQuiz(word: String, correct: Bool) {
+        updateProgress(word) { item in
+            if correct {
+                item.correct += 1
+                item.step = ReviewScheduler.nextStep(current: item.step, correct: true)
+                item.due = ReviewScheduler.nextDue(step: item.step)
+            } else {
+                item.wrong += 1
+                item.step = 0
+                item.due = Date()
+            }
+            item.lastSeen = Date()
+        }
+        refreshReviewIfNeeded()
+    }
+
+    private func updateProgress(_ word: String, _ mutate: (inout WordProgress) -> Void) {
+        let key = word.lowercased()
+        var item = progress[key] ?? WordProgress(word: word)
+        mutate(&item)
+        item.word = word
+        progress[key] = item
+        saveProgress()
+    }
+
+    private func loadProgress() {
+        let url = supportDirectory.appendingPathComponent("progress.json")
+        guard let data = try? Data(contentsOf: url),
+              let items = try? JSONDecoder().decode([String: WordProgress].self, from: data)
+        else { return }
+        progress = items
+    }
+
+    private func saveProgress() {
+        let url = supportDirectory.appendingPathComponent("progress.json")
+        guard let data = try? JSONEncoder().encode(progress) else { return }
+        try? data.write(to: url, options: .atomic)
+    }
+
+    func resetProgress() {
+        progress = [:]
+        saveProgress()
+        if selectedMixedID == "review" {
+            clearSelection()
+        }
+    }
+
     private func handleUtteranceFinished() {
         isSpeaking = false
+        if isStandaloneSpeech {
+            isStandaloneSpeech = false
+            return
+        }
         guard isAutoplay, var seq = sequencer else { return }
         let action = seq.completeUtterance()
         sequencer = seq

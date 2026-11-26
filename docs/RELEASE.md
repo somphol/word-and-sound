@@ -13,7 +13,7 @@ Expect `PASS` and 134 tiles / 134 pattern lists.
 
 Edit `scripts/make_app.sh`:
 
-- `CFBundleShortVersionString` — user-facing version, for example `1.0.0`
+- `CFBundleShortVersionString` — user-facing version, for example `1.1.0`
 - `CFBundleVersion` — monotonically increasing build number
 
 Update `CHANGELOG.md`.
@@ -26,7 +26,8 @@ open build/WordAndSound.app
 ```
 
 Check the Starting, Vowel, Ending and Mixed tabs, the Curated/Built switch,
-autoplay, and one imported list.
+autoplay, minimal-pair quiz, review queue, microphone prompt, and one imported
+list.
 
 ## 4. Package
 

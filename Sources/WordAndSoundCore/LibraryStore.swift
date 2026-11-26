@@ -21,12 +21,14 @@ public enum LibraryStore {
         let uk: [String: String] = try decode("phonetics_uk", "json")
         let provenance: Provenance = try decode("provenance", "json")
         let patterns: PatternListBundle? = try decodeOptional("pattern_lists", "json")
+        let pairs: MinimalPairBundle? = try decodeOptional("minimal_pairs", "json")
         return LibraryData(
             library: library,
             phoneticsUS: us,
             phoneticsUK: uk,
             provenance: provenance,
-            patternLists: patterns
+            patternLists: patterns,
+            minimalPairs: pairs
         )
     }
 

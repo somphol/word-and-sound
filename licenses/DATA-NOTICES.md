@@ -65,3 +65,9 @@ in `CC-BY-SA-4.0.txt`.
 - License: CC BY-SA 4.0.
 - Changes: selected by onset, coda and vowel patterns; ranked by frequency;
   capped at 120 words per list.
+
+## Minimal pairs
+
+- Source: curated for this app.
+- License: CC BY-SA 4.0.
+- Purpose: ESL contrast practice; review history and recordings are local.

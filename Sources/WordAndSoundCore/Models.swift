@@ -20,13 +20,25 @@ public struct SoundTile: Codable, Identifiable, Hashable {
     public let exampleWord: String
     public let listKey: String
     public let group: String
+    public let kind: String
+    public let targets: [String]
 
-    public init(id: String, label: String, exampleWord: String, listKey: String, group: String) {
+    public init(
+        id: String,
+        label: String,
+        exampleWord: String,
+        listKey: String,
+        group: String,
+        kind: String,
+        targets: [String]
+    ) {
         self.id = id
         self.label = label
         self.exampleWord = exampleWord
         self.listKey = listKey
         self.group = group
+        self.kind = kind
+        self.targets = targets
     }
 }
 
@@ -101,6 +113,32 @@ public struct Provenance: Codable {
     public let sources: [ProvenanceSource]
 }
 
+public struct MinimalPair: Codable, Identifiable, Hashable {
+    public let id: String
+    public let a: String
+    public let b: String
+    public let focus: String
+
+    public init(id: String, a: String, b: String, focus: String) {
+        self.id = id
+        self.a = a
+        self.b = b
+        self.focus = focus
+    }
+}
+
+public struct MinimalPairBundle: Codable {
+    public let source: String
+    public let license: String
+    public let pairs: [MinimalPair]
+
+    public init(source: String, license: String, pairs: [MinimalPair]) {
+        self.source = source
+        self.license = license
+        self.pairs = pairs
+    }
+}
+
 public struct PatternListBundle: Codable {
     public let source: String
     public let license: String
@@ -121,19 +159,22 @@ public struct LibraryData {
     public let phoneticsUK: [String: String]
     public let provenance: Provenance
     public let patternLists: PatternListBundle?
+    public let minimalPairs: MinimalPairBundle?
 
     public init(
         library: Library,
         phoneticsUS: [String: String],
         phoneticsUK: [String: String],
         provenance: Provenance,
-        patternLists: PatternListBundle?
+        patternLists: PatternListBundle?,
+        minimalPairs: MinimalPairBundle?
     ) {
         self.library = library
         self.phoneticsUS = phoneticsUS
         self.phoneticsUK = phoneticsUK
         self.provenance = provenance
         self.patternLists = patternLists
+        self.minimalPairs = minimalPairs
     }
 
     public func phoneticUS(for word: String) -> String? {

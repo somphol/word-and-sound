@@ -10,6 +10,27 @@ struct WordAndSoundApp: App {
         if CommandLine.arguments.contains("--selftest") {
             exit(SelfTest.run() ? 0 : 1)
         }
+        if let index = CommandLine.arguments.firstIndex(of: "--snapshot-practice"),
+           index + 1 < CommandLine.arguments.count {
+            let model = AppModel()
+            let ok = Snapshot.write(
+                PracticeView(model: model),
+                to: CommandLine.arguments[index + 1],
+                size: CGSize(width: 820, height: 620)
+            )
+            exit(ok ? 0 : 1)
+        }
+        if let index = CommandLine.arguments.firstIndex(of: "--snapshot-record"),
+           index + 1 < CommandLine.arguments.count {
+            let model = AppModel()
+            let word = model.currentWord ?? "think"
+            let ok = Snapshot.write(
+                RecordView(model: model, word: word),
+                to: CommandLine.arguments[index + 1],
+                size: CGSize(width: 460, height: 520)
+            )
+            exit(ok ? 0 : 1)
+        }
         if let index = CommandLine.arguments.firstIndex(of: "--snapshot"),
            index + 1 < CommandLine.arguments.count {
             let model = AppModel()

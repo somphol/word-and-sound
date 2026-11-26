@@ -87,7 +87,10 @@ struct SettingsView: View {
                 Button("Reset speech and playback settings") {
                     model.resetSettings()
                 }
-                Text("Imported lists are stored in Application Support and are not uploaded.")
+                Button("Reset practice history", role: .destructive) {
+                    model.resetProgress()
+                }
+                Text("Favorites, trouble marks, review dates, imported lists and recordings stay in Application Support on this Mac. Nothing is uploaded.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
