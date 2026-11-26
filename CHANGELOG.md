@@ -43,6 +43,9 @@
 - Move the tablet tier up to 1199 px so an iPad Safari desktop-mode viewport
   gets the readable tablet layout; keep the desktop-site hint phone-only to
   avoid iPad false positives.
+- Restrict the persistent word list to wide landscape (≥1000 px) and lock
+  horizontal overflow, so portrait tablets cannot pan sideways to a hidden
+  panel.
 - Export the 48 articulation guides to `data/articulation.json` so the web
   client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.

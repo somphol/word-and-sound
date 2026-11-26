@@ -54,7 +54,10 @@
 
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; margin: 0; }
+html, body { overflow-x: hidden; }
 body {
+  width: 100%;
+  max-width: 100vw;
   background: var(--bg);
   color: var(--text);
   font: 0.875rem/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -1264,7 +1267,7 @@ mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 
 }
 .tablet-words { display: none; }
 
-@media (min-width: 780px) and (max-width: 1199px) and (min-height: 501px) and (orientation: landscape) {
+@media (min-width: 1000px) and (max-width: 1199px) and (min-height: 501px) and (min-aspect-ratio: 1/1) {
   .stage {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
