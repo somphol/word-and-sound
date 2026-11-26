@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.5.0 — 2026-11-26
+
+- Rebuild the web layout around a single practice card with a phone bottom
+  navigation, full-screen Sounds/Words, and an iPad card + word list in
+  landscape.
+- Add Auto/Light/Dark themes and blue, teal, violet and amber accents, plus
+  adjustable UI text and hero-word sizes.
+- Add a prominent autoplay toggle, a Practice-screen Review shortcut, a
+  legibility/touch-target pass, modal focus handling and touch-only hint rules.
+- Add Open Graph/Twitter metadata and a 1200×630 share card.
+
 ## 1.4.2 — 2026-11-25
 
 - Add a full-parity React + TypeScript PWA in `web/`, deployed to GitHub
