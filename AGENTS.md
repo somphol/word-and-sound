@@ -225,8 +225,8 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - Phone section history uses `pushState`; Android Back walks Practice → Sounds
   → Words rather than always returning to Practice.
 - Desktop-site mode cannot be overridden from the page. On Android the in-app
-  hint is the mitigation; on iPad the wider tablet tier absorbs it. On iPad,
-  aA → Request Desktop Website must be switched off once per site if preferred.
+  hint is the mitigation; on iPad the wider tablet tier absorbs it. On iPad, Safari's aA → Request Desktop Website or Chrome's ⋮ → Request
+  Desktop Site must be switched off per tab/site if preferred.
 - Web import accepts the same `.txt`/`.csv` shapes as the Mac parser but is
   capped at 50,000 words per file.
 
