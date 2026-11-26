@@ -4,7 +4,7 @@ export type IconName =
   | 'search' | 'play' | 'pause' | 'previous' | 'next' | 'replay' | 'slow'
   | 'coach' | 'mic' | 'star' | 'flag' | 'settings' | 'upload' | 'info'
   | 'close' | 'chevronRight' | 'sun' | 'moon' | 'monitor' | 'check'
-  | 'trash' | 'sparkle' | 'speaker' | 'list' | 'grid'
+  | 'trash' | 'sparkle' | 'speaker' | 'list' | 'grid' | 'refresh'
 
 const paths: Record<IconName, ReactNode> = {
   search: (
@@ -133,6 +133,14 @@ const paths: Record<IconName, ReactNode> = {
       <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.6" />
       <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.6" />
       <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.6" />
+    </>
+  ),
+  refresh: (
+    <>
+      <path d="M20 12a8 8 0 0 1-13.6 5.6" />
+      <path d="M4 12a8 8 0 0 1 13.6-5.6" />
+      <path d="M17.6 2.9v3.6h-3.6" />
+      <path d="M6.4 21.1v-3.6h3.6" />
     </>
   ),
 }

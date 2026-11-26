@@ -109,10 +109,10 @@ make web-dev                 # Vite dev server on http://127.0.0.1:5173/
 cd web && npm run preview    # serve the production build on :4173
 ```
 
-**Settings → App → Refresh app** clears cached files and the service worker,
-then reloads the newest deployment without touching progress, imported lists,
-themes or size settings. An update prompt also appears when a new service worker
-takes control.
+A **Refresh** pill in the context row (also **Settings → App → Refresh app**)
+clears cached files and the service worker, then reloads the newest deployment
+without touching progress, imported lists, themes or size settings. An update
+prompt also appears when a new service worker takes control.
 
 `make web` and the GitHub Actions workflows run `npm ci`, so keep
 `web/package-lock.json` committed. Tests are Vitest (`web/src/lib/*.test.ts`).

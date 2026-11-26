@@ -635,6 +635,16 @@ export default function App() {
             <strong>Words</strong>
             <span className="context-count">{words.length}</span>
           </button>
+          <button
+            type="button"
+            className="context-pill refresh-pill"
+            onClick={() => void forceRefresh()}
+            title="Refresh app (keeps progress and settings)"
+            aria-label="Refresh app"
+          >
+            <Icon name="refresh" size={15} />
+            <strong>Refresh</strong>
+          </button>
           {tabletViewport && (
             <button
               type="button"
