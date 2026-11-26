@@ -87,8 +87,8 @@ It is focus-first: one large practice card, with sounds and word lists in
 sheets instead of a permanent side rail. On phones the app uses a
 **Practice / Sounds / Words** bottom navigation, full-screen sound and word
 screens, 48 px rows, 44 px targets and a compact landscape card. On iPad it
-uses a single wide card in portrait and a two-pane layout — practice card beside
-the word list — in landscape. **Settings → Appearance** offers Auto/Light/Dark themes and four accent
+uses a centred single card with word and controls side by side in portrait, and
+a two-pane layout — practice card beside the word list — in landscape. **Settings → Appearance** offers Auto/Light/Dark themes and four accent
 palettes (blue, teal, violet, amber). **Settings → Reading** (or the **Aa**
 button) adjusts UI text size (90–130%) and the hero word size (100–160%). All
 display choices persist locally and apply before first paint. The page ships Open Graph and Twitter
