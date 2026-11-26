@@ -9,6 +9,9 @@
   adjustable UI text and hero-word sizes.
 - Add a prominent autoplay toggle, a Practice-screen Review shortcut, a
   legibility/touch-target pass, modal focus handling and touch-only hint rules.
+- Add Settings → App → Refresh app, which clears service-worker caches and
+  reloads the latest version while keeping progress, lists and preferences; an
+  update prompt appears when a new worker takes control.
 - Add Open Graph/Twitter metadata and a 1200×630 share card.
 
 ## 1.4.2 — 2026-11-25

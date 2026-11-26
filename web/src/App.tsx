@@ -10,6 +10,7 @@ import {
   type Settings,
 } from './lib/progress'
 import { buildWordIndex, searchResults } from './lib/search'
+import { forceRefresh } from './lib/update'
 import { ipaParts, rowIPA, targetDescription } from './lib/ipa'
 import { Header } from './components/Header'
 import { BottomNav, type Screen } from './components/BottomNav'
@@ -52,6 +53,7 @@ export default function App() {
   const [isPhone, setIsPhone] = useState(() => window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)').matches)
   const [desktopMode] = useState(() => window.screen.width <= 600 && window.innerWidth > 700)
   const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem('word-and-sound:desktop-hint') === '1')
+  const [updateReady, setUpdateReady] = useState(false)
   const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() => window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
   const [libraryOpen, setLibraryOpen] = useState(false)
   const [libraryTab, setLibraryTab] = useState<'sounds' | 'lists'>('sounds')
@@ -72,6 +74,16 @@ export default function App() {
   const speakAtRef = useRef<(i: number) => void>(() => {})
   const handleEndRef = useRef<() => void>(() => {})
   const commandsRef = useRef({ play: () => {}, next: () => {}, previous: () => {}, replay: () => {} })
+
+  useEffect(() => {
+    if (!('serviceWorker' in navigator)) return
+    const hadController = !!navigator.serviceWorker.controller
+    const onControllerChange = () => {
+      if (hadController) setUpdateReady(true)
+    }
+    navigator.serviceWorker.addEventListener('controllerchange', onControllerChange)
+    return () => navigator.serviceWorker.removeEventListener('controllerchange', onControllerChange)
+  }, [])
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)')
@@ -830,6 +842,15 @@ export default function App() {
           {toast}
         </button>
       )}
+      {updateReady && (
+        <div className="update-toast" role="status">
+          <span>A new version is ready.</span>
+          <button type="button" className="button small primary" onClick={() => void forceRefresh()}>Reload</button>
+          <button type="button" className="icon-button" aria-label="Dismiss update" onClick={() => setUpdateReady(false)}>
+            <Icon name="close" size={15} />
+          </button>
+        </div>
+      )}
       {modal === 'search' && (
         <SearchPalette
           data={data}
@@ -878,6 +899,7 @@ export default function App() {
           onSource={(next) => { stopPlayback(); setSource(next) }}
           onResetProgress={resetProgress}
           onResetSettings={resetSettings}
+          onRefresh={() => void forceRefresh()}
           onClose={() => setModal(null)}
           onCredits={() => setModal('credits')}
         />

@@ -8,7 +8,7 @@ const accents = [
 ] as const
 
 export function SettingsModal({
-  settings, voices, onChange, onSource, onResetProgress, onResetSettings, onClose, onCredits,
+  settings, voices, onChange, onSource, onResetProgress, onResetSettings, onRefresh, onClose, onCredits,
 }: {
   settings: Settings
   voices: SpeechSynthesisVoice[]
@@ -16,6 +16,7 @@ export function SettingsModal({
   onSource: (source: ListSource) => void
   onResetProgress: () => void
   onResetSettings: () => void
+  onRefresh: () => void
   onClose: () => void
   onCredits: () => void
 }) {
@@ -124,6 +125,15 @@ export function SettingsModal({
             </select>
           </label>
           <button type="button" className="button small" onClick={onCredits}>Credits and licenses</button>
+        </section>
+        <section>
+          <h3>App</h3>
+          <div className="settings-row">
+            <span>Version</span>
+            <code className="version-code">{__APP_VERSION__}</code>
+          </div>
+          <p className="muted-note">Loads the newest deployed version and clears cached files. Progress, imported lists, theme and size settings are kept.</p>
+          <button type="button" className="button" onClick={onRefresh}>Refresh app</button>
         </section>
         <section>
           <h3>Data</h3>
