@@ -37,6 +37,9 @@ make app            # build/WordAndSound.app (release, ad-hoc signed)
 make run            # build and open the app
 ```
 
+[Download the latest release](https://github.com/somphol/word-and-sound-mac/releases/latest)
+for a prebuilt app (ad-hoc signed, not notarized).
+
 The app is not notarized. On first launch from a downloaded copy, right-click
 the app and choose **Open**.
 
