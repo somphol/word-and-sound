@@ -87,7 +87,7 @@ struct RootView: View {
         guard let window = NSApplication.shared.windows.first(where: { $0.isVisible && $0.canBecomeMain }) else {
             return
         }
-        window.title = "Word & Sound"
+        window.title = "Word & Sound \(AppVersion.short)"
         let frame = window.frame
         let visibleArea = NSScreen.screens.reduce(CGFloat.zero) { total, screen in
             let intersection = screen.visibleFrame.intersection(frame)

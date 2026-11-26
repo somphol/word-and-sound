@@ -18,9 +18,15 @@ struct HeaderView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(model.appInfo?.name ?? "Word & Sound")
                     .font(.system(size: 22, weight: .bold, design: .rounded))
-                Text(model.appInfo?.tagline ?? "English pronunciation drills")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                HStack(spacing: 5) {
+                    Text(model.appInfo?.tagline ?? "English pronunciation drills")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text("·").foregroundStyle(.tertiary)
+                    Text(AppVersion.compact)
+                        .font(.caption2.monospaced())
+                        .foregroundStyle(.tertiary)
+                }
             }
 
             Spacer(minLength: 12)

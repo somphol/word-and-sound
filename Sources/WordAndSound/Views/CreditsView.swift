@@ -11,7 +11,7 @@ struct CreditsView: View {
                 VStack(alignment: .leading, spacing: 3) {
                     Text("Credits and licenses")
                         .font(.title2.bold())
-                    Text("Code MIT · bundled data CC BY-SA 4.0")
+                    Text("Word & Sound \(AppVersion.display) · code MIT · bundled data CC BY-SA 4.0")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

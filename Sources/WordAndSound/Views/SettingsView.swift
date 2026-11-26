@@ -83,6 +83,12 @@ struct SettingsView: View {
                 }
             }
 
+            Section("About") {
+                LabeledContent("Word & Sound", value: AppVersion.display)
+                LabeledContent("Build", value: AppVersion.build.isEmpty ? "development" : AppVersion.build)
+                Link("GitHub repository", destination: URL(string: "https://github.com/somphol/word-and-sound-mac")!)
+            }
+
             Section("Data") {
                 Button("Reset speech and playback settings") {
                     model.resetSettings()

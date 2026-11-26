@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.2 — 2026-11-25
+
+- Show the bundle version in the header, window title, Settings and Credits.
+- Read version/build from `Info.plist`; `swift run` shows “dev build”.
+
 ## 1.4.1 — 2026-11-25
 
 - Replace the single front-lip drawing with a clear spread / neutral /
