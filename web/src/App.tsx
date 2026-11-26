@@ -113,6 +113,14 @@ export default function App() {
   }, [isPhone])
 
   useEffect(() => {
+    const onOrientation = () => {
+      window.setTimeout(() => window.scrollTo(0, 0), 120)
+    }
+    window.addEventListener('orientationchange', onOrientation)
+    return () => window.removeEventListener('orientationchange', onOrientation)
+  }, [])
+
+  useEffect(() => {
     const onPop = (event: PopStateEvent) => {
       const next = (event.state as { screen?: Screen } | null)?.screen
       setScreen(next ?? 'practice')

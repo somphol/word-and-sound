@@ -126,6 +126,8 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   strip is hidden ≤700 px so the card fits without scrolling; the card links to
   Settings, which owns Repeat, Delay and IPA alongside Reading and Appearance.
   Do not re-add a dense select row to the phone card.
+- **Do not put `overflow-x: hidden` on `html`/`body`.** iPadOS can then keep the
+  old portrait width after rotation; use `.app { overflow-x: clip; }` instead.
 - **Desktop-site detection is advisory and phone-only.** Android Chrome in
   Desktop site mode reports ~980 px; `App` shows a dismissible hint when
   `screen.width <= 600` and `innerWidth > 700`. Do not extend this to iPad:

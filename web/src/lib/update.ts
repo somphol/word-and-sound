@@ -16,6 +16,6 @@ export async function forceRefresh(): Promise<void> {
     // Cache storage can be unavailable in private mode.
   }
   const url = new URL(window.location.href)
-  url.searchParams.set('refresh', Date.now().toString())
-  window.location.replace(url.toString())
+  url.searchParams.set('v', Date.now().toString())
+  window.location.assign(url.toString())
 }
