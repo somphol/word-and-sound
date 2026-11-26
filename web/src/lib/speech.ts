@@ -52,22 +52,19 @@ export function useSpeech() {
       return
     }
     const synth = window.speechSynthesis
-    // Cancelling an idle Android engine can swallow the next utterance.
-    if (synth.speaking || synth.pending) synth.cancel()
+    synth.cancel()
     synth.resume()
 
     const utterance = new SpeechSynthesisUtterance(text)
-    const wanted = normaliseLang(options.lang).toLowerCase()
-    const exact = voices.find((voice) => voice.voiceURI === options.voiceURI)
-      ?? voices.find((voice) => voice.localService && normaliseLang(voice.lang).toLowerCase() === wanted)
-      ?? voices.find((voice) => normaliseLang(voice.lang).toLowerCase() === wanted)
-      ?? voices.find((voice) => voice.localService && normaliseLang(voice.lang).toLowerCase().startsWith(wanted.split('-')[0]))
-      ?? voices.find((voice) => voice.localService)
-      ?? voices[0]
-
-    if (exact) utterance.voice = exact
+    // Only pin a voice when the user chose one explicitly. Forcing a voice
+    // from getVoices() can silence Android engines; leaving it unset lets the
+    // system pick its working default for the language.
+    const selected = options.voiceURI
+      ? voices.find((voice) => voice.voiceURI === options.voiceURI)
+      : undefined
+    if (selected) utterance.voice = selected
     // Android voices can expose en_US; SpeechSynthesisUtterance expects en-US.
-    utterance.lang = normaliseLang(exact?.lang ?? options.lang)
+    utterance.lang = normaliseLang(selected?.lang ?? options.lang)
     utterance.rate = options.rate
     utterance.pitch = options.pitch
     utterance.volume = 1
@@ -102,7 +99,9 @@ export function useSpeech() {
     retry = window.setTimeout(() => {
       if (started || retried || current.current !== utterance || synth.speaking || synth.pending) return
       retried = true
-      if (synth.speaking || synth.pending) synth.cancel()
+      utterance.voice = null
+      utterance.lang = normaliseLang(options.lang)
+      synth.cancel()
       synth.speak(utterance)
       synth.resume()
     }, 1200)
