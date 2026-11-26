@@ -50,7 +50,7 @@ export default function App() {
   const [modal, setModal] = useState<Modal>(null)
   const [screen, setScreen] = useState<Screen>('practice')
   const [isPhone, setIsPhone] = useState(() => window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)').matches)
-  const [desktopMode] = useState(() => window.screen.width <= 1400 && window.innerWidth > window.screen.width + 100)
+  const [desktopMode] = useState(() => window.screen.width <= 600 && window.innerWidth > 700)
   const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem('word-and-sound:desktop-hint') === '1')
   const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() => window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
   const [libraryOpen, setLibraryOpen] = useState(false)

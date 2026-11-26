@@ -123,11 +123,12 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   strip is hidden ≤700 px so the card fits without scrolling; the card links to
   Settings, which owns Repeat, Delay and IPA alongside Reading and Appearance.
   Do not re-add a dense select row to the phone card.
-- **Desktop-site detection is advisory.** Desktop mode ignores the viewport
-  meta: Android Chrome reports ~980 px, iPad Safari ~1180 px. `App` shows a
-  dismissible hint when `innerWidth > screen.width + 100` (screen ≤1400). The
-  701–1199 tablet tier keeps that iPad width readable, but a page cannot turn
-  the browser setting off, so do not promise a scripted fix.
+- **Desktop-site detection is advisory and phone-only.** Android Chrome in
+  Desktop site mode reports ~980 px; `App` shows a dismissible hint when
+  `screen.width <= 600` and `innerWidth > 700`. Do not extend this to iPad:
+  Safari keeps a portrait `screen.width` in landscape, so width comparisons
+  false-positive. The 701–1199 tablet tier keeps an iPad desktop-mode viewport
+  readable instead, and a page cannot turn the browser setting off anyway.
 - **Web type is scalable by settings.** Base sizes are `rem`, `settings.textScale`
   drives the root font size (0.9–1.3), and `settings.wordScale` multiplies the
   hero via `--word-scale` (1–1.6). Keep new type in `rem` so the control keeps
@@ -223,9 +224,9 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   the playback strip is unavailable there until the Settings sheet is opened.
 - Phone section history uses `pushState`; Android Back walks Practice → Sounds
   → Words rather than always returning to Practice.
-- Desktop-site mode cannot be overridden from the page; the in-app hint is the
-  only mitigation. On iPad, aA → Request Desktop Website must be switched off
-  once per site.
+- Desktop-site mode cannot be overridden from the page. On Android the in-app
+  hint is the mitigation; on iPad the wider tablet tier absorbs it. On iPad,
+  aA → Request Desktop Website must be switched off once per site if preferred.
 - Web import accepts the same `.txt`/`.csv` shapes as the Mac parser but is
   capped at 50,000 words per file.
 

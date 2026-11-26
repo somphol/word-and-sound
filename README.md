@@ -213,10 +213,10 @@ publishers of the original vocabulary lists. Those lists are not shipped.
 - Facebook and other networks cache link previews. Refresh the URL in the
   platform's sharing debugger after a deployment before judging the card.
 - **Desktop site** mode forces a wide layout and ignores the viewport meta tag
-  (~980 px on Android Chrome, ~1180 px on iPad Safari). The app detects this,
-  shows a dismissible hint and keeps widths up to 1199 px on the tablet tier,
-  but a web page cannot switch the browser setting. A normal mobile visit gets
-  the phone or tablet layout. On iPad: aA → Request Desktop Website → off.
+  (~980 px on Android Chrome, ~1180 px on iPad Safari). Android gets a
+  dismissible hint; iPad desktop mode is absorbed by the 701–1199 px tablet
+  tier, but a web page cannot switch the browser setting. A normal mobile visit
+  gets the phone or tablet layout. On iPad: aA → Request Desktop Website → off.
 - The iPad uses a two-pane Practice layout from 780–1099 px (card plus word
   list); Sounds and Coach still open as sheets. Landscape phones use a compact
   two-column card with the bottom navigation retained.
