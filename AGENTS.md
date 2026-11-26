@@ -111,10 +111,16 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   lists and the word index open as sheets on tablet/desktop and as full screens
   under the bottom navigation on phones. Do not reintroduce a permanent left
   rail or bottom player without a deliberate design decision.
-- **Breakpoints are phone ≤700, tablet 701–1099, desktop ≥1100.** The phone tier
-  hides header tabs and shows `BottomNav`; the tablet tier keeps the single card
-  and hides secondary header icons. Keep the tiers in this order when adding
-  layout rules, and put phone overrides after the base rules.
+- **Breakpoints are phone ≤700, tablet 701–1099, desktop ≥1100.** Short
+  landscape (`max-height: 500px` up to 1000px wide) also uses the phone tier.
+  The phone tier hides header tabs and shows `BottomNav`; 780–1099 px puts the
+  practice card beside a persistent `WordPanel`; desktop keeps the single card.
+  Keep the tiers in this order when adding layout rules, and put phone overrides
+  after the base rules.
+- **Phone playback controls live in Settings.** The accent/repeat/delay/IPA
+  strip is hidden ≤700 px so the card fits without scrolling; the card links to
+  Settings, which owns Repeat, Delay and IPA alongside Reading and Appearance.
+  Do not re-add a dense select row to the phone card.
 - **Desktop-site detection is advisory.** Android Chrome in Desktop site mode
   reports ~980 px and ignores the viewport meta; `App` shows a dismissible hint
   when `screen.width <= 600` but `innerWidth > 700`. A page cannot turn the
@@ -208,8 +214,10 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   deployment until a hard reload.
 - Social networks cache Open Graph data; refresh with Facebook's Sharing
   Debugger (or the equivalent) after deploying, or an old preview is shown.
-- The iPad has only the tablet tier so far; it uses the single practice card
-  without the phone bottom navigation and has not had a dedicated design pass.
+- The iPad two-pane view is tuned at 810/1080; Sounds, Practice pairs and Coach
+  still open as sheets rather than using a third pane.
+- Phone landscape hides the context row and stacks the card into two columns;
+  the playback strip is unavailable there until the Settings sheet is opened.
 - Phone section history uses `pushState`; Android Back walks Practice → Sounds
   → Words rather than always returning to Practice.
 - Desktop-site mode cannot be overridden from the page; the in-app hint is the

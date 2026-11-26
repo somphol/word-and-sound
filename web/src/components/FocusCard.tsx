@@ -16,7 +16,7 @@ const accents = [
 export function FocusCard({
   word, parts, target, eyebrow, listTitle, targets, kind, index, total, practised,
   settings, voices, autoplay, isSpeaking, favorite, trouble, isReview,
-  onSettings, onPlay, onStop, onSlow, onPrevious, onNext, onToggleAutoplay, onReplay,
+  onSettings, onOpenSettings, onPlay, onStop, onSlow, onPrevious, onNext, onToggleAutoplay, onReplay,
   onFavorite, onTrouble, onCoach, onRecord, onGotIt, onAgain,
 }: {
   word: string | null
@@ -37,6 +37,7 @@ export function FocusCard({
   trouble: boolean
   isReview: boolean
   onSettings: (next: Partial<Settings>) => void
+  onOpenSettings: () => void
   onPlay: () => void
   onStop: () => void
   onSlow: () => void
@@ -184,6 +185,9 @@ export function FocusCard({
             <span style={{ width: `${total ? (practised / total) * 100 : 0}%` }} />
           </div>
         </div>
+        <button type="button" className="playback-link" onClick={onOpenSettings}>
+          <Icon name="settings" size={15} /> Playback
+        </button>
       </div>
 
       <div className="playback-strip">

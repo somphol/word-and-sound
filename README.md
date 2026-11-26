@@ -86,13 +86,16 @@ favorites/trouble, spaced review, import, recording and credits.
 It is focus-first: one large practice card, with sounds and word lists in
 sheets instead of a permanent side rail. On phones the app uses a
 **Practice / Sounds / Words** bottom navigation, full-screen sound and word
-screens, 48 px rows and touch-sized controls. **Settings → Appearance** offers Auto/Light/Dark themes and four accent
+screens, 48 px rows, 44 px targets and a compact landscape card. On iPad it
+switches to a two-pane layout with the practice card beside the word list. **Settings → Appearance** offers Auto/Light/Dark themes and four accent
 palettes (blue, teal, violet, amber). **Settings → Reading** (or the **Aa**
 button) adjusts UI text size (90–130%) and the hero word size (100–160%). All
 display choices persist locally and apply before first paint. The page ships Open Graph and Twitter
 metadata with a 1200×630 share card.
 
 ![Word & Sound on a phone](docs/web-phone.png)
+
+![Word & Sound on an iPad](docs/web-ipad.png)
 
 ```bash
 ./scripts/sync-web-data.sh   # copy data/*.json and the icon into web/public/
@@ -212,5 +215,6 @@ publishers of the original vocabulary lists. Those lists are not shipped.
   the viewport meta tag. The app detects this and shows a dismissible hint, but
   a web page cannot switch the browser setting. A normal mobile visit, which is
   the default, gets the phone layout.
-- The iPad gets the 701–1099 px tablet tier (single card, no bottom navigation);
-  it has not yet had a dedicated iPad layout pass.
+- The iPad uses a two-pane Practice layout from 780–1099 px (card plus word
+  list); Sounds and Coach still open as sheets. Landscape phones use a compact
+  two-column card with the bottom navigation retained.

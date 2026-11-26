@@ -29,17 +29,17 @@ export function VowelChart({
                 fill={isTarget ? 'var(--accent)' : isContrast ? 'var(--orange)' : 'rgba(255,255,255,.35)'}
               />
               {(isTarget || isContrast) && (
-                <text x={x(vowel.shape.back) + 10} y={y(vowel.shape.body) + 3} fontSize={isTarget ? 11 : 9} fontWeight={isTarget ? 700 : 400} fill={isTarget ? 'var(--accent)' : 'var(--orange)'}>
+                <text x={x(vowel.shape.back) + 10} y={y(vowel.shape.body) + 3} fontSize={isTarget ? 12 : 10.5} fontWeight={isTarget ? 700 : 400} fill={isTarget ? 'var(--accent)' : 'var(--orange)'}>
                   {vowel.symbol}
                 </text>
               )}
             </g>
           )
         })}
-        <text x="90" y="141" fontSize="8" fill="var(--diagram-label)" textAnchor="middle">front</text>
-        <text x="340" y="141" fontSize="8" fill="var(--diagram-label)" textAnchor="middle">back</text>
-        <text x="78" y="28" fontSize="8" fill="var(--diagram-label)" textAnchor="end">high</text>
-        <text x="78" y="125" fontSize="8" fill="var(--diagram-label)" textAnchor="end">low</text>
+        <text x="90" y="141" fontSize="10" fill="var(--diagram-label)" textAnchor="middle">front</text>
+        <text x="340" y="141" fontSize="10" fill="var(--diagram-label)" textAnchor="middle">back</text>
+        <text x="78" y="28" fontSize="10" fill="var(--diagram-label)" textAnchor="end">high</text>
+        <text x="78" y="125" fontSize="10" fill="var(--diagram-label)" textAnchor="end">low</text>
       </svg>
     </div>
   )

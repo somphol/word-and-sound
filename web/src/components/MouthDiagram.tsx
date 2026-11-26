@@ -164,7 +164,7 @@ export function MouthDiagram({
   const label = (text: string, at: [number, number], to: [number, number]) => (
     <g>
       <line x1={at[0] * W} y1={at[1] * H} x2={to[0] * W} y2={to[1] * H} stroke="var(--diagram-line)" strokeDasharray="2 2" strokeWidth=".8" />
-      <text x={at[0] * W} y={at[1] * H} fill="var(--diagram-label)" fontSize="8" fontWeight="500" textAnchor="middle">{text}</text>
+      <text x={at[0] * W} y={at[1] * H} fill="var(--diagram-label)" fontSize="10" fontWeight="500" textAnchor="middle">{text}</text>
     </g>
   )
 

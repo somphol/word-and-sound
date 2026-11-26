@@ -19,6 +19,13 @@
   and move the desktop breakpoint to ≥1100 px so tablet widths stay readable.
 - Add Auto/Light/Dark themes and blue, teal, violet and amber accent palettes;
   apply them before first paint and keep the articulation diagrams theme-aware.
+- Raise readable text to a 12 px floor, improve faint-text contrast, grow touch
+  targets to 44 px and stop iOS zoom with 16 px inputs on phones and tablets.
+- Keep the bottom navigation on landscape phones with a two-column card, give
+  the iPad a two-pane card + word list, and surface Review from Practice.
+- Move phone playback options into Settings so the default card fits without
+  scrolling; add modal focus trapping, inert backgrounds and live toast
+  announcements.
 - Export the 48 articulation guides to `data/articulation.json` so the web
   client reads the same coach content as the Mac app.
 - Show the bundle version in the header, window title, Settings and Credits.

@@ -49,7 +49,7 @@ export default function App() {
   const [autoplay, setAutoplay] = useState(false)
   const [modal, setModal] = useState<Modal>(null)
   const [screen, setScreen] = useState<Screen>('practice')
-  const [isPhone, setIsPhone] = useState(() => window.matchMedia('(max-width: 700px)').matches)
+  const [isPhone, setIsPhone] = useState(() => window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)').matches)
   const [desktopMode] = useState(() => window.screen.width <= 600 && window.innerWidth > 700)
   const [bannerDismissed, setBannerDismissed] = useState(() => sessionStorage.getItem('word-and-sound:desktop-hint') === '1')
   const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(() => window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
@@ -74,7 +74,7 @@ export default function App() {
   const commandsRef = useRef({ play: () => {}, next: () => {}, previous: () => {}, replay: () => {} })
 
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 700px)')
+    const media = window.matchMedia('(max-width: 700px), (max-width: 1000px) and (max-height: 500px)')
     const onChange = () => setIsPhone(media.matches)
     media.addEventListener('change', onChange)
     return () => media.removeEventListener('change', onChange)
@@ -521,6 +521,26 @@ export default function App() {
     setSource('built')
   }
 
+  const openReview = () => {
+    const list = mixedLists.find((item) => item.id === 'review')
+    if (!list) return
+    selectMixed(list)
+    setScreen('practice')
+  }
+
+  useEffect(() => {
+    const overlay = document.querySelector<HTMLElement>('.overlay')
+    if (!overlay) return
+    const previous = document.activeElement as HTMLElement | null
+    const background = Array.from(document.querySelectorAll<HTMLElement>('.app > :not(.overlay)'))
+    background.forEach((element) => element.setAttribute('inert', ''))
+    overlay.querySelector<HTMLElement>('input, select, button, [href], [tabindex]:not([tabindex="-1"])')?.focus()
+    return () => {
+      background.forEach((element) => element.removeAttribute('inert'))
+      previous?.focus?.()
+    }
+  }, [modal, libraryOpen, wordsOpen])
+
   const openCoach = (tile: SoundTile) => {
     setCoachTile(tile)
     setModal('coach')
@@ -564,6 +584,7 @@ export default function App() {
       />
       {activeScreen === 'practice' && (
       <main className="stage">
+        <div className="practice-cluster">
         <div className="context-row">
           <button
             type="button"
@@ -586,7 +607,11 @@ export default function App() {
             <strong>Words</strong>
             <span className="context-count">{words.length}</span>
           </button>
-          {review.length > 0 && <span className="context-hint">{review.length} to review</span>}
+          {review.length > 0 && (
+            <button type="button" className="review-jump" onClick={openReview}>
+              Review <span>{review.length}</span>
+            </button>
+          )}
           <span className="context-index">{words.length ? `${index + 1} / ${words.length}` : ''}</span>
         </div>
 
@@ -609,6 +634,7 @@ export default function App() {
           trouble={!!currentWord && !!progress[currentWord.toLowerCase()]?.trouble}
           isReview={category === 'mixed' && mixedId === 'review'}
           onSettings={(next) => setSettings({ ...settings, ...next })}
+          onOpenSettings={() => setModal('settings')}
           onPlay={() => { repeatRef.current = settings.repeatCount; speakAtRef.current(index) }}
           onStop={stopPlayback}
           onSlow={() => currentWord && speakWord(currentWord, true)}
@@ -625,6 +651,28 @@ export default function App() {
         />
 
         <p className="stage-hint">Space play · ⌘R replay · ⌘←/→ move · ⌘K search</p>
+        </div>
+
+        <aside className="tablet-words" aria-label="Word list">
+          <WordPanel
+            data={data}
+            title={listTitle}
+            words={words}
+            currentIndex={index}
+            searchText={searchText}
+            onSearchChange={setSearchText}
+            practised={practised}
+            progress={progress}
+            targets={currentTargets}
+            kind={currentKind}
+            ipaMode={settings.ipaMode}
+            onSelect={selectWord}
+            onFavorite={toggleFavorite}
+            onTrouble={toggleTrouble}
+            reviewCount={review.length}
+            onReview={openReview}
+          />
+        </aside>
       </main>
       )}
 
@@ -674,13 +722,7 @@ export default function App() {
             onFavorite={toggleFavorite}
             onTrouble={toggleTrouble}
             reviewCount={review.length}
-            onReview={() => {
-              const list = mixedLists.find((item) => item.id === 'review')
-              if (list) {
-                selectMixed(list)
-                setScreen('practice')
-              }
-            }}
+            onReview={openReview}
           />
         </main>
       )}
@@ -784,7 +826,7 @@ export default function App() {
         }}
       />
       {toast && (
-        <button type="button" className="toast" onClick={() => setToast(null)}>
+        <button type="button" className="toast" role="status" aria-live="polite" onClick={() => setToast(null)}>
           {toast}
         </button>
       )}

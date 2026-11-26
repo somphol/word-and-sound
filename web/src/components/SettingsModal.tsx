@@ -113,6 +113,16 @@ export function SettingsModal({
               <option value="both">US and UK</option><option value="us">US only</option><option value="uk">UK only</option>
             </select>
           </label>
+          <label>Repeat
+            <select value={settings.repeatCount} onChange={(event) => onChange({ ...settings, repeatCount: Number(event.target.value) })}>
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((value) => <option key={value} value={value}>{value}×</option>)}
+            </select>
+          </label>
+          <label>Delay
+            <select value={settings.delay} onChange={(event) => onChange({ ...settings, delay: Number(event.target.value) })}>
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((value) => <option key={value} value={value}>{value} s</option>)}
+            </select>
+          </label>
           <button type="button" className="button small" onClick={onCredits}>Credits and licenses</button>
         </section>
         <section>
