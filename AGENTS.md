@@ -176,10 +176,12 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 
 ## Continuity
 
-Local project: `~/Projects/word-and-sound-mac`.
-GitHub: https://github.com/somphol/word-and-sound-mac (public).
+Local project: `~/Projects/word-and-sound-mac` (the folder keeps the old
+name; the repository is now `word-and-sound`).
+GitHub: https://github.com/somphol/word-and-sound (public). The old
+`word-and-sound-mac` repository URL redirects here.
 Built app: `build/WordAndSound.app` (not committed).
-Web app: https://somphol.github.io/word-and-sound-mac/ (GitHub Pages, built
+Web app: https://somphol.github.io/word-and-sound/ (GitHub Pages, built
 from `web/` by `.github/workflows/pages.yml`). Pages is enabled with
 `build_type: workflow`; there is no `gh-pages` branch. The macOS app has no
 hosted deployment; distribution is the GitHub source and release artifact.

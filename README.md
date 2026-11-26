@@ -1,6 +1,6 @@
 # Word & Sound (macOS)
 
-[![CI](https://github.com/somphol/word-and-sound-mac/actions/workflows/ci.yml/badge.svg)](https://github.com/somphol/word-and-sound-mac/actions/workflows/ci.yml)
+[![CI](https://github.com/somphol/word-and-sound/actions/workflows/ci.yml/badge.svg)](https://github.com/somphol/word-and-sound/actions/workflows/ci.yml)
 
 A native macOS pronunciation trainer and a matching React web app, both built
 from the MIT App Inventor project `WordAndSound.aia`. They keep the original's
@@ -9,8 +9,9 @@ sounds, ending blends and vowels — and replace the restricted vocabulary with
 openly licensed data.
 
 The macOS app is the primary build. The web app is a full-parity PWA at
-**https://somphol.github.io/word-and-sound-mac/**; it loads the same JSON and
-works offline after the first visit.
+**https://somphol.github.io/word-and-sound/**; it loads the same JSON and
+works offline after the first visit. The repository was renamed from
+`word-and-sound-mac`; GitHub redirects the old repository and release links.
 
 ![Word & Sound screenshot](docs/screenshot.png)
 
@@ -67,7 +68,7 @@ make app            # build/WordAndSound.app (release, ad-hoc signed)
 make run            # build and open the app
 ```
 
-[Download the latest release](https://github.com/somphol/word-and-sound-mac/releases/latest)
+[Download the latest release](https://github.com/somphol/word-and-sound/releases/latest)
 for a prebuilt app (ad-hoc signed, not notarized).
 
 The app is not notarized. On first launch from a downloaded copy, right-click
@@ -151,7 +152,7 @@ licenses/                     third-party notices and license texts
 
 ## Documentation
 
-- GitHub: https://github.com/somphol/word-and-sound-mac
+- GitHub: https://github.com/somphol/word-and-sound
 - `AGENTS.md` — architecture, commands, constraints and handoff notes
 - `LICENSES.md` — code and data licensing
 - `CONTRIBUTING.md` — how to propose changes safely
