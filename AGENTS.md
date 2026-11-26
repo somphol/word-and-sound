@@ -86,6 +86,8 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 ## Continuity
 
 Local project: `~/Projects/word-and-sound-mac`.
+GitHub: https://github.com/somphol/word-and-sound-mac (public).
 Built app: `build/WordAndSound.app` (not committed).
-No public deployment. The original `.aia` remains at
-`~/Downloads/WordAndSound.aia` and is not committed.
+No hosted deployment; distribution is the GitHub source and release artifact.
+The original `.aia` remains at `~/Downloads/WordAndSound.aia` and is not
+committed.

@@ -1,5 +1,7 @@
 # Word & Sound (macOS)
 
+[![CI](https://github.com/somphol/word-and-sound-mac/actions/workflows/ci.yml/badge.svg)](https://github.com/somphol/word-and-sound-mac/actions/workflows/ci.yml)
+
 A native macOS pronunciation trainer built from the MIT App Inventor project
 `WordAndSound.aia`. The app keeps the original's five ways of working on a
 sound — starting sounds, starting blends, ending sounds, ending blends and
@@ -88,6 +90,7 @@ licenses/                     third-party notices and license texts
 
 ## Documentation
 
+- GitHub: https://github.com/somphol/word-and-sound-mac
 - `AGENTS.md` — architecture, commands, constraints and handoff notes
 - `LICENSES.md` — code and data licensing
 - `CONTRIBUTING.md` — how to propose changes safely
