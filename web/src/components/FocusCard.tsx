@@ -1,5 +1,5 @@
 import type { IpaPart } from '../lib/ipa'
-import { useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { clampWordScale, type Settings } from '../lib/progress'
 import type { IpaMode } from '../lib/types'
 import { Icon } from './Icon'
@@ -52,7 +52,31 @@ export function FocusCard({
   onGotIt: () => void
   onAgain: () => void
 }) {
+  const wordRef = useRef<HTMLHeadingElement>(null)
   const touchStart = useRef<{ x: number; y: number } | null>(null)
+
+  useLayoutEffect(() => {
+    const element = wordRef.current
+    const parent = element?.parentElement
+    if (!element || !parent) return
+    let measuredWidth = -1
+    const fit = () => {
+      const available = parent.clientWidth
+      if (!available || available === measuredWidth) return
+      measuredWidth = available
+      element.style.fontSize = ''
+      const natural = element.scrollWidth
+      if (natural > available) {
+        const current = parseFloat(getComputedStyle(element).fontSize)
+        const next = Math.max(20, current * (available / natural) * 0.97)
+        element.style.fontSize = `${next.toFixed(2)}px`
+      }
+    }
+    fit()
+    const observer = new ResizeObserver(fit)
+    observer.observe(parent)
+    return () => observer.disconnect()
+  }, [word, settings.wordScale, settings.textScale])
   const hasVoice = voices.some((voice) => voice.lang === settings.accent)
   if (!word) {
     return (
@@ -109,7 +133,7 @@ export function FocusCard({
       </header>
 
       <div className="focus-body">
-        <h1 className="focus-word">{word}</h1>
+        <h1 className="focus-word" ref={wordRef}>{word}</h1>
         <div className="focus-ipa">
           {parts.map((part) => (
             <span key={part.label}>

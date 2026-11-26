@@ -90,7 +90,8 @@ screens, 48 px rows, 44 px targets and a compact landscape card. On iPad it
 uses a centred single card with word and controls side by side in portrait, and
 a two-pane layout — practice card beside the word list — in landscape. **Settings → Appearance** offers Auto/Light/Dark themes and four accent
 palettes (blue, teal, violet, amber). **Settings → Reading** (or the **Aa**
-button) adjusts UI text size (90–130%) and the hero word size (100–160%). All
+button) adjusts UI text size (90–130%) and the hero word size (100–160%); the
+word size is a maximum, and long words auto-shrink to stay on one line. All
 display choices persist locally and apply before first paint. The page ships Open Graph and Twitter
 metadata with a 1200×630 share card.
 

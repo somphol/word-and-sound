@@ -12,6 +12,8 @@
 - Add Settings → App → Refresh app, which clears service-worker caches and
   reloads the latest version while keeping progress, lists and preferences; an
   update prompt appears when a new worker takes control.
+- Keep long hero words on one line: the word auto-shrinks to fit instead of
+  wrapping, with the Word size setting acting as the maximum.
 - Add Open Graph/Twitter metadata and a 1200×630 share card.
 
 ## 1.4.2 — 2026-11-25

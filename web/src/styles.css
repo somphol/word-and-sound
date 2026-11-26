@@ -275,7 +275,8 @@ mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 
   font-weight: 650;
   line-height: 0.98;
   letter-spacing: -0.035em;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  max-width: 100%;
 }
 .focus-ipa {
   display: flex;

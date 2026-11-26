@@ -132,7 +132,9 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 - **Web type is scalable by settings.** Base sizes are `rem`, `settings.textScale`
   drives the root font size (0.9–1.3), and `settings.wordScale` multiplies the
   hero via `--word-scale` (1–1.6). Keep new type in `rem` so the control keeps
-  working; no fixed-px font sizes.
+  working; no fixed-px font sizes. The hero is `nowrap` and `FocusCard`
+  measures it with a `ResizeObserver`, shrinking the font only when the word
+  would overflow; the word-size setting is a maximum, not a forced size.
 - **Themes are token-driven.** `settings.theme` (system/light/dark) sets
   `data-theme` and `settings.palette` sets `data-palette` on `<html>`; both are
   applied by an inline script in `index.html` before React so there is no flash.
