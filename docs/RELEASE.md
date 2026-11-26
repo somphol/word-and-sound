@@ -13,7 +13,7 @@ Expect `PASS` and 134 tiles / 134 pattern lists.
 
 Edit `scripts/make_app.sh`:
 
-- `CFBundleShortVersionString` — user-facing version, for example `1.2.0`
+- `CFBundleShortVersionString` — user-facing version, for example `1.3.0`
 - `CFBundleVersion` — monotonically increasing build number
 
 Update `CHANGELOG.md`.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0 — 2026-11-25
+
+- Add an animated articulation coach with 47 phoneme guides.
+- Add side-view tongue, lip, contact, airflow and voicing diagrams.
+- Add detailed /r/ and /s/ guidance, common-error fixes and physical anchors.
+- Show blends as their component sounds with selectable diagrams.
+- Add “How to make this sound” from the tile card and player.
+
 ## 1.2.0 — 2026-11-25
 
 - Add ⌘K global search across tiles, lists, words and IPA.

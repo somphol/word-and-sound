@@ -33,7 +33,16 @@ public enum SelfTest {
             }
             for tile in tiles {
                 check(!tile.targets.isEmpty, "tile \(tile.id) has no IPA target", &failures)
+                check(
+                    !ArticulationLibrary.components(for: tile.label).isEmpty,
+                    "tile \(tile.id) has no articulation guide",
+                    &failures
+                )
             }
+            let guideCount = Set(tiles.flatMap { tile in
+                ArticulationLibrary.components(for: tile.label).map(\.id)
+            }).count
+            print("  articulation guides \(guideCount)")
             if let pairs = data.minimalPairs {
                 check(pairs.pairs.count >= 30, "expected at least 30 minimal pairs, found \(pairs.pairs.count)", &failures)
                 print("  minimal pairs \(pairs.pairs.count)")

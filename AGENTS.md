@@ -18,6 +18,7 @@ swift run wordandsound-selftest    # headless data + sequencer + parser checks
 swift run WordAndSound --snapshot-practice /tmp/practice.png
 swift run WordAndSound --snapshot-record /tmp/record.png
 swift run WordAndSound --snapshot-search /tmp/search.png --query "θ"
+swift run WordAndSound --snapshot-coach /tmp/coach.png --tile startingR
 swift run WordAndSound --snapshot docs/screenshot.png --category vowel --tile vowelMar
 ```
 
@@ -42,6 +43,10 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   `pattern_report.json`, keyed by tile id.
 - `Sources/WordAndSoundCore` owns the Codable models, `LibraryStore` (resource
   loading), the pure `PlaybackSequencer`, `WordListParser`, and `SelfTest`.
+- `Sources/WordAndSoundCore/Articulation.swift` holds the 47 authored
+  phoneme guides (steps, errors, anchors, mouth shape and glide).
+- `Sources/WordAndSound/Views/MouthDiagramView.swift` renders the animated 2D
+  sagittal diagram; `ArticulationCoachView` is the sheet for a tile.
 - `Sources/WordAndSound` owns `AppModel`, `SpeechEngine` (AVSpeechSynthesizer),
   `Snapshot`, commands and the SwiftUI views. `AppModel` is the single owner of
   list selection, playback state, imported lists, favorites, trouble marks,
@@ -86,6 +91,11 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   or upload without explicit consent.
 - **No pronunciation scoring.** Record-and-compare is deliberately unscored;
   the quiz is the only objective feedback.
+- **Articulation diagrams are 2D and stylised.** Do not replace them with an
+  unvalidated 3D mouth or camera tongue tracking. Keep the text steps and
+  physical checkpoints alongside the drawing; accuracy beats novelty.
+- **Blends are component-based.** A cluster such as /str/ shows /s/, /t/, /r/
+  in sequence; do not draw a fake single "cluster tongue" position.
 - **Microphone usage description** is in `scripts/make_app.sh`; recording
   refuses to start under `swift run` without the bundle key.
 
@@ -103,6 +113,8 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
   pixel-perfect screenshot of a live window.
 - The mixed lists contain 4 lists, not the original 13; subject lists were not
   regenerated.
+- Articulation guides cover 47 core phonemes; every tile resolves to one or
+  more components. The diagrams are teaching aids, not medical anatomy.
 - Minimal pairs are a curated set of 37, not generated from the IPA inventory.
 - Global search indexes the first occurrence of a word; duplicate words jump to
   the first containing list. The index is lazy and rebuilt when the list

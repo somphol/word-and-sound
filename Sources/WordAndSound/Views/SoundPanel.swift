@@ -170,6 +170,15 @@ struct SoundPanel: View {
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
 
+            Button {
+                model.showCoach(for: tile)
+            } label: {
+                Label("How to make this sound", systemImage: "mouth.fill")
+                    .font(.caption)
+            }
+            .buttonStyle(.borderless)
+            .help("Animated side view and step-by-step tongue and lip position")
+
             let progress = model.currentListProgress
             if progress.total > 0 {
                 HStack(spacing: 8) {

@@ -51,6 +51,11 @@ struct RootView: View {
         .sheet(isPresented: $model.isSearchPresented) {
             GlobalSearchView(model: model)
         }
+        .sheet(isPresented: $model.isCoachPresented) {
+            if let tile = model.coachTile {
+                ArticulationCoachView(model: model, tile: tile)
+            }
+        }
         .fileImporter(
             isPresented: $showImporter,
             allowedContentTypes: [.plainText, .commaSeparatedText],

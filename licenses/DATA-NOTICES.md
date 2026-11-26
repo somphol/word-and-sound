@@ -71,3 +71,10 @@ in `CC-BY-SA-4.0.txt`.
 - Source: curated for this app.
 - License: CC BY-SA 4.0.
 - Purpose: ESL contrast practice; review history and recordings are local.
+
+## Articulation guides
+
+- Source: authored for this app.
+- License: CC BY-SA 4.0.
+- Scope: 47 core phoneme guides, stylised side-view diagrams, tips, common
+  errors and physical anchors. Not medical anatomy.

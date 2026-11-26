@@ -23,6 +23,8 @@ final class AppModel: ObservableObject {
     @Published private(set) var progress: [String: WordProgress] = [:]
     @Published var importMessage: String?
     @Published var isSearchPresented = false
+    @Published var isCoachPresented = false
+    @Published var coachTileID: String?
 
     @Published var accent: Accent = .us {
         didSet {
@@ -175,6 +177,20 @@ final class AppModel: ObservableObject {
 
     var currentTile: SoundTile? {
         categories.flatMap(\.tiles).first { $0.id == selectedTileID }
+    }
+
+    var coachTile: SoundTile? {
+        categories.flatMap(\.tiles).first { $0.id == coachTileID }
+    }
+
+    func showCoach(for tile: SoundTile) {
+        coachTileID = tile.id
+        isCoachPresented = true
+    }
+
+    func showCoachForCurrent() {
+        guard let tile = currentTile else { return }
+        showCoach(for: tile)
     }
 
     var currentMixed: MixedList? {

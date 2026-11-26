@@ -11,6 +11,8 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
 
 ![Minimal pairs](docs/practice.png)
 
+![Articulation coach](docs/coach.png)
+
 ![Global search](docs/search.png)
 
 ## What it does
@@ -22,6 +24,9 @@ vowels — and replaces the restricted vocabulary with openly licensed data.
   ranked by frequency, up to 120 words per sound.
 - **US and UK IPA**, displayed together when available, with the target
   segment highlighted and a short articulatory tip.
+- **Animated articulation coach**: 47 phoneme guides with a side-view mouth,
+  tongue/lip steps, contact points, common errors and physical anchors.
+  Especially detailed for /r/ and /s/; blends show their component sounds.
 - **37 minimal pairs** with listen and quiz modes for the contrasts ESL
   learners need most.
 - **Global search (⌘K)** across every sound, list and word, with IPA search;
@@ -92,6 +97,7 @@ Pipeline:
 | US IPA entries | 39,886 |
 | UK IPA entries | 22,072 |
 | Tile-list IPA coverage | 96.8% US, 89.3% UK |
+| Articulation guides | 47 |
 | Minimal pairs | 37 |
 | Review intervals | 1, 3, 7, 14, 30 days |
 

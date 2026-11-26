@@ -76,6 +76,38 @@ final class ReviewSchedulerTests: XCTestCase {
     }
 }
 
+final class ArticulationTests: XCTestCase {
+    func testEveryTileHasAGuide() throws {
+        let data = try LibraryStore.load()
+        for tile in data.library.categories.flatMap(\.tiles) {
+            XCTAssertFalse(
+                ArticulationLibrary.components(for: tile.label).isEmpty,
+                "no articulation guide for \(tile.id) / \(tile.label)"
+            )
+        }
+    }
+
+    func testRandSHaveErrorsAndSteps() throws {
+        let r = try XCTUnwrap(ArticulationLibrary.articulation(for: "r"))
+        let s = try XCTUnwrap(ArticulationLibrary.articulation(for: "s"))
+        XCTAssertFalse(r.errors.isEmpty)
+        XCTAssertFalse(s.errors.isEmpty)
+        XCTAssertGreaterThanOrEqual(r.steps.count, 3)
+        XCTAssertGreaterThanOrEqual(s.steps.count, 3)
+    }
+
+    func testBlendComponents() {
+        XCTAssertEqual(
+            ArticulationLibrary.components(for: "str").map(\.symbol),
+            ["s", "t", "r"]
+        )
+        XCTAssertEqual(
+            ArticulationLibrary.components(for: "ŋθ").map(\.symbol),
+            ["ŋ", "θ"]
+        )
+    }
+}
+
 final class LibraryTests: XCTestCase {
     func testLibraryLoads() throws {
         let data = try LibraryStore.load()

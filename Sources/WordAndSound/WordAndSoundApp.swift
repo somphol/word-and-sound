@@ -10,6 +10,22 @@ struct WordAndSoundApp: App {
         if CommandLine.arguments.contains("--selftest") {
             exit(SelfTest.run() ? 0 : 1)
         }
+        if let index = CommandLine.arguments.firstIndex(of: "--snapshot-coach"),
+           index + 1 < CommandLine.arguments.count {
+            let model = AppModel()
+            let tileID = CommandLine.arguments.firstIndex(of: "--tile").flatMap { tileIndex in
+                tileIndex + 1 < CommandLine.arguments.count ? CommandLine.arguments[tileIndex + 1] : nil
+            } ?? "startingR"
+            if let tile = model.categories.flatMap(\.tiles).first(where: { $0.id == tileID }) {
+                let ok = Snapshot.write(
+                    ArticulationCoachView(model: model, tile: tile),
+                    to: CommandLine.arguments[index + 1],
+                    size: CGSize(width: 1000, height: 720)
+                )
+                exit(ok ? 0 : 1)
+            }
+            exit(2)
+        }
         if let index = CommandLine.arguments.firstIndex(of: "--snapshot-search"),
            index + 1 < CommandLine.arguments.count {
             let model = AppModel()

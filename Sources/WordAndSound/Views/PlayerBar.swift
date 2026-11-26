@@ -60,6 +60,16 @@ struct PlayerBar: View {
                                 .background(Capsule().fill(Theme.subtle))
                                 .foregroundStyle(.secondary)
                         }
+                        if model.currentTile != nil {
+                            Button {
+                                model.showCoachForCurrent()
+                            } label: {
+                                Image(systemName: "mouth.fill")
+                                    .foregroundStyle(.secondary)
+                            }
+                            .buttonStyle(.borderless)
+                            .help("How to make this sound")
+                        }
                         Button {
                             model.toggleFavorite(word)
                         } label: {

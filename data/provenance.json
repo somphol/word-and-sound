@@ -54,14 +54,19 @@
       "note": "Streamed and filtered to bundled words; the full dump is not redistributed."
     },
     {
+      "name": "Minimal pairs",
+      "license": "CC BY-SA 4.0",
+      "note": "37 curated ESL contrast pairs; recordings and review history stay local."
+    },
+    {
       "name": "Pattern-built lists",
       "license": "CC BY-SA 4.0",
       "note": "Onset/coda/vowel word lists generated from open IPA and frequency data."
     },
     {
-      "name": "Minimal pairs",
+      "name": "Articulation guides",
       "license": "CC BY-SA 4.0",
-      "note": "37 curated ESL contrast pairs; recordings and review history stay local."
+      "note": "Authored side-view mouth guidance, tips and common-error fixes."
     }
   ]
 }

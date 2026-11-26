@@ -441,6 +441,12 @@ def main() -> int:
                 "license": "CC BY-SA 4.0",
                 "note": "37 curated ESL contrast pairs; recordings and review history stay local.",
             })
+        if not any(source.get("name") == "Articulation guides" for source in provenance["sources"]):
+            provenance["sources"].append({
+                "name": "Articulation guides",
+                "license": "CC BY-SA 4.0",
+                "note": "Authored side-view mouth guidance, tips and common-error fixes.",
+            })
         provenance_path.write_text(
             json.dumps(provenance, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
