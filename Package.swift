@@ -6,6 +6,7 @@ let package = Package(
     platforms: [.macOS(.v14)],
     products: [
         .executable(name: "WordAndSound", targets: ["WordAndSound"]),
+        .executable(name: "wordandsound-selftest", targets: ["SelfTestCLI"]),
     ],
     targets: [
         .target(
@@ -14,6 +15,10 @@ let package = Package(
         ),
         .executableTarget(
             name: "WordAndSound",
+            dependencies: ["WordAndSoundCore"]
+        ),
+        .executableTarget(
+            name: "SelfTestCLI",
             dependencies: ["WordAndSoundCore"]
         ),
         .testTarget(

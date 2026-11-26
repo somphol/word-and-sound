@@ -19,7 +19,7 @@ test:
 	swift test
 
 selftest:
-	swift run WordAndSound --selftest
+	swift run wordandsound-selftest
 
 check: test selftest
 

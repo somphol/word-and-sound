@@ -14,7 +14,7 @@ and user-imported lists. It is not a dictionary, an LMS, or a mobile port.
 make check                         # swift test + --selftest
 make app                           # build/WordAndSound.app, ad-hoc signed
 make run                           # build and open
-swift run WordAndSound --selftest  # data + sequencer + parser checks
+swift run wordandsound-selftest    # headless data + sequencer + parser checks
 swift run WordAndSound --snapshot docs/screenshot.png --category vowel --tile vowelMar
 ```
 
@@ -85,7 +85,7 @@ make data                          # needs ~/Downloads/WordAndSound.aia and /tmp
 
 ## Continuity
 
-Local project: `/Users/somphol/Projects/word-and-sound-mac`.
+Local project: `~/Projects/word-and-sound-mac`.
 Built app: `build/WordAndSound.app` (not committed).
 No public deployment. The original `.aia` remains at
 `~/Downloads/WordAndSound.aia` and is not committed.

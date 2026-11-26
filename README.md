@@ -86,10 +86,18 @@ data/                         generated data and provenance
 licenses/                     third-party notices and license texts
 ```
 
+## Documentation
+
+- `AGENTS.md` — architecture, commands, constraints and handoff notes
+- `LICENSES.md` — code and data licensing
+- `CONTRIBUTING.md` — how to propose changes safely
+- `docs/RELEASE.md` — release checklist and artifact steps
+- `CHANGELOG.md` — release history
+
 ## Licenses
 
-Code is MIT. Bundled data is CC BY-SA 4.0. See `LICENSES.md` and
-`licenses/DATA-NOTICES.md`. Imported lists are the user's responsibility.
+Code is MIT (root `LICENSE`). Bundled data is CC BY-SA 4.0. See `LICENSES.md`
+and `licenses/DATA-NOTICES.md`. Imported lists are the user's responsibility.
 
 The project is not affiliated with Oxford University Press, ETS, EF, or the
 publishers of the original vocabulary lists. Those lists are not shipped.

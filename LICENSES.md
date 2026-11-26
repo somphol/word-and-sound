@@ -1,6 +1,6 @@
 # Licenses
 
-**Code:** MIT (`licenses/MIT.txt`).
+**Code:** MIT (root `LICENSE`; copy in `licenses/MIT.txt`).
 
 **Bundled data:** CC BY-SA 4.0 (`licenses/CC-BY-SA-4.0.txt`), with the
 attributions and change notices in `licenses/DATA-NOTICES.md`.
